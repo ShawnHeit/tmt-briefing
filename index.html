@@ -98,10 +98,11 @@ body{margin:0;background:#F3F4F6;font-family:-apple-system,BlinkMacSystemFont,"P
     </div>
     <div style="padding:4px 12px 0;">
       <div id="home-audit-movers"></div>
+      <div id="dashboard-earnings-focus"></div>
       <div style="padding:10px 4px 6px;display:flex;align-items:center;justify-content:space-between;">
         <div>
           <div style="font-size:10px;font-weight:800;color:#9CA3AF;letter-spacing:.08em;text-transform:uppercase;">近 7 天外资研报 / ACE 纪要</div>
-          <div style="font-size:11px;color:#9CA3AF;margin-top:2px;">边际信息 · AI 分析 · 跟踪建议 · 来源可追溯</div>
+          <div style="font-size:11px;color:#9CA3AF;margin-top:2px;">边际信息 · 跟踪建议 · 来源可追溯</div>
         </div>
         <div id="dashboard-insight-meta" style="font-size:10px;color:#9CA3AF;text-align:right;"></div>
       </div>
@@ -194,14 +195,19 @@ body{margin:0;background:#F3F4F6;font-family:-apple-system,BlinkMacSystemFont,"P
   <div style="background:#fff;padding:10px 16px 8px;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:space-between;gap:12px;">
     <div>
       <div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#9CA3AF;text-transform:uppercase;margin-bottom:1px;">周度复盘 Weekly Review</div>
-      <div style="font-size:11px;color:#9CA3AF;">周期：04/21-04/28 · 来源：近 7 日每日汇总（手动补充 / ZSXQ / AceCamp / kanzhiqiu）</div>
+      <div style="font-size:11px;color:#9CA3AF;">周期：04/28-05/05 · 来源：ZSXQ / 手动补充 / AceCamp / kanzhiqiu / 个股会诊刷新</div>
     </div>
   </div>
 
   <div style="padding:10px 12px 16px;display:flex;flex-direction:column;gap:10px;">
     <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:14px 16px;">
-      <div style="font-size:16px;font-weight:800;color:#111827;margin-bottom:4px;">AI 主线再确认，主升浪阶段方向和仓位大于选股</div>
-      <div style="font-size:11px;color:#9CA3AF;line-height:1.7;">04/21-04/28 的 daily 信息继续围绕 AI 算力、云 Capex、光模块、存储与北美互联网展开；从外资研报和手动补充材料看，AI 投资主线从“GPU 单点”扩散到 CPU/TPU/ASIC、网络、存储、电源散热和光互联，主升阶段方向和仓位仍大于个股精挑。</div>
+      <div style="font-size:16px;font-weight:800;color:#111827;margin-bottom:4px;">AI 主线进入财报验证期：存储和国产算力上修，算力控制权继续前移</div>
+      <div style="font-size:11px;color:#9CA3AF;line-height:1.7;">04/28-05/05 的信息从“AI 算力全链扩散”进入“财报与指引验证”：存储价格和 SanDisk 盈利继续上修，寒武纪用 1Q26 订单/利润率验证国产 AI 芯片需求，Apple/AMD/LITE/COHR 进入业绩窗口，Anthropic/Cerebras 则说明模型公司正在更直接地介入芯片与系统供应链。</div>
+      <div style="margin-top:10px;display:grid;gap:7px;">
+        <div style="font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">本周优先级：</b>第一层是存储（SanDisk/MU/Samsung/SK Hynix/WDC/STX），第二层是国产算力（寒武纪/昇腾/海光生态），第三层是模型公司控制算力带来的 ASIC/封装/内存/网络链，第四层才是端侧 AI 和泛设备。</div>
+        <div style="font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">风险：</b>财报窗口会放大波动，AMD/LITE/COHR/ARM/NET/DDOG 等本周集中披露；如果指引只是符合高预期，强主题也可能回撤。已经大涨的 SanDisk/寒武纪更适合等回踩或等二次确认。</div>
+        <div style="font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">下周跟踪：</b>看 AMD 数据中心与 MI 指引、LITE/COHR 光通信订单、ARM royalty 和 AI 端侧、NET/DDOG 软件侧 AI 需求、以及存储价格 tracker 是否继续上修。</div>
+      </div>
     </div>
 
     <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:-2px 2px 0;">
@@ -212,60 +218,47 @@ body{margin:0;background:#F3F4F6;font-family:-apple-system,BlinkMacSystemFont,"P
 
     <div class="info-grid" style="gap:10px;">
       <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
-        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">AI ASIC / TPU</div>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>Citi 单独梳理 Google TPU v6/v7/v8 路线，Google Cloud 另有 TPU v8t/v8i 技术深度材料，说明自研 TPU 已进入多代路线图跟踪 <a href="知识库/AI算力/AI算力-材料/citi TPU.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Citi TPU，04/28）</a><a href="知识库/AI算力/AI算力-材料/TPU 8t 与 TPU 8i 技术深度解析  Google Cloud 博客 .pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Google Cloud，04/28）</a>；JPM DeepSeek V4 把模型升级解释为行业顺风而非零和冲击，说明市场仍在讨论“效率提升到底削减还是放大推理算力需求” <a href="知识库/AI算力/AI算力-材料/JPM-China Artificial Intelligence DeepSeek V4_ Sector tailwind misread as zero-sum shock – Reiterate OW on Zhipu and MiniMax.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（JPM DeepSeek V4，04/28）</a>。</p>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>自研 ASIC/TPU 不会简单“替代 GPU 价值量”，而是把 AI 算力拆成更细的训练、prefill、decode、调度和网络层，放大非 GPU 服务器、互连、存储和供电需求。Google/AWS/Meta 自研芯片越快放量，越会推动市场从“只买 GPU beta”转向“买 ASIC 机架配套和推理控制面”。</p>
-        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链看 Google TPU v7/v8 出货节奏、AWS Trainium/Inferentia 和 Meta MTIA 的 rack-scale 配套、以及 BMC/SerDes/Retimer/先进封装测试订单；标的上关注 Google TPU 链和 ASIC 机架配套环节。</p>
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">存储 / NAND / HDD：盈利上修从“涨价”变成“合同锁量”</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>GS/TrendForce 再次上修 2Q26 DRAM/NAND 定价预测，存储盈利预期仍在上移 <a href="知识库/存储半导体/存储半导体-材料/Apr.%202026%20Latest%202Q26%20DRAMNAND%20pricing%20forecasts%20higher%20vs.%20GSe.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（GS/TrendForce，05/05）</a>；SanDisk 新增 Bernstein 报告把 TP 上调至 $1,700，并强调 ASP 已锁定、FQ3 指引极强 <a href="知识库/Sandisk/Sandisk-材料/Bernstein-SanDisk%20Corp%EF%BC%88SNDK.US%EF%BC%89Sandisk%20FQ3%2726%EF%BC%9A%20Nosebleed%20ASPs%20%EF%BC%88now%20locked%20in%EF%BC%89%EF%BC%9B%20Raise%20estimates%20and%20TP%20to%20%241700%EF%BC%8C%20Reiterate%20Outperform%20%EF%BC%88top%20ST%20pick%EF%BC%89-260501.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Bernstein SanDisk，05/01）</a>；Samsung/SK Hynix 侧继续指向 2027 memory tightness。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>存储这周的关键不是“价格又涨了”，而是定价权被长期协议、eSSD mix、HBM/数据中心 bit TAM 和供给纪律共同锁住，周期股属性继续弱化。SanDisk、WDC/STX、MU、Samsung/SK Hynix 的区别在于纯度和估值拥挤度。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>继续把存储列为本周最强基本面方向，但交易上避免追高；跟踪 NAND/eSSD 合同价、HDD cloud 订单、HBM4 认证、以及 SanDisk/MU 的财报后回撤窗口。</p>
       </div>
 
       <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
-        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">CPU / x86 vs Arm</div>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>Agentic AI 把 CPU 从普通服务器配套件变成推理调度/工作流编排的控制平面，MS 估算 2030 年会带来 325-600 亿美元增量 CPU TAM，且 CPU:GPU 集群比例从 1:12 走向 1:2+ <a href="知识库/AI算力/AI算力-材料/MS Agent 大报告 70 页.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（MS Agent 大报告，04/28）</a>；AceCamp 光架构纪要也提到 TPU 光模块场景里 CPU:GPU 配比从 1:8-12 走向 1:4 甚至更低 <a href="https://www.acecamptech.com/article/detail/70560999" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（AceCamp Steve Song，04/18）</a>；BofA 单独讨论 x86 vs Arm vs ASIC 路线，Intel 同期被 Citi 上调至买入，理由是 AI CPU 周期 + Terafab 代工机会 <a href="知识库/AI算力/AI算力-材料/bofa CPU.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（BofA CPU，04/28）</a><a href="知识库/Intel/Intel-材料/CITI-Intel Corp （INTC.US） AI CPU Cycle + Terafab Foundry Opportunity = U G to Buy-260424.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Citi Intel，04/24）</a>。</p>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>AI rack 的 CPU attach 上升不是短期交易噪音，而是 agentic workflow 把 CPU 从“喂 GPU 的管理节点”升级为“多步骤推理调度 + memory/storage orchestration 的控制面”。结果会是通用 CPU 需求从传统云服务器周期里独立出来，Intel/AMD/Arm 都受益，但份额会重新分配：x86 先吃存量数据中心兼容性，Arm/自研 CPU 在 hyperscaler 内部继续提升，ASIC/TPU 反而放大对 CPU 控制面的需求。</p>
-        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>AI 研究显示应重点看三条验证链：CPU:GPU attach 是否继续下探到 1:4/1:2+；Intel/AMD 是否在 AI server 订单里明确披露 CPU 拉动；Arm/Graviton/Muse 这类自研 CPU 是否扩大内部份额。标的上，海外看 Intel 反转、AMD EPYC、Arm 生态；A 股映射看澜起、信骅 BMC、服务器电源和内存接口链。</p>
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">国产 AI 芯片：寒武纪从主题交易进入订单验证</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>寒武纪新增 Bernstein 与 MS 报告，核心都是 1Q26 业绩强劲、国产 AI 芯片本地化需求确认、供给改善带来更多上行 <a href="知识库/寒武纪/寒武纪-材料/Bernstein-Cambricon%20Technologies%20Corp%20Ltd%EF%BC%88688256%EF%BC%89Cambricon%201Q26%EF%BC%9A%20Robust%20beat%20across%20the%20board%20driven%20by%20AI%20chip%20localization%EF%BC%8C%20more%20upside%20to%20come%20with%20improving%20supply-260429.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Bernstein 寒武纪，04/29）</a><a href="知识库/寒武纪/寒武纪-材料/Morgan%20Stanley-Cambricon%20Technology%20Corporation%EF%BC%88688256%EF%BC%89Impressive%20results%20confirm%20domestic%20AI%20demand%20strength%EF%BC%9B%20OW-260429.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（MS 寒武纪，04/29）</a>；AceCamp 火山调研和国产 AI 芯片调研把昇腾、寒武纪、海光、天数智芯等采购规划放在同一张验证表里 <a href="https://www.acecamptech.com/eventDetail/60534193" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（AceCamp 火山，04/28）</a>。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>国产算力的赔率从“政策替代”变成“云端推理需求 + 国产供给爬坡 + 订单质量”的组合。寒武纪最强，但波动也最大；海光/昇腾生态和 A 股配套链会跟随订单可见度重新排序。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链看合同负债、库存周转、云厂商真实采购、国产先进制程产能分配；寒武纪只适合用“财报后订单验证”框架，不适合纯估值静态比较。</p>
       </div>
 
       <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
-        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">云 Capex / AI 服务器 ODM</div>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>海外大厂 2027 年 Capex 预期被上修 40%+，AI 服务器/算力维持高景气 <a href="知识库/AI算力/AI算力-材料/27 年资本开支+40%.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Capex +40%，04/28）</a>；高盛上调 AI 机架/服务器 TAM，并给出 2028 年首次预测 <a href="知识库/AI算力/AI算力-材料/GS 上调 AI 机架数量， 发布 2028 年预测报告 --- Higher .pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（GS AI rack TAM，04/28）</a>；Celestica 被单列为 AI 服务器/网络代工景气持续标的，鸿海也有 AI 服务器订单、墨西哥/美国产能和毛利率更新 <a href="知识库/AI算力/AI算力-材料/Celestica Inc.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Celestica，04/28）</a><a href="知识库/工业富联/工业富联-材料/GFHK - Hon Hai Update.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（GFHK Hon Hai，04/28）</a>。</p>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>2027 Capex 上修会先在 rack 级交付、ODM 订单能见度和供电散热 BOM 上兑现，而不是先体现在所有 AI 应用公司收入里。AI 服务器从单机出货进入机架交付后，Celestica/鸿海/工业富联这类整机与网络代工的定价权会强于纯组装周期。</p>
-        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链看云厂商 2027 Capex 指引、rack backlog、墨西哥/美国产能和 book-to-bill；标的优先跟踪工业富联/鸿海、广达/纬颖/Celestica、Vertiv/英维克/欧陆通，算力租赁只参与长约质量和资产负债表清晰的公司。</p>
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">模型公司控制算力：Anthropic / Cerebras 让芯片叙事继续前移</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>The Information 报道 Anthropic 洽谈收购英国 AI 芯片初创公司，Cerebras 深度材料补充晶圆级 AI 芯片与 GPU 路线差异 <a href="知识库/AI算力/AI算力-材料/Anthropic%20%E6%B4%BD%E8%B0%88%E8%B4%AD%E4%B9%B0%E8%8B%B1%E5%9B%BD%E5%88%9D%E5%88%9B%E5%85%AC%E5%8F%B8%20AI%20%E8%8A%AF%E7%89%87%20%E2%80%94%20The%20Information%20---%20Anthropic%20in%20Talks%20to%20Buy%20AI%20Ch.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（The Information，05/05）</a><a href="知识库/AI算力/AI算力-材料/Cerebras%20%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%20-%20%E4%BD%9C%E8%80%85%20Tech%20Fund%20-%20%E7%A7%91%E6%8A%80%E6%8A%95%E8%B5%84%20---%20.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Cerebras，05/05）</a>；04/28 的 TPU/CPU/Capex 材料继续说明 hyperscaler 自研芯片路线在系统层加速。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>模型公司不再只是买 GPU，而是在抢“算力可得性、芯片架构、系统软件和供应链议价权”。这会让 ASIC/TPU、HBM/eSSD、光互连、先进封装和电源散热受益，但也会让纯 GPU beta 的边际解释力下降。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>看三条线：模型公司是否入股/收购芯片团队；Google/AWS/Meta/Anthropic 自研芯片出货；Cerebras/ASIC 替代路线是否带来新的封装、内存和网络 BOM。</p>
       </div>
 
       <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
-        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">800G / 1.6T 光模块</div>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>野村光模块报告直接覆盖 800G / 1.6T 出货预期、CW 光源和 CPO 进展 <a href="知识库/AI算力/AI算力-材料/野村 光模块.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Nomura 光模块，04/28）</a>；中际旭创产业链调研把索尔斯、旭创、新易盛、物料和海外进度放在同一份材料里，说明市场跟踪已从单一龙头业绩扩展到供应链交付 <a href="知识库/中际旭创/中际旭创-材料/索尔斯调研、物料、格局、旭创、新易盛、海外进度等.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（光模块产业链调研，04/28）</a>；AceCamp 当日专家会也把“光模块与 CPO 电源管理/高速前端规格升级”列为议题 <a href="https://www.acecamptech.com/eventDetail/60534227" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（AceCamp Bryce Wang，04/28）</a>。</p>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>光模块行情正在从“800G 放量”进入“1.6T 前移 + CW 光源/EML/物料瓶颈重定价”阶段。龙头业绩仍是底座，但真正的弹性会扩散到具备海外客户认证、物料卡位和高速前端能力的二线与上游组件。</p>
-        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链看 1.6T 送样/量产节奏、CW 光源供应、海外客户认证和物料交期；标的龙头继续看中际旭创/新易盛/天孚，弹性看联特/剑桥/汇绿，组件链看 EML/CW 光源、测试设备和高速前端。</p>
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">Apple / 端侧 AI：硬件大票重新进入业绩验证</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>Apple 新增 Bernstein 和 BofA，关注 FQ2'26、iPhone/服务收入、AI 功能、产品周期和资本回报，BofA 把 PO 上调至 $330 <a href="知识库/苹果/苹果-材料/Bernstein-Apple%20Inc%EF%BC%88AAPL.US%EF%BC%89Apple%20FQ2%2726%EF%BC%9A%20Cook%27s%20final%20victory%20lap%EF%BC%9F-260501.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Bernstein Apple，05/01）</a><a href="知识库/苹果/苹果-材料/BofA%20Securities-Apple%20Inc.%EF%BC%88AAPL.US%EF%BC%89Change%20is%20in%20the%20air%EF%BC%9B%20Many%20positive%20catalysts%20ahead%EF%BC%9B%20PO%20to%20%24330-260501.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（BofA Apple，05/01）</a>；AceCamp 有道 NDR 显示 AI Native 也在教育/广告/硬件协同里进入收入和利润率验证 <a href="https://www.acecamptech.com/eventDetail/60531822" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（AceCamp 有道，05/05）</a>。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>端侧 AI 不是本周最强主线，但它重新把 Apple 这类硬件大票带回“业绩 + AI 功能 + 回购”的复合验证框架。如果 WWDC/AI 功能不能转成换机周期，端侧链条仍会输给数据中心链条。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>Apple 链看 F3Q 指引、product GM、iPhone 17/AI 功能；AI 应用看是否能把 AI Native 产品转化为收入增速和利润率改善。</p>
       </div>
 
       <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
-        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">光器件 / OCS / CPO</div>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>光学专题明确覆盖光器件、EML、CW、800G & 1.6T 进展 <a href="知识库/AI算力/AI算力-材料/光学.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（光学行业专题，04/28）</a>；JPM 硬件与网络周报继续跟踪交换芯片、ODM 和网卡需求更新 <a href="知识库/AI算力/AI算力-材料/JPM_Hardware___Networkin_2026-04-19_5253224.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（JPM Hardware & Networking，04/28）</a>；BofA 康宁材料指向光纤需求回暖和玻璃基板/特种玻璃 ramp <a href="知识库/康宁/康宁-材料/BofA 康宁.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（BofA 康宁，04/28）</a>。</p>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>OCS/CPO 不会立刻替代传统光模块，但会先改变高速前端、光器件和光材料的估值锚。只要客户验证持续推进，市场会把“下一代架构期权”提前给到 EML/CW、硅光、光纤/玻璃和高速前端，而不是等到收入完全兑现。</p>
-        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链看 OCS/CPO 客户测试、光网络整机订单、康宁光纤/玻璃基板 ramp 和高速前端规格升级；标的跟踪腾景/光库/德科立、源杰/长光华芯、康宁/云南锗业/AXT 等光材料映射。</p>
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">半导体设备 / WFE：上修不是普涨，AMAT/MRVL 窗口更重要</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>05/05 ZSXQ 半导体设备材料集中讨论 WFE 上修；UBS SemiBytes 覆盖 CEVA、AMBQ、AMAT、MRVL 财报前瞻，说明市场正从“AI capex 总量”转到“设备/模拟/网络芯片指引能否兑现” <a href="知识库/半导体/半导体-材料/UBS-US%20Semiconductors%20and%20Semi%20Equipment%20SemiBytes%EF%BC%9A%20Earnings%20previews%20%EF%BC%88CEVA%EF%BC%8C%20AMBQ%EF%BC%8C%20AMAT%EF%BC%8C%20MRVL%EF%BC%89-260503.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（UBS SemiBytes，05/03）</a>。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>设备链仍受益于 WFE 上修，但已经不能简单看“设备 beta”。真正要看中国 SPE、先进封装、HBM/存储 capex、以及 AMAT/MRVL 这类能把 AI 订单转进指引的标的。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>关注 AMAT/MRVL 财报、ASML/TEL/AMAT 订单口径和国产设备估值；若 WFE 上修但订单分配不清晰，优先选确定性订单而非泛设备。</p>
       </div>
 
       <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
-        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">PCB / CCL / 玻璃基板</div>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>Bernstein AI Server Pulse 以“Chasing Scarcity”为主题，明确关注 HBM、CCL 和 substrate 基板稀缺性 <a href="知识库/AI算力/AI算力-材料/Bernstein-Global Semiconductors， Hardware， Internet & Software：1Q26 AI Server Pulse： Chasing Scarcity-260422.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Bernstein AI Server Pulse，04/22）</a>；Jefferies PCB/CCL 把 AI 红利受益标的落到 WUS/Delton/Sytech，新覆盖本身就是资金开始细拆材料链的信号 <a href="知识库/AI算力/AI算力-材料/Jefferies-Technology：PCB CCL Key Beneficiaries of AI Boom； Initiate on WUS Delton Sytech-260420.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Jefferies PCB/CCL，04/20）</a>；玻璃基板专题覆盖先进封装中介层、TGV、设备与材料受益方 <a href="知识库/AI算力/AI算力-材料/玻璃基板.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（玻璃基板，04/28）</a>。</p>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>AI 服务器材料链会从“GPU/HBM 稀缺”扩散到“高速 CCL + substrate + 玻璃基板”的二阶稀缺，且市场会优先给具备涨价能力、良率爬坡和客户认证的公司估值溢价。玻璃基板会作为先进封装中介层期权被交易，但兑现节奏慢于 CCL/PCB。</p>
-        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链看 CCL/PCB 涨价、TGV 工艺进展、玻璃基板客户导入和良率；标的关注生益科技、沪电/深南、胜宏、东山精密、三环/三星电机映射，玻璃基板只参与有设备或客户导入事实的公司。</p>
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">PCB / 激光 / 光模块配套：从“稀缺材料”走向订单 CAGR</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>Citi 东山精密业绩会纪要给出 2027-2029 激光需求 CAGR 100% 的强信号，AI 硬件/PCB 链弹性进一步清晰 <a href="知识库/东山精密/东山精密-材料/CITI-Dongshan%20Precision%20%EF%BC%88002384%EF%BC%89%20Takeaways%20from%20Earnings%20Call%20_%20100%25%202027~29%20Laser%20Demand%20CAGR-260428.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Citi 东山精密，04/28）</a>；04/28 的光模块产业链调研继续覆盖索尔斯/旭创/新易盛/物料和海外进度。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>AI 服务器材料链的交易重点从“PCB/CCL 稀缺”扩到“激光加工、光模块上游、物料瓶颈和客户认证”。东山精密这类标的的弹性不只来自消费电子修复，而来自 AI 硬件新工艺的订单斜率。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>继续跟踪东山精密、沪电/深南、生益、光模块上游物料；验证顺序是客户认证、订单 CAGR、毛利率，而不是单纯产能扩张。</p>
       </div>
 
-      <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
-        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">存储 / NAND / HDD</div>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>Sandisk 在 04/27 ZSXQ 日报中与 NVIDIA 同帖出现，04/28 手动补充又单列“闪迪-上调”，说明 NAND 纯供应商被连续跟踪 <a href="知识库/存储半导体/存储半导体-材料/闪迪-上调.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Sandisk 上调，04/28）</a>；STX/WDC 报告标题为“Clear path to higher earnings; Raising PO”，HDD 侧也有明确盈利上修路径 <a href="知识库/AI算力/AI算力-材料/IT Hardware Industry Clear path to higher earnings; Raising PO for STX and WDC.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（STX/WDC，04/27）</a>；SK 海力士 1Q26 材料写到 ASP 强势可持续、HBM3E/HBM4 路线确认 <a href="知识库/存储半导体/存储半导体-材料/SK hynix 1Q26 Favorable price to persist.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（SK Hynix，04/28）</a>。</p>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>存储会从“周期修复”切换成“AI 数据基础设施重估”，NAND、HDD 和 HBM 的价格弹性会分别对应推理缓存、冷数据归档和高端训练/推理。Sandisk/STX/WDC 这种纯度更高的供应商会比综合存储公司更先被定价。</p>
-        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链看 NAND/HDD ASP、HBM3E/HBM4 长协、云厂商存储 capex 和库存；美股跟 Sandisk、STX/WDC、美光，韩股跟 SK Hynix，A 股跟兆易、江波龙、澜起和存储设备/材料映射。</p>
-      </div>
-
-      <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
-        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">国产推理算力</div>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>AceCamp 火山调研主题直接落到 AI 推理算力供需变化、昇腾/寒武纪/海光采购规划，以及与阿里云竞争变化 <a href="https://www.acecamptech.com/eventDetail/60534193" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（AceCamp Jay Dong，04/28）</a>；JPM DeepSeek V4 报告认为 DeepSeek V4 是行业顺风而非零和冲击，继续维持智谱/MiniMax 增持 <a href="知识库/AI算力/AI算力-材料/JPM-China Artificial Intelligence DeepSeek V4_ Sector tailwind misread as zero-sum shock – Reiterate OW on Zhipu and MiniMax.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（JPM DeepSeek V4，04/28）</a>；DeepSeek V4 解读材料明确把推理 token 升量与国内云厂商/数据中心/算力链传导放在一起讨论 <a href="知识库/AI算力/AI算力-材料/DeepSeek V4 发布——对中国 AI 模型云计算数据中心的影响 --- DeepSeek V4 launch — implications for China AI modelsclouddata centers.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（DeepSeek V4 解读，04/28）</a>。</p>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>国内推理算力会从“国产替代叙事”进入“谁拿到真实云厂商采购和推理 token 放量”的验证阶段。DeepSeek V4 这类模型升级如果继续降低应用门槛，反而会把更多需求推向推理侧，国产卡、云厂商数据中心和配套电源/液冷/网络会先受益。</p>
-        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链只看云端推理：昇腾/寒武纪/海光采购规划、阿里云竞争变化、DeepSeek V4 带来的推理 token 需求、以及国产卡在数据中心真实部署节奏；标的跟踪寒武纪、海光、昇腾生态和国产算力配套链。</p>
-      </div>
     </div>
   </div>
 </div>
@@ -339,13 +332,13 @@ const KEY_DELTAS=[
   {
     "type": "利好",
     "importance": "重要",
-    "headline": "Google TPU 架构升级",
+    "headline": "联发科 ASIC 上修",
     "bullets": [
       "MS：胜宏 300476 1Q26 业绩+营收+净利双双 +28%/+40% YoY，毛利率 34.5% 略低预期但环比改善，**Capex 暴增**（1Q2…",
       "投资逻辑：AI 负载从 GPU 扩散到 CPU/TPU/ASIC 与互连，服务器单机价值量与供应链弹性提升",
       "投资建议：关注 Intel、MediaTek/GUC/Aspeed、信骅及 A 股服务器/芯片映射"
     ],
-    "text": "【Google TPU 架构升级】MS：胜宏 300476 1Q26 业绩+营收+净利双双 +28%/+40% YoY，毛利率 34.5% 略低预期但环比改善，**Capex 暴增**（1Q2… → 投资逻辑：AI 负载从 GPU 扩散到 CPU/TPU/ASIC 与互连，服务器单机价值量与供应链弹性提升 → 投资建议：关注 Intel、MediaTek/GUC/Aspeed、信骅及 A 股服务器/芯片映射"
+    "text": "【联发科 ASIC 上修】MS：胜宏 300476 1Q26 业绩+营收+净利双双 +28%/+40% YoY，毛利率 34.5% 略低预期但环比改善，**Capex 暴增**（1Q2… → 投资逻辑：AI 负载从 GPU 扩散到 CPU/TPU/ASIC 与互连，服务器单机价值量与供应链弹性提升 → 投资建议：关注 Intel、MediaTek/GUC/Aspeed、信骅及 A 股服务器/芯片映射"
   },
   {
     "type": "利好",
@@ -361,24 +354,24 @@ const KEY_DELTAS=[
   {
     "type": "利好",
     "importance": "重要",
-    "headline": "NAND 涨价延续",
+    "headline": "存储价格预测上修",
     "bullets": [
       "高盛：寒武纪+三星+潍柴",
       "投资逻辑：AI 训练/推理和云端长单继续挤压存储供给，价格与盈利弹性仍在释放",
       "投资建议：关注 Sandisk/美光/海力士，以及 A 股存储模组和设备材料映射"
     ],
-    "text": "【NAND 涨价延续】高盛：寒武纪+三星+潍柴 → 投资逻辑：AI 训练/推理和云端长单继续挤压存储供给，价格与盈利弹性仍在释放 → 投资建议：关注 Sandisk/美光/海力士，以及 A 股存储模组和设备材料映射"
+    "text": "【存储价格预测上修】高盛：寒武纪+三星+潍柴 → 投资逻辑：AI 训练/推理和云端长单继续挤压存储供给，价格与盈利弹性仍在释放 → 投资建议：关注 Sandisk/美光/海力士，以及 A 股存储模组和设备材料映射"
   },
   {
     "type": "利好",
     "importance": "重要",
-    "headline": "策略宏观 增量",
+    "headline": "寒武纪 增量",
     "bullets": [
-      "高盛：胜宏 300476 1Q26 业绩+营收+净利双双 +28%/+40% YoY，毛利率 34.5% 略低预期但环比改善，**Capex 暴增**（1Q2…",
+      "高盛：GS 认为寒武纪 1Q26 大超预期，AI 国产算力基础设施扩张带动订单和盈利质量提升",
       "投资逻辑：该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息",
       "投资建议：优先打开原始 PDF，核对目标价、订单、供需和下游客户变化"
     ],
-    "text": "【策略宏观 增量】高盛：胜宏 300476 1Q26 业绩+营收+净利双双 +28%/+40% YoY，毛利率 34.5% 略低预期但环比改善，**Capex 暴增**（1Q2… → 投资逻辑：该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息 → 投资建议：优先打开原始 PDF，核对目标价、订单、供需和下游客户变化"
+    "text": "【寒武纪 增量】高盛：GS 认为寒武纪 1Q26 大超预期，AI 国产算力基础设施扩张带动订单和盈利质量提升 → 投资逻辑：该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息 → 投资建议：优先打开原始 PDF，核对目标价、订单、供需和下游客户变化"
   }
 ];
 
@@ -388,10 +381,10 @@ const BRIEFING_CARDS=[
    signal:"利好",
    urgency:"重要",
    sector:"电子",
-   title:"Google TPU 架构升级",
+   title:"联发科 ASIC 上修",
    dataPoints:["MS：胜宏 300476 1Q26 业绩+营收+净利双双 +28%/+40% YoY，毛利率 34.5% 略低预期但环比改善，**Capex 暴增**（1Q2…", "投资逻辑：AI 负载从 GPU 扩散到 CPU/TPU/ASIC 与互连，服务器单机价值量与供应链弹性提升。", "投资建议：关注 Intel、MediaTek/GUC/Aspeed、信骅及 A 股服务器/芯片映射。"],
    aiSummary:"胜宏 300476 1Q26 业绩+营收+净利双双 +28%/+40% YoY，毛利率 34.5% 略低预期但环比改善，**Capex 暴增**（1Q2… AI 负载从 GPU 扩散到 CPU/TPU/ASIC 与互连，服务器单机价值量与供应链弹性提升。",
-   refs:[{"label": "MS Google TPU 架构升级（05-04）", "type": "data"}]},
+   refs:[{"label": "MS 联发科 ASIC 上修（05-04）", "type": "data"}]},
   {ts:"2026-05-04 20:53",
    signal:"利好",
    urgency:"重要",
@@ -404,18 +397,18 @@ const BRIEFING_CARDS=[
    signal:"利好",
    urgency:"重要",
    sector:"存储",
-   title:"NAND 涨价延续",
+   title:"存储价格预测上修",
    dataPoints:["高盛：寒武纪+三星+潍柴", "投资逻辑：AI 训练/推理和云端长单继续挤压存储供给，价格与盈利弹性仍在释放。", "投资建议：关注 Sandisk/美光/海力士，以及 A 股存储模组和设备材料映射。"],
    aiSummary:"寒武纪+三星+潍柴 AI 训练/推理和云端长单继续挤压存储供给，价格与盈利弹性仍在释放。",
-   refs:[{"label": "高盛 NAND 涨价延续（05-04）", "type": "data"}]},
+   refs:[{"label": "高盛 存储价格预测上修（05-04）", "type": "data"}]},
   {ts:"2026-05-04 20:49",
    signal:"利好",
    urgency:"重要",
    sector:"其他",
-   title:"策略宏观 增量",
-   dataPoints:["高盛：胜宏 300476 1Q26 业绩+营收+净利双双 +28%/+40% YoY，毛利率 34.5% 略低预期但环比改善，**Capex 暴增**（1Q2…", "投资逻辑：该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息。", "投资建议：优先打开原始 PDF，核对目标价、订单、供需和下游客户变化。"],
-   aiSummary:"胜宏 300476 1Q26 业绩+营收+净利双双 +28%/+40% YoY，毛利率 34.5% 略低预期但环比改善，**Capex 暴增**（1Q2… 该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息。",
-   refs:[{"label": "高盛 策略宏观 增量（05-04）", "type": "data"}]},
+   title:"寒武纪 增量",
+   dataPoints:["高盛：GS 认为寒武纪 1Q26 大超预期，AI 国产算力基础设施扩张带动订单和盈利质量提升", "投资逻辑：该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息。", "投资建议：优先打开原始 PDF，核对目标价、订单、供需和下游客户变化。"],
+   aiSummary:"GS 认为寒武纪 1Q26 大超预期，AI 国产算力基础设施扩张带动订单和盈利质量提升 该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息。",
+   refs:[{"label": "高盛 寒武纪 增量（05-04）", "type": "data"}]},
   // ── AUTO_END ──
   // ── AUTO_BEGIN: updater 自动生成（请勿手改；刷新 briefing 时会整块替换）──（2026-04-29）
   {ts:"2026-04-29 20:55",
@@ -1094,6 +1087,23 @@ const ACECAMP_ITEMS=[
 
 const ZSXQ_ITEMS=[
   {
+    "date": "05-05",
+    "author": "@手动补充",
+    "broker": "高盛",
+    "type": "外资研报",
+    "tags": [
+      "存储半导体",
+      "手动补充"
+    ],
+    "title": "Apr. 2026 Latest 2Q26 DRAMNAND pricing forecasts higher vs. GSe",
+    "brief": "GS/TrendForce：2026 年 2Q DRAM/NAND 价格预测继续上修，存储盈利预期仍在抬升。",
+    "pdf_name": "Apr. 2026 Latest 2Q26 DRAMNAND pricing forecasts higher vs. GSe.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/Apr.%202026%20Latest%202Q26%20DRAMNAND%20pricing%20forecasts%20higher%20vs.%20GSe.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-05-05",
+    "is_key": true
+  },
+  {
     "date": "05-04",
     "author": "@Leada",
     "broker": "高盛",
@@ -1159,7 +1169,7 @@ const ZSXQ_ITEMS=[
     "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%AD%96%E7%95%A5%E5%AE%8F%E8%A7%82/%E7%AD%96%E7%95%A5%E5%AE%8F%E8%A7%82-%E6%9D%90%E6%96%99/Weichai%20Power%20%28000338.SZ%29_%20Raising%20estimates%20and%20TPs%20post%201Q26%20results%3B%20maintain%20Buy.pdf",
     "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%AD%96%E7%95%A5%E5%AE%8F%E8%A7%82/%E7%AD%96%E7%95%A5%E5%AE%8F%E8%A7%82-%E6%9D%90%E6%96%99/82255824882828182_Leada_20260504.md",
     "origin_title": "寒武纪+三星+潍柴",
-    "is_key": true
+    "is_key": false
   },
   {
     "date": "05-04",
@@ -1244,6 +1254,91 @@ const ZSXQ_ITEMS=[
     "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E9%9F%A9%E5%9B%BD%E5%8D%8A%E5%AF%BC%E4%BD%93/%E9%9F%A9%E5%9B%BD%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/Samsung%20Electronics%20%28005930.KS%29_%20Earnings%20Review_%201Q26%20OP%20inline%3B%20expects%202027%20to%20be%20an%20even%20tighter%20year%20for%20memory%3B%20Buy.pdf",
     "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E9%9F%A9%E5%9B%BD%E5%8D%8A%E5%AF%BC%E4%BD%93/%E9%9F%A9%E5%9B%BD%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/82255824852441142_Leada_20260504.md",
     "origin_title": "寒武纪+三星+潍柴",
+    "is_key": false
+  },
+  {
+    "date": "05-01",
+    "author": "@手动补充",
+    "broker": "Bernstein",
+    "type": "外资研报",
+    "tags": [
+      "苹果",
+      "手动补充"
+    ],
+    "title": "Bernstein Apple Inc（AAPL.US）Apple FQ2'26： Cook's final victory lap？",
+    "brief": "Bernstein Apple FQ2'26：Cook 最后一程叙事，关注 iPhone/服务收入、AI 功能和资本回报。",
+    "pdf_name": "Bernstein-Apple Inc（AAPL.US）Apple FQ2'26： Cook's final victory lap？-260501.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%8B%B9%E6%9E%9C/%E8%8B%B9%E6%9E%9C-%E6%9D%90%E6%96%99/Bernstein-Apple%20Inc%EF%BC%88AAPL.US%EF%BC%89Apple%20FQ2%2726%EF%BC%9A%20Cook%27s%20final%20victory%20lap%EF%BC%9F-260501.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-05-01",
+    "is_key": false
+  },
+  {
+    "date": "05-01",
+    "author": "@手动补充",
+    "broker": "Bernstein",
+    "type": "外资研报",
+    "tags": [
+      "Sandisk",
+      "手动补充"
+    ],
+    "title": "Bernstein SanDisk Corp（SNDK.US）Sandisk FQ3'26： Nosebleed ASPs （now locked in）； R",
+    "brief": "Bernstein SanDisk：ASP 锁定高位，上调盈利预测和 TP 至 1700 美元，重申 Outperform / 短期首选。",
+    "pdf_name": "Bernstein-SanDisk Corp（SNDK.US）Sandisk FQ3'26： Nosebleed ASPs （now locked in）； Raise estimates and TP to $1700， Reiterate Outperform （top ST pick）-260501.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/Sandisk/Sandisk-%E6%9D%90%E6%96%99/Bernstein-SanDisk%20Corp%EF%BC%88SNDK.US%EF%BC%89Sandisk%20FQ3%2726%EF%BC%9A%20Nosebleed%20ASPs%20%EF%BC%88now%20locked%20in%EF%BC%89%EF%BC%9B%20Raise%20estimates%20and%20TP%20to%20%241700%EF%BC%8C%20Reiterate%20Outperform%20%EF%BC%88top%20ST%20pick%EF%BC%89-260501.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-05-01",
+    "is_key": false
+  },
+  {
+    "date": "05-01",
+    "author": "@手动补充",
+    "broker": "美银",
+    "type": "外资研报",
+    "tags": [
+      "苹果",
+      "手动补充"
+    ],
+    "title": "BofA Securities Apple Inc.（AAPL.US）Change is in the air； Many positive catalysts",
+    "brief": "BofA Apple：上调目标价至 330 美元，认为后续正催化包括 AI、产品周期和服务/资本回报。",
+    "pdf_name": "BofA Securities-Apple Inc.（AAPL.US）Change is in the air； Many positive catalysts ahead； PO to $330-260501.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%8B%B9%E6%9E%9C/%E8%8B%B9%E6%9E%9C-%E6%9D%90%E6%96%99/BofA%20Securities-Apple%20Inc.%EF%BC%88AAPL.US%EF%BC%89Change%20is%20in%20the%20air%EF%BC%9B%20Many%20positive%20catalysts%20ahead%EF%BC%9B%20PO%20to%20%24330-260501.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-05-01",
+    "is_key": false
+  },
+  {
+    "date": "04-29",
+    "author": "@手动补充",
+    "broker": "MS",
+    "type": "外资研报",
+    "tags": [
+      "寒武纪",
+      "手动补充"
+    ],
+    "title": "Morgan Stanley Cambricon Technology Corporation（688256）Impressive results confir",
+    "brief": "MS 寒武纪：业绩强劲确认国内 AI 需求，维持 Overweight。",
+    "pdf_name": "Morgan Stanley-Cambricon Technology Corporation（688256）Impressive results confirm domestic AI demand strength； OW-260429.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AF%92%E6%AD%A6%E7%BA%AA/%E5%AF%92%E6%AD%A6%E7%BA%AA-%E6%9D%90%E6%96%99/Morgan%20Stanley-Cambricon%20Technology%20Corporation%EF%BC%88688256%EF%BC%89Impressive%20results%20confirm%20domestic%20AI%20demand%20strength%EF%BC%9B%20OW-260429.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-29",
+    "is_key": false
+  },
+  {
+    "date": "04-29",
+    "author": "@手动补充",
+    "broker": "Bernstein",
+    "type": "外资研报",
+    "tags": [
+      "寒武纪",
+      "手动补充"
+    ],
+    "title": "Bernstein Cambricon Technologies Corp Ltd（688256）Cambricon 1Q26： Robust beat acr",
+    "brief": "Bernstein 寒武纪：1Q26 全面超预期，国产 AI 芯片本地化需求强，供给改善带来更多上行。",
+    "pdf_name": "Bernstein-Cambricon Technologies Corp Ltd（688256）Cambricon 1Q26： Robust beat across the board driven by AI chip localization， more upside to come with improving supply-260429.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AF%92%E6%AD%A6%E7%BA%AA/%E5%AF%92%E6%AD%A6%E7%BA%AA-%E6%9D%90%E6%96%99/Bernstein-Cambricon%20Technologies%20Corp%20Ltd%EF%BC%88688256%EF%BC%89Cambricon%201Q26%EF%BC%9A%20Robust%20beat%20across%20the%20board%20driven%20by%20AI%20chip%20localization%EF%BC%8C%20more%20upside%20to%20come%20with%20improving%20supply-260429.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-29",
     "is_key": false
   },
   {
@@ -1570,74 +1665,6 @@ const ZSXQ_ITEMS=[
     "is_key": false
   },
   {
-    "date": "04-28",
-    "author": "@手动补充",
-    "broker": "GFHK",
-    "type": "外资研报",
-    "tags": [
-      "工业富联",
-      "手动补充"
-    ],
-    "title": "GFHK   Hon Hai Update",
-    "brief": "GFHK 鸿海 update：AI 服务器订单、墨西哥/美国产能、毛利率。",
-    "pdf_name": "GFHK - Hon Hai Update.pdf",
-    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%B7%A5%E4%B8%9A%E5%AF%8C%E8%81%94/%E5%B7%A5%E4%B8%9A%E5%AF%8C%E8%81%94-%E6%9D%90%E6%96%99/GFHK%20-%20Hon%20Hai%20Update.pdf",
-    "md_path": "",
-    "origin_title": "手动补充材料 2026-04-28",
-    "is_key": false
-  },
-  {
-    "date": "04-28",
-    "author": "@手动补充",
-    "broker": "",
-    "type": "外资研报",
-    "tags": [
-      "康宁",
-      "手动补充"
-    ],
-    "title": "Corning Inc",
-    "brief": "康宁：光纤产能利用率回升 + 玻璃基板放量，盈利结构性向上。",
-    "pdf_name": "Corning Inc.pdf",
-    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BA%B7%E5%AE%81/%E5%BA%B7%E5%AE%81-%E6%9D%90%E6%96%99/Corning%20Inc.pdf",
-    "md_path": "",
-    "origin_title": "手动补充材料 2026-04-28",
-    "is_key": false
-  },
-  {
-    "date": "04-28",
-    "author": "@手动补充",
-    "broker": "美银",
-    "type": "外资研报",
-    "tags": [
-      "康宁",
-      "手动补充"
-    ],
-    "title": "BofA 康宁",
-    "brief": "BofA 康宁：光纤需求回暖 + 玻璃基板/特种玻璃 ramp 驱动盈利上修。",
-    "pdf_name": "BofA 康宁.pdf",
-    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BA%B7%E5%AE%81/%E5%BA%B7%E5%AE%81-%E6%9D%90%E6%96%99/BofA%20%E5%BA%B7%E5%AE%81.pdf",
-    "md_path": "",
-    "origin_title": "手动补充材料 2026-04-28",
-    "is_key": false
-  },
-  {
-    "date": "04-28",
-    "author": "@手动补充",
-    "broker": "美银",
-    "type": "外资研报",
-    "tags": [
-      "微软",
-      "手动补充"
-    ],
-    "title": "BofA 微软前瞻",
-    "brief": "BofA 微软 F3Q 前瞻：Capex / Azure 容量受限 / OpenAI 商务条款。",
-    "pdf_name": "BofA 微软前瞻.pdf",
-    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BE%AE%E8%BD%AF/%E5%BE%AE%E8%BD%AF-%E6%9D%90%E6%96%99/BofA%20%E5%BE%AE%E8%BD%AF%E5%89%8D%E7%9E%BB.pdf",
-    "md_path": "",
-    "origin_title": "手动补充材料 2026-04-28",
-    "is_key": false
-  },
-  {
     "date": "04-24",
     "author": "@手动补充",
     "broker": "花旗",
@@ -1723,6 +1750,23 @@ const ZSXQ_ITEMS=[
     "is_key": false
   },
   {
+    "date": "04-22",
+    "author": "@手动补充",
+    "broker": "Bernstein",
+    "type": "外资研报",
+    "tags": [
+      "AI算力",
+      "手动补充"
+    ],
+    "title": "Bernstein Global Semiconductors， Hardware， Internet & Software：1Q26 AI Server Pu",
+    "brief": "1Q26 AI 服务器 pulse：稀缺性驱动持续涨价，关注 HBM/CCL/Substrate 基板。",
+    "pdf_name": "Bernstein-Global Semiconductors， Hardware， Internet & Software：1Q26 AI Server Pulse： Chasing Scarcity-260422.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/AI%E7%AE%97%E5%8A%9B/AI%E7%AE%97%E5%8A%9B-%E6%9D%90%E6%96%99/Bernstein-Global%20Semiconductors%EF%BC%8C%20Hardware%EF%BC%8C%20Internet%20%26%20Software%EF%BC%9A1Q26%20AI%20Server%20Pulse%EF%BC%9A%20Chasing%20Scarcity-260422.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-22",
+    "is_key": false
+  },
+  {
     "date": "04-20",
     "author": "@手动补充",
     "broker": "美银",
@@ -1740,57 +1784,6 @@ const ZSXQ_ITEMS=[
     "is_key": false
   },
   {
-    "date": "04-20",
-    "author": "@手动补充",
-    "broker": "MS",
-    "type": "外资研报",
-    "tags": [
-      "微软",
-      "手动补充"
-    ],
-    "title": "Morgan Stanley Microsoft（MSFT.US）3Q26 Preview – Taking Back the Narrative",
-    "brief": "MS MSFT 3Q26 前瞻：夺回叙事主导权（Azure / Copilot / Capex）。",
-    "pdf_name": "Morgan Stanley-Microsoft（MSFT.US）3Q26 Preview – Taking Back the Narrative-260420.pdf",
-    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BE%AE%E8%BD%AF/%E5%BE%AE%E8%BD%AF-%E6%9D%90%E6%96%99/Morgan%20Stanley-Microsoft%EF%BC%88MSFT.US%EF%BC%893Q26%20Preview%20%E2%80%93%20Taking%20Back%20the%20Narrative-260420.pdf",
-    "md_path": "",
-    "origin_title": "手动补充材料 2026-04-20",
-    "is_key": false
-  },
-  {
-    "date": "04-20",
-    "author": "@手动补充",
-    "broker": "德银",
-    "type": "外资研报",
-    "tags": [
-      "微软",
-      "手动补充"
-    ],
-    "title": "Deutsche Bank Microsoft（MSFT.US）F3Q Preview~ Capacity Considerations",
-    "brief": "DB MSFT F3Q 前瞻：Azure 算力供给瓶颈与 Capex 路径。",
-    "pdf_name": "Deutsche Bank-Microsoft（MSFT.US）F3Q Preview~ Capacity Considerations-260420.pdf",
-    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BE%AE%E8%BD%AF/%E5%BE%AE%E8%BD%AF-%E6%9D%90%E6%96%99/Deutsche%20Bank-Microsoft%EF%BC%88MSFT.US%EF%BC%89F3Q%20Preview~%20Capacity%20Considerations-260420.pdf",
-    "md_path": "",
-    "origin_title": "手动补充材料 2026-04-20",
-    "is_key": false
-  },
-  {
-    "date": "04-17",
-    "author": "@手动补充",
-    "broker": "高盛",
-    "type": "外资研报",
-    "tags": [
-      "工业富联",
-      "手动补充"
-    ],
-    "title": "Goldman Sachs Foxconn Industrial Internet （601138）： AI server racks ramp up with",
-    "brief": "GS 工业富联：AI 机架 ramp + 规格升级巩固龙头地位，买入。",
-    "pdf_name": "Goldman Sachs-Foxconn Industrial Internet （601138）： AI server racks ramp up with specification upgrade to enhance leading market position； Buy-260417.pdf",
-    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%B7%A5%E4%B8%9A%E5%AF%8C%E8%81%94/%E5%B7%A5%E4%B8%9A%E5%AF%8C%E8%81%94-%E6%9D%90%E6%96%99/Goldman%20Sachs-Foxconn%20Industrial%20Internet%20%EF%BC%88601138%EF%BC%89%EF%BC%9A%20AI%20server%20racks%20ramp%20up%20with%20specification%20upgrade%20to%20enhance%20leading%20market%20position%EF%BC%9B%20Buy-260417.pdf",
-    "md_path": "",
-    "origin_title": "手动补充材料 2026-04-17",
-    "is_key": false
-  },
-  {
     "date": "04-16",
     "author": "@手动补充",
     "broker": "德银",
@@ -1805,6 +1798,23 @@ const ZSXQ_ITEMS=[
     "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/ASML/ASML-%E6%9D%90%E6%96%99/Deutsche%20Bank-ASML%EF%BC%88ASML.AS%EF%BC%89Foot%20to%20the%20floor-260416.pdf",
     "md_path": "",
     "origin_title": "手动补充材料 2026-04-16",
+    "is_key": false
+  },
+  {
+    "date": "04-12",
+    "author": "@手动补充",
+    "broker": "Evercore",
+    "type": "外资研报",
+    "tags": [
+      "AI算力",
+      "手动补充"
+    ],
+    "title": "Evercore ISI IT Hardware & Networking：IT Hardware Networking： Optical Expert Cal",
+    "brief": "Evercore Optical 专家电话：DCI 拉动 800G/1.6T 光模块需求。",
+    "pdf_name": "Evercore ISI-IT Hardware & Networking：IT Hardware Networking： Optical Expert Call Highlights ~ DCI Driving Growth-260412.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/AI%E7%AE%97%E5%8A%9B/AI%E7%AE%97%E5%8A%9B-%E6%9D%90%E6%96%99/Evercore%20ISI-IT%20Hardware%20%26%20Networking%EF%BC%9AIT%20Hardware%20Networking%EF%BC%9A%20Optical%20Expert%20Call%20Highlights%20~%20DCI%20Driving%20Growth-260412.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-12",
     "is_key": false
   }
 ];
@@ -1968,42 +1978,53 @@ const TWITTER_ITEMS=[];
 // ═══════════════════════════════
 function pad(n){return String(n).padStart(2,'0');}
 // ═══════════════════════════════
-// AUDIT_CARDS · v2 打分体系
-// 加权：成长 40% + 价值 30% + 量化 30%
-// 允许负值，严格打分；direction = value*0.3 + growth*0.4 + quant*0.3
-// 区间：≥4 强烈偏多 · ≥2.5 明显偏多 · ≥1.0 偏多 · (-1,1) 中性 · ≤-1 偏空 · ≤-2.5 明显偏空
+// AUDIT_CARDS · v3 保守行动口径
+// 允许负值，严格打分；direction = 三派算术平均
+// 区间：3-5 买入 · 2-3 持有 · 1-2 观望偏空 · <1 卖出
 // ═══════════════════════════════
 const AUDIT_CARDS=[
+  {
+    "name": "美光科技 (Micron)",
+    "ticker": "MU.US",
+    "sector": "存储",
+    "direction": 4.17,
+    "direction_label": "买入",
+    "value": 3.0,
+    "growth": 5.0,
+    "quant": 4.5,
+    "date": "2026-05-05",
+    "href": "知识库/美光/audits/美光-audit-20260505.html"
+  },
+  {
+    "name": "SanDisk 闪迪",
+    "ticker": "SNDK.US",
+    "sector": "存储",
+    "direction": 3.83,
+    "direction_label": "买入",
+    "value": 2.0,
+    "growth": 5.0,
+    "quant": 4.5,
+    "date": "2026-05-05",
+    "href": "知识库/Sandisk/audits/Sandisk-audit-20260505.html"
+  },
   {
     "name": "台积电 TSMC",
     "ticker": "TSM",
     "sector": "半导体制造",
     "direction": 3.83,
-    "direction_label": "明显偏多",
+    "direction_label": "买入",
     "value": 3.0,
     "growth": 5.0,
     "quant": 3.5,
-    "date": "2026-04-29",
-    "href": "知识库/台积电/audits/台积电-audit-20260429.html"
-  },
-  {
-    "name": "美光科技 (Micron)",
-    "ticker": "MU.US",
-    "sector": "存储",
-    "direction": 3.83,
-    "direction_label": "明显偏多",
-    "value": 3.0,
-    "growth": 5.0,
-    "quant": 3.5,
-    "date": "2026-04-29",
-    "href": "知识库/美光/audits/美光-audit-20260429.html"
+    "date": "2026-05-05",
+    "href": "知识库/台积电/audits/台积电-audit-20260505.html"
   },
   {
     "name": "Lumentum (LITE)",
     "ticker": "LITE.US",
     "sector": "光通信",
     "direction": 3.5,
-    "direction_label": "明显偏多",
+    "direction_label": "买入",
     "value": 2.0,
     "growth": 4.0,
     "quant": 4.5,
@@ -2011,47 +2032,59 @@ const AUDIT_CARDS=[
     "href": "知识库/Lumentum/audits/Lumentum-audit-20260505.html"
   },
   {
-    "name": "SanDisk 闪迪",
-    "ticker": "SNDK.US",
-    "sector": "存储",
+    "name": "APPLE (Apple)",
+    "ticker": "AAPL.US",
+    "sector": "北美互联网",
     "direction": 3.5,
-    "direction_label": "明显偏多",
-    "value": 1.0,
-    "growth": 5.0,
-    "quant": 4.5,
-    "date": "2026-04-28",
-    "href": "知识库/Sandisk/audits/Sandisk-audit-20260428.html"
+    "direction_label": "买入",
+    "value": 3.0,
+    "growth": 4.0,
+    "quant": 3.5,
+    "date": "2026-05-05",
+    "href": "知识库/苹果/audits/APPLE-audit-20260505.html"
   },
   {
     "name": "AMD (超威半导体)",
     "ticker": "AMD.US",
     "sector": "AI芯片/GPU",
     "direction": 3.0,
-    "direction_label": "偏多",
+    "direction_label": "买入",
     "value": 2.0,
     "growth": 4.0,
     "quant": 3.0,
-    "date": "2026-04-29",
-    "href": "知识库/AMD/audits/AMD-audit-20260429.html"
+    "date": "2026-05-05",
+    "href": "知识库/AMD/audits/AMD-audit-20260505.html"
   },
   {
     "name": "英伟达",
     "ticker": "NVDA",
     "sector": "AI芯片/GPU",
     "direction": 3.0,
-    "direction_label": "偏多",
+    "direction_label": "买入",
     "value": 3.0,
     "growth": 5.0,
     "quant": 1.0,
-    "date": "2026-04-28",
-    "href": "知识库/英伟达/audits/英伟达-audit-20260428.html"
+    "date": "2026-05-05",
+    "href": "知识库/英伟达/audits/英伟达-audit-20260505.html"
+  },
+  {
+    "name": "AXT (AXTI)",
+    "ticker": "AXTI.US",
+    "sector": "光通信",
+    "direction": 2.83,
+    "direction_label": "持有",
+    "value": 1.0,
+    "growth": 3.0,
+    "quant": 4.5,
+    "date": "2026-05-05",
+    "href": "知识库/AXT/audits/AXT-audit-20260505.html"
   },
   {
     "name": "Coherent (COHR)",
     "ticker": "COHR.US",
     "sector": "光通信",
     "direction": 2.83,
-    "direction_label": "偏多",
+    "direction_label": "持有",
     "value": 3.0,
     "growth": 4.0,
     "quant": 1.5,
@@ -2063,67 +2096,103 @@ const AUDIT_CARDS=[
     "ticker": "600584.SH",
     "sector": "半导体封测",
     "direction": 2.83,
-    "direction_label": "偏多",
+    "direction_label": "持有",
     "value": 2.0,
     "growth": 3.0,
     "quant": 3.5,
-    "date": "2026-04-29",
-    "href": "知识库/长电科技/audits/长电科技-audit-20260429.html"
+    "date": "2026-05-05",
+    "href": "知识库/长电科技/audits/长电科技-audit-20260505.html"
   },
   {
     "name": "阿里巴巴-W",
     "ticker": "09988.HK",
     "sector": "中国互联网",
     "direction": 2.67,
-    "direction_label": "偏多",
+    "direction_label": "持有",
     "value": 3.0,
     "growth": 3.0,
     "quant": 2.0,
-    "date": "2026-04-28",
-    "href": "知识库/阿里巴巴/audits/阿里巴巴-audit-20260428.html"
+    "date": "2026-05-05",
+    "href": "知识库/阿里巴巴/audits/阿里巴巴-audit-20260505.html"
+  },
+  {
+    "name": "QCOM (Qualcomm)",
+    "ticker": "QCOM.US",
+    "sector": "AI芯片/GPU",
+    "direction": 2.5,
+    "direction_label": "持有",
+    "value": 2.0,
+    "growth": 3.0,
+    "quant": 2.5,
+    "date": "2026-05-05",
+    "href": "知识库/高通公司/audits/QCOM-audit-20260505.html"
   },
   {
     "name": "Intel 英特尔",
     "ticker": "INTC.US",
     "sector": "AI芯片/GPU",
     "direction": 2.33,
-    "direction_label": "偏多",
+    "direction_label": "持有",
     "value": 1.0,
     "growth": 3.0,
     "quant": 3.0,
-    "date": "2026-04-28",
-    "href": "知识库/Intel/audits/Intel-audit-20260428.html"
+    "date": "2026-05-05",
+    "href": "知识库/Intel/audits/Intel-audit-20260505.html"
+  },
+  {
+    "name": "AMAT (Applied Materials)",
+    "ticker": "AMAT.US",
+    "sector": "半导体制造",
+    "direction": 2.17,
+    "direction_label": "持有",
+    "value": 3.0,
+    "growth": 4.0,
+    "quant": -0.5,
+    "date": "2026-05-05",
+    "href": "知识库/AMAT/audits/AMAT-audit-20260505.html"
+  },
+  {
+    "name": "CoreWeave (CRWV)",
+    "ticker": "CRWV.US",
+    "sector": "AI云算力",
+    "direction": 2.17,
+    "direction_label": "持有",
+    "value": 0.0,
+    "growth": 3.0,
+    "quant": 3.5,
+    "date": "2026-05-05",
+    "href": "知识库/CoreWeave/audits/CoreWeave-audit-20260505.html"
+  },
+  {
+    "name": "康宁 (Corning)",
+    "ticker": "GLW.US",
+    "sector": "光通信",
+    "direction": 2.17,
+    "direction_label": "持有",
+    "value": 3.0,
+    "growth": 4.0,
+    "quant": -0.5,
+    "date": "2026-05-05",
+    "href": "知识库/康宁/audits/康宁-audit-20260505.html"
   },
   {
     "name": "通富微电",
     "ticker": "002156.SZ",
     "sector": "半导体封测",
     "direction": 2.17,
-    "direction_label": "偏多",
+    "direction_label": "持有",
     "value": 0.0,
     "growth": 3.0,
     "quant": 3.5,
-    "date": "2026-04-28",
-    "href": "知识库/通富微电/audits/通富微电-audit-20260428.html"
-  },
-  {
-    "name": "康宁 (Corning)",
-    "ticker": "GLW.US",
-    "sector": "光通信",
-    "direction": 2.0,
-    "direction_label": "偏多",
-    "value": 3.0,
-    "growth": 4.0,
-    "quant": -1.0,
-    "date": "2026-04-29",
-    "href": "知识库/康宁/audits/康宁-audit-20260429.html"
+    "date": "2026-05-05",
+    "href": "知识库/通富微电/audits/通富微电-audit-20260505.html"
   },
   {
     "name": "艾马克技术 Amkor",
     "ticker": "AMKR",
     "sector": "半导体封测",
     "direction": 1.83,
-    "direction_label": "偏多",
+    "direction_label": "观望偏空",
     "value": 1.0,
     "growth": 3.0,
     "quant": 1.5,
@@ -2131,93 +2200,130 @@ const AUDIT_CARDS=[
     "href": "知识库/AMKR/audits/AMKR-audit-20260428.html"
   },
   {
-    "name": "ASML",
-    "ticker": "ASML.US",
+    "name": "KLAC (KLA)",
+    "ticker": "KLAC.US",
     "sector": "半导体制造",
     "direction": 1.67,
-    "direction_label": "偏多",
-    "value": 2.0,
-    "growth": 4.0,
+    "direction_label": "观望偏空",
+    "value": 3.0,
+    "growth": 3.0,
     "quant": -1.0,
-    "date": "2026-04-29",
-    "href": "知识库/ASML/audits/ASML-audit-20260429.html"
+    "date": "2026-05-05",
+    "href": "知识库/KLAC/audits/KLAC-audit-20260505.html"
   },
   {
     "name": "甲骨文 (Oracle)",
     "ticker": "ORCL.US",
     "sector": "AI云算力",
     "direction": 1.67,
-    "direction_label": "偏多",
+    "direction_label": "观望偏空",
     "value": 1.0,
     "growth": 3.0,
     "quant": 1.0,
-    "date": "2026-04-29",
-    "href": "知识库/甲骨文/audits/甲骨文-audit-20260429.html"
+    "date": "2026-05-05",
+    "href": "知识库/甲骨文/audits/甲骨文-audit-20260505.html"
+  },
+  {
+    "name": "ASML",
+    "ticker": "ASML.US",
+    "sector": "半导体制造",
+    "direction": 1.33,
+    "direction_label": "观望偏空",
+    "value": 2.0,
+    "growth": 4.0,
+    "quant": -2.0,
+    "date": "2026-05-05",
+    "href": "知识库/ASML/audits/ASML-audit-20260505.html"
   },
   {
     "name": "美团-W",
     "ticker": "03690.HK",
     "sector": "中国互联网",
     "direction": 1.17,
-    "direction_label": "中性",
+    "direction_label": "观望偏空",
     "value": 3.0,
     "growth": 3.0,
     "quant": -2.5,
-    "date": "2026-04-28",
-    "href": "知识库/美团/audits/美团-audit-20260428.html"
-  },
-  {
-    "name": "CoreWeave (CRWV)",
-    "ticker": "CRWV.US",
-    "sector": "AI云算力",
-    "direction": 1.0,
-    "direction_label": "中性",
-    "value": 0.0,
-    "growth": 3.0,
-    "quant": 0.0,
-    "date": "2026-04-29",
-    "href": "知识库/CoreWeave/audits/CoreWeave-audit-20260429.html"
+    "date": "2026-05-05",
+    "href": "知识库/美团/audits/美团-audit-20260505.html"
   },
   {
     "name": "盛合晶微",
     "ticker": "688820.SH",
     "sector": "半导体制造",
     "direction": 1.0,
-    "direction_label": "中性",
+    "direction_label": "观望偏空",
     "value": -1.0,
     "growth": 4.0,
     "quant": 0.0,
-    "date": "2026-04-28",
-    "href": "知识库/盛合晶微/audits/盛合晶微-audit-20260428.html"
+    "date": "2026-05-05",
+    "href": "知识库/盛合晶微/audits/盛合晶微-audit-20260505.html"
   },
   {
     "name": "腾讯控股",
     "ticker": "00700.HK",
     "sector": "中国互联网",
     "direction": 1.0,
-    "direction_label": "中性",
+    "direction_label": "观望偏空",
     "value": 3.0,
     "growth": 3.0,
     "quant": -3.0,
-    "date": "2026-04-28",
-    "href": "知识库/腾讯/audits/腾讯-audit-20260428.html"
+    "date": "2026-05-05",
+    "href": "知识库/腾讯/audits/腾讯-audit-20260505.html"
   },
   {
     "name": "快手-W",
     "ticker": "01024.HK",
     "sector": "中国互联网",
-    "direction": -0.5,
-    "direction_label": "中性",
-    "value": 1.0,
+    "direction": -0.33,
+    "direction_label": "卖出",
+    "value": 0.0,
     "growth": 0.0,
-    "quant": -2.5,
-    "date": "2026-04-29",
-    "href": "知识库/快手/audits/快手-audit-20260429.html"
+    "quant": -1.0,
+    "date": "2026-05-05",
+    "href": "知识库/快手/audits/快手-audit-20260505.html"
   }
 ];
 
 const LEADERBOARD={
-  "upgrades": [],
+  "upgrades": [
+    {
+      "stock": "Sandisk",
+      "name": "SanDisk 闪迪",
+      "ticker": "SNDK.US",
+      "sector": "存储",
+      "prior_date": "2026-04-28",
+      "prior_dir": 3.0,
+      "prior_value": 1.0,
+      "prior_growth": 5.0,
+      "latest_date": "2026-05-05",
+      "latest_dir": 3.5,
+      "latest_value": 2.0,
+      "latest_growth": 5.0,
+      "delta": 0.5,
+      "value_delta": 1.0,
+      "growth_delta": 0.0,
+      "href": "知识库/Sandisk/audits/Sandisk-audit-20260505.html"
+    },
+    {
+      "stock": "长电科技",
+      "name": "长电科技 JCET",
+      "ticker": "600584.SH",
+      "sector": "半导体封测",
+      "prior_date": "2026-04-28",
+      "prior_dir": 2.0,
+      "prior_value": 1.0,
+      "prior_growth": 3.0,
+      "latest_date": "2026-05-05",
+      "latest_dir": 2.5,
+      "latest_value": 2.0,
+      "latest_growth": 3.0,
+      "delta": 0.5,
+      "value_delta": 1.0,
+      "growth_delta": 0.0,
+      "href": "知识库/长电科技/audits/长电科技-audit-20260505.html"
+    }
+  ],
   "downgrades": []
 };
 
@@ -2226,10 +2332,386 @@ const DAILY_DASHBOARD={
   "audit_window_days": 7,
   "insight_window_days": 7,
   "audit_movers": {
-    "upgrades": [],
+    "upgrades": [
+      {
+        "stock": "Sandisk",
+        "name": "SanDisk 闪迪",
+        "ticker": "SNDK.US",
+        "sector": "存储",
+        "prior_date": "2026-04-28",
+        "prior_dir": 3.0,
+        "prior_value": 1.0,
+        "prior_growth": 5.0,
+        "latest_date": "2026-05-05",
+        "latest_dir": 3.5,
+        "latest_value": 2.0,
+        "latest_growth": 5.0,
+        "delta": 0.5,
+        "value_delta": 1.0,
+        "growth_delta": 0.0,
+        "href": "知识库/Sandisk/audits/Sandisk-audit-20260505.html"
+      },
+      {
+        "stock": "长电科技",
+        "name": "长电科技 JCET",
+        "ticker": "600584.SH",
+        "sector": "半导体封测",
+        "prior_date": "2026-04-28",
+        "prior_dir": 2.0,
+        "prior_value": 1.0,
+        "prior_growth": 3.0,
+        "latest_date": "2026-05-05",
+        "latest_dir": 2.5,
+        "latest_value": 2.0,
+        "latest_growth": 3.0,
+        "delta": 0.5,
+        "value_delta": 1.0,
+        "growth_delta": 0.0,
+        "href": "知识库/长电科技/audits/长电科技-audit-20260505.html"
+      }
+    ],
     "downgrades": []
   },
+  "earnings_focus": {
+    "window_start": "2026-05-04",
+    "window_end": "2026-05-10",
+    "days": [
+      {
+        "date": "2026-05-04",
+        "date_label": "05-04",
+        "weekday": "周一",
+        "sessions": {
+          "pre": [],
+          "post": [
+            {
+              "date": "2026-05-04",
+              "date_label": "05-04",
+              "weekday": "周一",
+              "session": "post",
+              "ticker": "PLTR.US",
+              "name": "Palantir",
+              "market": "US",
+              "period": "Q1 2026",
+              "focus": "AI 平台商业化、美国商业收入增速、政府合同和全年收入指引",
+              "href": "https://investors.palantir.com/",
+              "audit_href": ""
+            }
+          ]
+        }
+      },
+      {
+        "date": "2026-05-05",
+        "date_label": "05-05",
+        "weekday": "周二",
+        "sessions": {
+          "pre": [
+            {
+              "date": "2026-05-05",
+              "date_label": "05-05",
+              "weekday": "周二",
+              "session": "pre",
+              "ticker": "SHOP.US",
+              "name": "Shopify",
+              "market": "US",
+              "period": "Q1 2026",
+              "focus": "Merchant Solutions 增速、支付渗透率、经营利润率和 AI 工具商业化",
+              "href": "https://investors.shopify.com/",
+              "audit_href": ""
+            }
+          ],
+          "post": [
+            {
+              "date": "2026-05-05",
+              "date_label": "05-05",
+              "weekday": "周二",
+              "session": "post",
+              "ticker": "AMD.US",
+              "name": "AMD",
+              "market": "US",
+              "period": "Q1 2026",
+              "focus": "AI GPU / Instinct 需求、数据中心收入、毛利率和全年指引",
+              "href": "知识库/AMD/audits/AMD-audit-20260505.html",
+              "audit_href": "知识库/AMD/audits/AMD-audit-20260505.html"
+            },
+            {
+              "date": "2026-05-05",
+              "date_label": "05-05",
+              "weekday": "周二",
+              "session": "post",
+              "ticker": "LITE.US",
+              "name": "Lumentum",
+              "market": "US",
+              "period": "Q3 FY26",
+              "focus": "收入是否接近或超过 805m guide 中点，OCS backlog 是否转收入，CPO 订单是否继续增加",
+              "href": "知识库/Lumentum/audits/Lumentum-audit-20260505.html",
+              "audit_href": "知识库/Lumentum/audits/Lumentum-audit-20260505.html"
+            }
+          ]
+        }
+      },
+      {
+        "date": "2026-05-06",
+        "date_label": "05-06",
+        "weekday": "周三",
+        "sessions": {
+          "pre": [
+            {
+              "date": "2026-05-06",
+              "date_label": "05-06",
+              "weekday": "周三",
+              "session": "pre",
+              "ticker": "UBER.US",
+              "name": "Uber",
+              "market": "US",
+              "period": "Q1 2026",
+              "focus": "Mobility / Delivery gross bookings、EBITDA、FCF 和自动驾驶合作进展",
+              "href": "https://investor.uber.com/",
+              "audit_href": ""
+            }
+          ],
+          "post": [
+            {
+              "date": "2026-05-06",
+              "date_label": "05-06",
+              "weekday": "周三",
+              "session": "post",
+              "ticker": "ARM.US",
+              "name": "ARM",
+              "market": "US",
+              "period": "Q4 FY26",
+              "focus": "授权收入、royalty 增速、AI 终端/数据中心暴露和 FY27 指引",
+              "href": "https://investors.arm.com/",
+              "audit_href": ""
+            },
+            {
+              "date": "2026-05-06",
+              "date_label": "05-06",
+              "weekday": "周三",
+              "session": "post",
+              "ticker": "COHR.US",
+              "name": "Coherent",
+              "market": "US",
+              "period": "Q3 FY26",
+              "focus": "revenue guide / actual、data center growth、InP capacity ramp、订单覆盖期",
+              "href": "知识库/Coherent/audits/Coherent-audit-20260505.html",
+              "audit_href": "知识库/Coherent/audits/Coherent-audit-20260505.html"
+            }
+          ]
+        }
+      },
+      {
+        "date": "2026-05-07",
+        "date_label": "05-07",
+        "weekday": "周四",
+        "sessions": {
+          "pre": [
+            {
+              "date": "2026-05-07",
+              "date_label": "05-07",
+              "weekday": "周四",
+              "session": "pre",
+              "ticker": "DDOG.US",
+              "name": "Datadog",
+              "market": "US",
+              "period": "Q1 2026",
+              "focus": "云监控需求、AI observability、net retention 和全年 ARR/收入指引",
+              "href": "https://investors.datadoghq.com/",
+              "audit_href": ""
+            }
+          ],
+          "post": [
+            {
+              "date": "2026-05-07",
+              "date_label": "05-07",
+              "weekday": "周四",
+              "session": "post",
+              "ticker": "NET.US",
+              "name": "Cloudflare",
+              "market": "US",
+              "period": "Q1 2026",
+              "focus": "企业客户增长、Workers/AI 边缘计算、RPO 和全年收入指引",
+              "href": "https://cloudflare.NET/",
+              "audit_href": ""
+            }
+          ]
+        }
+      },
+      {
+        "date": "2026-05-08",
+        "date_label": "05-08",
+        "weekday": "周五",
+        "sessions": {
+          "pre": [],
+          "post": []
+        }
+      },
+      {
+        "date": "2026-05-09",
+        "date_label": "05-09",
+        "weekday": "周六",
+        "sessions": {
+          "pre": [],
+          "post": []
+        }
+      },
+      {
+        "date": "2026-05-10",
+        "date_label": "05-10",
+        "weekday": "周日",
+        "sessions": {
+          "pre": [],
+          "post": []
+        }
+      }
+    ],
+    "items": [
+      {
+        "date": "2026-05-04",
+        "date_label": "05-04",
+        "weekday": "周一",
+        "session": "post",
+        "ticker": "PLTR.US",
+        "name": "Palantir",
+        "market": "US",
+        "period": "Q1 2026",
+        "focus": "AI 平台商业化、美国商业收入增速、政府合同和全年收入指引",
+        "href": "https://investors.palantir.com/",
+        "audit_href": ""
+      },
+      {
+        "date": "2026-05-05",
+        "date_label": "05-05",
+        "weekday": "周二",
+        "session": "pre",
+        "ticker": "SHOP.US",
+        "name": "Shopify",
+        "market": "US",
+        "period": "Q1 2026",
+        "focus": "Merchant Solutions 增速、支付渗透率、经营利润率和 AI 工具商业化",
+        "href": "https://investors.shopify.com/",
+        "audit_href": ""
+      },
+      {
+        "date": "2026-05-05",
+        "date_label": "05-05",
+        "weekday": "周二",
+        "session": "post",
+        "ticker": "AMD.US",
+        "name": "AMD",
+        "market": "US",
+        "period": "Q1 2026",
+        "focus": "AI GPU / Instinct 需求、数据中心收入、毛利率和全年指引",
+        "href": "知识库/AMD/audits/AMD-audit-20260505.html",
+        "audit_href": "知识库/AMD/audits/AMD-audit-20260505.html"
+      },
+      {
+        "date": "2026-05-05",
+        "date_label": "05-05",
+        "weekday": "周二",
+        "session": "post",
+        "ticker": "LITE.US",
+        "name": "Lumentum",
+        "market": "US",
+        "period": "Q3 FY26",
+        "focus": "收入是否接近或超过 805m guide 中点，OCS backlog 是否转收入，CPO 订单是否继续增加",
+        "href": "知识库/Lumentum/audits/Lumentum-audit-20260505.html",
+        "audit_href": "知识库/Lumentum/audits/Lumentum-audit-20260505.html"
+      },
+      {
+        "date": "2026-05-06",
+        "date_label": "05-06",
+        "weekday": "周三",
+        "session": "pre",
+        "ticker": "UBER.US",
+        "name": "Uber",
+        "market": "US",
+        "period": "Q1 2026",
+        "focus": "Mobility / Delivery gross bookings、EBITDA、FCF 和自动驾驶合作进展",
+        "href": "https://investor.uber.com/",
+        "audit_href": ""
+      },
+      {
+        "date": "2026-05-06",
+        "date_label": "05-06",
+        "weekday": "周三",
+        "session": "post",
+        "ticker": "ARM.US",
+        "name": "ARM",
+        "market": "US",
+        "period": "Q4 FY26",
+        "focus": "授权收入、royalty 增速、AI 终端/数据中心暴露和 FY27 指引",
+        "href": "https://investors.arm.com/",
+        "audit_href": ""
+      },
+      {
+        "date": "2026-05-06",
+        "date_label": "05-06",
+        "weekday": "周三",
+        "session": "post",
+        "ticker": "COHR.US",
+        "name": "Coherent",
+        "market": "US",
+        "period": "Q3 FY26",
+        "focus": "revenue guide / actual、data center growth、InP capacity ramp、订单覆盖期",
+        "href": "知识库/Coherent/audits/Coherent-audit-20260505.html",
+        "audit_href": "知识库/Coherent/audits/Coherent-audit-20260505.html"
+      },
+      {
+        "date": "2026-05-07",
+        "date_label": "05-07",
+        "weekday": "周四",
+        "session": "pre",
+        "ticker": "DDOG.US",
+        "name": "Datadog",
+        "market": "US",
+        "period": "Q1 2026",
+        "focus": "云监控需求、AI observability、net retention 和全年 ARR/收入指引",
+        "href": "https://investors.datadoghq.com/",
+        "audit_href": ""
+      },
+      {
+        "date": "2026-05-07",
+        "date_label": "05-07",
+        "weekday": "周四",
+        "session": "post",
+        "ticker": "NET.US",
+        "name": "Cloudflare",
+        "market": "US",
+        "period": "Q1 2026",
+        "focus": "企业客户增长、Workers/AI 边缘计算、RPO 和全年收入指引",
+        "href": "https://cloudflare.NET/",
+        "audit_href": ""
+      }
+    ]
+  },
   "insight_cards": [
+    {
+      "kind": "foreign_research",
+      "date": "05-05",
+      "date_full": "2026-05-05",
+      "source": "高盛",
+      "title": "存储价格预测上修",
+      "raw_title": "Apr. 2026 Latest 2Q26 DRAMNAND pricing forecasts higher vs. GSe",
+      "sector": "存储",
+      "tags": [
+        "存储半导体",
+        "手动补充"
+      ],
+      "signal": "关注",
+      "importance": "关注",
+      "edge": "高盛：GS/TrendForce：2026 年 2Q DRAM/NAND 价格预测继续上修，存储盈利预期仍在抬升",
+      "ai_analysis": "GS/TrendForce：2026 年 2Q DRAM/NAND 价格预测继续上修，存储盈利预期仍在抬升",
+      "ai_source": "个股观点",
+      "action": "投资建议：关注 Sandisk/美光/海力士，以及 A 股存储模组和设备材料映射",
+      "refs": [
+        {
+          "label": "高盛 · 05-05",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/Apr.%202026%20Latest%202Q26%20DRAMNAND%20pricing%20forecasts%20higher%20vs.%20GSe.pdf",
+          "type": "data"
+        }
+      ],
+      "is_key": true
+    },
     {
       "kind": "foreign_research",
       "date": "05-04",
@@ -2251,34 +2733,7 @@ const DAILY_DASHBOARD={
       "refs": [
         {
           "label": "高盛 · 05-04",
-          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4-%E6%9D%90%E6%96%99/14422541522282252_Leada_20260504_01_Navigating_China_Internet_AI_models_Framing_five_key_AI_debates%3B_Buy_Alibaba_%28on_CL%29%3B_upgr.md",
-          "type": "data"
-        }
-      ],
-      "is_key": true
-    },
-    {
-      "kind": "foreign_research",
-      "date": "05-04",
-      "date_full": "2026-05-04",
-      "source": "高盛",
-      "title": "策略宏观 增量",
-      "raw_title": "Weichai Power (000338.SZ)  Raising estimates and TPs post 1Q26 results; maintain",
-      "sector": "其他",
-      "tags": [
-        "策略宏观",
-        "外资研报"
-      ],
-      "signal": "利好",
-      "importance": "重要",
-      "edge": "高盛：胜宏 300476 1Q26 业绩+营收+净利双双 +28%/+40% YoY，毛利率 34.5% 略低预期但环比改善，**Capex 暴增**（1Q26 资本支出 35.74 亿元 vs 1Q25 的 7.3 亿、4Q25 的 29.6 亿）→ 管理…",
-      "ai_analysis": "胜宏 300476 1Q26 业绩+营收+净利双双 +28%/+40% YoY，毛利率 34.5% 略低预期但环比改善，**Capex 暴增**（1Q26 资本支出 35.74 亿元 vs 1Q25 的 7.3 亿、4Q25 的 29.6 亿）→ 管理层对未来订单能见度高度乐观",
-      "ai_source": "个股观点",
-      "action": "投资建议：优先打开原始 PDF，核对目标价、订单、供需和下游客户变化",
-      "refs": [
-        {
-          "label": "高盛 · 05-04",
-          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%AD%96%E7%95%A5%E5%AE%8F%E8%A7%82/%E7%AD%96%E7%95%A5%E5%AE%8F%E8%A7%82-%E6%9D%90%E6%96%99/82255824882828182_Leada_20260504.md",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4-%E6%9D%90%E6%96%99/Navigating%20China%20Internet_AI%20models_%20Framing%20five%20key%20AI%20debates%3B%20Buy%20Alibaba%20%28on%20CL%29%3B%20upgrade%20MiniMax%20to%20Buy.pdf",
           "type": "data"
         }
       ],
@@ -2305,7 +2760,7 @@ const DAILY_DASHBOARD={
       "refs": [
         {
           "label": "高盛 · 05-04",
-          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AF%92%E6%AD%A6%E7%BA%AA/%E5%AF%92%E6%AD%A6%E7%BA%AA-%E6%9D%90%E6%96%99/82255824852441142_Leada_20260504_03_Cambricon_%28688256.SS%29_AI_expansion_with_growing_local_chips_in_China%3B_1Q26_beat_with_stron.md",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AF%92%E6%AD%A6%E7%BA%AA/%E5%AF%92%E6%AD%A6%E7%BA%AA-%E6%9D%90%E6%96%99/Cambricon%20%28688256.SS%29_%20AI%20expansion%20with%20growing%20local%20chips%20in%20China%3B%201Q26%20beat%20with%20strong%20orders%20on%20hand%3B%20Buy%2C%20TP%20up%20to%20Rm...%281%29.pdf",
           "type": "data"
         }
       ],
@@ -2316,7 +2771,7 @@ const DAILY_DASHBOARD={
       "date": "05-04",
       "date_full": "2026-05-04",
       "source": "高盛",
-      "title": "NAND 涨价延续",
+      "title": "存储价格预测上修",
       "raw_title": "South Korea Tech  Memory Pricing Tracker  Apr. 2026  Latest 2Q26 DRAM NAND prici",
       "sector": "存储",
       "tags": [
@@ -2325,14 +2780,14 @@ const DAILY_DASHBOARD={
       ],
       "signal": "关注",
       "importance": "重要",
-      "edge": "高盛：⭐⭐⭐⭐⭐ 2Q26 DRAM/NAND 价格预测继续上修",
-      "ai_analysis": "⭐⭐⭐⭐⭐ 2Q26 DRAM/NAND 价格预测继续上修",
+      "edge": "高盛：TrendForce 再次上修 2Q26 PC / Server / Mobile DRAM 价格预测",
+      "ai_analysis": "GS/TrendForce：2026 年 2Q DRAM/NAND 价格预测继续上修，存储盈利预期仍在抬升",
       "ai_source": "个股观点",
       "action": "投资建议：关注 Sandisk/美光/海力士，以及 A 股存储模组和设备材料映射",
       "refs": [
         {
           "label": "高盛 · 05-04",
-          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/14422541522282252_Leada_20260504.md",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/South%20Korea%20Tech_%20Memory%20Pricing%20Tracker_%20Apr.%202026_%20Latest%202Q26%20DRAM_NAND%20pricing%20forecasts%20higher%20vs.%20GSe.pdf",
           "type": "data"
         }
       ],
@@ -2343,7 +2798,7 @@ const DAILY_DASHBOARD={
       "date": "05-04",
       "date_full": "2026-05-04",
       "source": "MS",
-      "title": "Google TPU 架构升级",
+      "title": "联发科 ASIC 上修",
       "raw_title": "MediaTek 1Q26 — TPU upside; OW Top Pick",
       "sector": "电子",
       "tags": [
@@ -2352,14 +2807,14 @@ const DAILY_DASHBOARD={
       ],
       "signal": "利好",
       "importance": "重要",
-      "edge": "MS：胜宏 300476 1Q26 业绩+营收+净利双双 +28%/+40% YoY，毛利率 34.5% 略低预期但环比改善，**Capex 暴增**（1Q26 资本支出 35.74 亿元 vs 1Q25 的 7.3 亿、4Q25 的 29.6 亿）→ 管理…",
-      "ai_analysis": "胜宏 300476 1Q26 业绩+营收+净利双双 +28%/+40% YoY，毛利率 34.5% 略低预期但环比改善，**Capex 暴增**（1Q26 资本支出 35.74 亿元 vs 1Q25 的 7.3 亿、4Q25 的 29.6 亿）→ 管理层对未来订单能见度高度乐观",
-      "ai_source": "个股观点",
+      "edge": "MS：联发科 1Q26 业绩会把 2026 年 ASIC 收入指引从 $1bn 上调到 $2bn（3nm TPU 出货 400k+），2027 ASIC TAM $7-12bn 隐含中点 $9.5bn 远超 Street",
+      "ai_analysis": "MS：联发科 1Q26 业绩会把 2026 年 ASIC 收入指引从 $1bn 上调到 $2bn（3nm TPU 出货 400k+），2027 ASIC TAM $7-12bn 隐含中点 $9.5bn 远超 Street",
+      "ai_source": "摘要缓存",
       "action": "投资建议：关注 Intel、MediaTek/GUC/Aspeed、信骅及 A 股服务器/芯片映射",
       "refs": [
         {
           "label": "MS · 05-04",
-          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%AD%96%E7%95%A5%E5%AE%8F%E8%A7%82/%E7%AD%96%E7%95%A5%E5%AE%8F%E8%A7%82-%E6%9D%90%E6%96%99/82255824882828182_Leada_20260504.md",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%AD%96%E7%95%A5%E5%AE%8F%E8%A7%82/%E7%AD%96%E7%95%A5%E5%AE%8F%E8%A7%82-%E6%9D%90%E6%96%99/MEDIATEK_20260430_2342.pdf",
           "type": "data"
         }
       ],
@@ -2367,26 +2822,26 @@ const DAILY_DASHBOARD={
     },
     {
       "kind": "foreign_research",
-      "date": "04-28",
-      "date_full": "2026-04-28",
-      "source": "JPM",
-      "title": "DeepSeek V4 推理增量",
-      "raw_title": "JPM China Artificial Intelligence DeepSeek V4  Sector tailwind misread as zero s",
-      "sector": "计算机及模型应用",
+      "date": "05-01",
+      "date_full": "2026-05-01",
+      "source": "Bernstein",
+      "title": "NAND 涨价延续",
+      "raw_title": "Bernstein SanDisk Corp（SNDK.US）Sandisk FQ3'26： Nosebleed ASPs （now locked in）； R",
+      "sector": "存储",
       "tags": [
-        "AI算力",
+        "Sandisk",
         "手动补充"
       ],
       "signal": "利好",
       "importance": "重要",
-      "edge": "JPM：JPM：DeepSeek V4 是行业顺风而非零和冲击，维持智谱 / MiniMax 增持",
-      "ai_analysis": "JPM：DeepSeek V4 是行业顺风而非零和冲击，维持智谱 / MiniMax 增持",
-      "ai_source": "摘要缓存",
-      "action": "投资建议：关注云厂商、IDC、服务器 ODM、液冷/电源和 ASIC 供应链",
+      "edge": "Bernstein：Bernstein SanDisk：ASP 锁定高位，上调盈利预测和 TP 至 1700 美元，重申 Outperform / 短期首选",
+      "ai_analysis": "Bernstein SanDisk：ASP 锁定高位，上调盈利预测和 TP 至 1700 美元，重申 Outperform / 短期首选",
+      "ai_source": "个股观点",
+      "action": "投资建议：关注 Sandisk/美光/海力士，以及 A 股存储模组和设备材料映射",
       "refs": [
         {
-          "label": "JPM · 04-28",
-          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/AI%E7%AE%97%E5%8A%9B/AI%E7%AE%97%E5%8A%9B-%E6%9D%90%E6%96%99/JPM-China%20Artificial%20Intelligence%20DeepSeek%20V4_%20Sector%20tailwind%20misread%20as%20zero-sum%20shock%20%E2%80%93%20Reiterate%20OW%20on%20Zhipu%20and%20MiniMax.pdf",
+          "label": "Bernstein · 05-01",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/Sandisk/Sandisk-%E6%9D%90%E6%96%99/Bernstein-SanDisk%20Corp%EF%BC%88SNDK.US%EF%BC%89Sandisk%20FQ3%2726%EF%BC%9A%20Nosebleed%20ASPs%20%EF%BC%88now%20locked%20in%EF%BC%89%EF%BC%9B%20Raise%20estimates%20and%20TP%20to%20%241700%EF%BC%8C%20Reiterate%20Outperform%20%EF%BC%88top%20ST%20pick%EF%BC%89-260501.pdf",
           "type": "data"
         }
       ],
@@ -2394,53 +2849,53 @@ const DAILY_DASHBOARD={
     },
     {
       "kind": "foreign_research",
-      "date": "04-28",
-      "date_full": "2026-04-28",
-      "source": "花旗",
-      "title": "Google TPU 架构升级",
-      "raw_title": "citi TPU",
-      "sector": "电子",
-      "tags": [
-        "AI算力",
-        "手动补充"
-      ],
-      "signal": "关注",
-      "importance": "关注",
-      "edge": "花旗：Citi TPU 专题：v6/v7/v8 路线与 Google 自研芯片趋势",
-      "ai_analysis": "Citi TPU 专题：v6/v7/v8 路线与 Google 自研芯片趋势",
-      "ai_source": "摘要缓存",
-      "action": "投资建议：关注 Intel、MediaTek/GUC/Aspeed、信骅及 A 股服务器/芯片映射",
-      "refs": [
-        {
-          "label": "花旗 · 04-28",
-          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/AI%E7%AE%97%E5%8A%9B/AI%E7%AE%97%E5%8A%9B-%E6%9D%90%E6%96%99/citi%20TPU.pdf",
-          "type": "data"
-        }
-      ],
-      "is_key": false
-    },
-    {
-      "kind": "foreign_research",
-      "date": "04-28",
-      "date_full": "2026-04-28",
+      "date": "05-01",
+      "date_full": "2026-05-01",
       "source": "美银",
-      "title": "AI CPU 路线重估",
-      "raw_title": "bofa CPU",
-      "sector": "电子",
+      "title": "苹果 增量",
+      "raw_title": "BofA Securities Apple Inc.（AAPL.US）Change is in the air； Many positive catalysts",
+      "sector": "其他",
       "tags": [
-        "AI算力",
+        "苹果",
         "手动补充"
       ],
-      "signal": "关注",
-      "importance": "关注",
-      "edge": "美银：BofA CPU 行业：x86 vs Arm vs ASIC 路线博弈与受益方",
-      "ai_analysis": "BofA CPU 行业：x86 vs Arm vs ASIC 路线博弈与受益方",
-      "ai_source": "摘要缓存",
-      "action": "投资建议：关注 Intel、MediaTek/GUC/Aspeed、信骅及 A 股服务器/芯片映射",
+      "signal": "利好",
+      "importance": "重要",
+      "edge": "美银：BofA Apple：上调目标价至 330 美元，认为后续正催化包括 AI、产品周期和服务/资本回报",
+      "ai_analysis": "BofA Apple：上调目标价至 330 美元，认为后续正催化包括 AI、产品周期和服务/资本回报",
+      "ai_source": "个股观点",
+      "action": "投资建议：优先打开原始 PDF，核对目标价、订单、供需和下游客户变化",
       "refs": [
         {
-          "label": "美银 · 04-28",
-          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/AI%E7%AE%97%E5%8A%9B/AI%E7%AE%97%E5%8A%9B-%E6%9D%90%E6%96%99/bofa%20CPU.pdf",
+          "label": "美银 · 05-01",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%8B%B9%E6%9E%9C/%E8%8B%B9%E6%9E%9C-%E6%9D%90%E6%96%99/BofA%20Securities-Apple%20Inc.%EF%BC%88AAPL.US%EF%BC%89Change%20is%20in%20the%20air%EF%BC%9B%20Many%20positive%20catalysts%20ahead%EF%BC%9B%20PO%20to%20%24330-260501.pdf",
+          "type": "data"
+        }
+      ],
+      "is_key": false
+    },
+    {
+      "kind": "foreign_research",
+      "date": "04-29",
+      "date_full": "2026-04-29",
+      "source": "Bernstein",
+      "title": "寒武纪 增量",
+      "raw_title": "Bernstein Cambricon Technologies Corp Ltd（688256）Cambricon 1Q26： Robust beat acr",
+      "sector": "其他",
+      "tags": [
+        "寒武纪",
+        "手动补充"
+      ],
+      "signal": "利好",
+      "importance": "重要",
+      "edge": "Bernstein：Bernstein 寒武纪：1Q26 全面超预期，国产 AI 芯片本地化需求强，供给改善带来更多上行",
+      "ai_analysis": "Bernstein 寒武纪：1Q26 全面超预期，国产 AI 芯片本地化需求强，供给改善带来更多上行",
+      "ai_source": "个股观点",
+      "action": "投资建议：优先打开原始 PDF，核对目标价、订单、供需和下游客户变化",
+      "refs": [
+        {
+          "label": "Bernstein · 04-29",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AF%92%E6%AD%A6%E7%BA%AA/%E5%AF%92%E6%AD%A6%E7%BA%AA-%E6%9D%90%E6%96%99/Bernstein-Cambricon%20Technologies%20Corp%20Ltd%EF%BC%88688256%EF%BC%89Cambricon%201Q26%EF%BC%9A%20Robust%20beat%20across%20the%20board%20driven%20by%20AI%20chip%20localization%EF%BC%8C%20more%20upside%20to%20come%20with%20improving%20supply-260429.pdf",
           "type": "data"
         }
       ],
@@ -2558,14 +3013,15 @@ const DAILY_DASHBOARD={
     }
   ],
   "counts": {
-    "upgrades": 0,
+    "upgrades": 2,
     "downgrades": 0,
+    "earnings": 9,
     "foreign_research": 8,
     "acecamp_note": 4
   }
 };
 window.ZSXQ_DIGEST_HREF='../%E6%AF%8F%E6%97%A5%E6%B1%87%E6%80%BB/ZSXQ_180K_20260505.md';
-const LAST_UPDATE=new Date('2026-05-05T13:36:32+08:00');
+const LAST_UPDATE=new Date('2026-05-05T14:29:06+08:00');
 function updateClock(){
   const now=new Date();
   const etH=(now.getUTCHours()-4+24)%24,etM=now.getUTCMinutes();
@@ -2770,6 +3226,59 @@ function renderHomeAuditMovers(){
     </div>
   </div>`;
 }
+const EARNINGS_SESSION_LABEL={pre:'盘前',post:'盘后',unknown:'待确认'};
+const EARNINGS_SESSION_STYLE={
+  pre:'background:#FEF3C7;color:#92400E;',
+  post:'background:#EEF2FF;color:#3730A3;',
+  unknown:'background:#F3F4F6;color:#6B7280;'
+};
+function renderDashboardEarningsFocus(){
+  const wrap=document.getElementById('dashboard-earnings-focus');
+  if(!wrap)return;
+  const data=(DAILY_DASHBOARD&&DAILY_DASHBOARD.earnings_focus)||{};
+  const items=data.items||[];
+  const days=data.days||[];
+  const start=(data.window_start||'').slice(5);
+  const end=(data.window_end||'').slice(5);
+  const windowLabel=start&&end?`${start} - ${end}`:'本窗口';
+  const earningsName=it=>{
+    const hasAudit=!!it.audit_href;
+    const boxStyle=hasAudit
+      ? 'background:#EEF2FF;border:1px solid #A5B4FC;box-shadow:0 1px 4px rgba(79,70,229,.14);'
+      : 'background:#fff;border:1px solid #E5E7EB;';
+    const tickerColor=hasAudit?'#4F46E5':'#9CA3AF';
+    const title=`${esc(it.name||it.ticker||'财报')}${it.ticker?` <span style="color:${tickerColor};font-weight:800;">${esc(it.ticker)}</span>`:''}`;
+    const sub=[it.market||'',it.period||''].filter(Boolean).map(esc).join(' · ');
+    const auditBadge=hasAudit?'<span style="font-size:8px;font-weight:900;color:#4338CA;background:#E0E7FF;border-radius:9999px;padding:1px 5px;margin-left:4px;">会诊</span>':'';
+    const node=`<div style="display:flex;align-items:center;justify-content:space-between;gap:4px;"><div style="font-size:11px;font-weight:850;color:#111827;line-height:1.35;">${title}</div>${auditBadge}</div>${sub?`<div style="font-size:9px;color:#6B7280;line-height:1.35;margin-top:1px;">${sub}</div>`:''}`;
+    return it.href?`<a href="${esc(it.href)}" target="_blank" rel="noopener" title="${esc(it.focus||'')}" style="display:block;text-decoration:none;${boxStyle}border-radius:8px;padding:5px 6px;margin-bottom:4px;">${node}</a>`:`<div title="${esc(it.focus||'')}" style="${boxStyle}border-radius:8px;padding:5px 6px;margin-bottom:4px;">${node}</div>`;
+  };
+  const sessionCell=(day,session)=>{
+    const bucket=((day.sessions||{})[session])||[];
+    const sessionLabel=EARNINGS_SESSION_LABEL[session]||session;
+    const sessionStyle=EARNINGS_SESSION_STYLE[session]||EARNINGS_SESSION_STYLE.unknown;
+    return `<td style="vertical-align:top;min-width:112px;padding:6px;border-left:1px solid #F3F4F6;">
+      <div style="font-size:9px;font-weight:900;border-radius:9999px;padding:1px 6px;display:inline-block;margin-bottom:5px;${sessionStyle}">${esc(sessionLabel)}</div>
+      ${bucket.length?bucket.map(earningsName).join(''):'<div style="font-size:10px;color:#D1D5DB;padding:8px 2px;">—</div>'}
+    </td>`;
+  };
+  const body=days.length?`<div style="overflow-x:auto;border:1px solid #E5E7EB;border-radius:12px;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;min-width:920px;">
+      <thead><tr>${days.map(day=>`<th colspan="2" style="font-size:10px;color:#6B7280;text-align:left;padding:7px 8px;border-left:1px solid #F3F4F6;background:#F9FAFB;">${esc(day.date_label||'')} <span style="color:#9CA3AF;font-weight:600;">${esc(day.weekday||'')}</span></th>`).join('')}</tr></thead>
+      <tbody><tr>${days.map(day=>sessionCell(day,'pre')+sessionCell(day,'post')).join('')}</tr></tbody>
+    </table>
+  </div>`:'<div style="font-size:11px;color:#9CA3AF;padding:12px;background:#fff;border:1px dashed #E5E7EB;border-radius:12px;text-align:center;">本窗口暂无已维护财报</div>';
+  wrap.innerHTML=`<div style="background:#F8FAFC;border-radius:14px;padding:12px;margin-bottom:10px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:8px;gap:10px;">
+      <div>
+        <div style="font-size:10px;font-weight:800;color:#9CA3AF;letter-spacing:.08em;text-transform:uppercase;">财报关注 Earnings Focus</div>
+        <div style="font-size:11px;color:#9CA3AF;margin-top:2px;">Watchlist 7 天窗口 · 每天分盘前 / 盘后 · 命中会诊标的可点进 audit</div>
+      </div>
+      <div style="font-size:10px;color:#9CA3AF;text-align:right;">${esc(windowLabel)} · ${items.length} 只</div>
+    </div>
+    ${body}
+  </div>`;
+}
 function renderDashboardInsights(){
   const wrap=document.getElementById('dashboard-insights');
   if(!wrap)return;
@@ -2778,7 +3287,7 @@ function renderDashboardInsights(){
   const meta=document.getElementById('dashboard-insight-meta');
   if(meta)meta.textContent=`外资 ${counts.foreign_research||0} · ACE ${counts.acecamp_note||0}`;
   const cnt=document.getElementById('dashboard-count');
-  if(cnt)cnt.textContent=`会诊上修 ${counts.upgrades||0} / 下修 ${counts.downgrades||0} · 资料 ${cards.length}`;
+  if(cnt)cnt.textContent=`会诊上修 ${counts.upgrades||0} / 下修 ${counts.downgrades||0} · 财报 ${counts.earnings||0} · 资料 ${cards.length}`;
   if(!cards.length){
     wrap.innerHTML='<div style="font-size:11px;color:#9CA3AF;padding:18px;background:#fff;border-radius:12px;border:1px dashed #E5E7EB;text-align:center;">近 7 天暂无可展示的外资研报 / ACE 纪要解读</div>';
     return;
@@ -2786,7 +3295,7 @@ function renderDashboardInsights(){
   wrap.innerHTML=cards.map(c=>{
     const refs=(c.refs||[]).filter(r=>r.label||r.href);
     const refHtml=refs.map(r=>r.href
-      ? `<a href="${esc(r.href)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;text-decoration:none;color:#2563EB;font-size:10px;background:#EFF6FF;border-radius:9999px;padding:2px 7px;">${esc(r.label||'来源')}</a>`
+      ? `<a href="${esc(r.href)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;text-decoration:none;color:#2563EB;font-size:10px;background:#EFF6FF;border-radius:9999px;padding:2px 7px;">打开原文 · ${esc(r.label||'来源')}</a>`
       : `<span style="display:inline-flex;align-items:center;gap:4px;color:#6B7280;font-size:10px;background:#F3F4F6;border-radius:9999px;padding:2px 7px;">${esc(r.label||'来源')}</span>`
     ).join('');
     const tags=(c.tags||[]).map(t=>`<span style="font-size:9px;color:#6B7280;background:#F3F4F6;border-radius:9999px;padding:1px 6px;">${esc(t)}</span>`).join('');
@@ -2800,13 +3309,6 @@ function renderDashboardInsights(){
       <div style="font-size:14px;font-weight:850;color:#111827;line-height:1.45;margin-bottom:7px;">${esc(c.title)}</div>
       <div style="display:grid;grid-template-columns:1fr;gap:7px;">
         <div style="font-size:11px;color:#374151;line-height:1.6;"><b style="color:#111827;">边际信息：</b>${esc(c.edge)}</div>
-        <div style="background:#FAFAF9;border:1px solid #E5E7EB;border-radius:10px;padding:8px 10px;">
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
-            <span style="font-size:9px;font-weight:900;color:#7E22CE;background:#F3E8FF;border-radius:4px;padding:1px 5px;">AI分析</span>
-            <span style="font-size:10px;color:#9CA3AF;">${esc(c.ai_source||'材料解读')}</span>
-          </div>
-          <div style="font-size:11px;color:#4B5563;line-height:1.65;font-style:italic;">${esc(c.ai_analysis)}</div>
-        </div>
         <div style="font-size:11px;color:#374151;line-height:1.6;"><b style="color:#111827;">跟踪建议：</b>${esc(c.action)}</div>
       </div>
       <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;border-top:1px solid #F3F4F6;margin-top:9px;padding-top:8px;">
@@ -2817,6 +3319,7 @@ function renderDashboardInsights(){
   }).join('');
 }
 renderHomeAuditMovers();
+renderDashboardEarningsFocus();
 renderDashboardInsights();
 
 // ═══════════════════════════════
@@ -2956,24 +3459,26 @@ document.getElementById('gs-list').innerHTML=GS_ITEMS.map((g,i)=>{
 // ═══════════════════════════════
 // RENDER AUDIT CARDS (个股会诊)
 // ═══════════════════════════════
-// 规范化刻度 [-5, +5]，下面函数把分数映射到颜色（强度用深浅 + 色相表达）
+// 规范化刻度 [-5, +5]；行动口径：3-5 买入，2-3 持有，1-2 观望偏空，<1 卖出
+// 视觉口径：买入绿色；持有黄色；观望偏空灰色；卖出红色。
+function auditTone(d){
+  if(d>= 4.0) return {main:'#15803D', soft:'#F0FDF4', line:'#86EFAC', text:'#166534', bar:'#16A34A', weight:800};
+  if(d>= 3.0) return {main:'#16A34A', soft:'#F0FDF4', line:'#BBF7D0', text:'#15803D', bar:'#22C55E', weight:800};
+  if(d>= 2.0) return {main:'#B45309', soft:'#FFFBEB', line:'#FDE68A', text:'#92400E', bar:'#FBBF24', weight:700};
+  if(d>= 1.0) return {main:'#64748B', soft:'#F8FAFC', line:'#E2E8F0', text:'#475569', bar:'#CBD5E1', weight:700};
+  return {main:'#B91C1C', soft:'#FEF2F2', line:'#FECACA', text:'#991B1B', bar:'#FCA5A5', weight:700};
+}
 function auditColor(d){
-  if(d>= 4.0) return '#15803D';  // 深绿   强烈偏多
-  if(d>= 2.5) return '#16A34A';  // 翠绿   明显偏多
-  if(d>= 1.0) return '#65A30D';  // 橄榄绿 偏多
-  if(d> -1.0) return '#6B7280';  // 灰     中性
-  if(d>=-2.5) return '#D97706';  // 深黄   偏空
-  if(d>=-4.0) return '#DC2626';  // 红     明显偏空
-  return '#991B1B';              // 深红   强烈偏空
+  return auditTone(d).main;
 }
 function schoolChip(label, score){
   if(score === null || score === undefined){
     return `<span style="display:inline-flex;align-items:baseline;gap:3px;padding:2px 6px;border-radius:5px;background:#F3F4F6;color:#9CA3AF;font-size:10px;font-weight:600;border:1px solid #E5E7EB;">${label}<span style="opacity:.6;">—</span></span>`;
   }
-  const c = auditColor(score);
+  const tone = auditTone(score);
   const sign = score >= 0 ? '+' : '';
   const num = Number.isInteger(score) ? score : (Math.round(score*10)/10);
-  return `<span style="display:inline-flex;align-items:baseline;gap:3px;padding:2px 6px;border-radius:5px;background:${c}1a;color:${c};font-size:10px;font-weight:700;border:1px solid ${c}33;">
+  return `<span style="display:inline-flex;align-items:baseline;gap:3px;padding:2px 6px;border-radius:5px;background:${tone.soft};color:${tone.text};font-size:10px;font-weight:650;border:1px solid ${tone.line};">
     <span style="opacity:.9;font-weight:600;">${label}</span>
     <span style="font-variant-numeric:tabular-nums;">${sign}${num}</span>
   </span>`;
@@ -2981,24 +3486,24 @@ function schoolChip(label, score){
 // Sub-sector 展示顺序（按整体景气/关注度排序；未列入的 sector 会排在最后）
 const AUDIT_SECTOR_ORDER=['AI芯片/GPU','半导体制造','半导体封测','光通信','AI云算力','AI服务器代工','中国互联网','北美互联网','消费电子','通讯/光模块','存储','电网/电力','机器人/智能驾驶','策略宏观'];
 function auditCardHTML(c,i){
-  const color=auditColor(c.direction);
+  const tone=auditTone(c.direction);
   const sign=c.direction>=0?'+':'';
   const safeHref=c.href.split('/').map(seg=>encodeURIComponent(seg)).join('/');
   return `
   <a href="${safeHref}" data-audit-href="${safeHref}" data-audit-idx="${i}"
-     style="display:block;background:#fff;border-radius:10px;border:1px solid #F3F4F6;box-shadow:0 1px 2px rgba(0,0,0,.03);padding:10px 12px;text-decoration:none;color:inherit;transition:transform .1s, box-shadow .1s, border-color .1s;cursor:pointer;border-left:3px solid ${color};"
-     onmouseenter="this.style.transform='translateY(-1px)';this.style.boxShadow='0 4px 12px rgba(0,0,0,.07)';this.style.borderColor='#E5E7EB';this.style.borderLeftColor='${color}';"
-     onmouseleave="this.style.transform='';this.style.boxShadow='0 1px 2px rgba(0,0,0,.03)';this.style.borderColor='#F3F4F6';this.style.borderLeftColor='${color}';">
+     style="display:block;background:#fff;border-radius:10px;border:1px solid ${tone.line};box-shadow:0 1px 2px rgba(15,23,42,.025);padding:10px 12px;text-decoration:none;color:inherit;transition:transform .1s, box-shadow .1s, border-color .1s;cursor:pointer;border-left:3px solid ${tone.bar};"
+     onmouseenter="this.style.transform='translateY(-1px)';this.style.boxShadow='0 4px 12px rgba(15,23,42,.07)';this.style.borderColor='${tone.bar}';this.style.borderLeftColor='${tone.bar}';"
+     onmouseleave="this.style.transform='';this.style.boxShadow='0 1px 2px rgba(15,23,42,.025)';this.style.borderColor='${tone.line}';this.style.borderLeftColor='${tone.bar}';">
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
       <div style="min-width:0;flex:1;">
         <div style="font-size:13px;font-weight:700;color:#111827;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${c.name}</div>
         <div style="font-size:10px;color:#9CA3AF;font-variant-numeric:tabular-nums;margin-top:2px;">${c.ticker} · ${c.date}</div>
       </div>
       <div style="text-align:right;flex-shrink:0;">
-        <div style="font-size:16px;font-weight:800;color:${color};font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.01em;">
+        <div style="font-size:16px;font-weight:${tone.weight};color:${tone.main};font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.01em;">
           ${sign}${c.direction.toFixed(2)}<span style="font-size:10px;color:#9CA3AF;font-weight:600;margin-left:1px;">/5</span>
         </div>
-        <div style="font-size:9px;font-weight:700;color:${color};letter-spacing:.02em;margin-top:2px;">${c.direction_label}</div>
+        <div style="font-size:9px;font-weight:700;color:${tone.text};letter-spacing:.02em;margin-top:2px;">${c.direction_label}</div>
       </div>
     </div>
     <div style="display:flex;align-items:center;gap:4px;margin-top:7px;padding-top:7px;border-top:1px dashed #F3F4F6;">
@@ -3130,8 +3635,15 @@ function renderAuditCards(){
   });
   // 组内按 direction 降序
   Object.values(groups).forEach(arr=>arr.sort((a,b)=>b.direction-a.direction));
-  // 组间按预设顺序排序
+  const avgBySector={};
+  Object.keys(groups).forEach(sec=>{
+    const arr=groups[sec];
+    avgBySector[sec]=arr.reduce((s,x)=>s+x.direction,0)/arr.length;
+  });
+  // 组间按板块平均 direction 降序；同分时再按预设顺序和中文名稳定排序
   const sectorKeys=Object.keys(groups).sort((a,b)=>{
+    const da=avgBySector[a]??0, db=avgBySector[b]??0;
+    if(Math.abs(db-da)>0.001) return db-da;
     const ia=AUDIT_SECTOR_ORDER.indexOf(a), ib=AUDIT_SECTOR_ORDER.indexOf(b);
     const ra=ia<0?999:ia, rb=ib<0?999:ib;
     if(ra!==rb) return ra-rb;
@@ -3141,15 +3653,15 @@ function renderAuditCards(){
   let idx=0;
   const columns=sectorKeys.map(sec=>{
     const items=groups[sec];
-    const avgDir=items.reduce((s,x)=>s+x.direction,0)/items.length;
-    const hdrColor=auditColor(avgDir);
+    const avgDir=avgBySector[sec];
+    const hdrTone=auditTone(avgDir);
     const sign=avgDir>=0?'+':'';
     const header=`
-      <div style="display:flex;align-items:baseline;gap:8px;padding:6px 10px;background:#fff;border-radius:8px;border:1px solid #F3F4F6;box-shadow:0 1px 2px rgba(0,0,0,.03);">
-        <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${hdrColor};flex-shrink:0;"></span>
+      <div style="display:flex;align-items:baseline;gap:8px;padding:6px 10px;background:#fff;border-radius:8px;border:1px solid #F3F4F6;box-shadow:0 1px 2px rgba(15,23,42,.025);">
+        <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${hdrTone.bar};flex-shrink:0;"></span>
         <span style="font-size:12px;font-weight:700;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${sec}</span>
         <span style="flex:1"></span>
-        <span style="font-size:10px;color:#9CA3AF;font-weight:500;white-space:nowrap;">${items.length}只 · <span style="color:${hdrColor};font-weight:700;font-variant-numeric:tabular-nums;">${sign}${avgDir.toFixed(2)}</span></span>
+        <span style="font-size:10px;color:#9CA3AF;font-weight:500;white-space:nowrap;">${items.length}只 · <span style="color:${hdrTone.text};font-weight:700;font-variant-numeric:tabular-nums;">${sign}${avgDir.toFixed(2)}</span></span>
       </div>`;
     const body=items.map(c=>auditCardHTML(c,idx++)).join('');
     return `<div style="display:flex;flex-direction:column;gap:6px;">${header}${body}</div>`;

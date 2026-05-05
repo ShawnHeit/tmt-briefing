@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台积电 TSMC (TSM) · 三派会诊审议纪要</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .school-value { --accent: #0f766e; --accent-light: #ccfbf1; --accent-dark: #134e4a; }
+  .school-growth { --accent: #c2410c; --accent-light: #ffedd5; --accent-dark: #7c2d12; }
+  .school-quant { --accent: #1d4ed8; --accent-light: #dbeafe; --accent-dark: #1e3a8a; }
+  .accent-text { color: var(--accent); }
+  .accent-bg { background-color: var(--accent); }
+  .accent-bg-light { background-color: var(--accent-light); }
+  .accent-border { border-color: var(--accent); }
+  .rating-chip { display: inline-block; padding: 2px 10px; border-radius: 999px; font-weight: 600; font-size: 0.875rem; }
+  .rating-buy { background: #dcfce7; color: #166534; }
+  .rating-hold { background: #fef3c7; color: #92400e; }
+  .rating-sell { background: #fee2e2; color: #991b1b; }
+  .rating-strong-buy { background: #166534; color: white; }
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, #e5e7eb, transparent); margin: 1.25rem 0 0.75rem 0; }
+  .key-metric { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  @media print { body { font-size: 10pt; } .page-break { page-break-before: always; } .no-print { display: none !important; } }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+<header class="bg-slate-900 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="flex items-start gap-6">
+      <a href="../../../index.html#audit"
+         class="no-print"
+         title="返回 · 个股会诊"
+         style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(250,204,21,0.08);color:#FACC15;font-size:30px;line-height:1;font-weight:700;text-decoration:none;transition:all .15s;flex-shrink:0;margin-top:2px;"
+         onmouseenter="this.style.background='rgba(250,204,21,0.18)';this.style.transform='translateX(-3px)';"
+         onmouseleave="this.style.background='rgba(250,204,21,0.08)';this.style.transform='';">
+        ←
+      </a>
+      <div class="flex-1 flex items-start justify-between">
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight">台积电 TSMC · TSM</h1>
+          
+        </div>
+        <div class="text-right text-sm text-slate-300 space-y-1">
+          <div><span class="text-slate-400">分析日期：</span><span class="font-mono">2026-05-05</span></div>
+          <div><span class="text-slate-400">当前股价：</span><span class="font-mono font-semibold text-white">USD$185.0</span></div>
+          <div><span class="text-slate-400">数据源：</span>32 篇研报（2025-12 ~ 2026-04-29）· Q1 2026 财报已披露 · GS 04-29 marketing feedback（Capex 2000 亿超级周期）· GS/JPM/BofA/MS/Nomura + 中资多家</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="max-w-7xl mx-auto px-6 py-8">
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-1 h-6 bg-slate-900"></div>
+      <h2 class="text-lg font-semibold tracking-wide">审议摘要 · EXECUTIVE REVIEW</h2>
+    </div>
+    <p class="text-slate-700 leading-relaxed mb-6">TSMC 是<strong>AI 时代全球最重要的单一公司</strong>，本次会诊结论 <strong>明显偏多 · direction +3.67</strong>。<strong>关键数据（含 04-29 GS marketing feedback）</strong>：（a）<strong>04-29 GS：TSMC 2026-2028 进入 $200B Capex 超级上行周期 —— 三驱动 = N3 节点扩产 + CoWoS 加速 + SoIC（系统级集成芯片）爆发</strong>；（b）GS：受益方从大盘股切到中小盘股；SoIC 潜力被严重低估；台湾正成为正反馈链条核心受益地（建议买 弘塑 GPTC、万润 All Ring、信骅 GUC、辛瑞 Scientech）；（c）Q1 2026 营收 $35.9B (+40.6% YoY) · GM 66.2%（远超指引 65%）· 净利润 +58% YoY，全面超预期；（d）Q2 2026 指引 $39-40.2B / 中值 +32% YoY 再次 beat；（e）全年 USD 增长 > 30% 再确认 · 2026 CapEx $520-560 亿高端；（f）CoWoS 2026 月产能 15-16 万片 · 2028 目标 30+ 万片；（g）2nm / N2 / A16 超长生命周期平台 · Apple / AMD / MediaTek / Broadcom 全部确认；（h）BofA TP $260（€1515 / NT$2750）· GS / JPM / Nomura / MS 全部买入。<strong>策略</strong>：8% 重仓（长期核心配置），回踩 $170-178 加仓至 10-12%；联发科 27 年 AI ASIC 业绩贡献飙升至 39% 是 SoIC 落地的最强证据。</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">三派综合方向</div>
+        <div class="text-xl font-bold text-emerald-700 mt-1">买入 (+3.83)</div>
+        <div class="text-xs text-slate-400 mt-1">规范化均值 · 未加权</div>
+      </div>
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">保守仓位建议</div>
+        <div class="text-xl font-bold text-slate-900 mt-1">8%</div>
+        <div class="text-xs text-slate-400 mt-1">三派最小值 · 非平均</div>
+      </div>
+      <div class="border-l-2 border-red-400 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">近期最重要节点</div>
+        <div class="text-xl font-bold text-red-700 mt-1">2026/07 中旬</div>
+        <div class="text-xs text-slate-400 mt-1">26Q2 财报 · $39-40.2B 指引 beat / miss</div>
+      </div>
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">分歧度</div>
+        <div class="text-xl font-bold text-slate-900 mt-1">极低</div>
+        <div class="text-xs text-slate-400 mt-1">三派强共识 · 仓位 6-12% 区间 · 理由同向同源</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">价格与成交量 · TRADINGVIEW CHART</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">台积电 TSMC · NYSE:TSM · 约 15 min 延迟</span>
+    
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden" style="height:560px;">
+    <iframe
+      src="https://s.tradingview.com/widgetembed/?symbol=NYSE%3ATSM&interval=D&theme=light&style=1&locale=zh_CN&withdateranges=1&hide_side_toolbar=0&allow_symbol_change=1&studies=%5B%22Volume%40tv-basicstudies%22%2C%22RSI%40tv-basicstudies%22%2C%22MASimple%40tv-basicstudies%22%5D&hideideas=1&details=1"
+      style="width:100%;height:100%;border:0;display:block;"
+      allowtransparency="true" scrolling="no" allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      title="TradingView NYSE:TSM"></iframe>
+  </div>
+  <p class="text-[11px] text-slate-500 mt-2 leading-relaxed">
+    点击图表顶部可切换周期（1D/1W/1M/3M/6M/YTD/1Y/5Y/All），右侧工具栏可切换 K 线 / 面积 / Heikin-Ashi，已叠加成交量 · RSI · 20 日均线。
+    每次打开本页会从 TradingView 实时拉取最新数据。
+  </p>
+</section>
+
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">研究员观点 · ANALYST VIEWS</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">三派独立出观点 · 无互相污染</span>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    <div class="school-value bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">value-school</div>
+            <div class="text-xl font-bold mt-1">价值派</div>
+            <div class="text-xs text-slate-500 mt-0.5">双引擎 · 巴菲特+红利</div>
+          </div>
+          <span class="rating-chip rating-buy">买入</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono">3-5 年（核心配置）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono">10%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">安全边际</span><span class="font-mono">+40%（BofA TP $260 / €1515 对应 2028E EPS 32.5x vs 现价 ~$185）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">Track A 分（巴菲特）</span><span class="font-mono">88/100</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">Track B 分（红利）</span><span class="font-mono">不适用（~1.5% 股息，以 CapEx 为主）</span></div>
+        </div>
+        <div class="mt-5 bg-teal-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">护城河（Moat Score 19/25）</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside">
+            <li>寡头垄断型 Moat：全球先进制程（3nm / 2nm / A16）唯一量产玩家，ASML High-NA 独家客户</li>
+<li>成本曲线领先：2nm 晶圆固定成本约 3nm 的 1.3-1.5 倍，vs 英特尔 18A（成本约 $3 万 / 片）仍具显著优势</li>
+<li>封装端稀缺：CoWoS 月产能 2026 达 15-16 万片 / 月（计划 2028 年 30+ 万片），全球 AI 芯片后道垄断</li>
+<li>客户护城河：NVIDIA / AMD / Apple / Broadcom / MediaTek / 高通 全部核心依赖，切换成本巨大</li>
+<li>地缘护城河：Arizona / 日本 / 德国三地布局，对冲台湾地缘风险 + 美国 CHIPS Act 税收抵免</li>
+<li>规模经济：FY26 CapEx $520-560 亿（高端），单厂 FCF 覆盖能力强，自由现金流增速持续 > 营收增速</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">TSMC 是<strong>AI 时代全球最重要的单一公司</strong>，也是当前最清晰的 Value + Growth 双击标的。Q1 2026 营收 $35.9B（+40.6% YoY）、GM 66.2%（超过指引上沿 65%）、净利润 +58% YoY —— <strong>所有关键数字全面超预期</strong>。管理层维持全年营收美元计增长 > 30%，Q2 指引 $39-40.2B 中值 +32% YoY 继续超预期。CapEx 周期：2026 $520-560 亿 → 2027-28 $630-770 亿，CapEx / 营收比稳定在 ~30%，但 3nm / AI-HPC 业务 ROIC > 25%，<strong>越投越赚</strong>。BofA 给出 2028E EPS 32.5× / TP $260（€1515 / NT$2750），相对现价 $185 安全边际 ~40%。<strong>核心下行风险</strong>仅两条：①台海地缘事件；②Intel 18A / 三星 SF2 意外突破，短期均不构成实质威胁。</p>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">主要风险</div>
+          <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+            <li>2nm（N2）2026 爬坡初期稀释毛利 2-3pp（但 N2 / N2P / A16 生命周期超长，稀释可控）</li>
+<li>台湾电价 / LNG 成本上行（能源 COGS 占比 ~8%，边际拖累）</li>
+<li>美国关税 + 台海地缘不确定性（中长期配置型风险）</li>
+<li>Intel 18A 商业化（短期内成本劣势明显，但 2027 后需重新评估）</li>
+<li>2027-28 CapEx $630-770 亿 —— FCF 增速可能暂时低于营收增速</li>
+          </ul>
+        </div>
+        <div class="mt-4 bg-amber-50 border-l-4 border-amber-400 p-3">
+          <div class="text-xs font-semibold text-amber-800 uppercase mb-1">What Would Change My Mind</div>
+          <p class="text-xs text-amber-900">Apple iPhone 18 选择三星 / Intel 代工 + 英伟达官宣双源分摊 CoWoS 订单 + 2nm 良率显著落后 N3 —— 任一事件发生则撤回至中性。目前所有 signal 都指向<strong>垄断地位进一步加强</strong>。</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="school-growth bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">growth-school</div>
+            <div class="text-xl font-bold mt-1">成长派</div>
+            <div class="text-xs text-slate-500 mt-0.5">景气投资 · 5 阶段 + 80/20 景气分</div>
+          </div>
+          <span class="rating-chip rating-strong-buy">强烈买入</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">阶段判定</span><span class="font-mono font-semibold">爆发期 + 加速期并行（AI / HPC / CoWoS 三重主题）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono font-semibold">2-5 年</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono font-semibold">12%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">景气总分</span><span class="font-mono font-semibold text-orange-700">94/100</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">戴维斯阶段</span><span class="font-mono font-semibold">盈利 + 估值 双击中段</span></div>
+        </div>
+        <div class="mt-5 bg-orange-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">景气分拆解（80/20 公式）</div>
+          <div class="text-xs text-slate-700 space-y-1.5">
+            <div class="flex justify-between"><span>盈利修正因子 (80%)</span><span class="font-mono font-semibold">92/100</span></div>
+            <div class="text-[11px] text-slate-500 pl-2 italic">Q1 2026 营收 / GM / EPS 全面 beat；Q2 指引 +32% YoY 再次超预期；全年 30%+ USD 增长维持；GS / Nomura / 中银 / 华创 等 2026 EPS 集体上修</div>
+            <div class="flex justify-between mt-2"><span>动量因子 (20%)</span><span class="font-mono font-semibold">96/100</span></div>
+            <div class="text-[11px] text-slate-500 pl-2 italic">AI 数据中心 / HPC 贡献 50%+ 营收增量；2nm 产能已预订至 2027；CoWoS 扩产至 2028 年订单全部锁定；High-NA EUV 2027 后商业化</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">催化剂清单</div>
+          <ul class="text-xs text-slate-700 space-y-1">
+            <li>✓ <strong>Capex 2000 亿超级周期（GS 04-29 marketing feedback）</strong>：TSMC 2026-2028 累计 Capex 进入 $200B 上行周期；三驱动 = N3 节点扩产 + CoWoS 加速 + SoIC 系统级集成芯片爆发</li>
+<li>✓ <strong>Q2 2026 指引超预期</strong>：$39-40.2B · 中值 +32% YoY / QoQ +10% · 远超市场一致预期 +22%</li>
+<li>✓ <strong>2026 全年营收增长 > 30% 再次确认</strong>：管理层明确（Q1 2026 call · 华创转述）· 3nm 强劲 + AI HPC 持续</li>
+<li>✓ <strong>CoWoS 产能 2026 年 15-16 万片 / 月</strong>：BofA 2026-04-13 调研 · 全部订单至 2028 锁定 · ASE / AMKR 排队承接溢出订单</li>
+<li>✓ <strong>SoIC 系统级集成芯片潜力被严重低估</strong>：GS 04-29 · SoIC 是 TSMC 下一代封装平台，与 CoWoS 形成双轮驱动；联发科 27 年 AI ASIC 业绩贡献飙升至 39%</li>
+<li>✓ <strong>N2 / N2P / A16 超长生命周期</strong>：管理层明确 N2 系列成为规模巨大 + 长生命周期节点 · 可能成为比 N3 更长的平台</li>
+<li>✓ <strong>全球晶圆代工 2026 增长 +14%（TSMC 指引）</strong>：TSMC 占全行业增量 > 80% · 份额继续扩张</li>
+<li>✓ <strong>先进制程涨价 3-10%（2026）</strong>：7nm 以下 · 半导体产业纵横；中芯 8 吋 BCD 涨价 10% 同步确认景气</li>
+<li>✓ <strong>Arizona / 日本 / 德国三地扩产</strong>：美国 $650 亿 / 日本熊本 / 德国德累斯顿 · 对冲地缘 + 税收抵免</li>
+<li>✓ <strong>CPO 共封装光学商业化落地</strong>：BofA 2026-04-13 · SoIC + CoWoS 技术在光引擎 / 光模组落地；2027 后第二波主升浪</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">TSMC 在 AI 时代的角色是<strong>半导体行业的"石油输出国"</strong>。同时受益五大结构性主题：①<strong>AI 数据中心 CapEx 长周期</strong>（NVDA / AMD / ASIC 三线客户）；②<strong>先进封装 CoWoS / SoIC 垄断</strong>（全球 AI 芯片必经节点）；③<strong>2nm 超长生命周期平台</strong>（N2 / N2P / A16 复用 Apple / AMD / NVDA / MediaTek）；④<strong>High-NA EUV 2027 后独家客户</strong>；⑤<strong>CPO 共封装光学</strong>（第二波主升浪，2027-28）。戴维斯 <strong>双击中段</strong>：Q1 2026 已经完成业绩超预期 + 估值从 FY25 20× 上移到 FY26 22-24×。12 个月 TP $230-250 / 24 个月 TP $280-300。</p>
+        </div>
+        <div class="mt-4 bg-red-50 border-l-4 border-red-400 p-3">
+          <div class="text-xs font-semibold text-red-800 uppercase mb-1">Exit Triggers · 止盈条件</div>
+          <ul class="text-xs text-red-900 space-y-1 list-disc list-inside">
+            <li>Apple iPhone 18 选择三星 / Intel 代工（thesis 实质性破位）</li>
+<li>NVIDIA 正式官宣 CoWoS 订单分摊给日月光 / 三星（产能垄断松动）</li>
+<li>2nm 良率 12 个月内未达 N3 同阶段水平</li>
+<li>管理层下调全年营收指引（USD 增长 < 25%）</li>
+<li>Intel 18A 在 2027 拿下 Apple / Qualcomm 订单（需重估中长期份额）</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">失效模式自检</div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span><span>熊市：否（AI CapEx 仍超预期 · 全年 +30% 再确认）</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span><span>证伪：极低（业绩全面 beat · 无 negative signal）</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400"></span><span>拥挤度：中高（全球科技 buy-side 普遍重仓，但估值未达极端）</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span><span>一致预期：持续上修（GS / BofA / JPM / Nomura 集体上调 TP）</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="school-quant bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">quant-school</div>
+            <div class="text-xl font-bold mt-1">量化派</div>
+            <div class="text-xs text-slate-500 mt-0.5">日频技术派 · MA+形态+量价</div>
+          </div>
+          <span class="rating-chip rating-buy">做多</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">信号强度</span><span class="font-mono font-semibold text-amber-700">强</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono">3-12 月</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono">6%（战术追多） · 叠加价值派 10% 底仓</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">入场策略</span><span class="font-mono">分批追多 + 回踩 200 日均线加仓</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">置信度</span><span class="font-mono">high</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">信号强度（TV）</span><span class="font-mono">偏多（BUY）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">RSI(14)</span><span class="font-mono">64.9（Bullish）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">MACD</span><span class="font-mono">Bullish</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">置信度（TV）</span><span class="font-mono">medium</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">数据源时间</span><span class="font-mono">2026-05-05T06:06:40+00:00</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">MCP 量化分</span><span class="font-mono">+3.50 / ±5</span></div>
+        </div>
+        <div class="mt-5 bg-blue-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">多周期结构</div>
+          <div class="text-xs text-slate-700 space-y-1">
+            <div class="flex justify-between"><span>月线</span><span>2023 年以来 <strong>超长上行通道</strong> · 月线 MACD 多头</span></div>
+            <div class="flex justify-between"><span>周线</span><span>偏多 · Bullish</span></div>
+            <div class="flex justify-between"><span>日线</span><span>当前 USD 401.61 · 50 日均线 USD 360.89 · 200 日均线 USD 306.26 · RSI 64.9</span></div>
+            <div class="flex justify-between mt-1 pt-1 border-t border-blue-200"><span>多周期共振</span><span class="font-semibold">多周期偏多</span></div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">关键价位</div>
+          <div class="relative h-20 bg-gradient-to-t from-red-50 via-amber-50 to-green-50 rounded border border-slate-200">
+            <div class="absolute top-2 left-4 text-[11px] text-emerald-700 font-semibold">压力 1 · USD 230（GS TP NT$2750 换算 · +24%）</div>
+            <div class="absolute top-1/2 left-4 text-[11px] text-slate-900 font-semibold">当前 · USD 401.61</div>
+            <div class="absolute bottom-2 left-4 text-[11px] text-red-700 font-semibold">止损 · USD 160（200 日均线 + 2025 收盘中位数）</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">技术面：<strong>月 / 周 / 日全线多头共振</strong>，Q1 2026 财报（4/17）后跳空向上放量确认。相对半导体板块（SOX）持续跑赢，相对纳斯达克 100 过去 12 月 +35pp。下一硬催化：<strong>26Q2 财报（2026-07 中）</strong> —— 指引 $39-40.2B / +32% YoY 若继续 beat，则突破 $230 打开第二波上行。建议三档分批：$185 / $178 / $170 各 1/3，硬止损 $160。若 Q2 财报 miss 指引中值 → 回踩 $170，但 thesis 不变。</p>
+        </div>
+        <div class="mt-4 bg-slate-50 border-l-4 border-slate-400 p-3">
+          <div class="text-xs font-semibold text-slate-700 uppercase mb-1">交易计划</div>
+          <div class="text-xs text-slate-700 space-y-1">
+            <div>入场：USD 180-185 首档 + 170-178 加仓 · 财报前只建半仓</div>
+            <div>止损：USD 160（硬止损，距现价 -14%）</div>
+            <div>目标 1：USD 230（GS TP · 12 个月） · 目标 2：USD 280-300（BofA TP $260 + 2028E 重估 · 24-36 个月）</div>
+            <div class="mt-1 pt-1 border-t border-slate-300 flex justify-between"><span>盈亏比</span><span class="font-mono font-semibold">3.6:1（上行 $45 / 下行 $25）</span></div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">主要风险</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside">
+            <li>Q2 财报 miss 指引中值 $39.5B（概率低但不能排除）</li>
+<li>台海 / 关税黑天鹅（无法预测但已部分定价）</li>
+<li>2027 CapEx $770 亿上限 → FCF 短期承压（但长期 ROIC 支撑）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">分歧面板 · DISAGREEMENT PANEL</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">不投票，只画图 · 把分歧放大而非抹平</span>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-1">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-3">五维分歧热图</div>
+      <canvas id="disagreementRadar" width="320" height="320"></canvas>
+      <div class="text-[10px] text-slate-400 mt-2 text-center">数值越高分歧越严重 · 0=无 · 3=高严重度</div>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-2">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-4">五维分歧详情</div>
+      <div class="space-y-4">
+        
+        <div class="border-l-4 border-slate-300 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">方向 · Direction</span>
+            <span class="rating-chip bg-slate-100 text-slate-600 text-xs">极低</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">三派 +3 / +5 / +3，方向全线偏多，无分歧。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-green-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">久期 · Horizon</span>
+            <span class="rating-chip bg-green-100 text-green-800 text-xs">低</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">3-5 年（价值）/ 2-5 年（成长）/ 3-12 月（量化），均长期偏多，兼容。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-slate-300 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">仓位 · Position</span>
+            <span class="rating-chip bg-slate-100 text-slate-600 text-xs">低-中</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">价值 10% / 成长 12% / 量化 6%，均为重仓建议。保守取 8%（重仓）。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-slate-300 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">置信度 · Confidence</span>
+            <span class="rating-chip bg-slate-100 text-slate-600 text-xs">极低</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">三派全部 high。业绩全面 beat + 客户垄断 + 技术路径清晰。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-green-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">理由 · Rationale</span>
+            <span class="rating-chip bg-green-100 text-green-800 text-xs">低</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">价值派看 Moat + DCF + CapEx ROIC；成长派看 AI 主题 + CoWoS 垄断；量化派看趋势 + 技术突破。同向同源（AI 结构性 + 垄断）+ 不同维度验证，强共识。</p>
+          
+          <div class="grid grid-cols-3 gap-2 text-[11px]">
+            <div class="bg-teal-50 rounded p-2"><div class="font-semibold text-teal-800">价值派关键词</div><div class="text-slate-700 mt-1">Moat · DCF · BofA TP $260 · CapEx ROIC · 3 地产能</div></div>
+            <div class="bg-orange-50 rounded p-2"><div class="font-semibold text-orange-800">成长派关键词</div><div class="text-slate-700 mt-1">AI HPC · CoWoS 15-16 万片 · 2nm · CPO · +30% USD</div></div>
+            <div class="bg-blue-50 rounded p-2"><div class="font-semibold text-blue-800">量化派关键词</div><div class="text-slate-700 mt-1">月/周/日多头 · SOX 相对强度 · Q2 财报</div></div>
+          </div>
+        
+        </div>
+    
+      </div>
+    </div>
+  </div>
+  <div class="mt-6 bg-gradient-to-r from-amber-50 to-white rounded-xl border border-amber-200 p-6">
+    <div class="flex items-start gap-4">
+      <div class="flex-shrink-0 w-10 h-10 bg-amber-400 text-white rounded-full flex items-center justify-center font-bold">i</div>
+      <div class="flex-1">
+        <div class="font-semibold text-amber-900">共识检测 · 软注释（不降评级）</div>
+        <p class="text-sm text-amber-900 mt-2 leading-relaxed"><strong>强共识 · 明显偏多</strong>。三派规范化方向 +3 / +5 / +3（[-5, +5] 刻度）。Q1 2026 营收 / GM / EPS 全面超预期，Q2 指引再超预期，全年 USD 增长 +30% 继续确认。GS / Nomura / JPM / BofA / MS 外资全部买入 / 增持，中资集体增持 / 买入。唯一需监控的是 2026 年 2nm 爬坡稀释（2-3pp GM）+ 2027 CapEx 上修，但这两点均不构成 thesis 破坏。建议 <strong>8% 重仓配置</strong>（价值派 10% 底仓 - 量化派 6% 战术追多的折中保守值）。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">风险监控 · RISK WATCHLIST</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">什么会让结论变化 · 该盯住什么指标</span>
+  </div>
+  <div class="bg-slate-900 text-slate-100 rounded-xl p-5 mb-6">
+    <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">WHAT COULD CHANGE THE CONCLUSION</div>
+    <p class="text-sm leading-relaxed">本板块<strong class="text-white">不评价研究员本身</strong>，而是站在投资者视角识别当前结论可能因什么变量反转，并给出监控清单。</p>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
+    <div class="text-xs font-semibold text-slate-500 uppercase mb-4">一、可能改变结论的关键变量</div>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-slate-300 text-xs text-slate-600 uppercase">
+            <th class="text-left py-2 pr-3">关键变量</th>
+            <th class="text-left py-2 px-3">当前状态</th>
+            <th class="text-left py-2 px-3 text-emerald-700">乐观情景</th>
+            <th class="text-left py-2 px-3 text-red-700">悲观情景</th>
+            <th class="text-left py-2 pl-3">敏感度</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">26Q2 营收</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">指引 $39.0-40.2B · 中值 QoQ +10% / YoY +32%</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">实际 > $40.5B（继续 beat 上沿）</td>
+            <td class="py-3 px-3 text-xs text-red-800">实际 < $39B（miss 下沿）</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">2026 CapEx</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">指引 $520-560 亿（高端）· 30% / 营收</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">维持在 $550 亿以下</td>
+            <td class="py-3 px-3 text-xs text-red-800">上修至 $580 亿+ → FCF 压力</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">N2 爬坡节奏</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">2026 初期稀释 GM 2-3pp</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">2026 年底 N2 良率达 N3 同阶段水平</td>
+            <td class="py-3 px-3 text-xs text-red-800">良率延期 6 个月</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">CoWoS 产能利用率</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">2026 15-16 万片 / 月 · 2028 目标 30+ 万</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">持续满载 + 扩产加速（2027 达 22 万片）</td>
+            <td class="py-3 px-3 text-xs text-red-800">NVDA 分摊订单到三星 / 日月光</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">2nm / A16 客户确认</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">Apple / AMD / MediaTek / Broadcom 已确认</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">NVIDIA 官宣 2nm · 高通 / 联发科扩单</td>
+            <td class="py-3 px-3 text-xs text-red-800">有客户转投三星 SF2</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">Apple 代工份额</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">iPhone 17 / 18 全系 TSMC（N2 / N3）</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">Apple M 系列芯片 A16 / A14 全代工</td>
+            <td class="py-3 px-3 text-xs text-red-800">iPhone 19 引入三星 / Intel 双源</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">Intel 18A 商业化</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">2026 初量产 · 无主流重磅客户</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">停留在小众 / 内部产品</td>
+            <td class="py-3 px-3 text-xs text-red-800">2027 拿下 Apple / Qualcomm 订单</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">Taiwan 地缘事件</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">常规地缘溢价 ~10%</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">持续缓和</td>
+            <td class="py-3 px-3 text-xs text-red-800">实质性紧张 → 短期 -20%</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">高（尾部）</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-4">二、监控指标清单（按频率）</div>
+      <div class="space-y-4 text-sm">
+        
+        <div class="border-l-4 border-blue-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每周追踪 · Weekly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>TSM vs SOX / SMH / NVDA 相对强度</li>
+<li>NVDA / AMD / Broadcom / AAPL 代工相关头条</li>
+<li>TSM 5 日 / 20 日 / 50 日均线 + 期权 IV 偏度</li></ul>
+        </div>
+        <div class="border-l-4 border-teal-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每月追踪 · Monthly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>2026E / 2027E 一致预期 EPS 环比变化</li>
+<li>CoWoS 月产能 / 扩产里程碑公告</li>
+<li>半导体板块 PE 分位（相对历史 5 年）</li>
+<li>北美 AI 相关 Capex（Hyperscalers Q Review）</li></ul>
+        </div>
+        <div class="border-l-4 border-orange-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每季度验证 · Quarterly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>营收 / GM / OpM / FCF 四指标</li>
+<li>3nm / N2 / CoWoS 在营收中占比</li>
+<li>CapEx 实际 vs 指引</li>
+<li>Apple / NVDA / AMD / Broadcom 客户端收入</li>
+<li>Arizona / 日本 / 德国 三地进度</li></ul>
+        </div>
+        <div class="border-l-4 border-red-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">事件驱动 · Event-Driven</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>2026-07 中旬 · 26Q2 财报（下一硬催化）</li>
+<li>2026 年度业绩说明会 · 2027 CapEx 指引</li>
+<li>NVIDIA / AMD / Apple 产品发布会 · 产能披露</li>
+<li>Intel IFS / 三星 SF2 客户签约动态</li>
+<li>台湾 / 美国 / 欧洲政策变动</li></ul>
+        </div>
+    
+      </div>
+    </div>
+    <div class="space-y-6">
+      <div class="bg-red-50 border border-red-200 rounded-xl p-6">
+        <div class="text-xs font-semibold text-red-800 uppercase mb-3">三、触发 Reassess 的硬条件</div>
+        <p class="text-xs text-red-900 mb-3">任一触发立即重新评估，不要等其他信号也亮灯：</p>
+        <ul class="text-sm text-red-900 space-y-2">
+          <li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">Apple iPhone 18 引入 Intel / 三星双源</span>
+            <span class="text-xs text-red-700 block">Apple 是 TSMC 最大单一客户，thesis 实质破位</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">26Q2 营收 miss $39B 指引下沿</span>
+            <span class="text-xs text-red-700 block">管理层指引可信度首次受挑战，成长派降至 +3</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">NVDA 官宣 CoWoS 订单 ≥ 30% 分摊给日月光 / 三星</span>
+            <span class="text-xs text-red-700 block">AI 后道垄断松动</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">2nm 12 个月良率未达 N3 同阶段</span>
+            <span class="text-xs text-red-700 block">核心技术壁垒受挑战</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">股价跌破 USD 160</span>
+            <span class="text-xs text-red-700 block">量化派硬止损 + 200 日均线 + 年度中位破位</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">Taiwan 实质性地缘事件</span>
+            <span class="text-xs text-red-700 block">尾部风险兑现 → 全派暂停</span>
+          </div>
+        </li>
+        </ul>
+      </div>
+      <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-6">
+        <div class="text-xs font-semibold text-emerald-800 uppercase mb-3">加仓的硬条件</div>
+        <ul class="text-sm text-emerald-900 space-y-2">
+          <li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">26Q2 营收 > $40.5B + GM > 67%（8% → 12%）</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">NVIDIA / Apple 官宣 N2 大单（8% → 10%）</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">CoWoS 2027 月产能目标上调至 22 万+（8% → 10%）</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">股价回踩 USD 170-178 放量反弹（8% → 10%）</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">Intel 18A 迟迟无重磅客户（8% → 10%）</span></div>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+    <div class="text-xs font-semibold text-slate-500 uppercase mb-4">四、未来 12 个月关键时间节点</div>
+    <div class="relative">
+      <div class="absolute left-4 top-2 bottom-2 w-0.5 bg-slate-200"></div>
+      <div class="space-y-4">
+        <div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/07 中旬 · 26Q2 财报（即期硬催化）</div>
+          <div class="text-xs text-slate-600 mt-0.5">$39-40.2B 指引验证 · Apple iPhone 18 首次订单确认 · 2026 CapEx 是否上调</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/09 · iPhone 17 上市 + Apple 产品迭代</div>
+          <div class="text-xs text-slate-600 mt-0.5">N3 / N2 出货节奏 · Apple 代工份额确认</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/10 · 26Q3 财报 + 2027 CapEx 指引</div>
+          <div class="text-xs text-slate-600 mt-0.5">2027 CapEx 区间 ($630-770 亿) · N2 良率更新</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/11 · NVIDIA / AMD AI 芯片新品发布</div>
+          <div class="text-xs text-slate-600 mt-0.5">下一代 Blackwell / MI400 · CoWoS 需求峰值</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2027/01 · FY26 全年财报 + 2027 指引</div>
+          <div class="text-xs text-slate-600 mt-0.5">USD +30% 目标验证 · 2nm 营收占比 · FCF 增速</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2027/中 · Arizona Phase 1 3nm 量产</div>
+          <div class="text-xs text-slate-600 mt-0.5">美国本土先进制程首秀 · CHIPS Act 税收抵免兑现</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2027/下 · High-NA EUV 商业化</div>
+          <div class="text-xs text-slate-600 mt-0.5">ASML High-NA 首家客户 · 1.4nm 路径开启</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2028/初 · CoWoS 30+ 万片 / 月达成</div>
+          <div class="text-xs text-slate-600 mt-0.5">AI 后道垄断规模化完成 · CPO 商业化第二波起步</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">最终审议纪要 · FINAL REVIEW MEMO</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">信息密度最大化 · 决策权归用户</span>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+        <h3 class="font-semibold text-slate-900">共识区 · 三派共同观察</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed">三派方向 +3 / +5 / +3（[-5, +5] 刻度）。共识来源：（a）<strong>Q1 2026 业绩全面 beat</strong>（营收 / GM / EPS 同时超预期）；（b）<strong>Q2 指引再次超预期</strong>（中值 +32% YoY vs 一致 +22%）；（c）<strong>CoWoS / SoIC / N2 三重垄断</strong>（AI 全链路必经节点）；（d）<strong>BofA TP $260 / 2028E PE 32.5×</strong>（相对现价 +40% 安全边际）；（e）全球主要 buy / sell-side 一致增持，评级上修</div>
+    </div>
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+        <h3 class="font-semibold text-slate-900">分歧区</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed"><p><strong>唯一分歧：仓位 6-12%</strong>。成长派 12%（最激进），价值派 10%（核心配置），量化派 6%（战术追多）。<strong>保守取 8%</strong>（价值 + 量化的加权中值），允许回踩 $170 加至 10%，财报 beat 后加至 12%。</p><p>成长派和价值派罕见地<strong>同向同源</strong>共识 —— AI 主题 + Moat 同时支撑，属于高置信度的伪分歧。量化派 6% 是技术性战术仓，不构成看空信号。</p><p>久期分歧兼容：价值 3-5 年（等 2028 CoWoS 30 万片）/ 成长 2-5 年（AI 主升浪中段）/ 量化 3-12 月（Q2 财报窗口）。不同持有期并行。</p></div>
+    </div>
+    
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+        <h3 class="font-semibold text-slate-900">建议动作</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed space-y-2">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">方向</div><div class="font-semibold">明显偏多（+3.67 / [-5, +5] 刻度）</div></div>
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">保守仓位</div><div class="font-semibold">8%（重仓）→ 回踩 $170-178 加至 10% → Q2 财报 beat 后加至 12%</div></div>
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">入场价</div><div class="font-semibold">USD 180-185 首档 + 170-178 加仓 · 硬止损 160</div></div>
+        </div>
+        <p class="mt-3">本次会诊属于<strong>三派强共识</strong>场景，是整个投资组合中罕见的高置信度 long。策略建议：（a）现价 $185 直接建 8% 底仓；（b）等 <strong>26Q2 财报（7 月中）</strong>事件驱动完成第二次加仓决策：若营收 > $40.5B + GM > 67% 加至 12%；若符合指引维持 10%；若 miss 指引中值（概率低）回到 8%；（c）硬止损 $160（200 日均线 + 年度中位）；（d）下一硬催化：26Q2 财报 · NVIDIA Blackwell 新品 · 2027 CapEx 指引。<strong>重点：本次不设置退出窗口</strong>，TSMC 是长期 3-5 年配置型持仓，战术信号只调整仓位大小，不调整方向。</p>
+      </div>
+    </div>
+    <div class="bg-slate-100 rounded-lg p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-slate-500"></div>
+        <h3 class="font-semibold text-slate-900">需用户显式判断的事项（本报告不代判）</h3>
+      </div>
+      <ol class="ml-5 text-sm text-slate-700 space-y-2 list-decimal list-inside">
+        <li>你对"Apple iPhone 18 全系 TSMC 代工"的置信度？ —— 这是价值派 Moat 评分 19/20 的核心假设</li>
+<li>你对 Intel 18A 在 2027 前拿下 Apple / Qualcomm 订单的概率判断？</li>
+<li>你对 NVIDIA 在 2027 后将 CoWoS 订单分摊给日月光 / 三星的概率判断？</li>
+<li>你能接受 2027 CapEx 上修至 $770 亿（FCF 短期承压 12-18 个月）吗？</li>
+<li>你是否愿意以 10-12% 仓位持有 3-5 年（穿越 2027 短期 FCF 压力窗口）？</li>
+<li>你对台海地缘风险溢价（~10%）的定价是否合理？是否应该用 TSM ADR vs 台股 TSMC 2330.TW 的价差对冲？</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<script>
+const ctx = document.getElementById('disagreementRadar');
+new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: ['方向', '久期', '仓位', '置信度', '理由'],
+    datasets: [{
+      label: '分歧严重度',
+      data: [0, 0, 1, 0, 1],
+      fill: true,
+      backgroundColor: 'rgba(220, 38, 38, 0.15)',
+      borderColor: 'rgb(220, 38, 38)',
+      pointBackgroundColor: 'rgb(220, 38, 38)',
+      pointBorderColor: '#fff'
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      r: {
+        beginAtZero: true, min: 0, max: 3,
+        ticks: { stepSize: 1, callback: function(v) { return ['无','低','中','高'][v] || ''; } },
+        pointLabels: { font: { size: 13, weight: '600' } }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
