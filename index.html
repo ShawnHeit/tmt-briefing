@@ -3238,6 +3238,11 @@ function renderDashboardEarningsFocus(){
   const data=(DAILY_DASHBOARD&&DAILY_DASHBOARD.earnings_focus)||{};
   const items=data.items||[];
   const days=data.days||[];
+  const displayDays=days.filter(day=>!['周六','周日'].includes(day.weekday||''));
+  const displayItems=displayDays.reduce((acc,day)=>{
+    const sessions=day.sessions||{};
+    return acc.concat(sessions.pre||[],sessions.post||[],sessions.unknown||[]);
+  },[]);
   const start=(data.window_start||'').slice(5);
   const end=(data.window_end||'').slice(5);
   const windowLabel=start&&end?`${start} - ${end}`:'本窗口';
@@ -3262,19 +3267,19 @@ function renderDashboardEarningsFocus(){
       ${bucket.length?bucket.map(earningsName).join(''):'<div style="font-size:10px;color:#D1D5DB;padding:8px 2px;">—</div>'}
     </td>`;
   };
-  const body=days.length?`<div style="overflow-x:auto;border:1px solid #E5E7EB;border-radius:12px;background:#fff;">
-    <table style="width:100%;border-collapse:collapse;min-width:920px;">
-      <thead><tr>${days.map(day=>`<th colspan="2" style="font-size:10px;color:#6B7280;text-align:left;padding:7px 8px;border-left:1px solid #F3F4F6;background:#F9FAFB;">${esc(day.date_label||'')} <span style="color:#9CA3AF;font-weight:600;">${esc(day.weekday||'')}</span></th>`).join('')}</tr></thead>
-      <tbody><tr>${days.map(day=>sessionCell(day,'pre')+sessionCell(day,'post')).join('')}</tr></tbody>
+  const body=displayDays.length?`<div style="overflow-x:auto;border:1px solid #E5E7EB;border-radius:12px;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;min-width:800px;">
+      <thead><tr>${displayDays.map(day=>`<th colspan="2" style="font-size:10px;color:#6B7280;text-align:left;padding:7px 8px;border-left:1px solid #F3F4F6;background:#F9FAFB;">${esc(day.date_label||'')} <span style="color:#9CA3AF;font-weight:600;">${esc(day.weekday||'')}</span></th>`).join('')}</tr></thead>
+      <tbody><tr>${displayDays.map(day=>sessionCell(day,'pre')+sessionCell(day,'post')).join('')}</tr></tbody>
     </table>
   </div>`:'<div style="font-size:11px;color:#9CA3AF;padding:12px;background:#fff;border:1px dashed #E5E7EB;border-radius:12px;text-align:center;">本窗口暂无已维护财报</div>';
   wrap.innerHTML=`<div style="background:#F8FAFC;border-radius:14px;padding:12px;margin-bottom:10px;">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:8px;gap:10px;">
       <div>
         <div style="font-size:10px;font-weight:800;color:#9CA3AF;letter-spacing:.08em;text-transform:uppercase;">财报关注 Earnings Focus</div>
-        <div style="font-size:11px;color:#9CA3AF;margin-top:2px;">Watchlist 7 天窗口 · 每天分盘前 / 盘后 · 命中会诊标的可点进 audit</div>
+        <div style="font-size:11px;color:#9CA3AF;margin-top:2px;">Watchlist 本周窗口 · 周末隐藏 · 每天分盘前 / 盘后 · 命中会诊标的可点进 audit</div>
       </div>
-      <div style="font-size:10px;color:#9CA3AF;text-align:right;">${esc(windowLabel)} · ${items.length} 只</div>
+      <div style="font-size:10px;color:#9CA3AF;text-align:right;">${esc(windowLabel)} · ${displayItems.length||items.length} 只</div>
     </div>
     ${body}
   </div>`;
