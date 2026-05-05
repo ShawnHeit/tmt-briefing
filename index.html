@@ -339,9 +339,48 @@ body{margin:0;background:#F3F4F6;font-family:-apple-system,BlinkMacSystemFont,"P
 // ═══════════════════════════════
 const KEY_DELTAS=[
   {
-    "type": "利好",
+    "type": "关注",
+    "importance": "关注",
+    "headline": "NAND 涨价延续",
+    "bullets": [
+      "外资：⭐⭐⭐⭐⭐ 2Q26 DRAM/NAND 价格预测继续上修",
+      "投资逻辑：AI 训练/推理和云端长单继续挤压存储供给，价格与盈利弹性仍在释放",
+      "投资建议：关注 Sandisk/美光/海力士，以及 A 股存储模组和设备材料映射"
+    ],
+    "text": "【NAND 涨价延续】外资：⭐⭐⭐⭐⭐ 2Q26 DRAM/NAND 价格预测继续上修 → 投资逻辑：AI 训练/推理和云端长单继续挤压存储供给，价格与盈利弹性仍在释放 → 投资建议：关注 Sandisk/美光/海力士，以及 A 股存储模组和设备材料映射"
+  },
+  {
+    "type": "关注",
+    "importance": "关注",
+    "headline": "寒武纪 增量",
+    "bullets": [
+      "外资：GS 认为寒武纪 1Q26 大超预期，AI 国产算力基础设施扩张带动订单和盈利质量提升",
+      "投资逻辑：该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息",
+      "投资建议：优先打开原始 PDF，核对目标价、订单、供需和下游客户变化"
+    ],
+    "text": "【寒武纪 增量】外资：GS 认为寒武纪 1Q26 大超预期，AI 国产算力基础设施扩张带动订单和盈利质量提升 → 投资逻辑：该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息 → 投资建议：优先打开原始 PDF，核对目标价、订单、供需和下游客户变化"
+  },
+  {
+    "type": "关注",
     "importance": "活跃",
-    "text": "【外资 AI 仓位分散】欧洲路演：资金从台积电等龙头分散，GPTC/All Ring 成 AI/HPC 确定性最高 50/50 标的 → 外资 AI 仓位从「龙头集中」进入「细分替代」阶段 → 先进封装设备（盛合晶微/长电）+ 测试（华峰测控/长川/伟测）+ 中科飞测/精测电子"
+    "headline": "HDD大厂调研",
+    "bullets": [
+      "AceCamp 共享调研纪要：HDD 纪要的边际在于出货规划和关键零部件供应链，直接对应 WDC/东芝以及 HOYA、TDK、Resonac 等上游约束…",
+      "投资逻辑：专家纪要 / 调研，时间 04-30",
+      "投资建议：用于校准产业链供需、采购节奏和竞争格局"
+    ],
+    "text": "【HDD大厂调研】AceCamp 共享调研纪要：HDD 纪要的边际在于出货规划和关键零部件供应链，直接对应 WDC/东芝以及 HOYA、TDK、Resonac 等上游约束… → 投资逻辑：专家纪要 / 调研，时间 04-30 → 投资建议：用于校准产业链供需、采购节奏和竞争格局"
+  },
+  {
+    "type": "关注",
+    "importance": "活跃",
+    "headline": "光模块大厂调研",
+    "bullets": [
+      "AceCamp 共享调研纪要：这条比单一光芯片纪要更贴近头部公有云：直接聚焦 Meta/AWS/微软/Oracle/谷歌的光模块/光芯片产能、客户验证和物料设备供应…",
+      "投资逻辑：专家纪要 / 调研，时间 04-29",
+      "投资建议：用于校准产业链供需、采购节奏和竞争格局"
+    ],
+    "text": "【光模块大厂调研】AceCamp 共享调研纪要：这条比单一光芯片纪要更贴近头部公有云：直接聚焦 Meta/AWS/微软/Oracle/谷歌的光模块/光芯片产能、客户验证和物料设备供应… → 投资逻辑：专家纪要 / 调研，时间 04-29 → 投资建议：用于校准产业链供需、采购节奏和竞争格局"
   }
 ];
 
@@ -352,16 +391,16 @@ const BRIEFING_CARDS=[
    urgency:"关注",
    sector:"存储",
    title:"NAND 涨价延续",
-   dataPoints:["外资：【编号 18002647】", "投资逻辑：AI 训练/推理和云端长单继续挤压存储供给，价格与盈利弹性仍在释放。", "投资建议：关注 Sandisk/美光/海力士，以及 A 股存储模组和设备材料映射。"],
-   aiSummary:"【编号 18002647】 AI 训练/推理和云端长单继续挤压存储供给，价格与盈利弹性仍在释放。",
+   dataPoints:["外资：⭐⭐⭐⭐⭐ 2Q26 DRAM/NAND 价格预测继续上修", "投资逻辑：AI 训练/推理和云端长单继续挤压存储供给，价格与盈利弹性仍在释放。", "投资建议：关注 Sandisk/美光/海力士，以及 A 股存储模组和设备材料映射。"],
+   aiSummary:"⭐⭐⭐⭐⭐ 2Q26 DRAM/NAND 价格预测继续上修 AI 训练/推理和云端长单继续挤压存储供给，价格与盈利弹性仍在释放。",
    refs:[{"label": "外资 NAND 涨价延续（05-04）", "type": "data"}]},
   {ts:"2026-05-04 20:53",
    signal:"关注",
    urgency:"关注",
    sector:"其他",
    title:"寒武纪 增量",
-   dataPoints:["外资：【编号 18002649】", "投资逻辑：该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息。", "投资建议：优先打开原始 PDF，核对目标价、订单、供需和下游客户变化。"],
-   aiSummary:"【编号 18002649】 该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息。",
+   dataPoints:["外资：GS 认为寒武纪 1Q26 大超预期，AI 国产算力基础设施扩张带动订单和盈利质量提升", "投资逻辑：该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息。", "投资建议：优先打开原始 PDF，核对目标价、订单、供需和下游客户变化。"],
+   aiSummary:"GS 认为寒武纪 1Q26 大超预期，AI 国产算力基础设施扩张带动订单和盈利质量提升 该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息。",
    refs:[{"label": "外资 寒武纪 增量（05-04）", "type": "data"}]},
   {ts:"2026-04-30 20:51",
    signal:"关注",
@@ -573,732 +612,832 @@ const PREDICTION_MARKETS=[
    series:genSeries([{label:'是（加息）',color:'#EF4444',start:22,end:20,vol:1.5},{label:'否（不加）',color:'#18A84C',start:78,end:80,vol:1.5}])},
 ];
 
-const RESEARCH_ITEMS=[
-  {
-    "date": "04-30",
-    "broker": "东吴证券",
-    "type": "业绩点评",
-    "company": "2026年一季报点评",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "东吴证券*公司点评报告*2026年一季报点评：营收稳健增长，汇兑损失短期压制利润表现--豪迈科技（002595）*002595*周尔双 钱尧天 陶泽 投资要点 26Q1营收稳步增长，汇兑损失短期影响归母净利润 2026Q1单季度公司实现营收26.68亿元，同比+17.07%；实现归母净利润 5.15亿元，同比-0.83%；实现扣非归母净利润4.97亿元，同比-0.94%。 销售毛利率有所回升，期间费用率短期波动 2026年Q1公司销售毛利率34.05%，同比+0.24pct。",
-    "source": "知丘"
-  },
-  {
-    "date": "04-30",
-    "broker": "国金证券 批发零售",
-    "type": "业绩点评",
-    "company": "致欧科技",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "业绩简评 4月28日公司披露2025&26Q1业绩，25年收入87.01亿元(同比+7.1%)；归母净利3.36亿元(同比+0.7%)，扣除股份支付影响后的净利3.32亿元（同比-5.1%）。其中25Q4收入26.19亿元（同比+9.3%），归母净利0.64亿元（同比+14.3%）；26Q1收入23.14亿元（同比+10.7%），归母净利0.75亿元（同比-32.2%）。 经营分析 贸易政策扰动下美加市场拓展节奏受阻，欧洲市场展现增长韧性。分区域来看，25A欧洲/美加/拉美收",
-    "source": "知丘"
-  },
-  {
-    "date": "04-30",
-    "broker": "国信证券",
-    "type": "业绩点评",
-    "company": "呈和科技",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "【研究机构】 国信证券【报告类型】 公司研究*财报点评【标 题】 呈和科技（688625.SH）-海外业务实现突破，布局高端电子材料新赛道【股票代码】 688625.SH【行业类别】 其他化学制品【分 析 师】 杨林 王新航【推荐级别】 ★★★★★【发布时间】 2026-04-30 06:57:00 【内容摘要】 2025年及2026年一季度业绩实现稳健增长，海外业务表现亮眼。2025年公司实现营业收入9.77亿元，同比增长11.94%；实现归母净利润2.76亿元，同比增长1",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "南京证券 汽车零配 行业简评",
-    "type": "研报",
-    "company": "新能车",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "本周行情回顾：本周CS新能车指数上涨1.56%，沪深300指数上涨0.86%，行业指数跑赢沪深300指数0.70个百分点。其中涨幅居前的个股包括：德福科技（+19.85%）、天齐锂业（+10.58%）、多氟多（+10.10%）、均胜电子（+8.98%）和中科电气（+8.97%）。跌幅居前的个股包括：法拉电子（-5.89%）、杭可科技（-5.40%）、银轮股份（-4.75%）、比亚迪（-4.16%）和华友钴业（-2.16%）。 原材料价格：本周锂价持续上涨，碳酸锂本周价格为17",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "财通证券",
-    "type": "业绩点评",
-    "company": "机器人",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "【财通证券】公司点评｜汽车零部件｜伯特利(603596)：增强全底盘配套能力，战略布局机器人领域｜吴晓飞 王宁｜260429 报告标题=增强全底盘配套能力，战略布局机器人领域 报告日期=260429 ■ 事件：2026年4月28日公司发布2026年一季报：2026年一季度公司收入26.74亿元，同比+1.4%，环比-26.9%；毛利率19.43%，同比+1.5pct，环比-1.0pct；归母净利润2.69亿元，同比-0.6%，环比-35.7%。 ■ 机器人初期布局完成，有望开",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "东吴证券",
-    "type": "业绩点评",
-    "company": "AI算力",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "投资要点 以太网芯片需求放量驱动营收高速增长。据公司2025年报和2026年一季度报告，2025年裕太微实现营收6.17亿元，yoy+55.62%，归母净利润-1.34亿元，亏损同比收窄33.69%。2025 年 Q4 单季营收2.29亿元，yoy+75.89%，qoq+38.05%，归母净利润-0.06亿元，亏损同比收窄89.91%，环比收窄73.27%。2026年一季度公司实现营收1.42亿元，yoy+74.83%，qoq-38.11%，归母净利润-0.43亿元，亏损同比",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "长城证券",
-    "type": "业绩点评",
-    "company": "阿特斯",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "长城证券*公司报告*阿特斯*储能业务高景气，海外布局持续领先*太阳能*张磊,吴念峻 20260429 报告名称: 储能业务高景气，海外布局持续领先 报告类型: 公司报告 报告日期: 20260429 研究员: 张磊,吴念峻 行业: 太阳能 公司名称: 阿特斯 公司代码: 688472.SH 投资评级: 买入(维持) 【内容摘要】 事件：2026年4月28日，公司发布2025年年报与2026年一季报，2025年公司实现营业收入402.56亿元，同比下降12.8%，实现归母净利润",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "浙商证券",
-    "type": "业绩点评",
-    "company": "恺英网络",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "浙商证券*公司点评*恺英网络(002517):游戏平台业务快速发展，26Q1营收利润均高增*冯翠婷 陈磊*买入 投资要点 ？事件：4月28日，公司发布2025年年报和26Q1季报 公司2025年实现营收53.3亿元，同比增长4.04%；实现归母净利润为19.0亿元，同比增长16.9%；实现扣非归母净利润为18.4亿元，同比增长15.2%；公司26Q1实现营收22.2亿元，同比增长64.2%；实现归母净利润为7.81亿元，同比增长50.7%；实现扣非归母净利润为5.45亿元，同",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "中金公司 欧美股票研究",
-    "type": "研报",
-    "company": "SPOTIFY",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "1Q26业绩符合我们的预期 公司公布1Q26业绩：收入45.33亿欧元，同增8.2%；营业利润7.15亿欧元，营业利润率15.8%。公司业绩基本符合我们预期。 发展趋势 MAU表现持续亮眼，提价驱动订阅收入高质量增长。用户端，1Q26公司MAU/MPU分别环增1,000/300万人至7.61/2.93亿人，其中MAU表现好于我们预期，我们认为主要系Spotify免费套餐升级持续释放红利。收入端，1Q26公司总营收同增8.2%至45.33亿欧元，拆分来看：1Q26订阅收入同增1",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "中金公司 通用机械",
-    "type": "业绩点评",
-    "company": "中核科技",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "2025年业绩低于我们预期 公司公布2025年业绩：实现收入17.31亿元，同比-6.08%；归母净利润1.70亿元，同比-25.92%；扣非净利润1.49亿元，同比-29.41%；对应每股盈利0.44元，同比-25.92%。2025年由于营收规模收缩及费用刚性，公司整体盈利端承压，因此整体业绩低于我们预期。 1Q26年，公司实现营业收入1.21亿元，同比-49.21%；归母净利润亏损0.11亿元，同比-692.78%；扣非归母净利润亏损0.15亿元，亏损主要系大额订单未到交",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "平安证券",
-    "type": "业绩点评",
-    "company": "阳光电源",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "【事项说明】公司发布2026年一季报。2026年第一季度，公司实现营业收入155.61亿元，同比减少18.26%；实现归母净利润22.91亿元，同比减少40.12%。 【平安观点】 前期高基数大项目确收节奏等因素影响下，一季度业绩同比下降。2026年第一季度，公司实现营业收入155.61亿元，同比减少18.26%。国内分布式业务方面，2025年531新政以来，新能源家庭光伏业务减少，新项目开发速度放缓，而2025年一季度是新政前的抢装，因此收入同比下降；海外业务方面，2025",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "国海证券 电子新材料",
-    "type": "业绩点评",
-    "company": "江丰电子",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "事件: 江丰电子4月15日发布2025年报：2025年公司实现收入46.04亿元，同比增长27.72%；实现归母净利润5.00亿元，同比增长24.70%；实现扣非归母净利润3.60亿元，同比增长18.74%。 江丰电子4月28日发布2026年一季报：2026Q1公司实现收入13.06亿元，同比增长30.49%；实现归母净利润2.10亿元，同比增长33.42%；实现扣非归母净利润1.25亿元，同比增长37.07%。 投资要点: 2025年靶材及零部件均同比稳健增长。2025年公",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "东吴证券",
-    "type": "业绩点评",
-    "company": "晶澳科技",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "投资要点 公司发布2026年一季报和2025年年报，公司25年营收491.3亿元，同比-29.9%，归母净利润-46.1亿元，同比+1%，扣非净利润-50.3亿元，同比-17.8%,毛利率-2.1%，同比-6.6pct；其中25年Q4营收123.2亿元，同环比-21.9％/-4.5％，归母净利润-10.6亿元，同环比-74.7%/8.5％，扣非净利润-15.7亿元，同环比-57.2%/35％。26Q1营收92.2亿元，同环比-13.6％/-25.2％，归母净利润-10.7亿元",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "光大证券",
-    "type": "业绩点评",
-    "company": "盈峰环境",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "事件：公司发布2025年年报&2026年一季报，2025年实现营业收入138.44亿元，同比+5.53%，实现归母净利润5.5亿元，同比+7.07%；2026Q1实现营业收入39.22亿元，同比+23.23%，实现归母净利润2.14亿元，同比+18.61%，环比+173.11%。 环保装备销售额连续25年行业第一，城市服务业务稳健经营。（1）2025年公司智能装备业务营业收入同比+13.99%至59.13亿元，环保装备销售额已连续25年位居国内第一，环保装备销量同比+15.1",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "中银证券 港股研究",
-    "type": "研报",
-    "company": "比亚迪电子",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "BYD Electronic ？?FX volatility and memory costs pressures near-term profit (BUY) *0285.HK Alex LIN; Alina LIN (i) BYD-E reported mixed 1Q26 results with improved revenue (4% YoY), GPM(1.2ppt QoQ) but declined NI (-96% YoY), primarily due to",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "国金证券 橡胶制品",
-    "type": "业绩点评",
-    "company": "AI算力",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "业绩简评 2026年4月28日，公司发布2025年年报及2026年一季报。2025全年公司实现营业收入11.57亿元，同比增长20.75%，实现归母净利润0.36亿元，同比增长106.08%；2026年第一季度实现营业收入2.24亿元，同比下降11.09%；实现归母净利润-0.03亿元，同比下降129.75%，业绩符合预期。 经营分析 多因素扰动致盈利阶段性调整：2026年一季度，公司实现毛利率16.46%，同比下降1.23PCT；净利率为-0.8%，同比转负，整体盈利能力出",
-    "source": "知丘"
-  },
-  {
-    "date": "04-29",
-    "broker": "太平洋",
-    "type": "业绩点评",
-    "company": "联易融科技-W",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "事件：联易融科技发布2025年年度报告。全年公司实现总收入9.83亿元，同比-4.7%；实现归母净亏损4.39亿元，同比收窄47.5%。下半年业绩修复强劲，公司实现收入6.08亿元，环比+62.4%；归母净亏损收窄至0.59亿元，边际改善显著。 核心业务增长强劲，市场地位持续巩固。报告期内，公司服务供应链资产规模总额达5081亿元，同比+27.3%，连续六年位居行业第一。核心增长引擎多级流转云业务处理量同比+46.7%至3042亿元，占集团总资产规模比重提升至59.9%，战略",
-    "source": "知丘"
-  },
-  {
-    "date": "04-28",
-    "broker": "国泰海通",
-    "type": "深度研究",
-    "company": "矽电股份",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "报告类型=公司首次覆盖 公司简称=矽电股份 公司代码=301629 报告日期=2026-04-28 19:57:24 报告作者=肖隽翀 报告标题=期待光通信、逻辑/存储探针台业务成长 投资建议，首次覆盖，给予矽电股份“增持”评级，目标价412.50元。我们对矽电股份2026E-2028E收入预测分别为7.08亿元、9.25亿元、12.47亿元，同比增68.94%、30.74%和34.81%；归母净利润分别为1.15亿元、1.68亿元、2.42亿元，同比增117.16%、46.",
-    "source": "知丘"
-  },
-  {
-    "date": "04-28",
-    "broker": "国泰海通",
-    "type": "深度研究",
-    "company": "矽电股份",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "报告类型=公司首次覆盖 公司简称=矽电股份 公司代码=301629 报告日期=2026-04-28 19:57:24 报告作者=肖隽翀 报告标题=期待光通信、逻辑/存储探针台业务成长 投资建议，首次覆盖，给予矽电股份“增持”评级，目标价412.50元。我们对矽电股份2026E-2028E收入预测分别为7.08亿元、9.25亿元、12.47亿元，同比增68.94%、30.74%和34.81%；归母净利润分别为1.15亿元、1.68亿元、2.42亿元，同比增117.16%、46.",
-    "source": "知丘"
-  },
-  {
-    "date": "04-28",
-    "broker": "东吴证券",
-    "type": "业绩点评",
-    "company": "千里科技",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "【本邮件来自外部，请核实发件人和内容是否可信，谨慎访问其中的附件、链接或二维码！不要在未经确认的网页中输入公司或个人的账号、密码等信息！对无法确认的邮件，请联系IT分析处置。】 投资要点 公司发布2026年一季报，收入稳健，研发持续加码。2026Q1公司实现营业收入23.61亿元，同比30.69%，环比-22.66%；归母净利润0.48亿元，归母净利率2.05%，同比0.94pct，环比1.03pct；扣非后归母净利润0.01亿元。公司盈利能力显著改善，2026Q1毛利率24",
-    "source": "知丘"
-  },
-  {
-    "date": "04-28",
-    "broker": "中信建投",
-    "type": "业绩点评",
-    "company": "奕瑞科技",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "中信建投证券*A股公司简评报告*【中信建投医疗器械】奕瑞科技(688301):业绩略超预期，新业务实现强劲增长*688301*医药生物*袁清慧 王在存 朱琪璋 朱红亮 贺菊颖*买入*20260428 中信建投证券*A股公司简评报告*【中信建投医疗器械】奕瑞科技(688301):业绩略超预期，新业务实现强劲增长*688301*医药生物*袁清慧 王在存 朱琪璋 朱红亮 贺菊颖*买入*20260428 核心观点 公司25年业绩略超预期。26Q1公司跟关联方视涯科技的关联交易金额预计",
-    "source": "知丘"
-  },
-  {
-    "date": "04-28",
-    "broker": "中泰证券",
-    "type": "业绩点评",
-    "company": "智明达",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "报告名称:业绩迎历史新高，新兴业务有望打开增长新空间 分析师:陈鼎如 马梦泽 报告类型:公司点评报告 报告日期:2026-04-28 16:55:33 所属行业:军工电子Ⅱ 报告星级:★★★★★ 公司名称:智明达 合理估值(元): 内容摘要 事件：2026年3月25日公司发布2025年年度报告，2025年公司实现总营业收入7.09亿元，同比增长61.87%；利润总额达到1.09亿元，同比增长597.5%；实现归母净利润1.02亿元，同比增长425.27%。2026年4月22日",
-    "source": "知丘"
-  },
-  {
-    "date": "04-28",
-    "broker": "长江证券",
-    "type": "深度研究",
-    "company": "华测导航",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "报告标题：穿越β周期的α：风雨无惧，前行不止 报告来源：于海宁,祖圣腾/长江证券 报告类型：公司研究/点评报告 证券简称/代码：华测导航/300627 行业：通信设备 报告日期：2026-04-28 16:06:06 【内容摘要】 自2003年成立以来，公司以高精度定位导航技术为发展根基，逐步构建起定位导航技术、感知测量技术、智能控制技术三大核心技术体系，并持续聚焦相关产品与解决方案的研发、制造、集成和产业化应用，不断拓展至多行业领域，2026年，公司经营目标为归母净利润7.",
-    "source": "知丘"
-  },
-  {
-    "date": "04-28",
-    "broker": "中泰证券",
-    "type": "业绩点评",
-    "company": "睿创微纳",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "报告名称:红外主业高景气上行，盈利能力显著提升 分析师:陈鼎如 马梦泽 报告类型:公司点评报告 报告日期:2026-04-28 16:57:07 所属行业:军工电子Ⅱ 报告星级:★★★★★ 公司名称:睿创微纳 合理估值(元): 内容摘要 事件：2026年4月9日公司发布2025年年度报告，2025年公司本年度实现总营业收入63.04亿元，同比增长46.07%；利润总额达到10.98亿元，同比增长156.47%；实现归母净利润11.25亿元，同比增长97.66%。 红外主业供需",
-    "source": "知丘"
-  },
-  {
-    "date": "04-28",
-    "broker": "中信建投",
-    "type": "业绩点评",
-    "company": "福斯特",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "核心观点 公司2026Q1收入33.73亿元，同比-6.95%，归母净利润3.12亿元，同比-22.27%、环比+279.87%，业绩环比明显修复，主要受益于胶膜原材料上涨带来的低价库存收益及信用减值冲回。胶膜主业在行业淡季中出货韧性较强，Q1出货6.55亿平，同比+5.64%、环比-6.73%，市占率提升至60%以上，海外业务盈利能力仍优于国内。电子材料受益AI服务器PCB高端化趋势，感光干膜Q1出货5200万平，同比+25.74%，HDI、mSAP等中高端产品放量有望带动",
-    "source": "知丘"
-  },
-  {
-    "date": "04-28",
-    "broker": "中银证券",
-    "type": "业绩点评",
-    "company": "瑞芯微",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "瑞芯微发布2025年年报和2026年一季报。公司2025年和2026Q1业绩同比持续高增，产品结构优化带动盈利提升。公司确立“SoC+协处理器”双轨并行发展的产品路径。随着端侧大模型加速落地，公司自研协处理器突破端侧AI关键瓶颈,我们预计协处理器有望成为公司业绩增长的关键驱动力。公司持续完善产品矩阵，坚持“IP先行”以支持下一代芯片创新。维持“增持”评级。 支撑评级的要点 业绩持续高增，产品结构优化带动盈利提升。瑞芯微2025年营收44.02亿元，YoY+40%；归母净利润1",
-    "source": "知丘"
-  },
-  {
-    "date": "04-28",
-    "broker": "国联民生",
-    "type": "债券专题",
-    "company": "策略宏观",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "2026年一季度基金持仓地方债有何变化：2026年一季报中基金地方政府债持仓上升至428亿元，较2025年四季报增加46亿元，主要是一季度中端地方债表现较好、利差得到压缩，以及今年市场集中参与超长端凸点位置（一开始参与15Y，而后转为参与20Y），主要是中长期纯债券型基金的持仓规模大幅环比增加，当前持仓规模为362亿元，环比增加55亿元。从持有习惯来看，季度新增持有地方债的规模为210亿元，占比为49%，说明基金近期参与新券的热情明显增加。从期限分布来看，2026年一季度基金",
-    "source": "知丘"
-  },
-  {
-    "date": "04-28",
-    "broker": "国泰海通",
-    "type": "业绩点评",
-    "company": "三七互娱",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "我们认为核心产品运营稳定，新游表现出色，维持“增持”评级。我们预计2026-2028年公司EPS预测值分别为1.42/1.61/1.77元，考虑到公司2026年新品较多，新游《LastAsylum:Plague》数据表现出色，前期产品投入有望在2027年实现盈利释放。参考可比公司，考虑到公司游戏长周期运营能力强，且持续高分红回馈股东，我们给与公司2026年20倍动态PE，对应目标价28.40元，维持“增持”评级。 26Q1业绩增速稳健，产品端和投资收益均有贡献。公司2026Q",
-    "source": "知丘"
-  },
-  {
-    "date": "04-28",
-    "broker": "招商证券",
-    "type": "业绩点评",
-    "company": "南方传媒",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "报告名称：南方传媒（601900）—主业经营稳健，数智化转型与“书影融合”打开新空间 研究员：顾佳,徐帅 报告类型：公司研究 * 点评报告 报告日期：2026-04-28 研究方向：传媒 公司名称及代码：南方传媒(601900) 投资评级：强烈推荐 【内容摘要】 主业经营稳健释放发展潜力，经营效益持续提升。公司2025年实现营业收入86.35亿元，同比-5.85%，主要系一般图书市场承压及公司主动收缩低毛利物资业务所致。公司核心主业教育出版业务保持稳健增长，出版业务板块实现营",
-    "source": "知丘"
-  },
-  {
-    "date": "04-28",
-    "broker": "平安证券",
-    "type": "业绩点评",
-    "company": "【平安证券】中科创达",
-    "ticker": "—",
-    "change": "N/A",
-    "rating": "—",
-    "detail": "【事项说明】公司公告2025年年报，2025年实现营业收入77.78亿元，同比增长44.45%，实现归母净利润4.50亿元，同比增长10.47%，实现扣非归母净利润3.44亿元，同比增长96.43%。2025年利润分配预案为：每10股派发现金红利1.85元（含税），不送红股，不以资本公积金转增股本。 【平安观点】 公司2025年营收和扣非归母净利润均实现高速增长。根据公司公告，公司2025年实现营业收入77.78亿元，同比增长44.45%，公司营收实现高速增长。分区域看，公司",
-    "source": "知丘"
-  }
-];
+const RESEARCH_ITEMS=[];
 
 const ACECAMP_ITEMS=[
   {
-    "time": "05-04 09:02",
+    "time": "04-30",
     "source": "AceCamp 共享调研纪要",
-    "title": "光芯片业务分析：产能加速爬坡与良率修复，2026年迎盈利拐点",
-    "tags": [
-      "AI算力",
-      "光芯片"
-    ],
-    "detail": "CW 光源仍以 70mW 为主、100mW 小批量，MOCVD/6英寸衬底扩产给出 2026 年盈利拐点线索；但 CW 门槛低，2027 年价格腰斩风险需要折现。"
-  },
-  {
-    "time": "04-30 11:34",
-    "source": "AceCamp 共享调研纪要",
-    "title": "HDD大厂调研:出货量规划,关键零部件供应链格局-聚焦西部数据/东芝/HOYA/索尼/TDK/Int",
+    "title": "HDD大厂调研",
+    "full_title": "HDD大厂调研:出货量规划,关键零部件供应链格局-聚焦西部数据/东芝/HOYA/索尼/TDK/Intevac/Resonac等",
     "tags": [
       "西部数据"
     ],
-    "detail": "HDD 纪要的边际在于出货规划和关键零部件供应链，直接对应 WDC/东芝以及 HOYA、TDK、Resonac 等上游约束，可用于验证 nearline HDD 紧平衡。"
+    "detail": "HDD 纪要的边际在于出货规划和关键零部件供应链，直接对应 WDC/东芝以及 HOYA、TDK、Resonac 等上游约束，可用于验证 nearline HDD 紧平衡。",
+    "event_url": "https://www.acecamptech.com/article/detail/70561631",
+    "is_key": false
   },
   {
-    "time": "04-30 08:52",
-    "source": "AceCamp Leo Gao",
-    "title": "光芯片龙头调研：1.6T光模块供应链分析——硅光方案放量/EML芯片供需缺口/200G认证节奏/磷化",
-    "tags": [
-      "AI算力",
-      "光模块",
-      "光芯片"
-    ],
-    "detail": "1.6T 光模块纪要给出方案分化：200G EML 供给紧张使 8 通道受限，16 通道 100G EML 方案成为阶段性折中，边际指向 EML/硅光/InP 供需约束。"
-  },
-  {
-    "time": "04-29 15:25",
+    "time": "04-29",
     "source": "AceCamp 共享调研纪要",
-    "title": "光模块大厂调研:光模块/光芯片产能及扩产规划,客户验证进展及需求,物料/设备供应情况-聚焦Meta/",
+    "title": "光模块大厂调研",
+    "full_title": "光模块大厂调研:光模块/光芯片产能及扩产规划,客户验证进展及需求,物料/设备供应情况-聚焦Meta/AWS/微软/Oracle/谷歌/住友/AXT/鑫耀/Coherent等",
     "tags": [
       "AI算力",
       "光模块",
       "光芯片"
     ],
-    "detail": "这条比单一光芯片纪要更贴近头部公有云：直接聚焦 Meta/AWS/微软/Oracle/谷歌的光模块/光芯片产能、客户验证和物料设备供应，是判断 CSP AI capex 落到哪条光通信链的关键跟踪。"
+    "detail": "这条比单一光芯片纪要更贴近头部公有云：直接聚焦 Meta/AWS/微软/Oracle/谷歌的光模块/光芯片产能、客户验证和物料设备供应，是判断 CSP AI capex 落到哪条光通信链的关键跟踪。",
+    "event_url": "https://www.acecamptech.com/article/detail/70561557",
+    "is_key": false
+  },
+  {
+    "time": "04-28",
+    "source": "AceCamp Jay Dong",
+    "title": "火山调研",
+    "full_title": "火山调研：AI推理算力供需变化，昇腾、寒武纪及海光采购规划，与阿里云等竞争变化",
+    "tags": [
+      "阿里巴巴",
+      "AI算力",
+      "昇腾"
+    ],
+    "detail": "资深行业专家进行分享：；AI推理算力供需变化，昇腾、寒武纪及海光采购规划。",
+    "event_url": "https://www.acecamptech.com/eventDetail/60534193",
+    "is_key": false
   }
 ];
 
 const ZSXQ_ITEMS=[
   {
-    "date": "05-05",
-    "author": "@Leada",
-    "type": "外资研报",
-    "tags": [
-      "AI算力",
-      "外资研报"
-    ],
-    "title": "几篇关于半导体设备 | GLOBAL TECHNOLOGY SEMICONDUCTOR CAPITAL EQUIPMEN",
-    "detail": "几篇关于半导体设备 | GLOBAL TECHNOLOGY SEMICONDUCTOR CAPITAL EQUIPMENT Can Semi Cap stocks still work from here Mapping bullbear WFE scenarios to valuation & raising WFE estimates / 📄 GLOBAL TECHNOLOGY SEMICONDUCTOR CAPITAL EQUIPMENT Can Semi Cap stocks still work from"
-  },
-  {
-    "date": "05-05",
-    "author": "@Leada",
-    "type": "外资研报",
-    "tags": [
-      "策略宏观",
-      "外资研报"
-    ],
-    "title": "几篇关于半导体设备 | China SPE  Strong and sustainable growth with at",
-    "detail": "几篇关于半导体设备 | China SPE  Strong and sustainable growth with attractive valuation; analysis on AMEC Naura; global WFE model updated / 📄 China SPE_ Strong and sustainable growth with attractive valuation; analysis on AMEC_Naura; global WFE model updated"
-  },
-  {
-    "date": "05-05",
-    "author": "@Leada",
-    "type": "外资研报",
-    "tags": [
-      "策略宏观",
-      "外资研报"
-    ],
-    "title": "几篇关于半导体设备 | Japan Technology  Semiconductor Capital Equipmen",
-    "detail": "几篇关于半导体设备 | Japan Technology  Semiconductor Capital Equipment  Raising WFE outlook; expect growth momentum to accelerate into CY27; maint... / 📄 Japan Technology_ Semiconductor Capital Equipment_ Raising WFE outlook; expect growth momentum to accelerate into C"
-  },
-  {
     "date": "05-04",
     "author": "@Leada",
+    "broker": "",
     "type": "外资研报",
     "tags": [
       "存储半导体",
       "外资研报"
     ],
-    "title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
-    "detail": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网 / 📄 South Korea Tech_ Memory Pricing Tracker_ Apr. 2026_ Latest 2Q26 DRAM_NAND pricing forecasts higher vs. GSe"
+    "title": "South Korea Tech  Memory Pricing Tracker  Apr. 2026  Latest 2Q26 DRAM NAND prici",
+    "brief": "2026: Latest 2Q26 DRAM/NAND pricing forecasts higher vs. GSe 4 May 2026 | 8:14AM KST TrendForce slightly raised its forecasts for 2Q26 PC DRAM and s…",
+    "pdf_name": "South Korea Tech_ Memory Pricing Tracker_ Apr. 2026_ Latest 2Q26 DRAM_NAND pricing forecasts higher vs. GSe.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/South%20Korea%20Tech_%20Memory%20Pricing%20Tracker_%20Apr.%202026_%20Latest%202Q26%20DRAM_NAND%20pricing%20forecasts%20higher%20vs.%20GSe.pdf",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/14422541522282252_Leada_20260504.md",
+    "origin_title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
+    "is_key": true
   },
   {
     "date": "05-04",
     "author": "@Leada",
+    "broker": "",
     "type": "外资研报",
     "tags": [
       "寒武纪",
       "外资研报"
     ],
-    "title": "寒武纪+三星+潍柴 | Cambricon (688256.SS)  AI expansion with growing",
-    "detail": "寒武纪+三星+潍柴 | Cambricon (688256.SS)  AI expansion with growing local chips in China; 1Q26 beat with strong orders on hand; Buy, TP up to Rm...(1) / 📄 Cambricon (688256.SS)_ AI expansion with growing local chips in China; 1Q26 beat with strong orders on hand; Buy"
+    "title": "Cambricon (688256.SS)  AI expansion with growing local chips in China; 1Q26 beat",
+    "brief": "% NI YoY in 2027-28E). AI infrastructure in expansion: As we highlighted in our 2026 Private Tech Tour takeaways, we see positive signals on the sus…",
+    "pdf_name": "Cambricon (688256.SS)_ AI expansion with growing local chips in China; 1Q26 beat with strong orders on hand; Buy, TP up to Rm...(1).pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AF%92%E6%AD%A6%E7%BA%AA/%E5%AF%92%E6%AD%A6%E7%BA%AA-%E6%9D%90%E6%96%99/Cambricon%20%28688256.SS%29_%20AI%20expansion%20with%20growing%20local%20chips%20in%20China%3B%201Q26%20beat%20with%20strong%20orders%20on%20hand%3B%20Buy%2C%20TP%20up%20to%20Rm...%281%29.pdf",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AF%92%E6%AD%A6%E7%BA%AA/%E5%AF%92%E6%AD%A6%E7%BA%AA-%E6%9D%90%E6%96%99/82255824852441142_Leada_20260504_03_Cambricon_%28688256.SS%29_AI_expansion_with_growing_local_chips_in_China%3B_1Q26_beat_with_stron.md",
+    "origin_title": "寒武纪+三星+潍柴",
+    "is_key": true
   },
   {
     "date": "05-04",
     "author": "@Leada",
-    "type": "外资研报",
-    "tags": [
-      "策略宏观",
-      "外资研报"
-    ],
-    "title": "寒武纪+三星+潍柴 | Weichai Power (000338.SZ)  Raising estimates and",
-    "detail": "寒武纪+三星+潍柴 | Weichai Power (000338.SZ)  Raising estimates and TPs post 1Q26 results; maintain Buy / 📄 Weichai Power (000338.SZ)_ Raising estimates and TPs post 1Q26 results; maintain Buy"
-  },
-  {
-    "date": "05-04",
-    "author": "@Leada",
-    "type": "外资研报",
-    "tags": [
-      "策略宏观",
-      "外资研报"
-    ],
-    "title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
-    "detail": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网 / 📄 South Korea Tech_ April 2026 export tracker_ Memory export continues triple-digit% growth trend"
-  },
-  {
-    "date": "05-04",
-    "author": "@Leada",
-    "type": "外资研报",
-    "tags": [
-      "策略宏观",
-      "外资研报"
-    ],
-    "title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
-    "detail": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网 / 📄 GREATER_20260503_2200"
-  },
-  {
-    "date": "05-04",
-    "author": "@Leada",
-    "type": "外资研报",
-    "tags": [
-      "策略宏观",
-      "外资研报"
-    ],
-    "title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
-    "detail": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网 / 📄 GLOBAL_20260501_1424"
-  },
-  {
-    "date": "05-04",
-    "author": "@Leada",
-    "type": "外资研报",
-    "tags": [
-      "策略宏观",
-      "外资研报"
-    ],
-    "title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
-    "detail": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网 / 📄 MEDIATEK_20260430_2342"
-  },
-  {
-    "date": "05-04",
-    "author": "@Leada",
+    "broker": "",
     "type": "外资研报",
     "tags": [
       "阿里巴巴",
       "外资研报"
     ],
-    "title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
-    "detail": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网 / 📄 Navigating China Internet_AI models_ Framing five key AI debates; Buy Alibaba (on CL); upgrade MiniMax to Buy"
+    "title": "Navigating China Internet AI models  Framing five key AI debates; Buy Alibaba (o",
+    "brief": "（该研报暂无自动摘要，点击 PDF 打开原文）",
+    "pdf_name": "Navigating China Internet_AI models_ Framing five key AI debates; Buy Alibaba (on CL); upgrade MiniMax to Buy.pdf",
+    "pdf_path": "",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4-%E6%9D%90%E6%96%99/14422541522282252_Leada_20260504_01_Navigating_China_Internet_AI_models_Framing_five_key_AI_debates%3B_Buy_Alibaba_%28on_CL%29%3B_upgr.md",
+    "origin_title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
+    "is_key": false
   },
   {
     "date": "05-04",
     "author": "@Leada",
+    "broker": "",
     "type": "外资研报",
     "tags": [
       "韩国半导体",
       "外资研报"
     ],
-    "title": "寒武纪+三星+潍柴 | Samsung Electronics (005930.KS)  Earnings Review",
-    "detail": "寒武纪+三星+潍柴 | Samsung Electronics (005930.KS)  Earnings Review  1Q26 OP inline; expects 2027 to be an even tighter year for memory; Buy / 📄 Samsung Electronics (005930.KS)_ Earnings Review_ 1Q26 OP inline; expects 2027 to be an even tighter year for memory; Bu"
+    "title": "Samsung Electronics (005930.KS)  Earnings Review  1Q26 OP inline; expects 2027 t",
+    "brief": "（该研报暂无自动摘要，点击 PDF 打开原文）",
+    "pdf_name": "Samsung Electronics (005930.KS)_ Earnings Review_ 1Q26 OP inline; expects 2027 to be an even tighter year for memory; Buy.pdf",
+    "pdf_path": "",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E9%9F%A9%E5%9B%BD%E5%8D%8A%E5%AF%BC%E4%BD%93/%E9%9F%A9%E5%9B%BD%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/82255824852441142_Leada_20260504.md",
+    "origin_title": "寒武纪+三星+潍柴",
+    "is_key": false
   },
   {
-    "date": "05-01",
-    "author": "@Leada",
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "The Information",
     "type": "外资研报",
     "tags": [
-      "Sandisk",
-      "外资研报"
+      "AI算力",
+      "手动补充"
     ],
-    "title": "apple 苹果+sandisk 闪迪+wdc 西部数据",
-    "detail": "apple 苹果+sandisk 闪迪+wdc 西部数据 / 📄 SANDISK_20260501_0426"
+    "title": "Microsoft and Other Cloud Providers Tighten Grip on GPUs, Pressuring AI Customer",
+    "brief": "The Information：MSFT 等云厂商收紧 GPU 配额，AI 客户被迫等待。",
+    "pdf_name": "Microsoft and Other Cloud Providers Tighten Grip on GPUs, Pressuring AI Customers — The Information.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/AI%E7%AE%97%E5%8A%9B/AI%E7%AE%97%E5%8A%9B-%E6%9D%90%E6%96%99/Microsoft%20and%20Other%20Cloud%20Providers%20Tighten%20Grip%20on%20GPUs%2C%20Pressuring%20AI%20Customers%20%E2%80%94%20The%20Information.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": true
   },
   {
-    "date": "05-01",
-    "author": "@Leada",
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "TSMC 研讨会",
     "type": "外资研报",
     "tags": [
-      "Sandisk",
-      "外资研报"
+      "台积电",
+      "手动补充"
     ],
-    "title": "apple 苹果+sandisk 闪迪+wdc 西部数据",
-    "detail": "apple 苹果+sandisk 闪迪+wdc 西部数据 / 📄 SanDisk Corp. (SNDK)_ Extremely strong guidance clears a heightened bar given tight supply and improving SSD mix"
+    "title": "台积电研讨会",
+    "brief": "台积电研讨会纪要：N3/N2 / CoWoS / 先进封装产能与客户结构。",
+    "pdf_name": "台积电研讨会.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%8F%B0%E7%A7%AF%E7%94%B5/%E5%8F%B0%E7%A7%AF%E7%94%B5-%E6%9D%90%E6%96%99/%E5%8F%B0%E7%A7%AF%E7%94%B5%E7%A0%94%E8%AE%A8%E4%BC%9A.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": true
   },
   {
-    "date": "05-01",
-    "author": "@Leada",
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "花旗",
+    "type": "外资研报",
+    "tags": [
+      "AI算力",
+      "手动补充"
+    ],
+    "title": "citi TPU",
+    "brief": "Citi TPU 专题：v6/v7/v8 路线与 Google 自研芯片趋势。",
+    "pdf_name": "citi TPU.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/AI%E7%AE%97%E5%8A%9B/AI%E7%AE%97%E5%8A%9B-%E6%9D%90%E6%96%99/citi%20TPU.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "美银",
+    "type": "外资研报",
+    "tags": [
+      "AI算力",
+      "手动补充"
+    ],
+    "title": "bofa CPU",
+    "brief": "BofA CPU 行业：x86 vs Arm vs ASIC 路线博弈与受益方。",
+    "pdf_name": "bofa CPU.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/AI%E7%AE%97%E5%8A%9B/AI%E7%AE%97%E5%8A%9B-%E6%9D%90%E6%96%99/bofa%20CPU.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "Google Cloud",
+    "type": "外资研报",
+    "tags": [
+      "AI算力",
+      "手动补充"
+    ],
+    "title": "TPU 8t 与 TPU 8i 技术深度解析  Google Cloud 博客",
+    "brief": "Google TPU v8t / v8i 技术深度：架构升级 / Trillium 后续。",
+    "pdf_name": "TPU 8t 与 TPU 8i 技术深度解析  Google Cloud 博客 .pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/AI%E7%AE%97%E5%8A%9B/AI%E7%AE%97%E5%8A%9B-%E6%9D%90%E6%96%99/TPU%208t%20%E4%B8%8E%20TPU%208i%20%E6%8A%80%E6%9C%AF%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%20%20Google%20Cloud%20%E5%8D%9A%E5%AE%A2%20.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "JPM",
+    "type": "外资研报",
+    "tags": [
+      "AI算力",
+      "手动补充"
+    ],
+    "title": "JPM China Artificial Intelligence DeepSeek V4  Sector tailwind misread as zero s",
+    "brief": "JPM：DeepSeek V4 是行业顺风而非零和冲击，维持智谱 / MiniMax 增持。",
+    "pdf_name": "JPM-China Artificial Intelligence DeepSeek V4_ Sector tailwind misread as zero-sum shock – Reiterate OW on Zhipu and MiniMax.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/AI%E7%AE%97%E5%8A%9B/AI%E7%AE%97%E5%8A%9B-%E6%9D%90%E6%96%99/JPM-China%20Artificial%20Intelligence%20DeepSeek%20V4_%20Sector%20tailwind%20misread%20as%20zero-sum%20shock%20%E2%80%93%20Reiterate%20OW%20on%20Zhipu%20and%20MiniMax.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "瑞银",
+    "type": "外资研报",
+    "tags": [
+      "Intel",
+      "手动补充"
+    ],
+    "title": "UBS Intel",
+    "brief": "UBS Intel：业绩 + 18A 良率 + 代工外部客户进展。",
+    "pdf_name": "UBS-Intel.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/Intel/Intel-%E6%9D%90%E6%96%99/UBS-Intel.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "MS",
+    "type": "外资研报",
+    "tags": [
+      "Intel",
+      "手动补充"
+    ],
+    "title": "MS intel",
+    "brief": "MS Intel：业绩 / 客户结构 / 估值框架。",
+    "pdf_name": "MS intel.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/Intel/Intel-%E6%9D%90%E6%96%99/MS%20intel.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "JPM",
+    "type": "外资研报",
+    "tags": [
+      "Intel",
+      "手动补充"
+    ],
+    "title": "JPM Intel",
+    "brief": "JPM Intel：业绩 / 18A / Foundry 商务进展。",
+    "pdf_name": "JPM_Intel.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/Intel/Intel-%E6%9D%90%E6%96%99/JPM_Intel.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "汇丰",
+    "type": "外资研报",
+    "tags": [
+      "Intel",
+      "手动补充"
+    ],
+    "title": "HSBC Intel 1",
+    "brief": "HSBC Intel：业绩 + 18A 进展 + 代工业务展望。",
+    "pdf_name": "HSBC-Intel 1.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/Intel/Intel-%E6%9D%90%E6%96%99/HSBC-Intel%201.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "GFHK",
+    "type": "外资研报",
+    "tags": [
+      "Intel",
+      "手动补充"
+    ],
+    "title": "GFHK    INTC 1Q26",
+    "brief": "GFHK Intel 1Q26 前瞻 / 业绩点评：Foundry & PC CPU 节奏。",
+    "pdf_name": "GFHK -  INTC 1Q26.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/Intel/Intel-%E6%9D%90%E6%96%99/GFHK%20-%20%20INTC%201Q26.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "Jefferies",
+    "type": "外资研报",
+    "tags": [
+      "META",
+      "手动补充"
+    ],
+    "title": "Jefferies GOOGL META",
+    "brief": "Jefferies GOOGL & META 业绩前瞻 / 投资者关注点。",
+    "pdf_name": "Jefferies-GOOGL META.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/META/META-%E6%9D%90%E6%96%99/Jefferies-GOOGL%20META.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "",
+    "type": "外资研报",
+    "tags": [
+      "中际旭创",
+      "手动补充"
+    ],
+    "title": "索尔斯调研、物料、格局、旭创、新易盛、海外进度等",
+    "brief": "光模块产业链调研：索尔斯 / 旭创 / 新易盛 / 物料 / 海外进度。",
+    "pdf_name": "索尔斯调研、物料、格局、旭创、新易盛、海外进度等.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E4%B8%AD%E9%99%85%E6%97%AD%E5%88%9B/%E4%B8%AD%E9%99%85%E6%97%AD%E5%88%9B-%E6%9D%90%E6%96%99/%E7%B4%A2%E5%B0%94%E6%96%AF%E8%B0%83%E7%A0%94%E3%80%81%E7%89%A9%E6%96%99%E3%80%81%E6%A0%BC%E5%B1%80%E3%80%81%E6%97%AD%E5%88%9B%E3%80%81%E6%96%B0%E6%98%93%E7%9B%9B%E3%80%81%E6%B5%B7%E5%A4%96%E8%BF%9B%E5%BA%A6%E7%AD%89.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "Jefferies",
+    "type": "外资研报",
+    "tags": [
+      "亚马逊",
+      "手动补充"
+    ],
+    "title": "Jefferies 亚马逊业绩前瞻",
+    "brief": "Jefferies 亚马逊业绩前瞻：AWS / Capex / 零售毛利率。",
+    "pdf_name": "Jefferies-亚马逊业绩前瞻.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E4%BA%9A%E9%A9%AC%E9%80%8A/%E4%BA%9A%E9%A9%AC%E9%80%8A-%E6%9D%90%E6%96%99/Jefferies-%E4%BA%9A%E9%A9%AC%E9%80%8A%E4%B8%9A%E7%BB%A9%E5%89%8D%E7%9E%BB.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "Evercore",
+    "type": "外资研报",
+    "tags": [
+      "亚马逊",
+      "手动补充"
+    ],
+    "title": "Evercore 亚马逊前瞻",
+    "brief": "Evercore 亚马逊业绩前瞻：AWS 增速、零售利润率、Capex。",
+    "pdf_name": "Evercore 亚马逊前瞻.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E4%BA%9A%E9%A9%AC%E9%80%8A/%E4%BA%9A%E9%A9%AC%E9%80%8A-%E6%9D%90%E6%96%99/Evercore%20%E4%BA%9A%E9%A9%AC%E9%80%8A%E5%89%8D%E7%9E%BB.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "",
     "type": "外资研报",
     "tags": [
       "存储半导体",
-      "外资研报"
+      "手动补充"
     ],
-    "title": "apple 苹果+sandisk 闪迪+wdc 西部数据",
-    "detail": "apple 苹果+sandisk 闪迪+wdc 西部数据 / 📄 Western_Digital_WDCN_Management_Callback_Takeaways-Western_Digital_WDCN"
+    "title": "闪迪 上调",
+    "brief": "闪迪-上调",
+    "pdf_name": "闪迪-上调.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/%E9%97%AA%E8%BF%AA-%E4%B8%8A%E8%B0%83.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
   },
   {
-    "date": "05-01",
-    "author": "@Leada",
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "",
     "type": "外资研报",
     "tags": [
       "存储半导体",
-      "外资研报"
+      "手动补充"
     ],
-    "title": "apple 苹果+sandisk 闪迪+wdc 西部数据",
-    "detail": "apple 苹果+sandisk 闪迪+wdc 西部数据 / 📄 Western Digital Corp. (WDC)_ First Take_ Solid results and strong guidance, set against elevated expectations"
+    "title": "Seagate Technology",
+    "brief": "Seagate：HDD ASP 与 HAMR 进展；AI 数据中心冷数据需求。",
+    "pdf_name": "Seagate Technology.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/Seagate%20Technology.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
   },
   {
-    "date": "05-01",
-    "author": "@Leada",
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "",
     "type": "外资研报",
     "tags": [
-      "苹果",
-      "外资研报"
+      "存储半导体",
+      "手动补充"
     ],
-    "title": "apple 苹果+sandisk 闪迪+wdc 西部数据",
-    "detail": "apple 苹果+sandisk 闪迪+wdc 西部数据 / 📄 Apple Inc. (AAPL)_ F2Q26 review_ Strong demand with better-than-feared gross margins "
+    "title": "SK hynix 1Q26 Favorable price to persist",
+    "brief": "SK 海力士：1Q26 ASP 强势可持续，HBM3E/HBM4 路线确认。",
+    "pdf_name": "SK hynix 1Q26 Favorable price to persist.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/SK%20hynix%201Q26%20Favorable%20price%20to%20persist.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "",
+    "type": "外资研报",
+    "tags": [
+      "存储半导体",
+      "手动补充"
+    ],
+    "title": "Greater China Semiconductors Asia Pacific Old Memory Ongoi",
+    "brief": "MS 大中华区半导体：传统存储仍处涨价周期，HBM 长协趋温和。",
+    "pdf_name": "9.Greater China Semiconductors Asia Pacific Old Memory Ongoi.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/9.Greater%20China%20Semiconductors%20Asia%20Pacific%20Old%20Memory%20Ongoi.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "GFHK",
+    "type": "外资研报",
+    "tags": [
+      "工业富联",
+      "手动补充"
+    ],
+    "title": "GFHK   Hon Hai Update",
+    "brief": "GFHK 鸿海 update：AI 服务器订单、墨西哥/美国产能、毛利率。",
+    "pdf_name": "GFHK - Hon Hai Update.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%B7%A5%E4%B8%9A%E5%AF%8C%E8%81%94/%E5%B7%A5%E4%B8%9A%E5%AF%8C%E8%81%94-%E6%9D%90%E6%96%99/GFHK%20-%20Hon%20Hai%20Update.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "",
+    "type": "外资研报",
+    "tags": [
+      "康宁",
+      "手动补充"
+    ],
+    "title": "Corning Inc",
+    "brief": "康宁：光纤产能利用率回升 + 玻璃基板放量，盈利结构性向上。",
+    "pdf_name": "Corning Inc.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BA%B7%E5%AE%81/%E5%BA%B7%E5%AE%81-%E6%9D%90%E6%96%99/Corning%20Inc.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "美银",
+    "type": "外资研报",
+    "tags": [
+      "康宁",
+      "手动补充"
+    ],
+    "title": "BofA 康宁",
+    "brief": "BofA 康宁：光纤需求回暖 + 玻璃基板/特种玻璃 ramp 驱动盈利上修。",
+    "pdf_name": "BofA 康宁.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BA%B7%E5%AE%81/%E5%BA%B7%E5%AE%81-%E6%9D%90%E6%96%99/BofA%20%E5%BA%B7%E5%AE%81.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-28",
+    "author": "@手动补充",
+    "broker": "美银",
+    "type": "外资研报",
+    "tags": [
+      "微软",
+      "手动补充"
+    ],
+    "title": "BofA 微软前瞻",
+    "brief": "BofA 微软 F3Q 前瞻：Capex / Azure 容量受限 / OpenAI 商务条款。",
+    "pdf_name": "BofA 微软前瞻.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BE%AE%E8%BD%AF/%E5%BE%AE%E8%BD%AF-%E6%9D%90%E6%96%99/BofA%20%E5%BE%AE%E8%BD%AF%E5%89%8D%E7%9E%BB.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-28",
+    "is_key": false
+  },
+  {
+    "date": "04-24",
+    "author": "@手动补充",
+    "broker": "花旗",
+    "type": "外资研报",
+    "tags": [
+      "Intel",
+      "手动补充"
+    ],
+    "title": "CITI Intel Corp （INTC.US） AI CPU Cycle + Terafab Foundry Opportunity = U G to Bu",
+    "brief": "Citi 上调 INTC 至买入，逻辑：AI CPU 周期 + Terafab 代工机会。",
+    "pdf_name": "CITI-Intel Corp （INTC.US） AI CPU Cycle + Terafab Foundry Opportunity = U G to Buy-260424.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/Intel/Intel-%E6%9D%90%E6%96%99/CITI-Intel%20Corp%20%EF%BC%88INTC.US%EF%BC%89%20AI%20CPU%20Cycle%20%2B%20Terafab%20Foundry%20Opportunity%20%3D%20U%20G%20to%20Buy-260424.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-24",
+    "is_key": false
+  },
+  {
+    "date": "04-24",
+    "author": "@手动补充",
+    "broker": "MS",
+    "type": "外资研报",
+    "tags": [
+      "亚马逊",
+      "手动补充"
+    ],
+    "title": "Morgan Stanley Internet：AMZN and META： A Graviton Enabled Muse Ahead？",
+    "brief": "MS 互联网：AMZN / META 在自研芯片（Graviton/Muse）上的进展与影响。",
+    "pdf_name": "Morgan Stanley-Internet：AMZN and META： A Graviton Enabled Muse Ahead？-260424.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E4%BA%9A%E9%A9%AC%E9%80%8A/%E4%BA%9A%E9%A9%AC%E9%80%8A-%E6%9D%90%E6%96%99/Morgan%20Stanley-Internet%EF%BC%9AAMZN%20and%20META%EF%BC%9A%20A%20Graviton%20Enabled%20Muse%20Ahead%EF%BC%9F-260424.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-24",
+    "is_key": false
+  },
+  {
+    "date": "04-23",
+    "author": "@手动补充",
+    "broker": "MS",
+    "type": "外资研报",
+    "tags": [
+      "存储半导体",
+      "手动补充"
+    ],
+    "title": "Morgan Stanley SK hynix（000660.KS）1Q26 – Super Memory Cycle Reaffirmed",
+    "brief": "MS SK 海力士 1Q26：超级存储周期再确认。",
+    "pdf_name": "Morgan Stanley-SK hynix（000660.KS）1Q26 – Super Memory Cycle Reaffirmed-260423.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/Morgan%20Stanley-SK%20hynix%EF%BC%88000660.KS%EF%BC%891Q26%20%E2%80%93%20Super%20Memory%20Cycle%20Reaffirmed-260423.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-23",
+    "is_key": false
+  },
+  {
+    "date": "04-23",
+    "author": "@手动补充",
+    "broker": "瑞银",
+    "type": "外资研报",
+    "tags": [
+      "亚马逊",
+      "手动补充"
+    ],
+    "title": "UBS Amazon.com（AMZN.US）AWS Growth Will Continue to be Nonlinear",
+    "brief": "UBS 亚马逊：AWS 增速将继续呈非线性（一次性大单 + 容量释放）。",
+    "pdf_name": "UBS-Amazon.com（AMZN.US）AWS Growth Will Continue to be Nonlinear-260423.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E4%BA%9A%E9%A9%AC%E9%80%8A/%E4%BA%9A%E9%A9%AC%E9%80%8A-%E6%9D%90%E6%96%99/UBS-Amazon.com%EF%BC%88AMZN.US%EF%BC%89AWS%20Growth%20Will%20Continue%20to%20be%20Nonlinear-260423.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-23",
+    "is_key": false
+  },
+  {
+    "date": "04-23",
+    "author": "@手动补充",
+    "broker": "Bernstein",
+    "type": "外资研报",
+    "tags": [
+      "亚马逊",
+      "手动补充"
+    ],
+    "title": "Bernstein Amazon.Com Inc（AMZN.US）Everyone wants this to work...",
+    "brief": "Bernstein AMZN 1Q26 前瞻：人人都希望模型能跑起来，关注 AWS 增速 & Anthropic 贡献。",
+    "pdf_name": "Bernstein-Amazon.Com Inc（AMZN.US）Everyone wants this to work...-260423.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E4%BA%9A%E9%A9%AC%E9%80%8A/%E4%BA%9A%E9%A9%AC%E9%80%8A-%E6%9D%90%E6%96%99/Bernstein-Amazon.Com%20Inc%EF%BC%88AMZN.US%EF%BC%89Everyone%20wants%20this%20to%20work...-260423.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-23",
+    "is_key": false
+  },
+  {
+    "date": "04-20",
+    "author": "@手动补充",
+    "broker": "美银",
+    "type": "外资研报",
+    "tags": [
+      "亚马逊",
+      "手动补充"
+    ],
+    "title": "BofA Securities Amazon.com（AMZN.US）：1Q Preview： expect Retail and AWS beat with",
+    "brief": "BofA AMZN 1Q26 前瞻：零售 & AWS 双双 beat，Anthropic 贡献抬升。",
+    "pdf_name": "BofA Securities-Amazon.com（AMZN.US）：1Q Preview： expect Retail and AWS beat with growing Anthropic contribution-260420.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E4%BA%9A%E9%A9%AC%E9%80%8A/%E4%BA%9A%E9%A9%AC%E9%80%8A-%E6%9D%90%E6%96%99/BofA%20Securities-Amazon.com%EF%BC%88AMZN.US%EF%BC%89%EF%BC%9A1Q%20Preview%EF%BC%9A%20expect%20Retail%20and%20AWS%20beat%20with%20growing%20Anthropic%20contribution-260420.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-20",
+    "is_key": false
+  },
+  {
+    "date": "04-20",
+    "author": "@手动补充",
+    "broker": "MS",
+    "type": "外资研报",
+    "tags": [
+      "微软",
+      "手动补充"
+    ],
+    "title": "Morgan Stanley Microsoft（MSFT.US）3Q26 Preview – Taking Back the Narrative",
+    "brief": "MS MSFT 3Q26 前瞻：夺回叙事主导权（Azure / Copilot / Capex）。",
+    "pdf_name": "Morgan Stanley-Microsoft（MSFT.US）3Q26 Preview – Taking Back the Narrative-260420.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BE%AE%E8%BD%AF/%E5%BE%AE%E8%BD%AF-%E6%9D%90%E6%96%99/Morgan%20Stanley-Microsoft%EF%BC%88MSFT.US%EF%BC%893Q26%20Preview%20%E2%80%93%20Taking%20Back%20the%20Narrative-260420.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-20",
+    "is_key": false
+  },
+  {
+    "date": "04-20",
+    "author": "@手动补充",
+    "broker": "德银",
+    "type": "外资研报",
+    "tags": [
+      "微软",
+      "手动补充"
+    ],
+    "title": "Deutsche Bank Microsoft（MSFT.US）F3Q Preview~ Capacity Considerations",
+    "brief": "DB MSFT F3Q 前瞻：Azure 算力供给瓶颈与 Capex 路径。",
+    "pdf_name": "Deutsche Bank-Microsoft（MSFT.US）F3Q Preview~ Capacity Considerations-260420.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BE%AE%E8%BD%AF/%E5%BE%AE%E8%BD%AF-%E6%9D%90%E6%96%99/Deutsche%20Bank-Microsoft%EF%BC%88MSFT.US%EF%BC%89F3Q%20Preview~%20Capacity%20Considerations-260420.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-20",
+    "is_key": false
+  },
+  {
+    "date": "04-17",
+    "author": "@手动补充",
+    "broker": "高盛",
+    "type": "外资研报",
+    "tags": [
+      "工业富联",
+      "手动补充"
+    ],
+    "title": "Goldman Sachs Foxconn Industrial Internet （601138）： AI server racks ramp up with",
+    "brief": "GS 工业富联：AI 机架 ramp + 规格升级巩固龙头地位，买入。",
+    "pdf_name": "Goldman Sachs-Foxconn Industrial Internet （601138）： AI server racks ramp up with specification upgrade to enhance leading market position； Buy-260417.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%B7%A5%E4%B8%9A%E5%AF%8C%E8%81%94/%E5%B7%A5%E4%B8%9A%E5%AF%8C%E8%81%94-%E6%9D%90%E6%96%99/Goldman%20Sachs-Foxconn%20Industrial%20Internet%20%EF%BC%88601138%EF%BC%89%EF%BC%9A%20AI%20server%20racks%20ramp%20up%20with%20specification%20upgrade%20to%20enhance%20leading%20market%20position%EF%BC%9B%20Buy-260417.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-17",
+    "is_key": false
+  },
+  {
+    "date": "04-16",
+    "author": "@手动补充",
+    "broker": "德银",
+    "type": "外资研报",
+    "tags": [
+      "ASML",
+      "手动补充"
+    ],
+    "title": "Deutsche Bank ASML（ASML.AS）Foot to the floor",
+    "brief": "DB ASML：全速前进，订单与 EUV/High-NA 出货上修。",
+    "pdf_name": "Deutsche Bank-ASML（ASML.AS）Foot to the floor-260416.pdf",
+    "pdf_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/ASML/ASML-%E6%9D%90%E6%96%99/Deutsche%20Bank-ASML%EF%BC%88ASML.AS%EF%BC%89Foot%20to%20the%20floor-260416.pdf",
+    "md_path": "",
+    "origin_title": "手动补充材料 2026-04-16",
+    "is_key": false
   }
 ];
 
 const GS_ITEMS=[
   {
-    "date": "04-30",
-    "title": "2026年一季报点评：营收稳健增长，汇兑损失短期压制利润表现",
+    "date": "05-05",
+    "title": "招商证券行业研究西部数据FY26Q3跟踪报告—部分LTA已签至2029年，预计长期数据增长CAGR超25% (推荐) 鄢凡,谌薇,王焱仟",
+    "company": "西部数据",
+    "broker": "招商证券",
+    "rtype": "行业简评",
     "tags": [
-      "2026年一季报点评",
-      "半导体"
+      "西部数据"
     ],
-    "detail": "东吴证券*公司点评报告*2026年一季报点评：营收稳健增长，汇兑损失短期压制利润表现--豪迈科技（002595）*002595*周尔双 钱尧天 陶泽 投资要点 26Q1营收稳步增长，汇兑损失短期影响归母净利润 2026Q1单季度公司实现营收26.68亿元，同比+17.07%；实现归母净利润 5.15亿元，同比-0.83%；实现扣非归母净利润4.97亿元，同比-0.94%。 销售毛利率有所回升，期间费用率短期波动 2026年Q1公司销售毛利率34.05%，同比+0.24pct。销售净利率19.31%，同比-3.49p"
+    "brief": "西部数据FY26Q3跟踪报告—部分LTA已签至2029年，预计长期数据增长CAGR超25%  鄢凡,谌薇,王焱仟（推荐）",
+    "is_key": false
   },
   {
-    "date": "04-30",
-    "title": "致欧科技（301376.SZ）：亚马逊销售模式调整成效显现，汇兑损失影响短期业绩",
+    "date": "05-04",
+    "title": "国泰海通行业研究 Figure人形机器人产量持续提速，小米新一代人形机器人产品亮相20260504 机器人行业肖群稀毛冠锦",
+    "company": "小米",
+    "broker": "国泰海通",
+    "rtype": "行业动态",
     "tags": [
-      "致欧科技"
+      "小米",
+      "机器人",
+      "AI"
     ],
-    "detail": "业绩简评 4月28日公司披露2025&26Q1业绩，25年收入87.01亿元(同比+7.1%)；归母净利3.36亿元(同比+0.7%)，扣除股份支付影响后的净利3.32亿元（同比-5.1%）。其中25Q4收入26.19亿元（同比+9.3%），归母净利0.64亿元（同比+14.3%）；26Q1收入23.14亿元（同比+10.7%），归母净利0.75亿元（同比-32.2%）。 经营分析 贸易政策扰动下美加市场拓展节奏受阻，欧洲市场展现增长韧性。分区域来看，25A欧洲/美加/拉美收入分别同比+16.0%/-10.3%/+"
+    "brief": "行业名称=机器人 研究作者=肖群稀 毛冠锦 2）执行器和电机：推荐兆威机电，相关标的为伟创电气、鸣志电器、步科股份。3）减速器：相关标的为绿的谐波、科达利、蓝黛科技、瑞迪智驱、豪能股份、中大力德。",
+    "is_key": false
   },
   {
-    "date": "04-30",
-    "title": "海外业务实现突破，布局高端电子材料新赛道",
+    "date": "05-04",
+    "title": "东吴证券行业跟踪周报汽车零部件&机器人&缺电主线周报：小米新一代机器人亮相，卡特上调2026年营收指引黄细里郭雨蒙赖思旭",
+    "company": "小米",
+    "broker": "东吴证券",
+    "rtype": "行业动态",
     "tags": [
-      "呈和科技",
+      "小米",
+      "机器人",
+      "AI"
+    ],
+    "brief": "周报汽车零部件&机器人&缺电主线周报：小米新一代机器人亮相，卡特上调2026年营收指引黄细里郭雨蒙赖思旭",
+    "is_key": false
+  },
+  {
+    "date": "05-04",
+    "title": "国泰海通 （海外）公司研究电商基本盘企稳，AWS持续高增20260504 秦和平张馨月",
+    "company": "亚马逊",
+    "broker": "国泰海通",
+    "rtype": "业绩点评",
+    "tags": [
+      "亚马逊",
       "AI算力",
       "AI"
     ],
-    "detail": "【研究机构】 国信证券【报告类型】 公司研究*财报点评【标 题】 呈和科技（688625.SH）-海外业务实现突破，布局高端电子材料新赛道【股票代码】 688625.SH【行业类别】 其他化学制品【分 析 师】 杨林 王新航【推荐级别】 ★★★★★【发布时间】 2026-04-30 06:57:00 【内容摘要】 2025年及2026年一季度业绩实现稳健增长，海外业务表现亮眼。2025年公司实现营业收入9.77亿元，同比增长11.94%；实现归母净利润2.76亿元，同比增长10.20%；2026年第一季度，公司实现"
+    "brief": "亚马逊：公司研究电商基本盘企稳，AWS持续高增20260504 秦和平张馨月（海外）",
+    "is_key": false
   },
   {
-    "date": "04-29",
-    "title": "新能车：宁德时代举办“超级科技日”发布会增持",
+    "date": "05-04",
+    "title": "中金工业富联 601138 维持跑赢行业 AI业务全面发展，看好VR系列出货驱动增长业绩回顾",
+    "company": "工业富联",
+    "broker": "中金公司",
+    "rtype": "业绩点评",
     "tags": [
-      "新能车"
+      "工业富联",
+      "CPO",
+      "GPU"
     ],
-    "detail": "本周行情回顾：本周CS新能车指数上涨1.56%，沪深300指数上涨0.86%，行业指数跑赢沪深300指数0.70个百分点。其中涨幅居前的个股包括：德福科技（+19.85%）、天齐锂业（+10.58%）、多氟多（+10.10%）、均胜电子（+8.98%）和中科电气（+8.97%）。跌幅居前的个股包括：法拉电子（-5.89%）、杭可科技（-5.40%）、银轮股份（-4.75%）、比亚迪（-4.16%）和华友钴业（-2.16%）。 原材料价格：本周锂价持续上涨，碳酸锂本周价格为17.3万元/吨，较上周同期上涨2.0%；氢"
+    "brief": "盈利预测与估值 考虑新品出货节奏具备不确定性，我们下调2026年归母净利润14%至650亿元，维持2027年归母净利润898亿元。我们认为公司产业链核心地位不变，维持跑赢行业评级和77.68元目标价，对应26/27年24倍/17倍P/E及24%上行空间。",
+    "is_key": false
   },
   {
-    "date": "04-29",
-    "title": "增强全底盘配套能力，战略布局机器人领域",
+    "date": "05-04",
+    "title": "东吴证券行业月报 AI智能汽车5月投资策略：小鹏吉利Robotaxi提速，看好智能化黄细里孙仁昊童明祺",
+    "company": "特斯拉",
+    "broker": "东吴证券",
+    "rtype": "行业策略深度",
     "tags": [
-      "机器人"
-    ],
-    "detail": "【财通证券】公司点评｜汽车零部件｜伯特利(603596)：增强全底盘配套能力，战略布局机器人领域｜吴晓飞 王宁｜260429 报告标题=增强全底盘配套能力，战略布局机器人领域 报告日期=260429 ■ 事件：2026年4月28日公司发布2026年一季报：2026年一季度公司收入26.74亿元，同比+1.4%，环比-26.9%；毛利率19.43%，同比+1.5pct，环比-1.0pct；归母净利润2.69亿元，同比-0.6%，环比-35.7%。 ■ 机器人初期布局完成，有望开辟第二增长曲线：公司已通过合资方式快速完"
-  },
-  {
-    "date": "04-29",
-    "title": "营收持续高增，积极布局数据中心场景",
-    "tags": [
-      "AI算力",
-      "半导体"
-    ],
-    "detail": "投资要点 以太网芯片需求放量驱动营收高速增长。据公司2025年报和2026年一季度报告，2025年裕太微实现营收6.17亿元，yoy+55.62%，归母净利润-1.34亿元，亏损同比收窄33.69%。2025 年 Q4 单季营收2.29亿元，yoy+75.89%，qoq+38.05%，归母净利润-0.06亿元，亏损同比收窄89.91%，环比收窄73.27%。2026年一季度公司实现营收1.42亿元，yoy+74.83%，qoq-38.11%，归母净利润-0.43亿元，亏损同比收窄28.76%，环比扩大594.60%"
-  },
-  {
-    "date": "04-29",
-    "title": "储能业务高景气，海外布局持续领先",
-    "tags": [
-      "阿特斯"
-    ],
-    "detail": "长城证券*公司报告*阿特斯*储能业务高景气，海外布局持续领先*太阳能*张磊,吴念峻 20260429 报告名称: 储能业务高景气，海外布局持续领先 报告类型: 公司报告 报告日期: 20260429 研究员: 张磊,吴念峻 行业: 太阳能 公司名称: 阿特斯 公司代码: 688472.SH 投资评级: 买入(维持) 【内容摘要】 事件：2026年4月28日，公司发布2025年年报与2026年一季报，2025年公司实现营业收入402.56亿元，同比下降12.8%，实现归母净利润10.16亿元，同比下降54.8%；对应"
-  },
-  {
-    "date": "04-29",
-    "title": "游戏平台业务快速发展，26Q1营收利润均高增",
-    "tags": [
-      "恺英网络",
+      "特斯拉",
+      "机器人",
       "AI"
     ],
-    "detail": "浙商证券*公司点评*恺英网络(002517):游戏平台业务快速发展，26Q1营收利润均高增*冯翠婷 陈磊*买入 投资要点 ？事件：4月28日，公司发布2025年年报和26Q1季报 公司2025年实现营收53.3亿元，同比增长4.04%；实现归母净利润为19.0亿元，同比增长16.9%；实现扣非归母净利润为18.4亿元，同比增长15.2%；公司26Q1实现营收22.2亿元，同比增长64.2%；实现归母净利润为7.81亿元，同比增长50.7%；实现扣非归母净利润为5.45亿元，同比增长5.75%。公司2025年全年和2"
+    "brief": "nH股优选【小鹏集团地平线机器人小马智行/文远知行曹操出行/黑芝麻智能】。A股优选【千里科技德赛西威经纬恒润】 下游应用维度相关标的：#Robotaxi视角：1）一体化模式：特斯拉/小鹏集团。",
+    "is_key": false
   },
   {
-    "date": "04-29",
-    "title": "1Q26业绩平稳，AI投入压制短期利润率指引",
+    "date": "05-03",
+    "title": "国金证券行业周报计算机行业周报：英特尔的三板斧：CPU、FAB、EMIB 买入计算机李可夫 3星级",
+    "company": "Intel",
+    "broker": "国金证券",
+    "rtype": "行业简评",
     "tags": [
-      "SPOTIFY",
+      "Intel",
       "AI算力",
-      "AI"
-    ],
-    "detail": "1Q26业绩符合我们的预期 公司公布1Q26业绩：收入45.33亿欧元，同增8.2%；营业利润7.15亿欧元，营业利润率15.8%。公司业绩基本符合我们预期。 发展趋势 MAU表现持续亮眼，提价驱动订阅收入高质量增长。用户端，1Q26公司MAU/MPU分别环增1,000/300万人至7.61/2.93亿人，其中MAU表现好于我们预期，我们认为主要系Spotify免费套餐升级持续释放红利。收入端，1Q26公司总营收同增8.2%至45.33亿欧元，拆分来看：1Q26订阅收入同增10.0%至41.48亿欧元，主要受益于Q"
-  },
-  {
-    "date": "04-29",
-    "title": "中核科技（000777.SZ）：2025年业绩低于预期，核电产能逐步兑现",
-    "tags": [
-      "中核科技"
-    ],
-    "detail": "2025年业绩低于我们预期 公司公布2025年业绩：实现收入17.31亿元，同比-6.08%；归母净利润1.70亿元，同比-25.92%；扣非净利润1.49亿元，同比-29.41%；对应每股盈利0.44元，同比-25.92%。2025年由于营收规模收缩及费用刚性，公司整体盈利端承压，因此整体业绩低于我们预期。 1Q26年，公司实现营业收入1.21亿元，同比-49.21%；归母净利润亏损0.11亿元，同比-692.78%；扣非归母净利润亏损0.15亿元，亏损主要系大额订单未到交货期所致。2025年分产品看，公司核化工"
-  },
-  {
-    "date": "04-29",
-    "title": "毛利率环比回升，经营韧性强",
-    "tags": [
-      "阳光电源",
-      "AI算力",
-      "电网"
-    ],
-    "detail": "【事项说明】公司发布2026年一季报。2026年第一季度，公司实现营业收入155.61亿元，同比减少18.26%；实现归母净利润22.91亿元，同比减少40.12%。 【平安观点】 前期高基数大项目确收节奏等因素影响下，一季度业绩同比下降。2026年第一季度，公司实现营业收入155.61亿元，同比减少18.26%。国内分布式业务方面，2025年531新政以来，新能源家庭光伏业务减少，新项目开发速度放缓，而2025年一季度是新政前的抢装，因此收入同比下降；海外业务方面，2025年Q1沙特大项目确认收入40亿左右，同期"
-  },
-  {
-    "date": "04-29",
-    "title": "2026Q1归母净利润同比稳健增长，“靶材+零部件”双轮驱动成长可期",
-    "tags": [
-      "江丰电子",
-      "存储",
-      "半导体"
-    ],
-    "detail": "事件: 江丰电子4月15日发布2025年报：2025年公司实现收入46.04亿元，同比增长27.72%；实现归母净利润5.00亿元，同比增长24.70%；实现扣非归母净利润3.60亿元，同比增长18.74%。 江丰电子4月28日发布2026年一季报：2026Q1公司实现收入13.06亿元，同比增长30.49%；实现归母净利润2.10亿元，同比增长33.42%；实现扣非归母净利润1.25亿元，同比增长37.07%。 投资要点: 2025年靶材及零部件均同比稳健增长。2025年公司超高纯靶材业务实现收入28.50亿元，"
-  },
-  {
-    "date": "04-29",
-    "title": "出货量居行业前列，海外新产能开始释放",
-    "tags": [
-      "晶澳科技"
-    ],
-    "detail": "投资要点 公司发布2026年一季报和2025年年报，公司25年营收491.3亿元，同比-29.9%，归母净利润-46.1亿元，同比+1%，扣非净利润-50.3亿元，同比-17.8%,毛利率-2.1%，同比-6.6pct；其中25年Q4营收123.2亿元，同环比-21.9％/-4.5％，归母净利润-10.6亿元，同环比-74.7%/8.5％，扣非净利润-15.7亿元，同环比-57.2%/35％。26Q1营收92.2亿元，同环比-13.6％/-25.2％，归母净利润-10.7亿元，同环比-34.9%/1.1％，扣非净利"
-  },
-  {
-    "date": "04-29",
-    "title": "传统主业发展稳健，海外市场及智云计算板块发展值得期待",
-    "tags": [
-      "盈峰环境",
-      "AI算力"
-    ],
-    "detail": "事件：公司发布2025年年报&2026年一季报，2025年实现营业收入138.44亿元，同比+5.53%，实现归母净利润5.5亿元，同比+7.07%；2026Q1实现营业收入39.22亿元，同比+23.23%，实现归母净利润2.14亿元，同比+18.61%，环比+173.11%。 环保装备销售额连续25年行业第一，城市服务业务稳健经营。（1）2025年公司智能装备业务营业收入同比+13.99%至59.13亿元，环保装备销售额已连续25年位居国内第一，环保装备销量同比+15.1%至1.40万辆，销量市占率同比提升近1"
-  },
-  {
-    "date": "04-29",
-    "title": "比亚迪电子（00285.HK）：FX volatility and memory costs pre",
-    "tags": [
-      "比亚迪电子"
-    ],
-    "detail": "BYD Electronic ？?FX volatility and memory costs pressures near-term profit (BUY) *0285.HK Alex LIN; Alina LIN (i) BYD-E reported mixed 1Q26 results with improved revenue (4% YoY), GPM(1.2ppt QoQ) but declined NI (-96% YoY), primarily due to 1) shifts in the as"
-  },
-  {
-    "date": "04-29",
-    "title": "科创新源（300731.SZ）：盈利短期承压，新能源+数据中心热管理长期增长可期",
-    "tags": [
-      "AI算力",
-      "液冷"
-    ],
-    "detail": "业绩简评 2026年4月28日，公司发布2025年年报及2026年一季报。2025全年公司实现营业收入11.57亿元，同比增长20.75%，实现归母净利润0.36亿元，同比增长106.08%；2026年第一季度实现营业收入2.24亿元，同比下降11.09%；实现归母净利润-0.03亿元，同比下降129.75%，业绩符合预期。 经营分析 多因素扰动致盈利阶段性调整：2026年一季度，公司实现毛利率16.46%，同比下降1.23PCT；净利率为-0.8%，同比转负，整体盈利能力出现阶段性下降，主要原因为1）Q1确认政府"
-  },
-  {
-    "date": "04-29",
-    "title": "战略转型成效显现，盈利拐点可期",
-    "tags": [
-      "联易融科技-W",
-      "AI"
-    ],
-    "detail": "事件：联易融科技发布2025年年度报告。全年公司实现总收入9.83亿元，同比-4.7%；实现归母净亏损4.39亿元，同比收窄47.5%。下半年业绩修复强劲，公司实现收入6.08亿元，环比+62.4%；归母净亏损收窄至0.59亿元，边际改善显著。 核心业务增长强劲，市场地位持续巩固。报告期内，公司服务供应链资产规模总额达5081亿元，同比+27.3%，连续六年位居行业第一。核心增长引擎多级流转云业务处理量同比+46.7%至3042亿元，占集团总资产规模比重提升至59.9%，战略增长引擎地位巩固。供应链金融科技解决方案"
-  },
-  {
-    "date": "04-28",
-    "title": "期待光通信、逻辑/存储探针台业务成长",
-    "tags": [
-      "矽电股份",
       "存储"
     ],
-    "detail": "报告类型=公司首次覆盖 公司简称=矽电股份 公司代码=301629 报告日期=2026-04-28 19:57:24 报告作者=肖隽翀 报告标题=期待光通信、逻辑/存储探针台业务成长 投资建议，首次覆盖，给予矽电股份“增持”评级，目标价412.50元。我们对矽电股份2026E-2028E收入预测分别为7.08亿元、9.25亿元、12.47亿元，同比增68.94%、30.74%和34.81%；归母净利润分别为1.15亿元、1.68亿元、2.42亿元，同比增117.16%、46.31%和43.95%；2026E-202"
+    "brief": "CPU：Agent时代重新定义价值：ChatGPT问世以来，NVDA凭借GPU在AI训练与推理中的核心地位，市值于2025年10月突破5万亿美元，股价自2022年底累计上涨超14倍。英特尔2026Q1业绩全线超预期，营收136亿美元超指引中值14亿美元，非GAAP毛利率41%超指…",
+    "is_key": false
+  },
+  {
+    "date": "05-03",
+    "title": "兴业证券姚康仇文妍张元默胡园园王恬恬刘培锐行业周报电子 【兴证电子】周报：谷歌和Meta上调资本开支，看好存储设备、算力需求和端侧AI硬件创新浪潮",
+    "company": "META",
+    "broker": "兴业证券",
+    "rtype": "行业简评",
+    "tags": [
+      "META",
+      "AI算力",
+      "光芯片"
+    ],
+    "brief": "4月29日，谷歌、Meta、微软、亚马逊四家科技巨头都公布了财报，谷歌云业务营收同比增长63%至200亿美元，公司将全年资本支出指引从此前的1750亿至1850亿美元上调至1800亿至1900亿美元，并暗示2027年资本支出将\"大幅增加\"。Meta把2026年CapEx指引上调至…",
+    "is_key": false
+  },
+  {
+    "date": "05-03",
+    "title": "中金高通 QCOM 维持跑赢行业手机业务即将触底，服务器带来业务新增量业绩回顾",
+    "company": "高通公司",
+    "broker": "中金公司",
+    "rtype": "国内上市公司",
+    "tags": [
+      "高通公司",
+      "存储",
+      "苹果"
+    ],
+    "brief": "Q2FY26业绩分业务来看：1）手机收入60亿美元，同/环比-13%/-23%，主要受存储持续涨价下手机需求疲软影响，中国OEM厂商下调出货量同时以消耗现有渠道库存为主。我们看好Agentic AI推动工作负载向CPU重心的转移下，高通通过“标准芯片+定制芯片”的双线战略，有望打…",
+    "is_key": false
+  },
+  {
+    "date": "04-30",
+    "title": "中金谷歌 GOOGL 维持跑赢行业全栈式AI布局驱动云计算继续高增业绩回顾",
+    "company": "Google",
+    "broker": "中金公司",
+    "rtype": "国内上市公司",
+    "tags": [
+      "Google",
+      "AI"
+    ],
+    "brief": "云计算提速，积压订单近翻倍，资本开支指引再上调。1Q26资本开支357亿美元，公司将2026年资本开支指引上调至1,800-1,900亿美元，预计2027年资本开支显著高于2026年。",
+    "is_key": false
+  },
+  {
+    "date": "04-30",
+    "title": "XNCF 64197950 （可公开）Robotaxi专题报告：智驾向高阶渗透，Robotaxi发展进入快车道",
+    "company": "特斯拉",
+    "broker": "东莞证券",
+    "rtype": "行业简评",
+    "tags": [
+      "特斯拉"
+    ],
+    "brief": "智能化渗透加速，产业迈入快车道。智能化正从低阶向高阶加速渗透，L4级别的Robotaxi发展正式进入快车道。",
+    "is_key": false
   }
 ];
 
@@ -1330,7 +1469,7 @@ const AUDIT_CARDS=[
   {
     "name": "美光科技 (Micron)",
     "ticker": "MU.US",
-    "sector": "其他",
+    "sector": "存储",
     "direction": 3.83,
     "direction_label": "明显偏多",
     "value": 3.0,
@@ -1342,7 +1481,7 @@ const AUDIT_CARDS=[
   {
     "name": "SanDisk 闪迪",
     "ticker": "SNDK.US",
-    "sector": "其他",
+    "sector": "存储",
     "direction": 3.5,
     "direction_label": "明显偏多",
     "value": 1.0,
@@ -1402,7 +1541,7 @@ const AUDIT_CARDS=[
   {
     "name": "Intel 英特尔",
     "ticker": "INTC.US",
-    "sector": "其他",
+    "sector": "AI芯片/GPU",
     "direction": 2.33,
     "direction_label": "偏多",
     "value": 1.0,
@@ -1426,7 +1565,7 @@ const AUDIT_CARDS=[
   {
     "name": "康宁 (Corning)",
     "ticker": "GLW.US",
-    "sector": "其他",
+    "sector": "光通信",
     "direction": 2.0,
     "direction_label": "偏多",
     "value": 3.0,
@@ -1462,7 +1601,7 @@ const AUDIT_CARDS=[
   {
     "name": "甲骨文 (Oracle)",
     "ticker": "ORCL.US",
-    "sector": "其他",
+    "sector": "AI云算力",
     "direction": 1.67,
     "direction_label": "偏多",
     "value": 1.0,
@@ -1486,7 +1625,7 @@ const AUDIT_CARDS=[
   {
     "name": "CoreWeave (CRWV)",
     "ticker": "CRWV.US",
-    "sector": "其他",
+    "sector": "AI云算力",
     "direction": 1.0,
     "direction_label": "中性",
     "value": 0.0,
@@ -1538,7 +1677,7 @@ const LEADERBOARD={
   "downgrades": []
 };
 window.ZSXQ_DIGEST_HREF='../%E6%AF%8F%E6%97%A5%E6%B1%87%E6%80%BB/ZSXQ_180K_20260505.md';
-const LAST_UPDATE=new Date('2026-05-05T13:01:03+08:00');
+const LAST_UPDATE=new Date('2026-05-05T13:09:57+08:00');
 function updateClock(){
   const now=new Date();
   const etH=(now.getUTCHours()-4+24)%24,etM=now.getUTCMinutes();
