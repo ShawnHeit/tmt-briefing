@@ -128,7 +128,7 @@ def git_commit_and_push() -> None:
     run_git(["commit", "-m", msg])
     print(f"✅ 已提交: {msg}")
 
-    push = run_git(["push"], check=False)
+    push = run_git(["push", "-u", "origin", "main"], check=False)
     if push.returncode == 0:
         print("🚀 已推送到 GitHub")
     else:
