@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>腾讯控股 (00700.HK) · 三派会诊审议纪要</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .school-value { --accent: #0f766e; --accent-light: #ccfbf1; --accent-dark: #134e4a; }
+  .school-growth { --accent: #c2410c; --accent-light: #ffedd5; --accent-dark: #7c2d12; }
+  .school-quant { --accent: #1d4ed8; --accent-light: #dbeafe; --accent-dark: #1e3a8a; }
+  .accent-text { color: var(--accent); }
+  .accent-bg { background-color: var(--accent); }
+  .accent-bg-light { background-color: var(--accent-light); }
+  .accent-border { border-color: var(--accent); }
+  .rating-chip { display: inline-block; padding: 2px 10px; border-radius: 999px; font-weight: 600; font-size: 0.875rem; }
+  .rating-buy { background: #dcfce7; color: #166534; }
+  .rating-hold { background: #fef3c7; color: #92400e; }
+  .rating-sell { background: #fee2e2; color: #991b1b; }
+  .rating-strong-buy { background: #166534; color: white; }
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, #e5e7eb, transparent); margin: 1.25rem 0 0.75rem 0; }
+  .key-metric { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  @media print { body { font-size: 10pt; } .page-break { page-break-before: always; } .no-print { display: none !important; } }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+<header class="bg-slate-900 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="flex items-start gap-6">
+      <a href="../../../index.html#audit"
+         class="no-print"
+         title="返回 · 个股会诊"
+         style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(250,204,21,0.08);color:#FACC15;font-size:30px;line-height:1;font-weight:700;text-decoration:none;transition:all .15s;flex-shrink:0;margin-top:2px;"
+         onmouseenter="this.style.background='rgba(250,204,21,0.18)';this.style.transform='translateX(-3px)';"
+         onmouseleave="this.style.background='rgba(250,204,21,0.08)';this.style.transform='';">
+        ←
+      </a>
+      <div class="flex-1 flex items-start justify-between">
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight">腾讯控股 · 00700.HK</h1>
+          
+        </div>
+        <div class="text-right text-sm text-slate-300 space-y-1">
+          <div><span class="text-slate-400">分析日期：</span><span class="font-mono">2026-04-28</span></div>
+          <div><span class="text-slate-400">当前股价：</span><span class="font-mono font-semibold text-white">HKD$655.0</span></div>
+          <div><span class="text-slate-400">数据源：</span>20 份卖方研报/材料（2026/01-2026/04）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="max-w-7xl mx-auto px-6 py-8">
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-1 h-6 bg-slate-900"></div>
+      <h2 class="text-lg font-semibold tracking-wide">审议摘要 · EXECUTIVE REVIEW</h2>
+    </div>
+    <p class="text-slate-700 leading-relaxed mb-6">腾讯 1Q26 预计业绩符合预期，游戏业务表现强劲（华兴港股研究）；腾讯云宣布多款产品涨价，<strong>AI 商业化与云业务拐点确认</strong>（华泰）。混元 3.0 / HY3.0 临近发布，QClaw 已开启公测；Main businesses 韧性强叠加 AI 新产品投入兑现（中金港股研究 4/14）。9 家主要卖方 3 买入 + 6 增持，median TP HK$720（较估计现价 +10%），区间 666-790 显示<strong>估值分歧但方向共识</strong>。三派会诊：<strong class='text-slate-900'>买入共识，久期兼容，估值分歧中等。</strong></p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">三派综合方向</div>
+        <div class="text-xl font-bold text-emerald-700 mt-1">偏多 (+1.00)</div>
+        <div class="text-xs text-slate-400 mt-1">规范化均值 · 未加权</div>
+      </div>
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">保守仓位建议</div>
+        <div class="text-xl font-bold text-slate-900 mt-1">5%</div>
+        <div class="text-xs text-slate-400 mt-1">三派最小值 · 非平均</div>
+      </div>
+      <div class="border-l-2 border-red-400 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">近期最重要节点</div>
+        <div class="text-xl font-bold text-red-700 mt-1">2026/05</div>
+        <div class="text-xs text-slate-400 mt-1">1Q26 业绩 · 验证窗口</div>
+      </div>
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">分歧度</div>
+        <div class="text-xl font-bold text-slate-900 mt-1">中等</div>
+        <div class="text-xs text-slate-400 mt-1">方向低 · 理由高 · 久期兼容</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">价格与成交量 · TRADINGVIEW CHART</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">腾讯控股 · HKEX:700</span>
+  </div>
+  <div class="bg-amber-50 border border-amber-200 rounded-xl px-6 py-8">
+    <div class="flex items-start gap-4">
+      <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 text-xl font-bold">!</div>
+      <div class="flex-1">
+        <div class="text-sm font-semibold text-amber-900 mb-1">TradingView ↔ HKEX 授权限制</div>
+        <div class="text-xs text-amber-800 leading-relaxed mb-4">
+          由于 TradingView 与港交所（HKEX）的数据授权协议限制，本 symbol（HKEX:700）的 K 线图无法嵌入第三方网页，
+          但本页下方的 <strong>量化派卡片</strong>（价格 / RSI / MACD / 布林带 / 多周期对齐 / MCP 量化分）
+          仍通过后台 scanner API 实时拉取。
+        </div>
+        <a href="https://www.tradingview.com/symbols/HKEX-700/" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-slate-900 text-white text-xs font-medium px-4 py-2 rounded-lg hover:bg-slate-700 transition">
+          <span>在 TradingView 打开完整图表</span>
+          <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">研究员观点 · ANALYST VIEWS</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">三派独立出观点 · 无互相污染</span>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    <div class="school-value bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">value-school</div>
+            <div class="text-xl font-bold mt-1">价值派</div>
+            <div class="text-xs text-slate-500 mt-0.5">双引擎 · 巴菲特+红利</div>
+          </div>
+          <span class="rating-chip rating-buy">买入</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono">3-5 年</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono">10%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">安全边际</span><span class="font-mono">+12%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">Track A 分（巴菲特）</span><span class="font-mono">70/100</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">Track B 分（红利）</span><span class="font-mono">55/100</span></div>
+        </div>
+        <div class="mt-5 bg-teal-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">护城河（Moat Score 22/25）</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside">
+            <li>微信生态 —— 13 亿 MAU 的社交护城河</li>
+<li>游戏现金奶牛 —— 全球最大手游厂商</li>
+<li>云涨价能力 —— 多款产品提价</li>
+<li>AI 不卷 SOTA 战略 —— 聚焦商业化</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">超级平台（微信+QQ+游戏）的 raw cash flow 护城河极深，FCF 稳定；AI 转型不求 SOTA（'不败而后胜'）而求商业化，降低了过度投入风险。当前 TP 中位 720 对估计现价 ~10% 折价，估值合理偏便宜。Track B 部分适用（回购 + 分红增长）。</p>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">主要风险</div>
+          <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+            <li>海外扩张有限 —— 对 AI 军备竞赛的全球性押注弱于字节/Meta</li>
+<li>中金 TP 666 vs 华兴 TP 790 的估值分歧说明 AI 业务估值存在较大不确定</li>
+<li>游戏业务监管风险（版号/未成年人保护）始终未消除</li>
+          </ul>
+        </div>
+        <div class="mt-4 bg-amber-50 border-l-4 border-amber-400 p-3">
+          <div class="text-xs font-semibold text-amber-800 uppercase mb-1">What Would Change My Mind</div>
+          <p class="text-xs text-amber-900">若微信 MAU 开始环比下滑、或游戏流水同比连续 2 季转负、或 AI 投入 ROI 明显恶化，则撤回买入。</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="school-growth bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">growth-school</div>
+            <div class="text-xl font-bold mt-1">成长派</div>
+            <div class="text-xs text-slate-500 mt-0.5">景气投资 · 5 阶段 + 80/20 景气分</div>
+          </div>
+          <span class="rating-chip rating-buy">买入</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">阶段判定</span><span class="font-mono font-semibold">成熟 + AI 转型期</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono font-semibold">2-3 季度</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono font-semibold">8%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">景气总分</span><span class="font-mono font-semibold text-orange-700">65/100</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">戴维斯阶段</span><span class="font-mono font-semibold">盈利单击偏双击</span></div>
+        </div>
+        <div class="mt-5 bg-orange-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">景气分拆解（80/20 公式）</div>
+          <div class="text-xs text-slate-700 space-y-1.5">
+            <div class="flex justify-between"><span>盈利修正因子 (80%)</span><span class="font-mono font-semibold">65/100</span></div>
+            <div class="text-[11px] text-slate-500 pl-2 italic">1Q26 预计符合预期；FY26E 一致预期稳定微升</div>
+            <div class="flex justify-between mt-2"><span>动量因子 (20%)</span><span class="font-mono font-semibold">65/100</span></div>
+            <div class="text-[11px] text-slate-500 pl-2 italic">AI 新叙事驱动估值重估，但游戏/广告增速变化不大</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">催化剂清单</div>
+          <ul class="text-xs text-slate-700 space-y-1">
+            <li>✓ <strong>混元 3.0 / HY3.0 发布</strong>：GF/国海/国信 04-10/12/13</li>
+<li>✓ <strong>腾讯云多款产品涨价</strong>：国投证券 04-12</li>
+<li>✓ <strong>QClaw 公测</strong>：国信证券文化传媒 04-13</li>
+<li>✓ <strong>游戏业务强劲</strong>：华兴港股研究 1Q26 更新 04-13</li>
+<li>✓ <strong>AI 布局拐点</strong>：华泰证券 04-10</li>
+<li>✓ <strong>Muse Spark 视角</strong>：海通国际 04-14</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">主业韧性 + AI 转型兑现期。景气分数中等偏高，戴维斯 <strong>单击（盈利）</strong> 为主，云涨价 + AI 变现叠加估值缓慢扩张可能触发温和双击。</p>
+        </div>
+        <div class="mt-4 bg-red-50 border-l-4 border-red-400 p-3">
+          <div class="text-xs font-semibold text-red-800 uppercase mb-1">Exit Triggers · 止盈条件</div>
+          <ul class="text-xs text-red-900 space-y-1 list-disc list-inside">
+            <li>1Q26 游戏流水同比转负</li>
+<li>腾讯云增速跌破 +20%</li>
+<li>混元 3.0 发布后 market reception 显著负面</li>
+<li>FY26E 一致预期连续 2 月下修 > 5%</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">失效模式自检</div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span><span>熊市：否</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span><span>证伪：低</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400"></span><span>拥挤度：中</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span><span>一致预期：上修</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="school-quant bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">quant-school</div>
+            <div class="text-xl font-bold mt-1">量化派</div>
+            <div class="text-xs text-slate-500 mt-0.5">日频技术派 · MA+形态+量价</div>
+          </div>
+          <span class="rating-chip rating-sell">做空</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">信号强度</span><span class="font-mono font-semibold text-amber-700">中</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono">2-4 周</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono">5%（试仓）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">入场策略</span><span class="font-mono">回踩派</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">置信度</span><span class="font-mono">medium</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">信号强度（TV）</span><span class="font-mono">偏空（SELL）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">RSI(14)</span><span class="font-mono">36.4（Bearish）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">MACD</span><span class="font-mono">Bearish</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">置信度（TV）</span><span class="font-mono">medium</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">数据源时间</span><span class="font-mono">2026-05-05T05:35:45+00:00</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">MCP 量化分</span><span class="font-mono">-3.00 / ±5</span></div>
+        </div>
+        <div class="mt-5 bg-blue-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">多周期结构</div>
+          <div class="text-xs text-slate-700 space-y-1">
+            <div class="flex justify-between"><span>月线</span><span><strong>长期上行</strong></span></div>
+            <div class="flex justify-between"><span>周线</span><span>偏多 · Neutral/Ranging</span></div>
+            <div class="flex justify-between"><span>日线</span><span>当前 HKD 467.00 · 50 日均线 HKD 509.50 · 200 日均线 HKD 581.58 · RSI 36.4</span></div>
+            <div class="flex justify-between mt-1 pt-1 border-t border-blue-200"><span>多周期共振</span><span class="font-semibold">弱空头倾向</span></div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">关键价位</div>
+          <div class="relative h-20 bg-gradient-to-t from-red-50 via-amber-50 to-green-50 rounded border border-slate-200">
+            <div class="absolute top-2 left-4 text-[11px] text-emerald-700 font-semibold">压力 1 · HK$720（median TP）</div>
+            <div class="absolute top-1/2 left-4 text-[11px] text-slate-900 font-semibold">当前 · HKD 467.00</div>
+            <div class="absolute bottom-2 left-4 text-[11px] text-red-700 font-semibold">止损 · HK$615（跌破 MA60 估值）</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">主业韧性 + AI 拐点双重催化，卖方一致预期温和上修，技术面多头格局。研报缺技术指标具体值，confidence 标 low。</p>
+        </div>
+        <div class="mt-4 bg-slate-50 border-l-4 border-slate-400 p-3">
+          <div class="text-xs font-semibold text-slate-700 uppercase mb-1">交易计划</div>
+          <div class="text-xs text-slate-700 space-y-1">
+            <div>入场：HK$635-665 区间分批 · 回踩派</div>
+            <div>止损：HK$615（硬止损，估计 -6%）</div>
+            <div>目标 1：HK$720 · 目标 2：HK$790</div>
+            <div class="mt-1 pt-1 border-t border-slate-300 flex justify-between"><span>盈亏比</span><span class="font-mono font-semibold">2.5:1</span></div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">主要风险</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside">
+            <li>假突破被套（业绩不及预期）</li>
+<li>大盘系统性下跌拖累</li>
+<li>数据缺失：未有明确 MA/MACD/RSI 精确值</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">分歧面板 · DISAGREEMENT PANEL</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">不投票，只画图 · 把分歧放大而非抹平</span>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-1">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-3">五维分歧热图</div>
+      <canvas id="disagreementRadar" width="320" height="320"></canvas>
+      <div class="text-[10px] text-slate-400 mt-2 text-center">数值越高分歧越严重 · 0=无 · 3=高严重度</div>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-2">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-4">五维分歧详情</div>
+      <div class="space-y-4">
+        
+        <div class="border-l-4 border-green-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">方向分歧 · Direction</span>
+            <span class="rating-chip bg-green-100 text-green-800 text-xs">低</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">规范化 rating（[-5, +5] 刻度）：价值 +3 / 成长 +3 / 量化 +-3.0 — 无正负号冲突，方向基本一致。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-slate-300 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">久期分歧 · Horizon</span>
+            <span class="rating-chip bg-slate-100 text-slate-600 text-xs">低（兼容）</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">3-5 年（价值）vs 2-3 季度（成长）vs 2-4 周（量化）— 差约 60 倍，但<strong>兼容</strong>：可底仓长持 + 战术位等回踩 + 催化加仓。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-amber-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">仓位分歧 · Position</span>
+            <span class="rating-chip bg-amber-100 text-amber-800 text-xs">中</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">10.0%（价值）vs 8.0%（成长）vs 5.0%（量化）— <strong class='text-amber-900'>保守值建议：5%（不取平均）</strong>。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-amber-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">置信度分歧 · Confidence</span>
+            <span class="rating-chip bg-amber-100 text-amber-800 text-xs">中</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">量化派 confidence 普遍为 low（研报中技术面数据稀缺，缺精确 MA/MACD/RSI），需展开说明其 low confidence 来源。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-red-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">理由分歧 · Rationale</span>
+            <span class="rating-chip bg-red-100 text-red-800 text-xs">高</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2"><strong>结论都是偏多，但核心论据不完全重叠</strong> — 典型的'伪共识'风险：</p>
+          
+          <div class="grid grid-cols-3 gap-2 text-[11px]">
+            <div class="bg-teal-50 rounded p-2"><div class="font-semibold text-teal-800">价值派关键词</div><div class="text-slate-700 mt-1">超级平台护城河 · 游戏现金流 · 估值合理</div></div>
+            <div class="bg-orange-50 rounded p-2"><div class="font-semibold text-orange-800">成长派关键词</div><div class="text-slate-700 mt-1">AI 拐点 · 云涨价 · 游戏强劲</div></div>
+            <div class="bg-blue-50 rounded p-2"><div class="font-semibold text-blue-800">量化派关键词</div><div class="text-slate-700 mt-1">趋势向上 · 预期稳定 · 技术健康</div></div>
+          </div>
+        <p class="text-xs text-red-900 mt-3 bg-red-50 p-2 rounded">⚠️ <strong>典型伪共识风险</strong> — 结论一致，但任一故事被证伪，另外两派的表面共识不会同步动摇。</p>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+  <div class="mt-6 bg-gradient-to-r from-amber-50 to-white rounded-xl border border-amber-200 p-6">
+    <div class="flex items-start gap-4">
+      <div class="flex-shrink-0 w-10 h-10 bg-amber-400 text-white rounded-full flex items-center justify-center font-bold">i</div>
+      <div class="flex-1">
+        <div class="font-semibold text-amber-900">共识检测 · 软注释（不降评级）</div>
+        <p class="text-sm text-amber-900 mt-2 leading-relaxed">三派规范化方向一致偏多（+3/+3/+-3.0，[-5, +5] 刻度），卖方研报看多比例较高（9/9 买入或增持），研报层面拥挤度需关注。建议核查机构持仓集中度、近 30 日南向/北向净买入额。本面板不因此修改评级。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">风险监控 · RISK WATCHLIST</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">什么会让结论变化 · 该盯住什么指标</span>
+  </div>
+  <div class="bg-slate-900 text-slate-100 rounded-xl p-5 mb-6">
+    <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">WHAT COULD CHANGE THE CONCLUSION</div>
+    <p class="text-sm leading-relaxed">本板块<strong class="text-white">不评价研究员本身</strong>，而是站在投资者视角识别当前结论可能因什么变量反转，并给出监控清单。</p>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
+    <div class="text-xs font-semibold text-slate-500 uppercase mb-4">一、可能改变结论的关键变量</div>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-slate-300 text-xs text-slate-600 uppercase">
+            <th class="text-left py-2 pr-3">关键变量</th>
+            <th class="text-left py-2 px-3">当前状态</th>
+            <th class="text-left py-2 px-3 text-emerald-700">乐观情景</th>
+            <th class="text-left py-2 px-3 text-red-700">悲观情景</th>
+            <th class="text-left py-2 pl-3">敏感度</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">游戏流水增速</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">1Q26 表现强劲（华兴港股）</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">继续 +10%+</td>
+            <td class="py-3 px-3 text-xs text-red-800">同比转负</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">腾讯云增速</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">产品涨价，增速稳定</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">受益 AI 驱动 +25%+</td>
+            <td class="py-3 px-3 text-xs text-red-800">跌破 +20%</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">混元 3.0 市场接受度</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">临近发布</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">企业客户快速签约</td>
+            <td class="py-3 px-3 text-xs text-red-800">功能或市场反响明显弱于预期</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">广告业务增速</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">主业韧性强</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">视频号广告 +20%+</td>
+            <td class="py-3 px-3 text-xs text-red-800">同比 <5%</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">FY26E 一致预期方向</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">9/9 买入或增持</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">温和上修</td>
+            <td class="py-3 px-3 text-xs text-red-800">连续 2 月下修 > 5%</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">AI 投入 ROI</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">'不败而后胜' 战略（中金）</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">验证商业化</td>
+            <td class="py-3 px-3 text-xs text-red-800">投入 ROI 明显恶化</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">监管风险（游戏/未成年人）</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">未见新政</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">持续无新政</td>
+            <td class="py-3 px-3 text-xs text-red-800">版号收紧或新限制</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-4">二、监控指标清单（按频率）</div>
+      <div class="space-y-4 text-sm">
+        
+        <div class="border-l-4 border-blue-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每周追踪 · Weekly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>腾讯 vs 阿里/美团/网易相对表现</li>
+<li>港股通持股变化</li>
+<li>外资机构持仓披露</li>
+<li>游戏流水周报</li></ul>
+        </div>
+        <div class="border-l-4 border-teal-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每月追踪 · Monthly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>FY26E/FY27E 一致预期环比变化</li>
+<li>Top 10 基金持仓集中度</li>
+<li>腾讯云行业份额（IDC）</li>
+<li>广告行业月度数据</li></ul>
+        </div>
+        <div class="border-l-4 border-orange-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每季度验证 · Quarterly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>游戏流水同比</li>
+<li>腾讯云增速</li>
+<li>混元 / HY3.0 用户数据</li>
+<li>视频号广告收入</li></ul>
+        </div>
+        <div class="border-l-4 border-red-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">事件驱动 · Event-Driven</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>混元 3.0 发布</li>
+<li>QClaw 正式上线</li>
+<li>游戏版号/监管动态</li>
+<li>AI 新产品投入</li></ul>
+        </div>
+    
+      </div>
+    </div>
+    <div class="space-y-6">
+      <div class="bg-red-50 border border-red-200 rounded-xl p-6">
+        <div class="text-xs font-semibold text-red-800 uppercase mb-3">三、触发 Reassess 的硬条件</div>
+        <p class="text-xs text-red-900 mb-3">任一触发立即重新评估，不要等其他信号也亮灯：</p>
+        <ul class="text-sm text-red-900 space-y-2">
+          <li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">股价跌破 HK$615</span>
+            <span class="text-xs text-red-700 block">跌破量化派硬止损位 + 关键估值支撑</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">1Q26 游戏流水同比转负</span>
+            <span class="text-xs text-red-700 block">核心现金流受损</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">腾讯云增速跌破 +20%</span>
+            <span class="text-xs text-red-700 block">AI 拐点 thesis 被动摇</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">FY26E 一致预期连续 2 月下修 > 5%</span>
+            <span class="text-xs text-red-700 block">盈利单击逻辑受损</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">游戏版号或未成年人政策明显收紧</span>
+            <span class="text-xs text-red-700 block">监管风险显性化</span>
+          </div>
+        </li>
+        </ul>
+      </div>
+      <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-6">
+        <div class="text-xs font-semibold text-emerald-800 uppercase mb-3">加仓的硬条件</div>
+        <ul class="text-sm text-emerald-900 space-y-2">
+          <li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">1Q26 业绩 + 云增速 ≥ +25%</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">股价放量突破 HK$720</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">混元 3.0 获得头部企业客户签约</span></div>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+    <div class="text-xs font-semibold text-slate-500 uppercase mb-4">四、未来 12 个月关键时间节点</div>
+    <div class="relative">
+      <div class="absolute left-4 top-2 bottom-2 w-0.5 bg-slate-200"></div>
+      <div class="space-y-4">
+        <div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/05 · 1Q26 正式业绩披露</div>
+          <div class="text-xs text-slate-600 mt-0.5">游戏流水 + 云增速 + 广告增速 + 混元商业化数据</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/05 · 混元 3.0 发布（预计）</div>
+          <div class="text-xs text-slate-600 mt-0.5">企业客户接受度 + 商业化 pipeline</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/08 · 2Q26 业绩</div>
+          <div class="text-xs text-slate-600 mt-0.5">AI 业务增长 + 视频号广告 + 云涨价效应</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-slate-500 rounded-full mt-1.5 ring-4 ring-slate-200"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/11 · 3Q26 业绩 + 双十一</div>
+          <div class="text-xs text-slate-600 mt-0.5">广告旺季 + 游戏新品</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2027/03 · FY26 完整报表</div>
+          <div class="text-xs text-slate-600 mt-0.5">AI 投入完整 ROI 首次完整披露</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">最终审议纪要 · FINAL REVIEW MEMO</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">信息密度最大化 · 决策权归用户</span>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+        <h3 class="font-semibold text-slate-900">共识区 · 三派共同观察</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed">三派规范化方向均为 +3（[-5, +5] 刻度）。共识来源：（a）<strong>主业（游戏+广告）韧性强</strong>，1Q26 预计符合预期；（b）<strong>AI 拐点确认</strong>（华泰）+ 腾讯云涨价（国投）+ 混元 3.0/QClaw 临近发布；（c）9/9 卖方买入或增持，median TP 720 对估计现价 10% 空间；（d）中金港股 4/14-15 强调'主业韧性 + AI 投入'。</div>
+    </div>
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+        <h3 class="font-semibold text-slate-900">分歧区</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed"><p><strong>久期分歧兼容</strong>：3-5 年护城河溢价（价值）+ 2-3 季度景气验证（成长）+ 2-4 周事件驱动（量化），可并行不冲突。</p><p><strong>仓位分歧保守处理</strong>：价值 10% / 成长 8% / 量化 5%，保守取 5%。量化派 low confidence 不应让其他派承担其不确定性。</p></div>
+    </div>
+    
+    <div class="mb-6 bg-red-50 border border-red-200 rounded-lg p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+        <h3 class="font-semibold text-red-900">伪共识风险 · 本次会诊最大警讯</h3>
+      </div>
+      <div class="ml-5 text-sm text-red-900 leading-relaxed">
+        <p>三派方向一致偏多，但支撑理由不完全重叠（见分歧面板 · 理由分歧）。任一派的 exit trigger 被触发都应启动 reassess，而不是等另外两派也亮灯。</p>
+      </div>
+    </div>
+    
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+        <h3 class="font-semibold text-slate-900">建议动作</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed space-y-2">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">方向</div><div class="font-semibold">买入（偏多）</div></div>
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">保守仓位</div><div class="font-semibold">5%（试仓）→ 1Q26 业绩/补充数据后再加仓</div></div>
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">入场价</div><div class="font-semibold">HK$635-665 分批</div></div>
+        </div>
+        <p class="mt-3">本次会诊属于<strong>方向共识 + 理由分歧</strong>场景 —— 买入成立，但不是“强信号”。建议策略：（a）采用保守仓位 5%（试仓）；（b）把监控窗口聚焦在<strong>任一派</strong>的 exit trigger（见风险监控）；（c）等 1Q26 业绩披露 + 一致预期修正方向后再判断加仓。</p>
+      </div>
+    </div>
+    <div class="bg-slate-100 rounded-lg p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-slate-500"></div>
+        <h3 class="font-semibold text-slate-900">需用户显式判断的事项（本报告不代判）</h3>
+      </div>
+      <ol class="ml-5 text-sm text-slate-700 space-y-2 list-decimal list-inside">
+        <li>你对'腾讯 AI 不卷 SOTA'战略的长期竞争力如何判断？（海通国际视角）</li>
+<li>你认为游戏流水增速（+10% 区间）能维持多久？（戴维斯单击的核心）</li>
+<li>中金 666 vs 华兴 790 的估值分歧倾向哪一端？</li>
+<li>你是否有独立技术面工具补充量化派 low confidence？</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<script>
+const ctx = document.getElementById('disagreementRadar');
+new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: ['方向', '久期', '仓位', '置信度', '理由'],
+    datasets: [{
+      label: '分歧严重度',
+      data: [0, 1, 2, 2, 3],
+      fill: true,
+      backgroundColor: 'rgba(220, 38, 38, 0.15)',
+      borderColor: 'rgb(220, 38, 38)',
+      pointBackgroundColor: 'rgb(220, 38, 38)',
+      pointBorderColor: '#fff'
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      r: {
+        beginAtZero: true, min: 0, max: 3,
+        ticks: { stepSize: 1, callback: function(v) { return ['无','低','中','高'][v] || ''; } },
+        pointLabels: { font: { size: 13, weight: '600' } }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>

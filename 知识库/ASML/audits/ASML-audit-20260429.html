@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASML (ASML.US) · 三派会诊审议纪要</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .school-value { --accent: #0f766e; --accent-light: #ccfbf1; --accent-dark: #134e4a; }
+  .school-growth { --accent: #c2410c; --accent-light: #ffedd5; --accent-dark: #7c2d12; }
+  .school-quant { --accent: #1d4ed8; --accent-light: #dbeafe; --accent-dark: #1e3a8a; }
+  .accent-text { color: var(--accent); }
+  .accent-bg { background-color: var(--accent); }
+  .accent-bg-light { background-color: var(--accent-light); }
+  .accent-border { border-color: var(--accent); }
+  .rating-chip { display: inline-block; padding: 2px 10px; border-radius: 999px; font-weight: 600; font-size: 0.875rem; }
+  .rating-buy { background: #dcfce7; color: #166534; }
+  .rating-hold { background: #fef3c7; color: #92400e; }
+  .rating-sell { background: #fee2e2; color: #991b1b; }
+  .rating-strong-buy { background: #166534; color: white; }
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, #e5e7eb, transparent); margin: 1.25rem 0 0.75rem 0; }
+  .key-metric { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  @media print { body { font-size: 10pt; } .page-break { page-break-before: always; } .no-print { display: none !important; } }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+<header class="bg-slate-900 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="flex items-start gap-6">
+      <a href="../../../index.html#audit"
+         class="no-print"
+         title="返回 · 个股会诊"
+         style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(250,204,21,0.08);color:#FACC15;font-size:30px;line-height:1;font-weight:700;text-decoration:none;transition:all .15s;flex-shrink:0;margin-top:2px;"
+         onmouseenter="this.style.background='rgba(250,204,21,0.18)';this.style.transform='translateX(-3px)';"
+         onmouseleave="this.style.background='rgba(250,204,21,0.08)';this.style.transform='';">
+        ←
+      </a>
+      <div class="flex-1 flex items-start justify-between">
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight">ASML · ASML.US</h1>
+          
+        </div>
+        <div class="text-right text-sm text-slate-300 space-y-1">
+          <div><span class="text-slate-400">分析日期：</span><span class="font-mono">2026-04-29</span></div>
+          <div><span class="text-slate-400">当前股价：</span><span class="font-mono font-semibold text-white">USD$1384.56</span></div>
+          <div><span class="text-slate-400">数据源：</span>78 份卖方研报（2025-11 ~ 2026-04）+ 3 篇公司一手（Q1 2026 Transcript + Investor Presentation + Press Release）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="max-w-7xl mx-auto px-6 py-8">
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-1 h-6 bg-slate-900"></div>
+      <h2 class="text-lg font-semibold tracking-wide">审议摘要 · EXECUTIVE REVIEW</h2>
+    </div>
+    <p class="text-slate-700 leading-relaxed mb-6">ASML 是<strong>AI 资本开支二次浪潮的终极受益者 + 半导体设备金字塔尖独家垄断者</strong>。<strong>本次会诊关键增量</strong>：（a）2026-04-15 Q1 业绩 €8.8B 落在指引区间，毛利率 53% 在指引上沿；（b）<strong>FY2026 全年指引硬上修</strong>：营收区间从中位 €37B → €36-40B（中位 €38B，YoY +16%），且非 EUV 业务从「持平」上修为「增长」，IBM 服务「显著增长」；（c）<strong>2027 EUV 产能扩到 ≥ 80 台</strong>（vs 共识 72 台）；（d）<strong>Memory 客户原话 Sold Out</strong>：many memory customers commented they are sold out for the remainder of the year；（e）High-NA 已加工 50 万+ 晶圆，可用率 >80%；（f）中国销售 Q1 -56% QoQ / -23% YoY，出口管制硬约束已 priced-in。三派会诊结论：<strong class='text-slate-900'>偏多共识强成立，4% 试仓，Q2 财报（7 月中）是即期硬催化。</strong></p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">三派综合方向</div>
+        <div class="text-xl font-bold text-emerald-700 mt-1">偏多 (+1.67)</div>
+        <div class="text-xs text-slate-400 mt-1">规范化均值 · 未加权</div>
+      </div>
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">保守仓位建议</div>
+        <div class="text-xl font-bold text-slate-900 mt-1">2%</div>
+        <div class="text-xs text-slate-400 mt-1">三派最小值 · 非平均</div>
+      </div>
+      <div class="border-l-2 border-red-400 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">近期最重要节点</div>
+        <div class="text-xl font-bold text-red-700 mt-1">2026/07/中</div>
+        <div class="text-xs text-slate-400 mt-1">Q2 2026 财报 · GM 51-52% 守住 + 全年 €36-40B 区间是否再上修</div>
+      </div>
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">分歧度</div>
+        <div class="text-xl font-bold text-slate-900 mt-1">中</div>
+        <div class="text-xs text-slate-400 mt-1">基本面强偏多 vs 量化短期偏空 · 时点分歧</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">价格与成交量 · TRADINGVIEW CHART</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">ASML · NASDAQ:ASML · 约 15 min 延迟</span>
+    
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden" style="height:560px;">
+    <iframe
+      src="https://s.tradingview.com/widgetembed/?symbol=NASDAQ%3AASML&interval=D&theme=light&style=1&locale=zh_CN&withdateranges=1&hide_side_toolbar=0&allow_symbol_change=1&studies=%5B%22Volume%40tv-basicstudies%22%2C%22RSI%40tv-basicstudies%22%2C%22MASimple%40tv-basicstudies%22%5D&hideideas=1&details=1"
+      style="width:100%;height:100%;border:0;display:block;"
+      allowtransparency="true" scrolling="no" allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      title="TradingView NASDAQ:ASML"></iframe>
+  </div>
+  <p class="text-[11px] text-slate-500 mt-2 leading-relaxed">
+    点击图表顶部可切换周期（1D/1W/1M/3M/6M/YTD/1Y/5Y/All），右侧工具栏可切换 K 线 / 面积 / Heikin-Ashi，已叠加成交量 · RSI · 20 日均线。
+    每次打开本页会从 TradingView 实时拉取最新数据。
+  </p>
+</section>
+
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">研究员观点 · ANALYST VIEWS</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">三派独立出观点 · 无互相污染</span>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    <div class="school-value bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">value-school</div>
+            <div class="text-xl font-bold mt-1">价值派</div>
+            <div class="text-xs text-slate-500 mt-0.5">双引擎 · 巴菲特+红利</div>
+          </div>
+          <span class="rating-chip rating-buy">买入</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono">5-10 年</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono">5%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">安全边际</span><span class="font-mono">+19% (DCF 中性 ADR ~$1,650 vs 现价 ~$1,384)</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">Track A 分（巴菲特/格雷厄姆）</span><span class="font-mono">78/100</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">Track B 分（红利）</span><span class="font-mono">不适用 (科技稳态非红利股)</span></div>
+        </div>
+        <div class="mt-5 bg-teal-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">护城河（Moat Score 24/25）</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside">
+            <li>技术壁垒（无形资产）：EUV 光刻机全球唯一供应商，High-NA EUV 已累计加工 50 万+ 晶圆，可用率 >80%</li>
+<li>成本优势：单台 EUV 售价 €1.5-2 亿，毛利率 53%，且 Low-NA EUV 路线图到 2030 可达 330 wph（生产率每年改进）</li>
+<li>网络效应：客户（TSMC、三星、Intel、SK 海力士、美光）越多，ASML 服务/升级网络价值越大；2025 IBM 服务收入 €100 亿+</li>
+<li>转换成本：客户工厂内 EUV 设备已完成 fab integration，迁移成本极高</li>
+<li>有效规模：2027 EUV 产能扩到 80 台/年，单台 €2 亿 → 单产品线 €160 亿营收，全行业唯一供应</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">ASML 是<strong>半导体设备金字塔尖的独家垄断者</strong>，护城河 24/25（25 分制最强档）。Q1 2026 业绩验证：营收 €8.8B 落在指引区间内，毛利率 53.0% 在指引上沿，<strong>2026 全年指引从 €37B 中位上调至 €36-40B（中位 €38B，YoY +16%）</strong>，且非 EUV 业务从「持平」上修为「增长」，IBM 服务也「显著增长」。估值方面 PE ~31× 处于历史 30-35× 周期顶部下沿（MS 2026-04-15），DCF 中性 ADR $1,650 vs 现价 $1,384 安全边际 +19%，<strong>不算便宜但合理</strong>，需要靠 2027 EUV 产能 80 台（vs 共识 72 台）+ ASP 60% 上行（多机构 2026-02-26）来撑高估值。Track A 综合 78 分，给买入但仓位克制（5%）。</p>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">主要风险</div>
+          <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+            <li>中国区销售大幅下滑：Q1 China -56% QoQ / -23% YoY，出口管制硬约束已兑现，2026 中国区营收占比从 ~30% 滑向 ~20%</li>
+<li>PE 31× 已在历史顶部下沿，估值进一步扩张空间有限（MS）</li>
+<li>High-NA EUV 商业化推迟：Bernstein 2026-04-23 报告指 High-NA 大规模量产时点向后推</li>
+<li>Q1 自由现金流 -€2.6B（订金时点扰动），全年 FCF 可能仍紧张</li>
+<li>Logic 客户集中度：TSMC 占订单 ~40-50%，TSMC 2nm 节奏放缓即拖累 ASML</li>
+          </ul>
+        </div>
+        <div class="mt-4 bg-amber-50 border-l-4 border-amber-400 p-3">
+          <div class="text-xs font-semibold text-amber-800 uppercase mb-1">What Would Change My Mind</div>
+          <p class="text-xs text-amber-900">Q2 业绩 GM ≥ 53% 上沿 + 全年 €40B 营收上沿确认 + 2027 EUV 80 台无延期 + China 下滑稳定在 -20% YoY → 上调至强烈买入。反之若 Q2 GM 跌破 51% 下限或全年下修至 €36B → 撤回至持有；若中国出口管制升级（如 Low-NA EUV 也被限制）→ 直接降至持有。</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="school-growth bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">growth-school</div>
+            <div class="text-xl font-bold mt-1">成长派</div>
+            <div class="text-xs text-slate-500 mt-0.5">景气投资 · 5 阶段 + 80/20 景气分</div>
+          </div>
+          <span class="rating-chip rating-strong-buy">强烈买入</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">阶段判定</span><span class="font-mono font-semibold">成长期（半导体资本支出周期 + AI infra 二次加码）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono font-semibold">2-4 年（AI capex 主升浪）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono font-semibold">8%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">景气总分</span><span class="font-mono font-semibold text-orange-700">82/100</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">戴维斯阶段</span><span class="font-mono font-semibold">单击 → 偏双击（盈利上修 + 估值或重估）</span></div>
+        </div>
+        <div class="mt-5 bg-orange-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">景气分拆解（80/20 公式）</div>
+          <div class="text-xs text-slate-700 space-y-1.5">
+            <div class="flex justify-between"><span>盈利修正因子 (80%)</span><span class="font-mono font-semibold">84/100</span></div>
+            <div class="text-[11px] text-slate-500 pl-2 italic">Q1 2026 营收 €8.8B 符合指引、净利率 31.4%；2026 全年指引从 €37B 中位 → €36-40B（中位 €38B，YoY +16%）；10+ 家 sell-side（Citi €1,600 / MS €1,400 / JPM 增持 / BofA 增持 / 海通国际 / 国泰海通 / 国海 / 西南）一致上修 FY26 EPS；Q2 营收指引 €8.4-9.0B（中位 +6% QoQ）</div>
+            <div class="flex justify-between mt-2"><span>动量因子 (20%)</span><span class="font-mono font-semibold">76/100</span></div>
+            <div class="text-[11px] text-slate-500 pl-2 italic">ADR 自 2025-11 触底以来反弹 ~30%，跑赢 SOX 半导体指数约 8pp；2026-04-15 业绩日跳空高开 +5%；MS 2025-11-28 上调为 Top Pick；订单簿（OEMs / Foundry）景气度持续，公司明确「需求 > 供给将持续到 2026 之后」</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">催化剂清单</div>
+          <ul class="text-xs text-slate-700 space-y-1">
+            <li>✓ <strong>FY2026 营收指引上调（€37B 中位 → €38B）</strong>：2026-04-15 业绩日 + Q1 transcript：non-EUV 从 flat 改 growth，IBM 显著增长</li>
+<li>✓ <strong>2027 Low-NA EUV 产能 ≥ 80 台</strong>：Q1 2026 transcript 明确：raising Low-NA EUV capacity to at least 80 systems next year，vs 共识 72</li>
+<li>✓ <strong>Memory 客户全年 Sold Out</strong>：Q1 transcript 原话：many memory customers commented they are sold out for the remainder of the year</li>
+<li>✓ <strong>Logic 2nm 节点扩产 + DUV 需求超预期</strong>：Q1 transcript：DUV 此前指引「持平 2025」，现改为「增长」，因客户加 DUV 应对扩产</li>
+<li>✓ <strong>High-NA 商业化里程碑：>500K 晶圆 + >80% 可用率</strong>：Q1 transcript 公开数据；客户已有用 1 次 High-NA 替代 3-4 次 Low-NA 多重曝光的论文（SPIE 2026-02）</li>
+<li>✓ <strong>1000W 光源 demo + Low-NA 路线图至 330 wph (2030)</strong>：Q1 transcript：1000W source demonstrated；NXE:3800F 升至 260 wph，2027 出货 / 2028 全量</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">ASML 是<strong>AI capex 二次浪潮的终极受益者</strong> —— Memory（DRAM / HBM）和 Logic（2nm）双引擎都加速扩产，且 EUV/DUV 双路线齐升级（EUV 从 60→80 台，DUV 从持平改增长，IBM 显著增长）。戴维斯<strong>单击转双击</strong>：①盈利端 FY26 营收 +16%、毛利率守 51-53%；②估值端 PE 31× 已处周期顶部下沿，但 2027 +20% 营收增长（管理层暗示）+ ASP 60% 上行可能性，卖方一致预期 12 个月 TP 中位 €1,500（区间 €1,400-1,600），距现价 ~12%。成长派给强烈买入，建议 8% 仓位（vs 价值派 5%），差异点是成长派把 2027 EUV 80 台 + 2nm 节奏当作已确定，价值派需要等更多确认。</p>
+        </div>
+        <div class="mt-4 bg-red-50 border-l-4 border-red-400 p-3">
+          <div class="text-xs font-semibold text-red-800 uppercase mb-1">Exit Triggers · 止盈条件</div>
+          <ul class="text-xs text-red-900 space-y-1 list-disc list-inside">
+            <li>FY26 实际营收 < €36B 下限（需在 Q3 2026 财报前观察）</li>
+<li>2027 EUV 80 台出货任一季度延期（看 2026Q4 / 2027Q1 出货报告）</li>
+<li>Memory 客户取消订单（HBM / DRAM 周期反转）</li>
+<li>中国出口管制升级到 Low-NA EUV 或 immersion DUV</li>
+<li>Bernstein 等 sell-side 进一步下修 High-NA 路径（影响 2028+ 增长）</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">失效模式自检</div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span><span>熊市：否（半导体周期上行 + AI capex 加码）</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span><span>证伪：低（Q1 业绩直接验证 + 全年指引上修）</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400"></span><span>拥挤度：中（卖方一致看多，外资 ETF 持仓接近 10 年高位）</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span><span>一致预期：上修（10+ 家上调 FY26 EPS）</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="school-quant bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">quant-school</div>
+            <div class="text-xl font-bold mt-1">量化派</div>
+            <div class="text-xs text-slate-500 mt-0.5">日频技术派 · MA+形态+量价</div>
+          </div>
+          <span class="rating-chip rating-hold">观望</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">信号强度</span><span class="font-mono font-semibold text-amber-700">弱空（中轨下方）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono">1-3 月</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono">2%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">入场策略</span><span class="font-mono">回踩派 · 等 MA200 / Q2 财报</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">置信度</span><span class="font-mono">medium</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">信号强度（TV）</span><span class="font-mono">弱空（中轨下方）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">RSI(14)</span><span class="font-mono">46.6（Neutral）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">MACD</span><span class="font-mono">Bearish</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">置信度（TV）</span><span class="font-mono">medium</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">数据源时间</span><span class="font-mono">2026-04-29T06:12:15+00:00</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">MCP 量化分</span><span class="font-mono">-1.00 / ±5</span></div>
+        </div>
+        <div class="mt-5 bg-blue-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">多周期结构</div>
+          <div class="text-xs text-slate-700 space-y-1">
+            <div class="flex justify-between"><span>月线</span><span><strong>上行通道</strong>，2025 Q1 见底 $651 后反弹至 $1,547，目前位 $1,384（自高点回撤 ~10%）</span></div>
+            <div class="flex justify-between"><span>周线</span><span>偏多 · Bullish</span></div>
+            <div class="flex justify-between"><span>日线</span><span>当前 USD 1384.56 · 50 日均线 USD 1403.25 · 200 日均线 USD 1106.86 · RSI 46.6</span></div>
+            <div class="flex justify-between mt-1 pt-1 border-t border-blue-200"><span>多周期共振</span><span class="font-semibold">弱多头倾向</span></div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">关键价位</div>
+          <div class="relative h-20 bg-gradient-to-t from-red-50 via-amber-50 to-green-50 rounded border border-slate-200">
+            <div class="absolute top-2 left-4 text-[11px] text-emerald-700 font-semibold">压力 1 · USD 1,547 (52 周高点 = 业绩日跳空高点)</div>
+            <div class="absolute top-1/2 left-4 text-[11px] text-slate-900 font-semibold">当前 · USD 1384.56</div>
+            <div class="absolute bottom-2 left-4 text-[11px] text-red-700 font-semibold">止损 · USD 1,107 (200 日均线 = 关键硬止损)</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">技术面短期偏弱：2026-04-15 业绩日跳空高开 +5% 后股价从 $1,547 回落至 $1,384（-10%），<strong>日线 MACD bearish crossover + 跌穿 50 日均线</strong>，BB rating -1（弱空）。但月线仍处上行通道，多周期 MTF 标记为 LEAN BULLISH，本质是「业绩兑现后获利了结 + 中期整固」。<strong>策略：等回踩</strong>—— 第一支撑 $1,300（前低 + 整数关），第二支撑 $1,200（业绩前震荡区上沿），硬止损 $1,107（200 日均线，距现价 -20%）。Q2 财报（7 月中）才是下一个事件驱动节点，财报前不建议追高。成长派 +4 / 价值派 +2 都需要等量化派给出回踩入场窗口，整体一致行动建议「等」</p>
+        </div>
+        <div class="mt-4 bg-slate-50 border-l-4 border-slate-400 p-3">
+          <div class="text-xs font-semibold text-slate-700 uppercase mb-1">交易计划</div>
+          <div class="text-xs text-slate-700 space-y-1">
+            <div>入场：USD 1,200-1,300 区间分批 · Q2 财报前只建半仓</div>
+            <div>止损：USD 1,107（硬止损 = 200 日均线，距现价 ~20%）</div>
+            <div>目标 1：USD 1,547（52 周高点 / 业绩日跳空高） · 目标 2：USD 1,750（成长派 24 个月目标 ~ €1,500 折算）</div>
+            <div class="mt-1 pt-1 border-t border-slate-300 flex justify-between"><span>盈亏比</span><span class="font-mono font-semibold">2.0:1（上行 $360 / 下行 $180，按 entry 中位 $1,250 计）</span></div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">主要风险</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside">
+            <li>MACD bearish 进一步扩大 → 跌破 $1,300 → $1,200</li>
+<li>Q2 GM 跌破 51% 下限 → 直接试探 200 日均线 $1,107</li>
+<li>中国出口管制再次升级 → 跌破年线 $1,107 进入新空头通道</li>
+<li>SOX 半导体指数系统性回调 → ASML 高 beta 难逃</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">分歧面板 · DISAGREEMENT PANEL</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">不投票，只画图 · 把分歧放大而非抹平</span>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-1">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-3">五维分歧热图</div>
+      <canvas id="disagreementRadar" width="320" height="320"></canvas>
+      <div class="text-[10px] text-slate-400 mt-2 text-center">数值越高分歧越严重 · 0=无 · 3=高严重度</div>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-2">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-4">五维分歧详情</div>
+      <div class="space-y-4">
+        
+        <div class="border-l-4 border-amber-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">方向 · Direction</span>
+            <span class="rating-chip bg-amber-100 text-amber-800 text-xs">中</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">三派规范化方向 +2 / +4 / -1（[-5, +5] 刻度）。<strong>价值/成长偏多 vs 量化短期偏空</strong>——基本面派认可 FY26 指引硬上修 + 2027 EUV 80 台；量化派看到日线 MACD bearish + BB -1 短期回调信号。本质是「业绩日已 priced-in，等回踩入场」的经典分歧。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-slate-300 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">久期 · Horizon</span>
+            <span class="rating-chip bg-slate-100 text-slate-600 text-xs">低（兼容）</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">5-10 年（价值）/ 2-4 年（成长）/ 1-3 月（量化）—— 三周期兼容。底仓长持 + 战术位等量化派回踩信号触发。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-amber-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">仓位 · Position</span>
+            <span class="rating-chip bg-amber-100 text-amber-800 text-xs">中</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">价值 5% / 成长 8% / 量化 2%，最大差 6pp。<strong>保守取 2% 起步</strong>（量化派最低值），若 Q2 GM 守住指引上沿 + MACD 转金叉则加至 5-7%。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-green-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">置信度 · Confidence</span>
+            <span class="rating-chip bg-green-100 text-green-800 text-xs">低</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">成长派 high（指引硬上修 + 客户原话验证）/ 价值派 medium（PE 已偏高）/ 量化派 medium（短期回调中）。整体偏中高。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-green-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">理由 · Rationale</span>
+            <span class="rating-chip bg-green-100 text-green-800 text-xs">低</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">三派核心论据互证——价值派看 EUV 垄断 + 安全边际；成长派看 AI capex 二次浪潮 + 2027 产能 80 台；量化派看 MACD 短期偏空但 MTF 中长期偏多。属于「同向结论 + 不同时间窗」的健康分歧，无伪共识风险。</p>
+          
+          <div class="grid grid-cols-3 gap-2 text-[11px]">
+            <div class="bg-teal-50 rounded p-2"><div class="font-semibold text-teal-800">价值派关键词</div><div class="text-slate-700 mt-1">EUV 垄断 · 24/25 护城河 · DCF $1,650 · Track A 78 分</div></div>
+            <div class="bg-orange-50 rounded p-2"><div class="font-semibold text-orange-800">成长派关键词</div><div class="text-slate-700 mt-1">FY26 €38B · 2027 EUV 80 台 · Memory sold out · DUV 上修</div></div>
+            <div class="bg-blue-50 rounded p-2"><div class="font-semibold text-blue-800">量化派关键词</div><div class="text-slate-700 mt-1">MACD bearish · 跌穿 MA50 · 等回踩 $1,200-1,300 · 硬止损 $1,107</div></div>
+          </div>
+        
+        </div>
+    
+      </div>
+    </div>
+  </div>
+  <div class="mt-6 bg-gradient-to-r from-amber-50 to-white rounded-xl border border-amber-200 p-6">
+    <div class="flex items-start gap-4">
+      <div class="flex-shrink-0 w-10 h-10 bg-amber-400 text-white rounded-full flex items-center justify-center font-bold">i</div>
+      <div class="flex-1">
+        <div class="font-semibold text-amber-900">共识检测 · 软注释（不降评级）</div>
+        <p class="text-sm text-amber-900 mt-2 leading-relaxed">三派规范化方向 +2 / +4 / -1（[-5, +5] 刻度），<strong>基本面强偏多 vs 量化短期偏空</strong>，DIR_AVG +1.67 偏多。关键判断：（a）2026-04-15 Q1 业绩 + 全年指引硬上修，价值/成长两派同时认可「指引验证」；（b）成长派给最强 +4 因客户原话 sold out 极硬；（c）价值派克制在 +2 因 PE 31× 已不便宜，安全边际仅 19%；（d）<strong>量化派给 -1（观望偏空）</strong>因日线 MACD bearish + 跌穿 MA50，业绩日跳空已被消化，短期需等回踩 $1,200-1,300 区间。保守取 2% 起步（量化派建议），等 Q2 财报或 MACD 金叉后再加至 5-7%。<strong>这是「基本面 + 时点」的良性分歧</strong>—— 不是要不要买的问题，是什么时候加仓的问题。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">风险监控 · RISK WATCHLIST</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">什么会让结论变化 · 该盯住什么指标</span>
+  </div>
+  <div class="bg-slate-900 text-slate-100 rounded-xl p-5 mb-6">
+    <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">WHAT COULD CHANGE THE CONCLUSION</div>
+    <p class="text-sm leading-relaxed">本板块<strong class="text-white">不评价研究员本身</strong>，而是站在投资者视角识别当前结论可能因什么变量反转，并给出监控清单。</p>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
+    <div class="text-xs font-semibold text-slate-500 uppercase mb-4">一、可能改变结论的关键变量</div>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-slate-300 text-xs text-slate-600 uppercase">
+            <th class="text-left py-2 pr-3">关键变量</th>
+            <th class="text-left py-2 px-3">当前状态</th>
+            <th class="text-left py-2 px-3 text-emerald-700">乐观情景</th>
+            <th class="text-left py-2 px-3 text-red-700">悲观情景</th>
+            <th class="text-left py-2 pl-3">敏感度</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">FY2026 营收实际 vs 指引 €36-40B</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">Q1 已实现 €8.8B（占年指引中位 23%）</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">全年实际 ≥ €40B 上沿（GM 52-53%）</td>
+            <td class="py-3 px-3 text-xs text-red-800">全年下修至 €36B 下限或以下（GM < 51%）</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">2027 Low-NA EUV 出货 80 台</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">管理层 Q1 transcript 明确指引 at least 80，2026 已是 60 台</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">2026Q4 / 2027Q1 出货 cadence 验证 80 台路径</td>
+            <td class="py-3 px-3 text-xs text-red-800">任一季度出货 < 月度均值 5 台 → 暗示 80 台路径失效</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">中国区销售（出口管制风险）</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">Q1 China -56% QoQ / -23% YoY；占总销售 ~20%（vs 2024 ~30%）</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">中国销售稳定在 -20% YoY，不再恶化</td>
+            <td class="py-3 px-3 text-xs text-red-800">进一步制裁（如 Low-NA EUV 或 immersion DUV 也受限）→ 全年指引下修</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">High-NA EUV 商业化进度</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">已加工 50 万+ 晶圆 · 可用率 >80%；Bernstein 2026-04-23 指大规模量产推迟</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">2027 / 2028 出货量超预期，单台收入 €3.5 亿+</td>
+            <td class="py-3 px-3 text-xs text-red-800">客户大规模订单延至 2029+，影响 2028+ 长期增长</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">TSMC 2nm 节奏</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">TSMC 是 ASML 最大客户（订单占 ~40-50%）；2nm 量产已启动</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">TSMC 2nm 良率超预期 + Apple A20 / NVDA Rubin 拉动产能扩张</td>
+            <td class="py-3 px-3 text-xs text-red-800">TSMC 2nm 良率不及预期，资本开支节奏放缓</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">卖方一致预期 FY27/FY28 EPS</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">10+ 家 FY26 EPS 上修；FY27/FY28 一致预期处历史高位</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">FY27/FY28 EPS 持续上修</td>
+            <td class="py-3 px-3 text-xs text-red-800">FY27 EPS 环比连续 2 月下修 > 5%</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">ADR 价格相对 SOX</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">2026 年初以来跑赢 SOX ~8pp</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">继续跑赢 SOX，相对强度转强（>10pp）</td>
+            <td class="py-3 px-3 text-xs text-red-800">相对弱势持续 > 12 周，资金流出 ETF</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-4">二、监控指标清单（按频率）</div>
+      <div class="space-y-4 text-sm">
+        
+        <div class="border-l-4 border-blue-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每周追踪 · Weekly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>ASML ADR vs SOX 半导体指数相对强度</li>
+<li>EUV / DUV 客户（TSMC / 三星 / SK海力士 / 美光）capex 头条新闻</li>
+<li>ASML 5 日 / 20 日均线 + 成交量异常</li>
+<li>美国 / 荷兰 / 日本 出口管制最新进展</li></ul>
+        </div>
+        <div class="border-l-4 border-teal-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每月追踪 · Monthly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>FY26 / FY27 一致预期 EPS 环比变化（Wind / Bloomberg）</li>
+<li>Top 10 基金持仓集中度 + 外资 ETF 流向</li>
+<li>半导体板块整体估值分位（vs 历史 5 / 10 年）</li>
+<li>TSMC / 三星 / SK海力士 / 美光 月度营收（先行指标）</li></ul>
+        </div>
+        <div class="border-l-4 border-orange-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每季度验证 · Quarterly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>每季营收 / GM / IBM / 订单簿（Q2 2026 财报 7 月中）</li>
+<li>EUV / DUV / IBM 三引擎拆分增速</li>
+<li>中国区销售 YoY 变化</li>
+<li>FCF 季度数据 + 资本开支节奏</li>
+<li>High-NA 商业化里程碑（出货量 / 客户进度）</li></ul>
+        </div>
+        <div class="border-l-4 border-red-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">事件驱动 · Event-Driven</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>2026-07-中：Q2 2026 财报（最关键）</li>
+<li>2026-09：ASML 投资者日（如有）</li>
+<li>2026-10：Q3 2026 财报</li>
+<li>2026 H2：美国 / 荷兰 出口管制可能性升级</li>
+<li>TSMC / 三星 / SK海力士 / 美光 季报对 ASML 设备订单的口径</li></ul>
+        </div>
+    
+      </div>
+    </div>
+    <div class="space-y-6">
+      <div class="bg-red-50 border border-red-200 rounded-xl p-6">
+        <div class="text-xs font-semibold text-red-800 uppercase mb-3">三、触发 Reassess 的硬条件</div>
+        <p class="text-xs text-red-900 mb-3">任一触发立即重新评估，不要等其他信号也亮灯：</p>
+        <ul class="text-sm text-red-900 space-y-2">
+          <li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">Q2 2026 GM < 51%</span>
+            <span class="text-xs text-red-700 block">管理层指引下限不达 → 全年指引上修可能撤回，价值派立即降回 0</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">FY2026 营收下修至 €36B 下限</span>
+            <span class="text-xs text-red-700 block">成长派 thesis 严重弱化</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">股价跌破 USD 1,107（200 日均线）</span>
+            <span class="text-xs text-red-700 block">量化派硬止损 + 周线下行通道确立</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">中国出口管制升级（Low-NA EUV / immersion DUV 也受限）</span>
+            <span class="text-xs text-red-700 block">成长派最大反向催化剂</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">2026Q4 / 2027Q1 EUV 出货 < 月均 5 台</span>
+            <span class="text-xs text-red-700 block">2027 80 台路径证伪</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">Bernstein / GS / MS 同时下调 FY27 EPS > 5%</span>
+            <span class="text-xs text-red-700 block">卖方一致预期反转</span>
+          </div>
+        </li>
+        </ul>
+      </div>
+      <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-6">
+        <div class="text-xs font-semibold text-emerald-800 uppercase mb-3">加仓的硬条件</div>
+        <ul class="text-sm text-emerald-900 space-y-2">
+          <li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">回踩 USD 1,200-1,300 区间触及 + 日线 MACD 金叉（2% → 4%）</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">Q2 2026 GM ≥ 52% + 全年 €40B 上沿确认（4% → 7%）</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">ADR 放量突破 USD 1,547（52 周高点）+ 成交量 > 1.5× 均量（4% → 6%）</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">2027 EUV 出货 cadence 验证 80 台路径（4% → 7%）</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">TSMC 2nm 良率超预期 + Apple A20 / NVDA Rubin 大订单（4% → 6%）</span></div>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+    <div class="text-xs font-semibold text-slate-500 uppercase mb-4">四、未来 12 个月关键时间节点</div>
+    <div class="relative">
+      <div class="absolute left-4 top-2 bottom-2 w-0.5 bg-slate-200"></div>
+      <div class="space-y-4">
+        <div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/05 · ASML 投资者日（如有）</div>
+          <div class="text-xs text-slate-600 mt-0.5">中长期 EUV / High-NA 路线图 + 2027-2030 营收 / margin / capital allocation 目标</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/07/中 · Q2 2026 财报（最近期硬催化）</div>
+          <div class="text-xs text-slate-600 mt-0.5">GM 指引 51-52% 是否守住 · 全年 €36-40B 区间是否再次上修 · 中国销售是否稳定</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/09 · Apple A20 / NVDA Rubin 上市</div>
+          <div class="text-xs text-slate-600 mt-0.5">Logic 2nm 节奏验证 · TSMC 订单更新</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/10 · Q3 2026 财报 + 2027 出货 cadence 首次验证</div>
+          <div class="text-xs text-slate-600 mt-0.5">Low-NA EUV 出货是否符合 80 台路径 · DUV 全年最终值</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2027/01 · Q4 2026 财报 + FY2026 收官</div>
+          <div class="text-xs text-slate-600 mt-0.5">全年 €36-40B 区间最终落地点 · 2027 营收首次 guidance</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2027/H1 · High-NA EUV 客户 ramp</div>
+          <div class="text-xs text-slate-600 mt-0.5">客户产品级 wafer 验证 · 大规模量产时点是否在 2027/2028</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2027/全年 · Low-NA EUV 80 台量产 · 2027 营收首次确认</div>
+          <div class="text-xs text-slate-600 mt-0.5">ASP 60% 上行假设兑现 · IBM 服务收入持续增长</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2028+ · NXE:3800F 全量产（260 wph）</div>
+          <div class="text-xs text-slate-600 mt-0.5">下一代 Low-NA 升级 · High-NA 大规模商用</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">最终审议纪要 · FINAL REVIEW MEMO</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">信息密度最大化 · 决策权归用户</span>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+        <h3 class="font-semibold text-slate-900">共识区 · 三派共同观察</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed">三派规范化方向 +2 / +4 / +1（[-5, +5] 刻度）。共识来源：（a）<strong>FY2026 全年指引硬上修</strong>（€37B → €38B 中位）—— 三派同时认可的「已发生」「硬」事件；（b）<strong>2027 EUV 80 台产能指引</strong>（管理层 transcript 原话），价值派和成长派都能用作 2027 营收锚；（c）<strong>客户 Memory + Logic Sold Out</strong>—— 不是分析师推测，是 ASML 自己引用客户公开表态；（d）<strong>毛利率 53% 守在指引上沿</strong> + IBM 服务「显著增长」，盈利质量超预期；（e）2026-04-15 业绩日跳空高开 +5%，量价确认。</div>
+    </div>
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+        <h3 class="font-semibold text-slate-900">分歧区</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed"><p><strong>仓位分歧仅 4 个百分点（5% / 8% / 4%）</strong>：保守取 4% 试仓（量化派最低值），若 Q2 GM 守住指引上沿则加至 6%；成长派最激进（8%）因为他们把 2027 EUV 80 台 + AI capex 二次浪潮当作已确定，价值派克制（5%）因 PE 31× 已在历史顶部下沿。</p><p><strong>理由分歧很低</strong>：价值派看 EUV 垄断 + DCF €1,500；成长派看 FY26 €38B + 2027 80 台；量化派看业绩日跳空 + 三周期共振。属于「同向结论 + 多线索互证」的健康共识，无伪共识风险。</p><p><strong>久期分歧兼容</strong>：价值 5-10 年（EUV 垄断结构性持续 + High-NA 接棒）/ 成长 2-4 年（AI capex 浪潮 + 2027 80 台）/ 量化 1-3 月（Q2 财报窗口）。三周期并行。</p></div>
+    </div>
+    
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+        <h3 class="font-semibold text-slate-900">建议动作</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed space-y-2">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">方向</div><div class="font-semibold">偏多但时点未到 (+1.67 / [-5, +5] 刻度)</div></div>
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">保守仓位</div><div class="font-semibold">2%（底仓）→ 等回踩 $1,200-1,300 加至 4% → Q2 GM ≥ 52% 加至 7%</div></div>
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">入场价</div><div class="font-semibold">USD 1,200-1,300 区间三档分批 · 硬止损 USD 1,107</div></div>
+        </div>
+        <p class="mt-3">本次会诊属于<strong>基本面强共识 + 量化短期偏空</strong>的良性分歧场景，是「值得买但不是现在」的标准案例。策略建议：（a）现价 $1,384 距业绩日高点 $1,547 已回调 -10%，但日线 MACD bearish 还未结束，<strong>不追高</strong>；（b）建议先建 2% 底仓试探 + 等回踩 $1,300 / $1,250 / $1,200 三档分批至 4-5%；（c）等 <strong>2026-07 中旬 Q2 财报</strong>（距今 ~10 周）事件驱动决定终极仓位：若 Q2 GM ≥ 52% + 全年 €40B 上沿确认 → 加至 7%；若 Q2 GM 50-52% 维持 5%；若 < 50% 减仓至 2% 重评；（d）下一道防线是 <strong>2026Q4 / 2027Q1 出货 cadence</strong> 验证 80 台路径；（e）长期持仓（5-10 年）享受 EUV 垄断 + High-NA 接棒。</p>
+      </div>
+    </div>
+    <div class="bg-slate-100 rounded-lg p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-slate-500"></div>
+        <h3 class="font-semibold text-slate-900">需用户显式判断的事项（本报告不代判）</h3>
+      </div>
+      <ol class="ml-5 text-sm text-slate-700 space-y-2 list-decimal list-inside">
+        <li>你能接受 ASML PE 31× 已在历史顶部下沿（30-35×），未来 6-12 个月可能在估值上没有更多扩张？ —— 这是价值派只给 5% 仓位的核心原因</li>
+<li>你对「AI capex 二次浪潮」的持续性判断 1-3 年？还是 5-10 年？ —— 持续年限决定了价值派 vs 成长派权重</li>
+<li>你愿意承担「中国出口管制升级」的尾部风险（Low-NA EUV 或 immersion DUV 也被限制）吗？</li>
+<li>你是否相信 2027 Low-NA EUV 80 台是「硬指引」（管理层 transcript 原话）而非「营销目标」？</li>
+<li>你打算在 Q2 财报（7 月中）之前持有多少仓位？4% 是否符合你的风险预算？</li>
+<li>你对 High-NA EUV 商业化时点的判断（Bernstein 推迟说法 vs ASML 自己的「持续推进」说法）？</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<script>
+const ctx = document.getElementById('disagreementRadar');
+new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: ['方向', '久期', '仓位', '置信度', '理由'],
+    datasets: [{
+      label: '分歧严重度',
+      data: [2, 1, 1, 1, 1],
+      fill: true,
+      backgroundColor: 'rgba(220, 38, 38, 0.15)',
+      borderColor: 'rgb(220, 38, 38)',
+      pointBackgroundColor: 'rgb(220, 38, 38)',
+      pointBorderColor: '#fff'
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      r: {
+        beginAtZero: true, min: 0, max: 3,
+        ticks: { stepSize: 1, callback: function(v) { return ['无','低','中','高'][v] || ''; } },
+        pointLabels: { font: { size: 13, weight: '600' } }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>

@@ -4,11 +4,13 @@ TMT Briefing 公开发布脚本
 
 做的事情：
 1. 从源目录读取 tmt-briefing.html
-2. 扫描 HTML 里引用的所有 ../知识库/...pdf 路径
+2. 扫描 HTML 里引用的所有 ../知识库/...{pdf,html,md} 路径
+   （包括 href="..."、JSON "href": "..." 等多种写法）
 3. 把 HTML 复制到 ./index.html，并把 ../知识库/ 替换成 知识库/
-4. 把被引用的 PDF 复制到 ./知识库/ 对应位置（保留目录层级）
-5. 删除本仓库里不再被引用的"陈旧" PDF
-6. git add . && git commit && git push
+4. 把被引用的资源（PDF / audit HTML / md）复制到 ./知识库/ 对应位置
+5. 复制过来的 audit HTML 自动改写"返回简报"链接，使其在 GitHub Pages 下能跳回 index.html
+6. 删除本仓库里不再被引用的"陈旧"资源
+7. git add . && git commit && git push
 
 使用：
     python3 publish.py             # 仅同步内容，不 push
@@ -29,38 +31,78 @@ from urllib.parse import unquote
 SOURCE_HTML = Path(
     "/Users/heyicheng/Documents/TMT_Bot/Bot/tmt-briefing/tmt-briefing.html"
 )
-SOURCE_KB_ROOT = Path("/Users/heyicheng/Documents/TMT_Bot/Bot/知识库")
+SOURCE_BOT_ROOT = Path("/Users/heyicheng/Documents/TMT_Bot/Bot")
 
 PUBLIC_DIR = Path(__file__).resolve().parent
 PUBLIC_HTML = PUBLIC_DIR / "index.html"
 PUBLIC_KB_ROOT = PUBLIC_DIR / "知识库"
 
+ASSET_EXTS = (".pdf", ".html", ".md")
 
-def extract_referenced_pdfs(html_text: str) -> set[str]:
-    """从 HTML 抽出所有 ../知识库/...pdf 引用，返回 URL 解码后的相对路径集合。"""
+
+def extract_referenced_assets(html_text: str) -> set[str]:
+    """抽出所有 ../知识库/...{pdf,html,md} 引用，返回 URL 解码后的相对路径集合。
+
+    覆盖以下写法：
+      - href="../知识库/..."     （HTML 标签）
+      - href="../%E7%9F%A5%E8%AF%86%E5%BA%93/..."  （URL 编码）
+      - "href": "../知识库/..."  （JSON 数据，audit 卡片用这个）
+      - "pdf_path": "../知识库/..." / "../%E7%9F%A5..."（JSON 数据）
+      - "path": "../知识库/..."
+      - src="../知识库/..."
+    """
+    raw_kb = "知识库"
+    enc_kb = "%E7%9F%A5%E8%AF%86%E5%BA%93"
+
+    ext_alt = "(?:" + "|".join(re.escape(e) for e in ASSET_EXTS) + ")"
+    kb_alt = f"(?:{re.escape(raw_kb)}|{re.escape(enc_kb)})"
+
     patterns = [
-        r'href="(\.\./知识库/[^"]+\.pdf)"',
-        r'href="(\.\./%E7%9F%A5%E8%AF%86%E5%BA%93/[^"]+\.pdf)"',
-        r'"pdf_path"\s*:\s*"(\.\./[^"]+\.pdf)"',
-        r'"path"\s*:\s*"(\.\./知识库/[^"]+\.pdf)"',
+        rf'href\s*=\s*"(\.\./{kb_alt}/[^"]+?{ext_alt})"',
+        rf'src\s*=\s*"(\.\./{kb_alt}/[^"]+?{ext_alt})"',
+        rf'"(?:href|pdf_path|md_path|path|file)"\s*:\s*"(\.\./[^"]+?{ext_alt})"',
     ]
+
     paths: set[str] = set()
     for pat in patterns:
-        for m in re.findall(pat, html_text):
-            paths.add(unquote(m))
+        for m in re.findall(pat, html_text, flags=re.IGNORECASE):
+            decoded = unquote(m)
+            if "/知识库/" not in decoded:
+                continue
+            paths.add(decoded)
     return paths
 
 
-def rewrite_html_paths(html_text: str) -> str:
-    """把 ../知识库/ 改成 知识库/（含 URL 编码版本）。"""
+def rewrite_main_html(html_text: str) -> str:
+    """主页 HTML：把 ../知识库/ 改成 知识库/（含 URL 编码版本）。"""
     out = html_text
     out = out.replace("../知识库/", "知识库/")
     out = out.replace("../%E7%9F%A5%E8%AF%86%E5%BA%93/", "%E7%9F%A5%E8%AF%86%E5%BA%93/")
     return out
 
 
-def sync_pdfs(referenced: set[str]) -> tuple[int, int, int]:
-    """把引用到的 PDF 复制到 PUBLIC_KB_ROOT，并清理不再被引用的旧 PDF。"""
+def rewrite_audit_html(html_text: str) -> str:
+    """audit 子页面 HTML：把"返回简报"链接重写成相对于公开仓库的 index.html。
+
+    源 audit HTML 在 Bot/知识库/{公司}/audits/ 下，其返回链接形如:
+        ../../../tmt-briefing/tmt-briefing.html#audit
+    在公开仓库里 audit HTML 在 知识库/{公司}/audits/ 下，主页是 ../../../index.html。
+    """
+    out = html_text
+    out = out.replace(
+        "../../../tmt-briefing/tmt-briefing.html",
+        "../../../index.html",
+    )
+    out = out.replace(
+        "../../../tmt-briefing/tmt-briefing.html#audit",
+        "../../../index.html#audit",
+    )
+    return out
+
+
+def sync_assets(referenced: set[str]) -> tuple[int, int, int]:
+    """把引用到的资源（PDF / audit HTML / md）复制到 PUBLIC_KB_ROOT，
+    并清理本仓库里不再被引用的旧文件。"""
     PUBLIC_KB_ROOT.mkdir(parents=True, exist_ok=True)
 
     copied = 0
@@ -70,12 +112,9 @@ def sync_pdfs(referenced: set[str]) -> tuple[int, int, int]:
     wanted_public_paths: set[Path] = set()
 
     for ref in sorted(referenced):
-        rel = ref.removeprefix("../")
-        src = PUBLIC_DIR.parent.parent / "Documents" / "TMT_Bot" / "Bot" / rel
-        # 上面 PUBLIC_DIR 是 ~/Documents/tmt-briefing-public，所以 .parent.parent 是 ~/
-        # 实际我们用绝对路径更稳：
-        src = Path("/Users/heyicheng/Documents/TMT_Bot/Bot") / rel
-        dst = PUBLIC_DIR / rel  # rel 是 "知识库/AI算力/..."
+        rel = ref.removeprefix("../")  # "知识库/.../xxx.pdf"
+        src = SOURCE_BOT_ROOT / rel
+        dst = PUBLIC_DIR / rel
         wanted_public_paths.add(dst.resolve())
 
         if not src.exists():
@@ -84,17 +123,32 @@ def sync_pdfs(referenced: set[str]) -> tuple[int, int, int]:
             continue
 
         dst.parent.mkdir(parents=True, exist_ok=True)
-        if dst.exists() and dst.stat().st_size == src.stat().st_size:
-            continue
-        shutil.copy2(src, dst)
-        copied += 1
+
+        if dst.suffix.lower() == ".html":
+            text = src.read_text(encoding="utf-8", errors="ignore")
+            new_text = rewrite_audit_html(text)
+            need_write = (
+                not dst.exists()
+                or dst.read_text(encoding="utf-8", errors="ignore") != new_text
+            )
+            if need_write:
+                dst.write_text(new_text, encoding="utf-8")
+                copied += 1
+        else:
+            if dst.exists() and dst.stat().st_size == src.stat().st_size:
+                continue
+            shutil.copy2(src, dst)
+            copied += 1
 
     if PUBLIC_KB_ROOT.exists():
-        for existing in PUBLIC_KB_ROOT.rglob("*.pdf"):
-            if existing.resolve() not in wanted_public_paths:
-                print(f"  🗑️  清理不再引用的: {existing.relative_to(PUBLIC_DIR)}")
-                existing.unlink()
-                pruned += 1
+        for existing in PUBLIC_KB_ROOT.rglob("*"):
+            if existing.is_file() and existing.suffix.lower() in ASSET_EXTS:
+                if existing.resolve() not in wanted_public_paths:
+                    print(
+                        f"  🗑️  清理不再引用的: {existing.relative_to(PUBLIC_DIR)}"
+                    )
+                    existing.unlink()
+                    pruned += 1
         for d in sorted(
             (p for p in PUBLIC_KB_ROOT.rglob("*") if p.is_dir()),
             key=lambda p: -len(p.parts),
@@ -150,15 +204,20 @@ def main() -> int:
     print(f"📖 读取源 HTML: {SOURCE_HTML}")
     html_text = SOURCE_HTML.read_text(encoding="utf-8")
 
-    referenced = extract_referenced_pdfs(html_text)
-    print(f"🔎 HTML 引用了 {len(referenced)} 个 PDF（去重后）")
+    referenced = extract_referenced_assets(html_text)
+    by_ext: dict[str, int] = {}
+    for r in referenced:
+        ext = Path(r).suffix.lower()
+        by_ext[ext] = by_ext.get(ext, 0) + 1
+    summary = ", ".join(f"{c} 个 {ext}" for ext, c in sorted(by_ext.items()))
+    print(f"🔎 HTML 引用了 {len(referenced)} 个资源（{summary}）")
 
-    new_html = rewrite_html_paths(html_text)
+    new_html = rewrite_main_html(html_text)
     PUBLIC_HTML.write_text(new_html, encoding="utf-8")
     print(f"📝 已写入: {PUBLIC_HTML}")
 
-    print("📦 同步 PDF 文件...")
-    copied, missing, pruned = sync_pdfs(referenced)
+    print("📦 同步资源文件...")
+    copied, missing, pruned = sync_assets(referenced)
     print(
         f"   完成：复制 {copied} 个，缺失 {missing} 个，清理 {pruned} 个旧文件"
     )
