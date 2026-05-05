@@ -1,0 +1,2570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TMT 研究简报</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<style>
+*{-webkit-font-smoothing:antialiased;box-sizing:border-box;}
+body{margin:0;background:#F3F4F6;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,sans-serif;}
+.panel{display:none;}
+.panel.active{display:block;animation:fadeIn .15s ease-out;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.pulse{animation:pulse 2s infinite;}
+.tab-btn{flex:1;padding:8px 0;font-size:12px;font-weight:500;border:none;border-bottom:2px solid transparent;background:none;cursor:pointer;color:#6B7280;transition:color .15s;}
+.tab-btn.active{border-bottom-color:#EF4444;color:#DC2626;}
+.sub-tab-btn{padding:5px 11px;font-size:11px;font-weight:600;border:1px solid #E5E7EB;border-radius:20px;background:#fff;color:#6B7280;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.sub-tab-btn.active{background:#111827;color:#fff;border-color:#111827;}
+.tw-tag-pill{display:inline-flex !important;align-items:center !important;font-size:12px !important;font-weight:500 !important;padding:2px 10px !important;border-radius:9999px !important;background:#EEF2FF !important;color:#4F46E5 !important;border:1px solid #C7D2FE !important;line-height:1.5 !important;letter-spacing:0 !important;text-decoration:none !important;cursor:pointer;}
+.tw-tag-pill:hover{background:#E0E7FF !important;border-color:#A5B4FC !important;}
+.sector-tab-btn{padding:4px 12px;font-size:11px;font-weight:600;border:1px solid #E5E7EB;border-radius:20px;background:#fff;color:#6B7280;cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0;}
+.sector-tab-btn.active{background:#111827;color:#fff;border-color:#111827;}
+.sub-panel{display:none;}
+.sub-panel.active{display:block;}
+.chart-container{position:relative;height:110px;width:100%;}
+::-webkit-scrollbar{width:0;}
+.timeline-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.timeline-line{width:1px;background:#E5E7EB;flex:1;min-height:12px;margin:3px 0;}
+#panel-weekly .info-grid{gap:12px!important;}
+#panel-weekly .info-grid>div{border-color:#E5E7EB!important;box-shadow:0 4px 14px rgba(15,23,42,.05)!important;padding:14px 15px!important;}
+#panel-weekly .info-grid>div>div:first-child{display:flex;align-items:center;gap:6px;margin-bottom:8px!important;}
+#panel-weekly .info-grid>div>div:first-child:before{content:"";width:6px;height:6px;border-radius:9999px;background:#16A34A;box-shadow:0 0 0 3px #DCFCE7;flex-shrink:0;}
+#panel-weekly .info-grid p{background:#F9FAFB!important;border:1px solid #F3F4F6!important;border-radius:10px!important;padding:8px 10px!important;margin:0 0 7px!important;line-height:1.65!important;}
+#panel-weekly .info-grid p b{display:block;margin-bottom:3px;font-size:10px;letter-spacing:.06em;color:#111827!important;}
+#panel-weekly .info-grid p a{display:inline-flex;align-items:center;margin:2px 2px 0 2px;padding:1px 6px;border-radius:9999px;background:#F3F4F6;border:1px solid #E5E7EB;color:#6B7280!important;font-size:10px;line-height:1.5;text-decoration:none!important;white-space:nowrap;}
+#panel-weekly .info-grid p a:hover{background:#F0FDF4;border-color:#BBF7D0;color:#15803D!important;}
+#panel-weekly .info-grid p:last-child{margin-bottom:0!important;background:#F8FAFC!important;}
+@media(min-width:900px){
+  .chart-container{height:200px!important;}
+  .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  .info-grid>div{margin-bottom:0!important;}
+  .pred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:12px 16px 20px!important;}
+  .pred-grid>div{margin:0!important;}
+}
+</style>
+</head>
+<body>
+<div style="max-width:1440px;margin:0 auto;min-height:100vh;background:#F3F4F6;">
+
+<!-- HEADER -->
+<div style="position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.06);">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px 8px;">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:17px;font-weight:700;color:#111827;">TMT 研究简报</span>
+      <span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;background:#EFF6FF;color:#2563EB;border:1px solid #BFDBFE;border-radius:9999px;padding:2px 8px;font-weight:600;">
+        <span class="pulse" style="width:6px;height:6px;background:#3B82F6;border-radius:50%;display:inline-block;"></span>LIVE
+      </span>
+    </div>
+    <span id="header-date" style="font-size:11px;color:#9CA3AF;"></span>
+  </div>
+  <div style="display:flex;padding:0 16px;">
+    <button class="tab-btn active" onclick="switchTab('briefing',this)">日度看板</button>
+    <button class="tab-btn" onclick="switchTab('audit',this)">个股会诊</button>
+    <button class="tab-btn" onclick="switchTab('weekly',this)">周度复盘</button>
+    <button class="tab-btn" onclick="switchTab('info',this)">信息追踪</button>
+    <button class="tab-btn" onclick="switchTab('prediction',this)">预测市场</button>
+    <button class="tab-btn" onclick="switchTab('twitter',this)">推特监控</button>
+  </div>
+</div>
+
+<!-- PANEL 1: 日度看板 -->
+<div id="panel-briefing" class="panel active" style="padding-bottom:32px;">
+  <div style="background:#fff;display:flex;align-items:stretch;padding:12px 16px;border-bottom:8px solid #F3F4F6;">
+    <div style="flex:1;padding-right:12px;border-right:1px solid #F3F4F6;">
+      <div style="font-size:10px;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">美东时间</div>
+      <div id="et-time" style="font-size:24px;font-weight:700;color:#111827;font-variant-numeric:tabular-nums;line-height:1.2;">--:--</div>
+      <div id="et-status" style="font-size:11px;font-weight:500;margin-top:1px;"></div>
+    </div>
+    <div style="flex:1;padding:0 12px;border-right:1px solid #F3F4F6;">
+      <div style="font-size:10px;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">北京时间</div>
+      <div id="cst-time" style="font-size:24px;font-weight:700;color:#111827;font-variant-numeric:tabular-nums;line-height:1.2;">--:--</div>
+      <div style="font-size:11px;color:#9CA3AF;margin-top:1px;">Asia/Shanghai</div>
+    </div>
+    <div style="flex:1;padding-left:12px;">
+      <div style="font-size:10px;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">数据更新</div>
+      <div id="update-time" style="font-size:15px;font-weight:600;color:#374151;line-height:1.2;margin-top:4px;">--</div>
+      <div style="font-size:11px;color:#9CA3AF;margin-top:1px;">12h/次</div>
+    </div>
+  </div>
+
+  <!-- 关键事项 Things to Watch（独占整行；Key Delta 已下线） -->
+  <div style="padding-bottom:32px;">
+    <div style="padding:14px 16px 4px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#9CA3AF;text-transform:uppercase;">关键事项 Things to Watch</span>
+      <span style="font-size:10px;color:#9CA3AF;">持续更新 · 可向下追溯</span>
+    </div>
+    <div id="sector-tabs" style="padding:4px 12px 10px;overflow-x:auto;display:flex;gap:6px;-webkit-overflow-scrolling:touch;">
+      <button class="sector-tab-btn active" data-sector="all" onclick="filterSector('all',this)">全部</button>
+      <button class="sector-tab-btn" data-sector="电子" onclick="filterSector('电子',this)">电子</button>
+      <button class="sector-tab-btn" data-sector="半导体设备材料" onclick="filterSector('半导体设备材料',this)">半导体设备材料</button>
+      <button class="sector-tab-btn" data-sector="存储" onclick="filterSector('存储',this)">存储</button>
+      <button class="sector-tab-btn" data-sector="消费电子" onclick="filterSector('消费电子',this)">消费电子</button>
+      <button class="sector-tab-btn" data-sector="通讯" onclick="filterSector('通讯',this)">通讯</button>
+      <button class="sector-tab-btn" data-sector="传媒" onclick="filterSector('传媒',this)">传媒</button>
+      <button class="sector-tab-btn" data-sector="计算机及模型应用" onclick="filterSector('计算机及模型应用',this)">计算机及模型应用</button>
+      <button class="sector-tab-btn" data-sector="互联网" onclick="filterSector('互联网',this)">互联网</button>
+      <button class="sector-tab-btn" data-sector="其他" onclick="filterSector('其他',this)">其他</button>
+    </div>
+    <div id="briefing-cards" style="padding:0 12px 0;"></div>
+  </div>
+</div>
+
+<!-- PANEL 2: 预测市场 -->
+<div id="panel-prediction" class="panel" style="padding-bottom:32px;">
+  <div style="height:8px;background:#F3F4F6;"></div>
+  <div style="background:#fff;padding:10px 16px;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:space-between;">
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#9CA3AF;text-transform:uppercase;margin-bottom:1px;">预测市场 Prediction Markets</div>
+      <div style="font-size:11px;color:#9CA3AF;">数据来源：Polymarket · 伊朗局势 · 美联储</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:10px;color:#9CA3AF;">更新频率</div>
+      <div style="font-size:12px;font-weight:600;color:#374151;">实时</div>
+      <div id="pm-lastupdate" style="font-size:10px;color:#D1D5DB;"></div>
+    </div>
+  </div>
+  <div id="prediction-cards" class="pred-grid" style="padding-top:8px;"></div>
+</div>
+
+<!-- PANEL 3: 信息追踪 -->
+<div id="panel-info" class="panel" style="padding-bottom:32px;">
+  <div style="height:8px;background:#F3F4F6;"></div>
+  <div style="padding:10px 16px 8px;display:flex;align-items:center;justify-content:space-between;">
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#9CA3AF;text-transform:uppercase;margin-bottom:1px;">信息追踪 Info Tracker</div>
+      <div style="font-size:11px;color:#9CA3AF;">外资研报 · ACE纪要 · 内资研报</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:6px;padding:0 12px 10px;overflow-x:auto;">
+    <button class="sub-tab-btn active" onclick="switchSubTab('zsxq',this)">外资研报</button>
+    <button class="sub-tab-btn" onclick="switchSubTab('acecamp',this)">ACE纪要</button>
+    <button class="sub-tab-btn" onclick="switchSubTab('research',this)">内资研报</button>
+  </div>
+
+  <div id="sub-zsxq" class="sub-panel active">
+    <div id="zsxq-channel" style="margin:0 12px 6px;padding:5px 10px;background:#F8FAFC;border-radius:8px;font-size:10px;color:#9CA3AF;">
+      <span style="font-weight:600;color:#6B7280;">外资研报：</span><span>MS / 美银 / JPM / 高盛 / 瑞银 / 花旗 等机构原文</span><a id="zsxq-digest-link" href="javascript:void(0)" style="margin-left:8px;color:#9CA3AF;text-decoration:none;border-bottom:1px dotted #D1D5DB;font-size:10px;" title="知识星球 180K 日报原文（仅作为采集渠道）">[采集渠道]</a>
+      <span style="margin-left:8px;color:#9CA3AF;">· <span style="color:#DC2626;font-weight:700;">红色标题</span> = 重点（深度/首次覆盖/差异化）</span>
+    </div>
+    <div id="zsxq-list" class="info-grid" style="margin:0 12px;"></div>
+  </div>
+
+  <div id="sub-acecamp" class="sub-panel">
+    <div style="margin:0 12px 6px;padding:5px 10px;background:#F8FAFC;border-radius:8px;font-size:10px;color:#9CA3AF;">
+      <span style="font-weight:600;color:#6B7280;">渠道：</span>Ace Camp · 专家访谈 / 调研 / 纪要
+      <span style="margin-left:8px;color:#9CA3AF;">· <span style="color:#DC2626;font-weight:700;">红色标题</span> = 重点（深度/独家/含定量数据）</span>
+    </div>
+    <div id="acecamp-list" class="info-grid" style="margin:0 12px;"></div>
+  </div>
+
+  <div id="sub-research" class="sub-panel">
+    <div style="margin:0 12px 6px;padding:5px 10px;background:#F8FAFC;border-radius:8px;font-size:10px;color:#9CA3AF;">
+      <span style="font-weight:600;color:#6B7280;">渠道：</span>知丘 kanzhiqiu · A股卖方研报归档（标题 = 公司 · 券商 · 日期，正文 1-2 句核心结论）
+      <span style="margin-left:8px;color:#9CA3AF;">· <span style="color:#DC2626;font-weight:700;">红色标题</span> = 重点（首次覆盖/大幅上调）</span>
+    </div>
+    <div id="gs-list" class="info-grid" style="margin:0 12px;"></div>
+  </div>
+
+</div>
+
+<!-- PANEL 4: 个股会诊 -->
+<div id="panel-audit" class="panel" style="padding-bottom:32px;">
+  <div style="height:8px;background:#F3F4F6;"></div>
+  <div style="padding:10px 16px 8px;display:flex;align-items:center;justify-content:space-between;">
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#9CA3AF;text-transform:uppercase;margin-bottom:1px;">个股会诊 Stock Audit</div>
+      <div style="font-size:11px;color:#9CA3AF;">三派会诊（价值/成长/量化）· 点击卡片打开完整报告</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:10px;color:#9CA3AF;">数量</div>
+      <div id="audit-count" style="font-size:12px;font-weight:600;color:#374151;">—</div>
+    </div>
+  </div>
+
+  <!-- 龙虎榜：7 天「基本面」（价值+成长，剔除 quant 技术面）分数变动 Top 3 上修 / 下修 -->
+  <div id="audit-leaderboard" style="padding:0 12px 6px;"></div>
+
+  <div id="audit-list" style="padding:4px 12px 10px;display:flex;flex-direction:column;gap:8px;"></div>
+</div>
+
+<!-- PANEL 5: 周度复盘 -->
+<div id="panel-weekly" class="panel" style="padding-bottom:32px;">
+  <div style="height:8px;background:#F3F4F6;"></div>
+  <div style="background:#fff;padding:10px 16px 8px;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#9CA3AF;text-transform:uppercase;margin-bottom:1px;">周度复盘 Weekly Review</div>
+      <div style="font-size:11px;color:#9CA3AF;">周期：04/21-04/28 · 来源：近 7 日每日汇总（手动补充 / ZSXQ / AceCamp / kanzhiqiu）</div>
+    </div>
+  </div>
+
+  <div style="padding:10px 12px 16px;display:flex;flex-direction:column;gap:10px;">
+    <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:14px 16px;">
+      <div style="font-size:16px;font-weight:800;color:#111827;margin-bottom:4px;">AI 主线再确认，主升浪阶段方向和仓位大于选股</div>
+      <div style="font-size:11px;color:#9CA3AF;line-height:1.7;">04/21-04/28 的 daily 信息继续围绕 AI 算力、云 Capex、光模块、存储与北美互联网展开；从外资研报和手动补充材料看，AI 投资主线从“GPU 单点”扩散到 CPU/TPU/ASIC、网络、存储、电源散热和光互联，主升阶段方向和仓位仍大于个股精挑。</div>
+    </div>
+
+    <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:-2px 2px 0;">
+      <span style="font-size:10px;font-weight:700;color:#6B7280;background:#fff;border:1px solid #E5E7EB;border-radius:9999px;padding:3px 8px;">阅读顺序：先看事实</span>
+      <span style="font-size:10px;color:#9CA3AF;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:9999px;padding:3px 8px;">灰色 chip = source / 原文</span>
+      <span style="font-size:10px;color:#9CA3AF;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:9999px;padding:3px 8px;">再看推演和建议</span>
+    </div>
+
+    <div class="info-grid" style="gap:10px;">
+      <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">AI ASIC / TPU</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>Citi 单独梳理 Google TPU v6/v7/v8 路线，Google Cloud 另有 TPU v8t/v8i 技术深度材料，说明自研 TPU 已进入多代路线图跟踪 <a href="知识库/AI算力/AI算力-材料/citi TPU.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Citi TPU，04/28）</a><a href="知识库/AI算力/AI算力-材料/TPU 8t 与 TPU 8i 技术深度解析  Google Cloud 博客 .pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Google Cloud，04/28）</a>；JPM DeepSeek V4 把模型升级解释为行业顺风而非零和冲击，说明市场仍在讨论“效率提升到底削减还是放大推理算力需求” <a href="知识库/AI算力/AI算力-材料/JPM-China Artificial Intelligence DeepSeek V4_ Sector tailwind misread as zero-sum shock – Reiterate OW on Zhipu and MiniMax.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（JPM DeepSeek V4，04/28）</a>。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>自研 ASIC/TPU 不会简单“替代 GPU 价值量”，而是把 AI 算力拆成更细的训练、prefill、decode、调度和网络层，放大非 GPU 服务器、互连、存储和供电需求。Google/AWS/Meta 自研芯片越快放量，越会推动市场从“只买 GPU beta”转向“买 ASIC 机架配套和推理控制面”。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链看 Google TPU v7/v8 出货节奏、AWS Trainium/Inferentia 和 Meta MTIA 的 rack-scale 配套、以及 BMC/SerDes/Retimer/先进封装测试订单；标的上关注 Google TPU 链和 ASIC 机架配套环节。</p>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">CPU / x86 vs Arm</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>Agentic AI 把 CPU 从普通服务器配套件变成推理调度/工作流编排的控制平面，MS 估算 2030 年会带来 325-600 亿美元增量 CPU TAM，且 CPU:GPU 集群比例从 1:12 走向 1:2+ <a href="知识库/AI算力/AI算力-材料/MS Agent 大报告 70 页.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（MS Agent 大报告，04/28）</a>；AceCamp 光架构纪要也提到 TPU 光模块场景里 CPU:GPU 配比从 1:8-12 走向 1:4 甚至更低 <a href="https://www.acecamptech.com/article/detail/70560999" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（AceCamp Steve Song，04/18）</a>；BofA 单独讨论 x86 vs Arm vs ASIC 路线，Intel 同期被 Citi 上调至买入，理由是 AI CPU 周期 + Terafab 代工机会 <a href="知识库/AI算力/AI算力-材料/bofa CPU.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（BofA CPU，04/28）</a><a href="知识库/Intel/Intel-材料/CITI-Intel Corp （INTC.US） AI CPU Cycle + Terafab Foundry Opportunity = U G to Buy-260424.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Citi Intel，04/24）</a>。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>AI rack 的 CPU attach 上升不是短期交易噪音，而是 agentic workflow 把 CPU 从“喂 GPU 的管理节点”升级为“多步骤推理调度 + memory/storage orchestration 的控制面”。结果会是通用 CPU 需求从传统云服务器周期里独立出来，Intel/AMD/Arm 都受益，但份额会重新分配：x86 先吃存量数据中心兼容性，Arm/自研 CPU 在 hyperscaler 内部继续提升，ASIC/TPU 反而放大对 CPU 控制面的需求。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>AI 研究显示应重点看三条验证链：CPU:GPU attach 是否继续下探到 1:4/1:2+；Intel/AMD 是否在 AI server 订单里明确披露 CPU 拉动；Arm/Graviton/Muse 这类自研 CPU 是否扩大内部份额。标的上，海外看 Intel 反转、AMD EPYC、Arm 生态；A 股映射看澜起、信骅 BMC、服务器电源和内存接口链。</p>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">云 Capex / AI 服务器 ODM</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>海外大厂 2027 年 Capex 预期被上修 40%+，AI 服务器/算力维持高景气 <a href="知识库/AI算力/AI算力-材料/27 年资本开支+40%.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Capex +40%，04/28）</a>；高盛上调 AI 机架/服务器 TAM，并给出 2028 年首次预测 <a href="知识库/AI算力/AI算力-材料/GS 上调 AI 机架数量， 发布 2028 年预测报告 --- Higher .pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（GS AI rack TAM，04/28）</a>；Celestica 被单列为 AI 服务器/网络代工景气持续标的，鸿海也有 AI 服务器订单、墨西哥/美国产能和毛利率更新 <a href="知识库/AI算力/AI算力-材料/Celestica Inc.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Celestica，04/28）</a><a href="知识库/工业富联/工业富联-材料/GFHK - Hon Hai Update.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（GFHK Hon Hai，04/28）</a>。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>2027 Capex 上修会先在 rack 级交付、ODM 订单能见度和供电散热 BOM 上兑现，而不是先体现在所有 AI 应用公司收入里。AI 服务器从单机出货进入机架交付后，Celestica/鸿海/工业富联这类整机与网络代工的定价权会强于纯组装周期。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链看云厂商 2027 Capex 指引、rack backlog、墨西哥/美国产能和 book-to-bill；标的优先跟踪工业富联/鸿海、广达/纬颖/Celestica、Vertiv/英维克/欧陆通，算力租赁只参与长约质量和资产负债表清晰的公司。</p>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">800G / 1.6T 光模块</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>野村光模块报告直接覆盖 800G / 1.6T 出货预期、CW 光源和 CPO 进展 <a href="知识库/AI算力/AI算力-材料/野村 光模块.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Nomura 光模块，04/28）</a>；中际旭创产业链调研把索尔斯、旭创、新易盛、物料和海外进度放在同一份材料里，说明市场跟踪已从单一龙头业绩扩展到供应链交付 <a href="知识库/中际旭创/中际旭创-材料/索尔斯调研、物料、格局、旭创、新易盛、海外进度等.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（光模块产业链调研，04/28）</a>；AceCamp 当日专家会也把“光模块与 CPO 电源管理/高速前端规格升级”列为议题 <a href="https://www.acecamptech.com/eventDetail/60534227" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（AceCamp Bryce Wang，04/28）</a>。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>光模块行情正在从“800G 放量”进入“1.6T 前移 + CW 光源/EML/物料瓶颈重定价”阶段。龙头业绩仍是底座，但真正的弹性会扩散到具备海外客户认证、物料卡位和高速前端能力的二线与上游组件。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链看 1.6T 送样/量产节奏、CW 光源供应、海外客户认证和物料交期；标的龙头继续看中际旭创/新易盛/天孚，弹性看联特/剑桥/汇绿，组件链看 EML/CW 光源、测试设备和高速前端。</p>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">光器件 / OCS / CPO</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>光学专题明确覆盖光器件、EML、CW、800G & 1.6T 进展 <a href="知识库/AI算力/AI算力-材料/光学.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（光学行业专题，04/28）</a>；JPM 硬件与网络周报继续跟踪交换芯片、ODM 和网卡需求更新 <a href="知识库/AI算力/AI算力-材料/JPM_Hardware___Networkin_2026-04-19_5253224.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（JPM Hardware & Networking，04/28）</a>；BofA 康宁材料指向光纤需求回暖和玻璃基板/特种玻璃 ramp <a href="知识库/康宁/康宁-材料/BofA 康宁.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（BofA 康宁，04/28）</a>。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>OCS/CPO 不会立刻替代传统光模块，但会先改变高速前端、光器件和光材料的估值锚。只要客户验证持续推进，市场会把“下一代架构期权”提前给到 EML/CW、硅光、光纤/玻璃和高速前端，而不是等到收入完全兑现。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链看 OCS/CPO 客户测试、光网络整机订单、康宁光纤/玻璃基板 ramp 和高速前端规格升级；标的跟踪腾景/光库/德科立、源杰/长光华芯、康宁/云南锗业/AXT 等光材料映射。</p>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">PCB / CCL / 玻璃基板</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>Bernstein AI Server Pulse 以“Chasing Scarcity”为主题，明确关注 HBM、CCL 和 substrate 基板稀缺性 <a href="知识库/AI算力/AI算力-材料/Bernstein-Global Semiconductors， Hardware， Internet & Software：1Q26 AI Server Pulse： Chasing Scarcity-260422.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Bernstein AI Server Pulse，04/22）</a>；Jefferies PCB/CCL 把 AI 红利受益标的落到 WUS/Delton/Sytech，新覆盖本身就是资金开始细拆材料链的信号 <a href="知识库/AI算力/AI算力-材料/Jefferies-Technology：PCB CCL Key Beneficiaries of AI Boom； Initiate on WUS Delton Sytech-260420.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Jefferies PCB/CCL，04/20）</a>；玻璃基板专题覆盖先进封装中介层、TGV、设备与材料受益方 <a href="知识库/AI算力/AI算力-材料/玻璃基板.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（玻璃基板，04/28）</a>。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>AI 服务器材料链会从“GPU/HBM 稀缺”扩散到“高速 CCL + substrate + 玻璃基板”的二阶稀缺，且市场会优先给具备涨价能力、良率爬坡和客户认证的公司估值溢价。玻璃基板会作为先进封装中介层期权被交易，但兑现节奏慢于 CCL/PCB。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链看 CCL/PCB 涨价、TGV 工艺进展、玻璃基板客户导入和良率；标的关注生益科技、沪电/深南、胜宏、东山精密、三环/三星电机映射，玻璃基板只参与有设备或客户导入事实的公司。</p>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">存储 / NAND / HDD</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>Sandisk 在 04/27 ZSXQ 日报中与 NVIDIA 同帖出现，04/28 手动补充又单列“闪迪-上调”，说明 NAND 纯供应商被连续跟踪 <a href="知识库/存储半导体/存储半导体-材料/闪迪-上调.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（Sandisk 上调，04/28）</a>；STX/WDC 报告标题为“Clear path to higher earnings; Raising PO”，HDD 侧也有明确盈利上修路径 <a href="知识库/AI算力/AI算力-材料/IT Hardware Industry Clear path to higher earnings; Raising PO for STX and WDC.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（STX/WDC，04/27）</a>；SK 海力士 1Q26 材料写到 ASP 强势可持续、HBM3E/HBM4 路线确认 <a href="知识库/存储半导体/存储半导体-材料/SK hynix 1Q26 Favorable price to persist.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（SK Hynix，04/28）</a>。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>存储会从“周期修复”切换成“AI 数据基础设施重估”，NAND、HDD 和 HBM 的价格弹性会分别对应推理缓存、冷数据归档和高端训练/推理。Sandisk/STX/WDC 这种纯度更高的供应商会比综合存储公司更先被定价。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链看 NAND/HDD ASP、HBM3E/HBM4 长协、云厂商存储 capex 和库存；美股跟 Sandisk、STX/WDC、美光，韩股跟 SK Hynix，A 股跟兆易、江波龙、澜起和存储设备/材料映射。</p>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">国产推理算力</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">现状及边际变化：</b>AceCamp 火山调研主题直接落到 AI 推理算力供需变化、昇腾/寒武纪/海光采购规划，以及与阿里云竞争变化 <a href="https://www.acecamptech.com/eventDetail/60534193" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（AceCamp Jay Dong，04/28）</a>；JPM DeepSeek V4 报告认为 DeepSeek V4 是行业顺风而非零和冲击，继续维持智谱/MiniMax 增持 <a href="知识库/AI算力/AI算力-材料/JPM-China Artificial Intelligence DeepSeek V4_ Sector tailwind misread as zero-sum shock – Reiterate OW on Zhipu and MiniMax.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（JPM DeepSeek V4，04/28）</a>；DeepSeek V4 解读材料明确把推理 token 升量与国内云厂商/数据中心/算力链传导放在一起讨论 <a href="知识库/AI算力/AI算力-材料/DeepSeek V4 发布——对中国 AI 模型云计算数据中心的影响 --- DeepSeek V4 launch — implications for China AI modelsclouddata centers.pdf" target="_blank" rel="noopener" style="color:#9CA3AF;text-decoration:none;">（DeepSeek V4 解读，04/28）</a>。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>国内推理算力会从“国产替代叙事”进入“谁拿到真实云厂商采购和推理 token 放量”的验证阶段。DeepSeek V4 这类模型升级如果继续降低应用门槛，反而会把更多需求推向推理侧，国产卡、云厂商数据中心和配套电源/液冷/网络会先受益。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">建议：</b>验证链只看云端推理：昇腾/寒武纪/海光采购规划、阿里云竞争变化、DeepSeek V4 带来的推理 token 需求、以及国产卡在数据中心真实部署节奏；标的跟踪寒武纪、海光、昇腾生态和国产算力配套链。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL 5: 推特监控 -->
+<div id="panel-twitter" class="panel" style="padding-bottom:32px;">
+  <div style="height:8px;background:#F3F4F6;"></div>
+
+  <!-- 顶部 stats 条 -->
+  <div id="tw-stats" style="background:#fff;padding:10px 16px 8px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid #F3F4F6;">
+    <div style="flex:1;min-width:0;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#9CA3AF;text-transform:uppercase;margin-bottom:1px;">推特监控 Twitter Monitor <span style="color:#4F46E5;background:#EEF2FF;padding:1px 6px;border-radius:4px;margin-left:6px;letter-spacing:0;text-transform:none;">UI v3 · chip 靛蓝</span></div>
+      <div style="font-size:11px;color:#9CA3AF;" id="tw-stats-line">加载中…</div>
+    </div>
+    <div id="tw-auth-chip" style="font-size:10px;padding:3px 8px;border-radius:9999px;cursor:pointer;background:#F3F4F6;color:#6B7280;border:1px solid #E5E7EB;" onclick="twSetToken()" title="点击设置 / 更换 Admin Token">未登录</div>
+  </div>
+
+  <!-- 子 tab 栏（浏览 / AI 叙事链 / 审核台） -->
+  <div style="background:#fff;padding:8px 16px;display:flex;gap:6px;border-bottom:1px solid #F3F4F6;overflow-x:auto;">
+    <button class="sub-tab-btn active" onclick="twSwitchSub('feed',this)">浏览</button>
+    <button class="sub-tab-btn" onclick="twSwitchSub('tags',this)">AI 叙事链</button>
+    <button class="sub-tab-btn" onclick="twSwitchSub('review',this)">审核台</button>
+  </div>
+
+  <!-- 子面板：浏览（只看 approved） -->
+  <div id="tw-sub-feed" class="tw-sub-panel">
+    <div style="padding:8px 16px;display:flex;gap:6px;flex-wrap:wrap;background:#FAFAFA;border-bottom:1px solid #F3F4F6;">
+      <button class="sub-tab-btn active" data-urgency="all" onclick="twSetUrgencyFilter('all',this)">全部</button>
+      <button class="sub-tab-btn" data-urgency="2" onclick="twSetUrgencyFilter('2',this)">🔴 高</button>
+      <button class="sub-tab-btn" data-urgency="1" onclick="twSetUrgencyFilter('1',this)">🟠 中</button>
+      <button class="sub-tab-btn" data-urgency="0" onclick="twSetUrgencyFilter('0',this)">🔵 低</button>
+    </div>
+    <div id="tw-feed-list" style="padding:4px 12px 10px;display:flex;flex-direction:column;gap:8px;"></div>
+  </div>
+
+  <!-- 子面板：审核台 -->
+  <div id="tw-sub-review" class="tw-sub-panel" style="display:none;">
+    <div style="padding:8px 16px;display:flex;gap:6px;flex-wrap:wrap;background:#FAFAFA;border-bottom:1px solid #F3F4F6;align-items:center;">
+      <button class="sub-tab-btn active" data-status="pending" onclick="twSetReviewStatus('pending',this)">待审核</button>
+      <button class="sub-tab-btn" data-status="approved" onclick="twSetReviewStatus('approved',this)">已通过</button>
+      <button class="sub-tab-btn" data-status="rejected" onclick="twSetReviewStatus('rejected',this)">已拒绝</button>
+      <span style="flex:1;"></span>
+      <button class="sub-tab-btn" style="background:#8B5CF6;color:#fff;border-color:#8B5CF6;" onclick="twRunAutoReviewBatch()" title="用 AI 批量审核当前筛选下的 pending">AI 一键过审</button>
+    </div>
+    <div id="tw-review-list" style="padding:4px 12px 10px;display:flex;flex-direction:column;gap:8px;"></div>
+  </div>
+
+  <!-- 子面板：标签 -->
+  <div id="tw-sub-tags" class="tw-sub-panel" style="display:none;">
+    <div id="tw-tags-list" style="padding:10px 12px;display:flex;flex-wrap:wrap;gap:6px;"></div>
+  </div>
+</div>
+
+<!-- 模态：tag 详情（推文时间线 + 叙事时间线） / author 页，共用一个容器 -->
+<div id="tw-modal" style="display:none;position:fixed;inset:0;background:rgba(17,24,39,.55);z-index:50;align-items:stretch;justify-content:center;" onclick="twCloseModalFromBg(event)">
+  <div style="background:#fff;width:100%;max-width:720px;margin:auto;max-height:90vh;display:flex;flex-direction:column;border-radius:10px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.2);">
+    <div style="padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #F3F4F6;">
+      <div id="tw-modal-title" style="font-size:14px;font-weight:700;color:#111827;"></div>
+      <button onclick="twCloseModal()" style="border:none;background:none;font-size:20px;color:#9CA3AF;cursor:pointer;line-height:1;">×</button>
+    </div>
+    <div id="tw-modal-body" style="flex:1;overflow-y:auto;padding:10px 14px;background:#FAFAFA;"></div>
+  </div>
+</div>
+
+</div>
+<script>
+// ═══════════════════════════════
+// DATA  2026-04-07
+// ═══════════════════════════════
+const KEY_DELTAS=[
+  {
+    "type": "利好",
+    "importance": "活跃",
+    "text": "【外资 AI 仓位分散】欧洲路演：资金从台积电等龙头分散，GPTC/All Ring 成 AI/HPC 确定性最高 50/50 标的 → 外资 AI 仓位从「龙头集中」进入「细分替代」阶段 → 先进封装设备（盛合晶微/长电）+ 测试（华峰测控/长川/伟测）+ 中科飞测/精测电子"
+  }
+];
+
+const BRIEFING_CARDS=[
+  // ── AUTO_BEGIN: updater 自动生成（请勿手改；刷新 briefing 时会整块替换）──（2026-05-05）
+  {ts:"2026-05-04 20:55",
+   signal:"关注",
+   urgency:"关注",
+   sector:"存储",
+   title:"NAND 涨价延续",
+   dataPoints:["外资：【编号 18002647】", "投资逻辑：AI 训练/推理和云端长单继续挤压存储供给，价格与盈利弹性仍在释放。", "投资建议：关注 Sandisk/美光/海力士，以及 A 股存储模组和设备材料映射。"],
+   aiSummary:"【编号 18002647】 AI 训练/推理和云端长单继续挤压存储供给，价格与盈利弹性仍在释放。",
+   refs:[{"label": "外资 NAND 涨价延续（05-04）", "type": "data"}]},
+  {ts:"2026-05-04 20:53",
+   signal:"关注",
+   urgency:"关注",
+   sector:"其他",
+   title:"寒武纪 增量",
+   dataPoints:["外资：【编号 18002649】", "投资逻辑：该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息。", "投资建议：优先打开原始 PDF，核对目标价、订单、供需和下游客户变化。"],
+   aiSummary:"【编号 18002649】 该条来自今日 daily manifest，属于对 TMT 产业链预期或标的映射的新增信息。",
+   refs:[{"label": "外资 寒武纪 增量（05-04）", "type": "data"}]},
+  {ts:"2026-04-30 20:51",
+   signal:"关注",
+   urgency:"活跃",
+   sector:"存储",
+   title:"HDD大厂调研",
+   dataPoints:["AceCamp 共享调研纪要：HDD 纪要的边际在于出货规划和关键零部件供应链，直接对应 WDC/东芝以及 HOYA、TDK、Resonac 等上游约束，可用于验证 nearline HDD 紧平衡。", "专家纪要 / 调研，时间 04-30", "用于校准产业链供需、采购节奏和竞争格局。"],
+   aiSummary:"HDD 纪要的边际在于出货规划和关键零部件供应链，直接对应 WDC/东芝以及 HOYA、TDK、Resonac 等上游约束，可用于验证 nearline HDD 紧平衡。",
+   refs:[{"label": "AceCamp HDD大厂调研（04-30）", "type": "data"}]},
+  {ts:"2026-04-29 20:49",
+   signal:"关注",
+   urgency:"活跃",
+   sector:"通讯",
+   title:"光模块大厂调研",
+   dataPoints:["AceCamp 共享调研纪要：这条比单一光芯片纪要更贴近头部公有云：直接聚焦 Meta/AWS/微软/Oracle/谷歌的光模块/光芯片产能、客户验证和物料设备供应，是判断 CSP AI capex 落到哪条光通信", "专家纪要 / 调研，时间 04-29", "用于校准产业链供需、采购节奏和竞争格局。"],
+   aiSummary:"这条比单一光芯片纪要更贴近头部公有云：直接聚焦 Meta/AWS/微软/Oracle/谷歌的光模块/光芯片产能、客户验证和物料设备供应，是判断 CSP AI capex 落到哪条光通信链的关键跟踪。",
+   refs:[{"label": "AceCamp 光模块大厂调研（04-29）", "type": "data"}]},
+  // ── AUTO_END ──
+  // ── AUTO_BEGIN: updater 自动生成（请勿手改；刷新 briefing 时会整块替换）──（2026-04-29）
+  {ts:"2026-04-29 20:55",
+   signal:"利好",
+   urgency:"重要",
+   sector:"半导体设备材料",
+   title:"TSMC Capex 2000 亿超级周期",
+   dataPoints:["GS：TSMC 2026-2028 进入 2000 亿美元 Capex 超级上行周期，三驱动 = N3 节点扩产 + CoWoS 加速 + SoIC 系统级集成芯片爆发", "Capex 受益方从大盘股切到中小盘股；SoIC（系统级集成芯片）潜力被严重低估；台湾正成为正反馈链条核心受益地", "买 弘塑 GPTC、万润 All Ring、信骅 GUC、辛瑞 Scientech；联发科 27 年 AI ASIC 业绩贡献飙升至 39%；A 股对标 长电科技/通富微电/盛合晶微"],
+   aiSummary:"TSMC Capex 2000 亿超级周期 —— 买 弘塑 GPTC、万润 All Ring、信骅 GUC、辛瑞 Scientech；联发科 27 年 AI ASIC 业绩贡献飙升至 39%；A 股对标 长电科技/通富微电/盛合晶微",
+   refs:[{"label": "高盛 TSMC Capex 2000 亿超级周期（04-29）", "type": "data"}]},
+  {ts:"2026-04-29 20:53",
+   signal:"利好",
+   urgency:"重要",
+   sector:"电子",
+   title:"信骅 AST2700 ASIC 机架大单",
+   dataPoints:["MS：信骅 1Q26 营收超预期，2026/2027 EPS 比共识高 23%/20%，目标价上调至 15,555 新台币", "通用服务器 BMC 70% 份额 + AI ASIC 龙头（谷歌 TPU/AWS Trainium/Meta MTIA 全覆盖）→ ASIC 机架 2026/2027 贡献总营收 11%/22%，AST2700 新品 ASP +40-50%", "信骅 Aspeed (5274.TW) 确定性最强；澜起科技（688008）CPU 服务器单台价值量破 100 美元"],
+   aiSummary:"信骅 AST2700 ASIC 机架大单 —— 信骅 Aspeed (5274.TW) 确定性最强；澜起科技（688008）CPU 服务器单台价值量破 100 美元",
+   refs:[{"label": "MS 信骅 AST2700 ASIC 机架大单（04-29）", "type": "data"}]},
+  {ts:"2026-04-29 20:51",
+   signal:"利好",
+   urgency:"活跃",
+   sector:"通讯",
+   title:"康宁 5/6 投资者日预热",
+   dataPoints:["Citi：康宁 PT 170→175 USD（买入），30 天 Positive ST View；估值锚切到 28E 35x P/E，反映 AI 基建多年长周期", "光通信新签两份 Tier 1 云厂商多年期大单 + 宽带 FTTH 加速；管理层将披露 Springboard 计划升级 + 目标延伸至 2030", "买 康宁 GLW；A 股对标 长飞/亨通光电；JPM 中性提示估值打满风险（35x 2028E）"],
+   aiSummary:"康宁 5/6 投资者日预热 —— 买 康宁 GLW；A 股对标 长飞/亨通光电；JPM 中性提示估值打满风险（35x 2028E）",
+   refs:[{"label": "Citi 康宁 5/6 投资者日预热（04-29）", "type": "data"}]},
+  {ts:"2026-04-29 20:49",
+   signal:"利好",
+   urgency:"活跃",
+   sector:"半导体设备材料",
+   title:"外资 AI 仓位分散",
+   dataPoints:["欧洲路演：资金从台积电等龙头分散，GPTC/All Ring 成 AI/HPC 确定性最高 50/50 标的", "外资 AI 仓位从「龙头集中」进入「细分替代」阶段", "先进封装设备（盛合晶微/长电）+ 测试（华峰测控/长川/伟测）+ 中科飞测/精测电子"],
+   aiSummary:"外资 AI 仓位分散 —— 先进封装设备（盛合晶微/长电）+ 测试（华峰测控/长川/伟测）+ 中科飞测/精测电子",
+   refs:[{"label": "外资研报（04-29）", "type": "data"}]},
+  // ── AUTO_END ──
+  // ── AUTO_BEGIN: updater 自动生成（请勿手改；刷新 briefing 时会整块替换）──（2026-04-28）
+            // ── AUTO_END ──
+  // ── AUTO_BEGIN: updater 自动生成（请勿手改；刷新 briefing 时会整块替换）──（2026-04-20）
+  {ts:"2026-04-20 20:55",
+   signal:"利好",
+   urgency:"重要",
+   sector:"通讯",
+   title:"康宁 Scale-Out 盈利跃迁",
+   dataPoints:["美银：康宁 PT 155→186 USD（维持买入）；2027 EPS 5.72 远超共识 3.90，2030 EPS 9.49，单 Scale-Out 贡献 187 亿美元营收 + 5.94 USD EPS", "单 GPU 光纤价值量 Blackwell 365 → Rubin 787 → Feynman 938 USD；横向+纵向+互联三维度 2030 数据中心光通信总营收 294 亿美元", "买 康宁 GLW（Scale-Out/Up/Across 三轮驱动）；A 股对标 长飞/亨通光电"],
+   aiSummary:"康宁 Scale-Out 盈利跃迁 —— 买 康宁 GLW（Scale-Out/Up/Across 三轮驱动）；A 股对标 长飞/亨通光电",
+   refs:[{"label": "美银 康宁 Scale-Out 盈利跃迁（04-20）", "type": "data"}]},
+  {ts:"2026-04-20 20:53",
+   signal:"利好",
+   urgency:"重要",
+   sector:"互联网",
+   title:"阿里 ATH / MaaS 催化",
+   dataPoints:["MS：阿里 ATH 一个月连发 4 大产品（Qwen 3.6 Plus + Happy Horse 视频霸榜 + Meoo 无代码 + Happy Oyster 3D 世界），SOTP 乐观估值 350 USD，单 Qwen MaaS 贡献 12 USD/股", "AI 全栈能力（芯片+云+模型+应用）彻底跑通；5 年内 MaaS 收入占外部云/AI 总收入（1000 亿目标）50%+；吴泳铭挂帅+李飞飞接云 CTO，技术线高管归位", "买 阿里巴巴 9988.HK/BABA.US；下次财报首次披露 MaaS 收入规模 = 估值重估触发点"],
+   aiSummary:"阿里 ATH / MaaS 催化 —— 买 阿里巴巴 9988.HK/BABA.US；下次财报首次披露 MaaS 收入规模 = 估值重估触发点",
+   refs:[{"label": "MS 阿里 ATH / MaaS 催化（04-20）", "type": "data"}]},
+    {ts:"2026-04-20 20:49",
+   signal:"利好",
+   urgency:"重要",
+   sector:"存储",
+   title:"希捷 HAMR 毛利率历史新高",
+   dataPoints:["美银：希捷 PT 450→605 USD（估值倍数 23x→25x）；F3Q26 双超预期，F4Q26 毛利率环比再涨 180bps 至 47.3%（历史新高）", "HAMR 40TB 验证通过 2 家客户，F3Q 100 万块 → F4Q 翻倍至 200 万块；云端数据中心长单 + 智能体冷存储需求双重支撑", "买 希捷 STX；西部数据 WDC 同步受益；A 股对标 华勤技术（HDD 代工）+ 江波龙（存储模组）"],
+   aiSummary:"希捷 HAMR 毛利率历史新高 —— 买 希捷 STX；西部数据 WDC 同步受益；A 股对标 华勤技术（HDD 代工）+ 江波龙（存储模组）",
+   refs:[{"label": "美银 希捷 HAMR 毛利率历史新高（04-20）", "type": "data"}]},
+  {ts:"2026-04-20 20:47",
+   signal:"利好",
+   urgency:"重要",
+   sector:"半导体设备材料",
+   title:"ABF 供需缺口翻倍",
+   dataPoints:["MS：2030 年 ABF 载板供需缺口 -7%→-15%（翻倍扩大），行业进入极度紧缺", "Agentic AI 拉动 1000-1500 万颗 CPU 新增需求 → CPU 底座 100% 硬绑定 + MLCC 5 亿美元新增 TAM", "买 欣兴（PT 785 新台币）+ 南电（PT 上调 65% 至 850）+ 鸿腾 FIT（PT 上调 30% 至 9.6 港元）+ 嘉泽 Lotes（PT 上调 51% 至 2400）+ 国巨 MLCC"],
+   aiSummary:"ABF 供需缺口翻倍 —— 买 欣兴（PT 785 新台币）+ 南电（PT 上调 65% 至 850）+ 鸿腾 FIT（PT 上调 30% 至 9.6 港元）+ 嘉泽 Lotes（PT 上调 51% 至 2400）+ 国巨 MLCC",
+   refs:[{"label": "MS ABF 供需缺口翻倍（04-20）", "type": "data"}]},
+  // ── AUTO_END ──
+  // ── AUTO_BEGIN: updater 自动生成（请勿手改；刷新 briefing 时会整块替换）──（2026-04-18）
+  {ts:"2026-04-18 20:55",
+   signal:"利好",
+   urgency:"重要",
+   sector:"半导体设备材料",
+   title:"TSMC CPO 落地",
+   dataPoints:["BofA：台积电启动 SoIC+CoWoS 在光引擎/光模组应用", "半导体×光通信边界被打破，scale-up 网络路径被代工背书", "买 罗博特科/源杰/长飞；旭创新易盛短期可插拔承压"],
+   aiSummary:"TSMC CPO 落地 —— 买 罗博特科/源杰/长飞；旭创新易盛短期可插拔承压",
+   refs:[{"label": "美银 TSMC CPO 落地（04-18）", "type": "data"}]},
+  {ts:"2026-04-18 20:53",
+   signal:"利好",
+   urgency:"重要",
+   sector:"存储",
+   title:"ASML 收入上修",
+   dataPoints:["2026 指引 365→380 亿欧元（+4.1%）", "HBM4 扩产+美光回归+EUV 出货趋紧", "买 SK海力士；TEL/AMAT 共振；北方华创/中微看转单弹性"],
+   aiSummary:"ASML 收入上修 —— 买 SK海力士；TEL/AMAT 共振；北方华创/中微看转单弹性",
+   refs:[{"label": "外资研报（04-18）", "type": "data"}]},
+  {ts:"2026-04-18 20:51",
+   signal:"关注",
+   urgency:"重要",
+   sector:"存储",
+   title:"DDR4 26Q2 触顶",
+   dataPoints:["MS：2H26 DRAM 涨势放缓，存储进入结构性分化", "HBM/高端 NAND 强势 vs 通用 DRAM 拐点", "买 SK海力士（HBM 65-67%）/美光；减南亚科"],
+   aiSummary:"DDR4 26Q2 触顶 —— 买 SK海力士（HBM 65-67%）/美光；减南亚科",
+   refs:[{"label": "MS DDR4 26Q2 触顶（04-18）", "type": "data"}]},
+  {ts:"2026-04-18 20:49",
+   signal:"利好",
+   urgency:"活跃",
+   sector:"通讯",
+   title:"AMZN Leo 转资本化",
+   dataPoints:["GS PT 280→275：AWS 营收上调、EBIT 因国际零售+高油价下修；Leo 卫星从费用化转资本化多年摊销（对标 Starlink）", "AWS 上调=AI capex 景气延续；Leo 记账变化=利润表技术性改善", "AI 算力链 + 卫星互联网（华测导航/中国卫通）联动"],
+   aiSummary:"AMZN Leo 转资本化 —— AI 算力链 + 卫星互联网（华测导航/中国卫通）联动",
+   refs:[{"label": "外资研报（04-18）", "type": "data"}]},
+    // ── AUTO_END ──
+  // ── 新增 04-19：单公司/单环节 聚焦卡 ──
+  {ts:'2026-04-19 19:00',signal:'持续利好',urgency:'重要',sector:'存储',title:'Samsung 1Q upbeat：外资存储立场从"分化"升级为"整体乐观"',
+   dataPoints:['ZSXQ Leada 04-18 19:02 存储周报（Global Memory Tech Weekly）：theme more optimistic on memory following Samsung upbeat 1Q results','此前基调"HBM/高端 NAND 强 vs DDR4/通用 DRAM 弱"的分化格局被 Samsung Q1 业绩打破，外资对 memory 转向"整体乐观"','SK 海力士 HBM4 份额 65-67% 锁定，Samsung 份额 33-35%；Samsung Q1 upbeat 意味着 HBM4 量产良率+DDR5 需求侧均改善','存储逻辑由"博弈何时拐点"转入"上行周期延续时长"阶段','受益排序：SK 海力士（HBM 主导）> 美光（HBM4 追赶+Q3 回归）；南亚科因 DDR4 比重高仍相对承压'],
+   aiSummary:'Samsung Q1 业绩把此前外资看空 DRAM 现货的情绪基本抵消，存储周期共识从"分化"重新收敛到"整体向上"。这是本周最重要的memory端边际变化——意味着海力士的HBM领先地位+美光HBM4回归弹性都拿到业绩侧佐证，存储股从"估值博弈"转向"业绩支撑"。',
+   refs:[{label:'ZSXQ Leada 存储周报 04-18',type:'data'}]},
+  {ts:'2026-04-19 18:55',signal:'利好',urgency:'重要',sector:'存储',title:'Sandisk 外资 PO 拉至 $1,080：NAND ASP 上修，闪迪估值修正启动',
+   dataPoints:['ZSXQ 小莫晕乎乎 04-18 12:22 外资研报：Sandisk — NAND supply remains tight，raising ASP estimates；PO to $1,080','定价动作清晰：外资把 NAND 合约价 2H26 的上行方向直接映射到闪迪单股 EPS 与估值','含义：超越"存储景气"叙事，具体落到闪迪这只 NAND 纯供应商股的上修通道','与 4-15 外资韩国存储买方反馈（Buy SEC & SK Hynix）+ 4-14 BERN 存储简报形成三轮定价验证','NAND 纯供应商受益排序：Sandisk > 海力士 NAND 事业部 > 美光 NAND 事业部 > 南亚科'],
+   aiSummary:'Sandisk 被单独点名拉到 $1,080 是 NAND 涨价叙事第一次被外资用股价目标量化——标志 NAND 2H26 合约价上行已从"假设"变成"定价"。对闪迪是直接的估值修正逻辑，对海力士/美光的 NAND 业务也是景气延续的侧面验证。',
+   refs:[{label:'ZSXQ 小莫晕乎乎 Sandisk 04-18',type:'data'}]},
+  {ts:'2026-04-19 18:50',signal:'利好',urgency:'重要',sector:'PCB/CCL',title:'台湾 CCL/PCB 2H26 再涨价：AI 服务器载板链下半年业绩确定',
+   dataPoints:['ZSXQ 小莫晕乎乎 04-18 13:28 外资研报：Taiwan CCL+PCB — Further price hike on both PCB and CCL in 2H appears likely，end customers eager to get more capacity','涨价不是"单边动作"而是"CCL（覆铜板）+PCB 两端同步提价"，意味着供给端紧绷已从上游材料（CCL）传导到中游制造（PCB）','终端客户 eager to get more capacity，即需求侧主动抢产能，暗示 AI 服务器/Switch/GPU 载板订单能见度至少到 2026 年底','受益个股（AI 服务器/Switch 方向）：台光电（CCL 涨价第一受益）/联茂/台郡/金像电/华通计；国内对标：生益科技（高速CCL）/深南电路（高多层 PCB）/沪电股份','边际意义：AI Rack 产业链价格端独立景气信号（与 Samsung memory / Sandisk NAND 并列）'],
+   aiSummary:'载板是 AI 服务器 BOM 中仅次于 GPU+HBM 的关键环节。CCL+PCB 同步涨价+客户抢产能是下半年载板链业绩兑现的最强独立信号，对台光电/生益科技/深南电路构成明确估值重估理由，与存储侧景气同步。',
+   refs:[{label:'ZSXQ 小莫晕乎乎 Taiwan CCL/PCB 04-18',type:'data'}]},
+  {ts:'2026-04-19 16:10',signal:'利好',urgency:'重要',sector:'电子材料',title:'博迁新材：2025 归母+150.57%，120nm 及以下纳米镍粉全球龙头地位兑现',
+   dataPoints:['中信建投 04-19 点评：2025 营收 11.52 亿 +21.84%，归母净利润 2.19 亿 +150.57%','镍粉毛利率 37.54%，同比 +13.18pcts——量增+价增+产品结构优化同步兑现','产品结构：120nm 及以下纳米镍粉行业壁垒极高，公司为全球龙头；AI 驱动高端 MLCC（服务器/光模块/电源）需求激增','第二增长曲线：光伏铜代银产业化开始贡献业绩，打开业绩天花板','边际变化：MLCC 上游镍粉从"周期品"转为"AI 结构性品"；公司盈利能力从 25% 毛利爬升到 37.54%'],
+   aiSummary:'博迁是国内少数站到 MLCC 产业链上游最壁垒端的公司——120nm 纳米镍粉没有同级别国内对手，Samsung/村田/太阳诱电都是潜在客户。AI 服务器 MLCC 用量比消费电子高 4-6 倍，本次业绩 150.57% 增长把"AI×MLCC×纳米镍粉"的细分主线从概念板块变成业绩板块。',
+   refs:[{label:'知丘 中信建投 博迁新材 04-19',type:'data'}]},
+  {ts:'2026-04-19 16:05',signal:'利好',urgency:'重要',sector:'电子材料',title:'铜冠铜箔：HVLP 产量高增带动 25 年营收 +42%，AI 铜箔环节国产龙头扭亏',
+   dataPoints:['国金证券 04-19 点评（评级★★）：2025 营收 66.89 亿 +42%，归母净利润 0.63 亿（扭亏，去年-1.56 亿），扣非 0.47 亿','细分产品：HVLP（低轮廓高频高速铜箔）产量高增——直接对应 AI 服务器/Switch 高频 PCB 用铜箔','25Q4 单季度营收亮眼，量利双升趋势延续','结构性受益：AI 服务器高速 PCB 层数上升+信号完整性要求+频率提升，推动 HVLP 渗透率从不到 5% 向 15-20% 快速爬升','国内 HVLP 竞争格局：铜冠铜箔 / 诺德股份 / 嘉元科技 / 中一科技，铜冠产品验证节奏领先'],
+   aiSummary:'HVLP 铜箔是 AI 服务器 PCB 从 Low-Loss 向 Ultra Low-Loss 进化的关键材料环节，之前国内公司普遍亏损状态，铜冠 2025 扭亏叠加产量高增，是 AI 铜箔国产化拐点的标志性信号——与 CCL 涨价在时间轴上一致共振。',
+   refs:[{label:'知丘 国金证券 铜冠铜箔 04-19',type:'data'}]},
+  {ts:'2026-04-19 15:00',signal:'利好',urgency:'活跃',sector:'消费电子',title:'水晶光电：AR 光学+AI 光学双新曲线，北美客户黑膜类产品放量',
+   dataPoints:['中金公司 04-19 点评：2025 营收 69.3 亿 +10%，归母净利润 11.7 亿 +14%；4Q25 营收 18.1 亿 +15%','涂布滤光片份额提升+AR+汽车电子销量增长是 4Q25 业绩动能','公司年报刷新三条成长曲线：消费电子/车载光学（筑牢基本盘）+ AR 光学（行业新高度）+ AI 光学（新赛道）','北美客户合作持续加深：黑膜类产品有望贡献增量——对应 Meta Ray-Ban/Apple Vision Pro 等北美 AR/VR 产品链','AI 光学具体包括：3D 传感/ToF/AR 显示光学元件等新场景，打开估值重估空间'],
+   aiSummary:'水晶光电是国内少数能进入北美头部客户光学 BOM 的公司。"AI 光学"成为第三增长曲线意味着从传统手机/车载光学向 AR/VR/AI 穿戴光学切入成功，叠加黑膜类增量——是消费电子产业链中为数不多"在 AI 端侧硬件上有直接订单"的国内标的。',
+   refs:[{label:'知丘 中金公司 水晶光电 04-19',type:'data'}]},
+  {ts:'2026-04-19 14:55',signal:'利好',urgency:'活跃',sector:'企业软件',title:'用友网络：经营现金流改善 +11 亿，AI 订单加速是云转型兑现信号',
+   dataPoints:['中金公司 04-19 点评：2025 营收 91.82 亿 +0.32%，归母亏损 13.89 亿（同比收窄 32.6%）','关键改善：2025 经营活动现金流同比大幅改善 11 亿至净流入 8.12 亿；4Q25 单季度经营现金流净流入 17.5 亿（收入确认节奏后移）','AI 订单加速突破——用友 iuap 平台 + BIP 3.0 + YonGPT 在大 B/政企侧获得实质性订单','4Q25 营收 35.97 亿 +5.35%，归母 0.09 亿扭亏为盈，单季指标向好','含义：用友从"亏损扩大+现金流恶化"切换到"亏损收窄+现金流正"的拐点，是 A 股企业 AI 软件里最接近财务兑现的标的'],
+   aiSummary:'A 股企业级 AI 软件过去两年普遍"订单有、现金流差"，用友本次经营性现金流 +11 亿是第一家真正意义上把 AI 订单转成现金流的 SaaS 龙头。这对金蝶/鼎捷/赛意等 ERP 同业是正面外溢——企业 AI 软件从"故事"进入"财报验证期"的开始。',
+   refs:[{label:'知丘 中金公司 用友网络 04-19',type:'data'}]},
+// ── 新增 04-17 / 04-18：业绩季产业链边际变化 ──
+  {ts:'2026-04-17 16:12',signal:'利好',urgency:'重要',sector:'半导体设备材料',title:'台积电1Q26业绩+ASML指引双超预期：营收毛利率均破指引上限，AI硬件景气最强确认',
+   dataPoints:['台积电1Q26：营收11341亿新台币/359.0亿美元（YoY+40.6%，QoQ+6.4%），超指引上沿358亿美元','毛利率66.2%（YoY+7.4pct，QoQ+3.9pct），高于指引上沿65.0%；归母净利润5724.8亿新台币（YoY+58.3%）','ASML 2026全年营收指引上调：365亿→380亿欧元（同业路径+demand momentum持续到2027）','DRAM短缺推动设备端产能竞赛（capacity rush），与AceCamp"内存涨价成最大交付瓶颈"判断共振','产能利用率提升带动毛利率改善，先进制程结构化定价权确认'],
+   aiSummary:'TSMC+ASML双龙头业绩/指引同步超预期，是AI硬件产业链最强景气度确认——上游设备指引上调意味着晶圆厂capex仍在加码，下游台积电产能满载证明AI需求落地。半导体Q2财报季可能整体上修，HBM/先进封装/光模块/CPO产业链估值支撑强化。',
+   refs:[{label:'知丘 华创证券 04-17',type:'data'},{label:'ZSXQ Vision 04-18',type:'data'},{label:'花旗研究/MS',type:'data'}]},
+  {ts:'2026-04-18 00:00',signal:'利好',urgency:'重要',sector:'通讯',title:'CPO从"概念炒作"走向"台积电量产"：SoIC+CoWoS启动光引擎应用，国内耦合/测试厂商受益',
+   dataPoints:['美国银行：CPO（共封装光学）正从"市场炒作"走向实质落地；台积电已启动SoIC和CoWoS技术在光引擎/光模组领域的应用','高盛《中国光通信：AI驱动网络升级》：AI网络从scale-out走向scale-up，CPO成关键技术路径','罗博特科：CPO耦合与测试设备核心玩家，业绩弹性最大','源杰科技：CW激光器出货量和产品线升级超预期','长飞光纤：空芯光纤（HCF）进入商业化阶段，2028-2030年CPO对其核心大客户（中际旭创、英伟达）贡献将显著提升'],
+   aiSummary:'CPO从PPT阶段正式进入"台积电代工"阶段是产业链最重要的结构性信号——半导体与光通信的边界被CoWoS打破。CPO耦合/测试（罗博特科）、CW激光器（源杰科技）、先进光纤（长飞、亨通）形成国内CPO供应链核心三角，受益确定性高。',
+   refs:[{label:'ZSXQ Vision 04-18 台积电/机器人',type:'data'},{label:'美国银行TSMC前瞻',type:'data'},{label:'高盛中国光通信',type:'data'}]},
+  {ts:'2026-04-18 00:00',signal:'利好',urgency:'活跃',sector:'互联网',title:'亚马逊Q1前瞻：AWS营收上调+Leo卫星转资本化，目标价280→275属技术性微调',
+   dataPoints:['高盛目标价：280美元→275美元（-1.8%），属微调而非下调','上调项：AWS营收预测（AI+云需求延续）；下调项：整体EBIT预测','EBIT下调原因：国际市场即时零售持续投资 + 高油价逆风（原油成本传导）','Leo卫星项目会计政策变化：从"费用化"转为"资本化并按多年摊销"，将大幅减轻利润表拖累','AWS capex继续上修印证云+AI资本开支景气延续'],
+   aiSummary:'AMZN目标价下调是技术性的，但逻辑上AWS营收上调是AI基建需求的正向验证。Leo记账方式变化是利润表最重要的技术性改善（对标SpaceX Starlink），叠加AWS加码，亚马逊基本面支撑转强。对AI算力供应链、卫星互联网产业链（华测导航、中国卫通）形成联动利好。',
+   refs:[{label:'高盛 AMZN Q1 Preview 04-18',type:'data'},{label:'ZSXQ Vision 04-18',type:'data'}]},
+  {ts:'2026-04-18 07:00',signal:'利空',urgency:'活跃',sector:'互联网',title:'NFLX财报后大幅下跌+北美软件情绪转负：半导体vs软件轮动加剧，算力约束共识强化',
+   dataPoints:['NFLX：Q2指引低于预期，利润率令人失望；财报后大幅下跌成当日焦点','软件行业情绪从中性进一步转向负面；Anthropic相对地位显著上升','半导体与软件轮动加剧；AMD强势反弹+7.80%','算力约束共识强化（AI capex继续加码↔应用端货币化分化）','IPO市场回暖（Anthropic年底前IPO预期再次确认）'],
+   aiSummary:'NFLX事件提示消费型互联网估值高地松动；资金偏好正从"传统广告+流媒体"向"半导体+算力基建"迁移。Anthropic相对OpenAI地位上升是模型层重要变化。短期AI主线仍倾向于算力供应链（光模块、先进封装、HBM），消费互联网进入业绩验证期。',
+   refs:[{label:'ZSXQ 180K 隔夜北美小结 04-18',type:'data'},{label:'ZSXQ Vision 04-18 北美互联网',type:'data'}]},
+  {ts:'2026-04-17 00:00',signal:'关注',urgency:'重要',sector:'存储',title:'存储周期进入分化期：DDR4 2Q26触顶 vs NAND/HBM仍供不应求，SanDisk PO上调至$1,080',
+   dataPoints:['MS（南亚科1Q26点评）：DDR4价格天花板已现，预计26Q2触顶；2H26 DRAM涨价势头放缓','反向信号：SanDisk NAND supply remains tight，外资PO上调至$1,080美元','分化格局确认：HBM/高端NAND（数据中心/AI）仍强势 vs DDR4/通用DRAM（消费/PC）承压','供需分化源自：AI资本开支持续驱动HBM需求，消费端需求未能完全承接产能释放','SK海力士（HBM份额65-67%）中长期优势更清晰；美光具备HBM份额追回弹性；南亚科承压'],
+   aiSummary:'存储板块进入"HBM/高端NAND强势 vs 通用DRAM趋缓"的分化周期——不再是整体景气而是结构性分化。投资逻辑从"买存储股"转向"精选HBM受益标的"。SK海力士和美光依然是核心受益方，南亚科/DDR4为主的厂商进入谨慎观察期。',
+   refs:[{label:'ZSXQ Vision 04-18 存储半导体',type:'data'},{label:'MS南亚科1Q26点评',type:'data'},{label:'ZSXQ 小莫晕乎乎 SanDisk 04-18',type:'data'}]},
+  {ts:'2026-04-15 00:00',signal:'持续利好',urgency:'重要',sector:'通讯',title:'光通信全栈产业链深度调研：1.6T/CPO/OCS/InP四线共振，国产光芯片获长期定价权',
+   dataPoints:['1.6T光模块：放量节奏与硅光/EML技术路径（硅光渗透率持续提升）；800G三供份额稳定','CPO/NPO：技术演进节奏+台积电代工切入+OCS订单爆发','OCS：26-28年指引上修，MEMS/波导技术路线竞争，Lumentum/Coherent扩产','InP光芯片：EML/CW需求剧增；4→6英寸尺寸迁移；CW高功率技术路线分化','地缘非对称施压：中国控制75%精炼铟，InP衬底纳入出口管制，欧美CPO供应链受压制'],
+   aiSummary:'光通信产业链已进入"1.6T量产+CPO落地+OCS放量+InP瓶颈"四线共振阶段。InP出口管制是最重要的地缘变量，对欧美CPO形成实质性卡脖子——国内光芯片厂（源杰/长光华芯）、InP衬底厂（AXT/通美晶体/云锗）、光模块（中际旭创/新易盛）、OCS耦合（天孚/炬光科技/罗博特科）形成完整受益链条。',
+   refs:[{label:'AceCamp Leo Gao 光通信调研 04-13',type:'data'},{label:'AceCamp Bryce Wang InP调研 04-10',type:'data'},{label:'AceCamp Chris Sun CPO测试调研 04-14',type:'data'}]},
+  {ts:'2026-04-14 15:15',signal:'持续利好',urgency:'重要',sector:'电子',title:'昇腾产能全景调研：910C/950PR字节腾讯大单锁定，封测/HBM仍是出货瓶颈',
+   dataPoints:['字节、腾讯需求：2026/2027年加单规模显著，供需结构预期偏紧','910C+950PR：全年出货量估计已做，与寒武纪、海光竞争格局变化','950PR CP测试周期及价格对比：国产测试机台竞争力表现强于预期','封测一体 vs 第三方独立封装和测试模式：渠梁/华峰测控/长川科技对比爱德万/泰瑞达','晶圆产能、封装、HBM三重限制：封测/HBM配套仍是昇腾出货节奏核心瓶颈'],
+   aiSummary:'昇腾仍是国产AI算力替代的决定变量，字节腾讯大单锁定需求侧。供给侧瓶颈已从"晶圆"向"封测+HBM配套"转移——第三方测试龙头（华峰测控/长川/伟测）是测试设备国产化的结构性受益标的。HBM国产化进度（长鑫存储）将影响2027年昇腾出货上限。',
+   refs:[{label:'AceCamp Jay Dong 昇腾调研 04-14',type:'data'},{label:'AceCamp Shirley 测试龙头访谈 04-13',type:'data'},{label:'AceCamp Jay Dong AI芯片测试设备 04-14',type:'data'}]},
+  {ts:'2026-04-13 20:00',signal:'利好',urgency:'活跃',sector:'电子',title:'Rubin平台全液冷方案拆解：液冷价值量翻倍+Google供应链国产化机会',
+   dataPoints:['Rubin架构全液冷配置方案解读：机柜级液冷渗透率从GB300的部分向全面覆盖升级','液冷各环节价值量测算：冷板/快接头/CDU/分配管路价值量结构性上行','供应链竞争格局及认证逻辑：Google液冷供应链国产化渗透机会明确','津上精密机床4月更新：液冷接头与人形机器人成业务重点','英伟达$20亿投资Marvell + Coherent/Lumentum CW光源锁定2027年采购数千万颗'],
+   aiSummary:'Rubin全液冷使单机柜液冷价值量显著提升；Google供应链从传统OEM向国产厂商打开，是下半年液冷国产化的关键催化。受益链条：快接头（津上精密）+ CDU + 冷板 + 液冷整机ODM。与CPO+1.6T光模块形成AI基建的"冷+光"双主线。',
+   refs:[{label:'AceCamp Leo Gao 液冷龙头调研 04-13',type:'data'},{label:'AceCamp 杨易 津上精密 04-13',type:'data'}]}
+];
+// Polymarket数据 (as of 2026-04-01)
+// 美军何时进入伊朗？     年底前 78% / 4月底前 71%
+// 美以伊冲突何时结束？   6月底前 65% / 12月底前 75%
+// 美国2026年是否加息？   是 20% / 否 80%  ｜ 更新至 2026-04-07
+function genSeries(configs,n=33){
+  let seed=12345;
+  function rand(){seed=(seed*1664525+1013904223)&0xffffffff;return(seed>>>0)/0xffffffff;}
+  const labels=[];
+  const now=new Date('2026-04-07');
+  for(let i=n;i>=0;i--){const d=new Date(now);d.setDate(d.getDate()-i);labels.push(`${d.getMonth()+1}/${d.getDate()}`);}
+  const datasets=configs.map(cfg=>{
+    let val=cfg.start;const step=(cfg.end-cfg.start)/n;
+    const data=labels.map(()=>{val=Math.max(0.5,Math.min(99.5,val+step+(rand()-.5)*cfg.vol));return Math.round(val*10)/10;});
+    return{label:cfg.label,color:cfg.color,current:cfg.end,data};
+  });
+  return{labels,datasets};
+}
+const PREDICTION_MARKETS=[
+  {question:'美伊2026年底前实现停火或政治解决？',source:'Polymarket · US-Iran ceasefire by Dec 2026 ｜ 美军4月已入境，停火谈判进行中',
+   series:genSeries([{label:'停火/政治解决',color:'#18A84C',start:22,end:73,vol:5},{label:'持续军事行动',color:'#EF4444',start:78,end:27,vol:5}])},
+  {question:'伊朗现政权2026年内是否更替？',source:'Polymarket · Iranian regime change by 2026 ｜ 美军地面部队4月3日进入',
+   series:genSeries([{label:'政权更迭',color:'#F47B30',start:8,end:38,vol:4},{label:'现政权维持',color:'#1A6EE6',start:92,end:62,vol:4}])},
+  {question:'美国2026年是否加息？',source:'Polymarket · Fed rate hike in 2026 ｜ 关税通胀压力 vs 经济下行风险拉锯',
+   series:genSeries([{label:'是（加息）',color:'#EF4444',start:22,end:20,vol:1.5},{label:'否（不加）',color:'#18A84C',start:78,end:80,vol:1.5}])},
+];
+
+const RESEARCH_ITEMS=[
+  {
+    "date": "04-30",
+    "broker": "东吴证券",
+    "type": "业绩点评",
+    "company": "2026年一季报点评",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "东吴证券*公司点评报告*2026年一季报点评：营收稳健增长，汇兑损失短期压制利润表现--豪迈科技（002595）*002595*周尔双 钱尧天 陶泽 投资要点 26Q1营收稳步增长，汇兑损失短期影响归母净利润 2026Q1单季度公司实现营收26.68亿元，同比+17.07%；实现归母净利润 5.15亿元，同比-0.83%；实现扣非归母净利润4.97亿元，同比-0.94%。 销售毛利率有所回升，期间费用率短期波动 2026年Q1公司销售毛利率34.05%，同比+0.24pct。",
+    "source": "知丘"
+  },
+  {
+    "date": "04-30",
+    "broker": "国金证券 批发零售",
+    "type": "业绩点评",
+    "company": "致欧科技",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "业绩简评 4月28日公司披露2025&26Q1业绩，25年收入87.01亿元(同比+7.1%)；归母净利3.36亿元(同比+0.7%)，扣除股份支付影响后的净利3.32亿元（同比-5.1%）。其中25Q4收入26.19亿元（同比+9.3%），归母净利0.64亿元（同比+14.3%）；26Q1收入23.14亿元（同比+10.7%），归母净利0.75亿元（同比-32.2%）。 经营分析 贸易政策扰动下美加市场拓展节奏受阻，欧洲市场展现增长韧性。分区域来看，25A欧洲/美加/拉美收",
+    "source": "知丘"
+  },
+  {
+    "date": "04-30",
+    "broker": "国信证券",
+    "type": "业绩点评",
+    "company": "呈和科技",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "【研究机构】 国信证券【报告类型】 公司研究*财报点评【标 题】 呈和科技（688625.SH）-海外业务实现突破，布局高端电子材料新赛道【股票代码】 688625.SH【行业类别】 其他化学制品【分 析 师】 杨林 王新航【推荐级别】 ★★★★★【发布时间】 2026-04-30 06:57:00 【内容摘要】 2025年及2026年一季度业绩实现稳健增长，海外业务表现亮眼。2025年公司实现营业收入9.77亿元，同比增长11.94%；实现归母净利润2.76亿元，同比增长1",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "南京证券 汽车零配 行业简评",
+    "type": "研报",
+    "company": "新能车",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "本周行情回顾：本周CS新能车指数上涨1.56%，沪深300指数上涨0.86%，行业指数跑赢沪深300指数0.70个百分点。其中涨幅居前的个股包括：德福科技（+19.85%）、天齐锂业（+10.58%）、多氟多（+10.10%）、均胜电子（+8.98%）和中科电气（+8.97%）。跌幅居前的个股包括：法拉电子（-5.89%）、杭可科技（-5.40%）、银轮股份（-4.75%）、比亚迪（-4.16%）和华友钴业（-2.16%）。 原材料价格：本周锂价持续上涨，碳酸锂本周价格为17",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "财通证券",
+    "type": "业绩点评",
+    "company": "机器人",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "【财通证券】公司点评｜汽车零部件｜伯特利(603596)：增强全底盘配套能力，战略布局机器人领域｜吴晓飞 王宁｜260429 报告标题=增强全底盘配套能力，战略布局机器人领域 报告日期=260429 ■ 事件：2026年4月28日公司发布2026年一季报：2026年一季度公司收入26.74亿元，同比+1.4%，环比-26.9%；毛利率19.43%，同比+1.5pct，环比-1.0pct；归母净利润2.69亿元，同比-0.6%，环比-35.7%。 ■ 机器人初期布局完成，有望开",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "东吴证券",
+    "type": "业绩点评",
+    "company": "AI算力",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "投资要点 以太网芯片需求放量驱动营收高速增长。据公司2025年报和2026年一季度报告，2025年裕太微实现营收6.17亿元，yoy+55.62%，归母净利润-1.34亿元，亏损同比收窄33.69%。2025 年 Q4 单季营收2.29亿元，yoy+75.89%，qoq+38.05%，归母净利润-0.06亿元，亏损同比收窄89.91%，环比收窄73.27%。2026年一季度公司实现营收1.42亿元，yoy+74.83%，qoq-38.11%，归母净利润-0.43亿元，亏损同比",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "长城证券",
+    "type": "业绩点评",
+    "company": "阿特斯",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "长城证券*公司报告*阿特斯*储能业务高景气，海外布局持续领先*太阳能*张磊,吴念峻 20260429 报告名称: 储能业务高景气，海外布局持续领先 报告类型: 公司报告 报告日期: 20260429 研究员: 张磊,吴念峻 行业: 太阳能 公司名称: 阿特斯 公司代码: 688472.SH 投资评级: 买入(维持) 【内容摘要】 事件：2026年4月28日，公司发布2025年年报与2026年一季报，2025年公司实现营业收入402.56亿元，同比下降12.8%，实现归母净利润",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "浙商证券",
+    "type": "业绩点评",
+    "company": "恺英网络",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "浙商证券*公司点评*恺英网络(002517):游戏平台业务快速发展，26Q1营收利润均高增*冯翠婷 陈磊*买入 投资要点 ？事件：4月28日，公司发布2025年年报和26Q1季报 公司2025年实现营收53.3亿元，同比增长4.04%；实现归母净利润为19.0亿元，同比增长16.9%；实现扣非归母净利润为18.4亿元，同比增长15.2%；公司26Q1实现营收22.2亿元，同比增长64.2%；实现归母净利润为7.81亿元，同比增长50.7%；实现扣非归母净利润为5.45亿元，同",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "中金公司 欧美股票研究",
+    "type": "研报",
+    "company": "SPOTIFY",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "1Q26业绩符合我们的预期 公司公布1Q26业绩：收入45.33亿欧元，同增8.2%；营业利润7.15亿欧元，营业利润率15.8%。公司业绩基本符合我们预期。 发展趋势 MAU表现持续亮眼，提价驱动订阅收入高质量增长。用户端，1Q26公司MAU/MPU分别环增1,000/300万人至7.61/2.93亿人，其中MAU表现好于我们预期，我们认为主要系Spotify免费套餐升级持续释放红利。收入端，1Q26公司总营收同增8.2%至45.33亿欧元，拆分来看：1Q26订阅收入同增1",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "中金公司 通用机械",
+    "type": "业绩点评",
+    "company": "中核科技",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "2025年业绩低于我们预期 公司公布2025年业绩：实现收入17.31亿元，同比-6.08%；归母净利润1.70亿元，同比-25.92%；扣非净利润1.49亿元，同比-29.41%；对应每股盈利0.44元，同比-25.92%。2025年由于营收规模收缩及费用刚性，公司整体盈利端承压，因此整体业绩低于我们预期。 1Q26年，公司实现营业收入1.21亿元，同比-49.21%；归母净利润亏损0.11亿元，同比-692.78%；扣非归母净利润亏损0.15亿元，亏损主要系大额订单未到交",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "平安证券",
+    "type": "业绩点评",
+    "company": "阳光电源",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "【事项说明】公司发布2026年一季报。2026年第一季度，公司实现营业收入155.61亿元，同比减少18.26%；实现归母净利润22.91亿元，同比减少40.12%。 【平安观点】 前期高基数大项目确收节奏等因素影响下，一季度业绩同比下降。2026年第一季度，公司实现营业收入155.61亿元，同比减少18.26%。国内分布式业务方面，2025年531新政以来，新能源家庭光伏业务减少，新项目开发速度放缓，而2025年一季度是新政前的抢装，因此收入同比下降；海外业务方面，2025",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "国海证券 电子新材料",
+    "type": "业绩点评",
+    "company": "江丰电子",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "事件: 江丰电子4月15日发布2025年报：2025年公司实现收入46.04亿元，同比增长27.72%；实现归母净利润5.00亿元，同比增长24.70%；实现扣非归母净利润3.60亿元，同比增长18.74%。 江丰电子4月28日发布2026年一季报：2026Q1公司实现收入13.06亿元，同比增长30.49%；实现归母净利润2.10亿元，同比增长33.42%；实现扣非归母净利润1.25亿元，同比增长37.07%。 投资要点: 2025年靶材及零部件均同比稳健增长。2025年公",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "东吴证券",
+    "type": "业绩点评",
+    "company": "晶澳科技",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "投资要点 公司发布2026年一季报和2025年年报，公司25年营收491.3亿元，同比-29.9%，归母净利润-46.1亿元，同比+1%，扣非净利润-50.3亿元，同比-17.8%,毛利率-2.1%，同比-6.6pct；其中25年Q4营收123.2亿元，同环比-21.9％/-4.5％，归母净利润-10.6亿元，同环比-74.7%/8.5％，扣非净利润-15.7亿元，同环比-57.2%/35％。26Q1营收92.2亿元，同环比-13.6％/-25.2％，归母净利润-10.7亿元",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "光大证券",
+    "type": "业绩点评",
+    "company": "盈峰环境",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "事件：公司发布2025年年报&2026年一季报，2025年实现营业收入138.44亿元，同比+5.53%，实现归母净利润5.5亿元，同比+7.07%；2026Q1实现营业收入39.22亿元，同比+23.23%，实现归母净利润2.14亿元，同比+18.61%，环比+173.11%。 环保装备销售额连续25年行业第一，城市服务业务稳健经营。（1）2025年公司智能装备业务营业收入同比+13.99%至59.13亿元，环保装备销售额已连续25年位居国内第一，环保装备销量同比+15.1",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "中银证券 港股研究",
+    "type": "研报",
+    "company": "比亚迪电子",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "BYD Electronic ？?FX volatility and memory costs pressures near-term profit (BUY) *0285.HK Alex LIN; Alina LIN (i) BYD-E reported mixed 1Q26 results with improved revenue (4% YoY), GPM(1.2ppt QoQ) but declined NI (-96% YoY), primarily due to",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "国金证券 橡胶制品",
+    "type": "业绩点评",
+    "company": "AI算力",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "业绩简评 2026年4月28日，公司发布2025年年报及2026年一季报。2025全年公司实现营业收入11.57亿元，同比增长20.75%，实现归母净利润0.36亿元，同比增长106.08%；2026年第一季度实现营业收入2.24亿元，同比下降11.09%；实现归母净利润-0.03亿元，同比下降129.75%，业绩符合预期。 经营分析 多因素扰动致盈利阶段性调整：2026年一季度，公司实现毛利率16.46%，同比下降1.23PCT；净利率为-0.8%，同比转负，整体盈利能力出",
+    "source": "知丘"
+  },
+  {
+    "date": "04-29",
+    "broker": "太平洋",
+    "type": "业绩点评",
+    "company": "联易融科技-W",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "事件：联易融科技发布2025年年度报告。全年公司实现总收入9.83亿元，同比-4.7%；实现归母净亏损4.39亿元，同比收窄47.5%。下半年业绩修复强劲，公司实现收入6.08亿元，环比+62.4%；归母净亏损收窄至0.59亿元，边际改善显著。 核心业务增长强劲，市场地位持续巩固。报告期内，公司服务供应链资产规模总额达5081亿元，同比+27.3%，连续六年位居行业第一。核心增长引擎多级流转云业务处理量同比+46.7%至3042亿元，占集团总资产规模比重提升至59.9%，战略",
+    "source": "知丘"
+  },
+  {
+    "date": "04-28",
+    "broker": "国泰海通",
+    "type": "深度研究",
+    "company": "矽电股份",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "报告类型=公司首次覆盖 公司简称=矽电股份 公司代码=301629 报告日期=2026-04-28 19:57:24 报告作者=肖隽翀 报告标题=期待光通信、逻辑/存储探针台业务成长 投资建议，首次覆盖，给予矽电股份“增持”评级，目标价412.50元。我们对矽电股份2026E-2028E收入预测分别为7.08亿元、9.25亿元、12.47亿元，同比增68.94%、30.74%和34.81%；归母净利润分别为1.15亿元、1.68亿元、2.42亿元，同比增117.16%、46.",
+    "source": "知丘"
+  },
+  {
+    "date": "04-28",
+    "broker": "国泰海通",
+    "type": "深度研究",
+    "company": "矽电股份",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "报告类型=公司首次覆盖 公司简称=矽电股份 公司代码=301629 报告日期=2026-04-28 19:57:24 报告作者=肖隽翀 报告标题=期待光通信、逻辑/存储探针台业务成长 投资建议，首次覆盖，给予矽电股份“增持”评级，目标价412.50元。我们对矽电股份2026E-2028E收入预测分别为7.08亿元、9.25亿元、12.47亿元，同比增68.94%、30.74%和34.81%；归母净利润分别为1.15亿元、1.68亿元、2.42亿元，同比增117.16%、46.",
+    "source": "知丘"
+  },
+  {
+    "date": "04-28",
+    "broker": "东吴证券",
+    "type": "业绩点评",
+    "company": "千里科技",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "【本邮件来自外部，请核实发件人和内容是否可信，谨慎访问其中的附件、链接或二维码！不要在未经确认的网页中输入公司或个人的账号、密码等信息！对无法确认的邮件，请联系IT分析处置。】 投资要点 公司发布2026年一季报，收入稳健，研发持续加码。2026Q1公司实现营业收入23.61亿元，同比30.69%，环比-22.66%；归母净利润0.48亿元，归母净利率2.05%，同比0.94pct，环比1.03pct；扣非后归母净利润0.01亿元。公司盈利能力显著改善，2026Q1毛利率24",
+    "source": "知丘"
+  },
+  {
+    "date": "04-28",
+    "broker": "中信建投",
+    "type": "业绩点评",
+    "company": "奕瑞科技",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "中信建投证券*A股公司简评报告*【中信建投医疗器械】奕瑞科技(688301):业绩略超预期，新业务实现强劲增长*688301*医药生物*袁清慧 王在存 朱琪璋 朱红亮 贺菊颖*买入*20260428 中信建投证券*A股公司简评报告*【中信建投医疗器械】奕瑞科技(688301):业绩略超预期，新业务实现强劲增长*688301*医药生物*袁清慧 王在存 朱琪璋 朱红亮 贺菊颖*买入*20260428 核心观点 公司25年业绩略超预期。26Q1公司跟关联方视涯科技的关联交易金额预计",
+    "source": "知丘"
+  },
+  {
+    "date": "04-28",
+    "broker": "中泰证券",
+    "type": "业绩点评",
+    "company": "智明达",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "报告名称:业绩迎历史新高，新兴业务有望打开增长新空间 分析师:陈鼎如 马梦泽 报告类型:公司点评报告 报告日期:2026-04-28 16:55:33 所属行业:军工电子Ⅱ 报告星级:★★★★★ 公司名称:智明达 合理估值(元): 内容摘要 事件：2026年3月25日公司发布2025年年度报告，2025年公司实现总营业收入7.09亿元，同比增长61.87%；利润总额达到1.09亿元，同比增长597.5%；实现归母净利润1.02亿元，同比增长425.27%。2026年4月22日",
+    "source": "知丘"
+  },
+  {
+    "date": "04-28",
+    "broker": "长江证券",
+    "type": "深度研究",
+    "company": "华测导航",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "报告标题：穿越β周期的α：风雨无惧，前行不止 报告来源：于海宁,祖圣腾/长江证券 报告类型：公司研究/点评报告 证券简称/代码：华测导航/300627 行业：通信设备 报告日期：2026-04-28 16:06:06 【内容摘要】 自2003年成立以来，公司以高精度定位导航技术为发展根基，逐步构建起定位导航技术、感知测量技术、智能控制技术三大核心技术体系，并持续聚焦相关产品与解决方案的研发、制造、集成和产业化应用，不断拓展至多行业领域，2026年，公司经营目标为归母净利润7.",
+    "source": "知丘"
+  },
+  {
+    "date": "04-28",
+    "broker": "中泰证券",
+    "type": "业绩点评",
+    "company": "睿创微纳",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "报告名称:红外主业高景气上行，盈利能力显著提升 分析师:陈鼎如 马梦泽 报告类型:公司点评报告 报告日期:2026-04-28 16:57:07 所属行业:军工电子Ⅱ 报告星级:★★★★★ 公司名称:睿创微纳 合理估值(元): 内容摘要 事件：2026年4月9日公司发布2025年年度报告，2025年公司本年度实现总营业收入63.04亿元，同比增长46.07%；利润总额达到10.98亿元，同比增长156.47%；实现归母净利润11.25亿元，同比增长97.66%。 红外主业供需",
+    "source": "知丘"
+  },
+  {
+    "date": "04-28",
+    "broker": "中信建投",
+    "type": "业绩点评",
+    "company": "福斯特",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "核心观点 公司2026Q1收入33.73亿元，同比-6.95%，归母净利润3.12亿元，同比-22.27%、环比+279.87%，业绩环比明显修复，主要受益于胶膜原材料上涨带来的低价库存收益及信用减值冲回。胶膜主业在行业淡季中出货韧性较强，Q1出货6.55亿平，同比+5.64%、环比-6.73%，市占率提升至60%以上，海外业务盈利能力仍优于国内。电子材料受益AI服务器PCB高端化趋势，感光干膜Q1出货5200万平，同比+25.74%，HDI、mSAP等中高端产品放量有望带动",
+    "source": "知丘"
+  },
+  {
+    "date": "04-28",
+    "broker": "中银证券",
+    "type": "业绩点评",
+    "company": "瑞芯微",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "瑞芯微发布2025年年报和2026年一季报。公司2025年和2026Q1业绩同比持续高增，产品结构优化带动盈利提升。公司确立“SoC+协处理器”双轨并行发展的产品路径。随着端侧大模型加速落地，公司自研协处理器突破端侧AI关键瓶颈,我们预计协处理器有望成为公司业绩增长的关键驱动力。公司持续完善产品矩阵，坚持“IP先行”以支持下一代芯片创新。维持“增持”评级。 支撑评级的要点 业绩持续高增，产品结构优化带动盈利提升。瑞芯微2025年营收44.02亿元，YoY+40%；归母净利润1",
+    "source": "知丘"
+  },
+  {
+    "date": "04-28",
+    "broker": "国联民生",
+    "type": "债券专题",
+    "company": "策略宏观",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "2026年一季度基金持仓地方债有何变化：2026年一季报中基金地方政府债持仓上升至428亿元，较2025年四季报增加46亿元，主要是一季度中端地方债表现较好、利差得到压缩，以及今年市场集中参与超长端凸点位置（一开始参与15Y，而后转为参与20Y），主要是中长期纯债券型基金的持仓规模大幅环比增加，当前持仓规模为362亿元，环比增加55亿元。从持有习惯来看，季度新增持有地方债的规模为210亿元，占比为49%，说明基金近期参与新券的热情明显增加。从期限分布来看，2026年一季度基金",
+    "source": "知丘"
+  },
+  {
+    "date": "04-28",
+    "broker": "国泰海通",
+    "type": "业绩点评",
+    "company": "三七互娱",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "我们认为核心产品运营稳定，新游表现出色，维持“增持”评级。我们预计2026-2028年公司EPS预测值分别为1.42/1.61/1.77元，考虑到公司2026年新品较多，新游《LastAsylum:Plague》数据表现出色，前期产品投入有望在2027年实现盈利释放。参考可比公司，考虑到公司游戏长周期运营能力强，且持续高分红回馈股东，我们给与公司2026年20倍动态PE，对应目标价28.40元，维持“增持”评级。 26Q1业绩增速稳健，产品端和投资收益均有贡献。公司2026Q",
+    "source": "知丘"
+  },
+  {
+    "date": "04-28",
+    "broker": "招商证券",
+    "type": "业绩点评",
+    "company": "南方传媒",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "报告名称：南方传媒（601900）—主业经营稳健，数智化转型与“书影融合”打开新空间 研究员：顾佳,徐帅 报告类型：公司研究 * 点评报告 报告日期：2026-04-28 研究方向：传媒 公司名称及代码：南方传媒(601900) 投资评级：强烈推荐 【内容摘要】 主业经营稳健释放发展潜力，经营效益持续提升。公司2025年实现营业收入86.35亿元，同比-5.85%，主要系一般图书市场承压及公司主动收缩低毛利物资业务所致。公司核心主业教育出版业务保持稳健增长，出版业务板块实现营",
+    "source": "知丘"
+  },
+  {
+    "date": "04-28",
+    "broker": "平安证券",
+    "type": "业绩点评",
+    "company": "【平安证券】中科创达",
+    "ticker": "—",
+    "change": "N/A",
+    "rating": "—",
+    "detail": "【事项说明】公司公告2025年年报，2025年实现营业收入77.78亿元，同比增长44.45%，实现归母净利润4.50亿元，同比增长10.47%，实现扣非归母净利润3.44亿元，同比增长96.43%。2025年利润分配预案为：每10股派发现金红利1.85元（含税），不送红股，不以资本公积金转增股本。 【平安观点】 公司2025年营收和扣非归母净利润均实现高速增长。根据公司公告，公司2025年实现营业收入77.78亿元，同比增长44.45%，公司营收实现高速增长。分区域看，公司",
+    "source": "知丘"
+  }
+];
+
+const ACECAMP_ITEMS=[
+  {
+    "time": "05-04 09:02",
+    "source": "AceCamp 共享调研纪要",
+    "title": "光芯片业务分析：产能加速爬坡与良率修复，2026年迎盈利拐点",
+    "tags": [
+      "AI算力",
+      "光芯片"
+    ],
+    "detail": "CW 光源仍以 70mW 为主、100mW 小批量，MOCVD/6英寸衬底扩产给出 2026 年盈利拐点线索；但 CW 门槛低，2027 年价格腰斩风险需要折现。"
+  },
+  {
+    "time": "04-30 11:34",
+    "source": "AceCamp 共享调研纪要",
+    "title": "HDD大厂调研:出货量规划,关键零部件供应链格局-聚焦西部数据/东芝/HOYA/索尼/TDK/Int",
+    "tags": [
+      "西部数据"
+    ],
+    "detail": "HDD 纪要的边际在于出货规划和关键零部件供应链，直接对应 WDC/东芝以及 HOYA、TDK、Resonac 等上游约束，可用于验证 nearline HDD 紧平衡。"
+  },
+  {
+    "time": "04-30 08:52",
+    "source": "AceCamp Leo Gao",
+    "title": "光芯片龙头调研：1.6T光模块供应链分析——硅光方案放量/EML芯片供需缺口/200G认证节奏/磷化",
+    "tags": [
+      "AI算力",
+      "光模块",
+      "光芯片"
+    ],
+    "detail": "1.6T 光模块纪要给出方案分化：200G EML 供给紧张使 8 通道受限，16 通道 100G EML 方案成为阶段性折中，边际指向 EML/硅光/InP 供需约束。"
+  },
+  {
+    "time": "04-29 15:25",
+    "source": "AceCamp 共享调研纪要",
+    "title": "光模块大厂调研:光模块/光芯片产能及扩产规划,客户验证进展及需求,物料/设备供应情况-聚焦Meta/",
+    "tags": [
+      "AI算力",
+      "光模块",
+      "光芯片"
+    ],
+    "detail": "这条比单一光芯片纪要更贴近头部公有云：直接聚焦 Meta/AWS/微软/Oracle/谷歌的光模块/光芯片产能、客户验证和物料设备供应，是判断 CSP AI capex 落到哪条光通信链的关键跟踪。"
+  }
+];
+
+const ZSXQ_ITEMS=[
+  {
+    "date": "05-05",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "AI算力",
+      "外资研报"
+    ],
+    "title": "几篇关于半导体设备 | GLOBAL TECHNOLOGY SEMICONDUCTOR CAPITAL EQUIPMEN",
+    "detail": "几篇关于半导体设备 | GLOBAL TECHNOLOGY SEMICONDUCTOR CAPITAL EQUIPMENT Can Semi Cap stocks still work from here Mapping bullbear WFE scenarios to valuation & raising WFE estimates / 📄 GLOBAL TECHNOLOGY SEMICONDUCTOR CAPITAL EQUIPMENT Can Semi Cap stocks still work from"
+  },
+  {
+    "date": "05-05",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "策略宏观",
+      "外资研报"
+    ],
+    "title": "几篇关于半导体设备 | China SPE  Strong and sustainable growth with at",
+    "detail": "几篇关于半导体设备 | China SPE  Strong and sustainable growth with attractive valuation; analysis on AMEC Naura; global WFE model updated / 📄 China SPE_ Strong and sustainable growth with attractive valuation; analysis on AMEC_Naura; global WFE model updated"
+  },
+  {
+    "date": "05-05",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "策略宏观",
+      "外资研报"
+    ],
+    "title": "几篇关于半导体设备 | Japan Technology  Semiconductor Capital Equipmen",
+    "detail": "几篇关于半导体设备 | Japan Technology  Semiconductor Capital Equipment  Raising WFE outlook; expect growth momentum to accelerate into CY27; maint... / 📄 Japan Technology_ Semiconductor Capital Equipment_ Raising WFE outlook; expect growth momentum to accelerate into C"
+  },
+  {
+    "date": "05-04",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "存储半导体",
+      "外资研报"
+    ],
+    "title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
+    "detail": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网 / 📄 South Korea Tech_ Memory Pricing Tracker_ Apr. 2026_ Latest 2Q26 DRAM_NAND pricing forecasts higher vs. GSe"
+  },
+  {
+    "date": "05-04",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "寒武纪",
+      "外资研报"
+    ],
+    "title": "寒武纪+三星+潍柴 | Cambricon (688256.SS)  AI expansion with growing",
+    "detail": "寒武纪+三星+潍柴 | Cambricon (688256.SS)  AI expansion with growing local chips in China; 1Q26 beat with strong orders on hand; Buy, TP up to Rm...(1) / 📄 Cambricon (688256.SS)_ AI expansion with growing local chips in China; 1Q26 beat with strong orders on hand; Buy"
+  },
+  {
+    "date": "05-04",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "策略宏观",
+      "外资研报"
+    ],
+    "title": "寒武纪+三星+潍柴 | Weichai Power (000338.SZ)  Raising estimates and",
+    "detail": "寒武纪+三星+潍柴 | Weichai Power (000338.SZ)  Raising estimates and TPs post 1Q26 results; maintain Buy / 📄 Weichai Power (000338.SZ)_ Raising estimates and TPs post 1Q26 results; maintain Buy"
+  },
+  {
+    "date": "05-04",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "策略宏观",
+      "外资研报"
+    ],
+    "title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
+    "detail": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网 / 📄 South Korea Tech_ April 2026 export tracker_ Memory export continues triple-digit% growth trend"
+  },
+  {
+    "date": "05-04",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "策略宏观",
+      "外资研报"
+    ],
+    "title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
+    "detail": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网 / 📄 GREATER_20260503_2200"
+  },
+  {
+    "date": "05-04",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "策略宏观",
+      "外资研报"
+    ],
+    "title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
+    "detail": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网 / 📄 GLOBAL_20260501_1424"
+  },
+  {
+    "date": "05-04",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "策略宏观",
+      "外资研报"
+    ],
+    "title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
+    "detail": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网 / 📄 MEDIATEK_20260430_2342"
+  },
+  {
+    "date": "05-04",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "阿里巴巴",
+      "外资研报"
+    ],
+    "title": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网",
+    "detail": "模拟半导体+联发科+本土云+存储+韩国出口+中国互联网 / 📄 Navigating China Internet_AI models_ Framing five key AI debates; Buy Alibaba (on CL); upgrade MiniMax to Buy"
+  },
+  {
+    "date": "05-04",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "韩国半导体",
+      "外资研报"
+    ],
+    "title": "寒武纪+三星+潍柴 | Samsung Electronics (005930.KS)  Earnings Review",
+    "detail": "寒武纪+三星+潍柴 | Samsung Electronics (005930.KS)  Earnings Review  1Q26 OP inline; expects 2027 to be an even tighter year for memory; Buy / 📄 Samsung Electronics (005930.KS)_ Earnings Review_ 1Q26 OP inline; expects 2027 to be an even tighter year for memory; Bu"
+  },
+  {
+    "date": "05-01",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "Sandisk",
+      "外资研报"
+    ],
+    "title": "apple 苹果+sandisk 闪迪+wdc 西部数据",
+    "detail": "apple 苹果+sandisk 闪迪+wdc 西部数据 / 📄 SANDISK_20260501_0426"
+  },
+  {
+    "date": "05-01",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "Sandisk",
+      "外资研报"
+    ],
+    "title": "apple 苹果+sandisk 闪迪+wdc 西部数据",
+    "detail": "apple 苹果+sandisk 闪迪+wdc 西部数据 / 📄 SanDisk Corp. (SNDK)_ Extremely strong guidance clears a heightened bar given tight supply and improving SSD mix"
+  },
+  {
+    "date": "05-01",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "存储半导体",
+      "外资研报"
+    ],
+    "title": "apple 苹果+sandisk 闪迪+wdc 西部数据",
+    "detail": "apple 苹果+sandisk 闪迪+wdc 西部数据 / 📄 Western_Digital_WDCN_Management_Callback_Takeaways-Western_Digital_WDCN"
+  },
+  {
+    "date": "05-01",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "存储半导体",
+      "外资研报"
+    ],
+    "title": "apple 苹果+sandisk 闪迪+wdc 西部数据",
+    "detail": "apple 苹果+sandisk 闪迪+wdc 西部数据 / 📄 Western Digital Corp. (WDC)_ First Take_ Solid results and strong guidance, set against elevated expectations"
+  },
+  {
+    "date": "05-01",
+    "author": "@Leada",
+    "type": "外资研报",
+    "tags": [
+      "苹果",
+      "外资研报"
+    ],
+    "title": "apple 苹果+sandisk 闪迪+wdc 西部数据",
+    "detail": "apple 苹果+sandisk 闪迪+wdc 西部数据 / 📄 Apple Inc. (AAPL)_ F2Q26 review_ Strong demand with better-than-feared gross margins "
+  }
+];
+
+const GS_ITEMS=[
+  {
+    "date": "04-30",
+    "title": "2026年一季报点评：营收稳健增长，汇兑损失短期压制利润表现",
+    "tags": [
+      "2026年一季报点评",
+      "半导体"
+    ],
+    "detail": "东吴证券*公司点评报告*2026年一季报点评：营收稳健增长，汇兑损失短期压制利润表现--豪迈科技（002595）*002595*周尔双 钱尧天 陶泽 投资要点 26Q1营收稳步增长，汇兑损失短期影响归母净利润 2026Q1单季度公司实现营收26.68亿元，同比+17.07%；实现归母净利润 5.15亿元，同比-0.83%；实现扣非归母净利润4.97亿元，同比-0.94%。 销售毛利率有所回升，期间费用率短期波动 2026年Q1公司销售毛利率34.05%，同比+0.24pct。销售净利率19.31%，同比-3.49p"
+  },
+  {
+    "date": "04-30",
+    "title": "致欧科技（301376.SZ）：亚马逊销售模式调整成效显现，汇兑损失影响短期业绩",
+    "tags": [
+      "致欧科技"
+    ],
+    "detail": "业绩简评 4月28日公司披露2025&26Q1业绩，25年收入87.01亿元(同比+7.1%)；归母净利3.36亿元(同比+0.7%)，扣除股份支付影响后的净利3.32亿元（同比-5.1%）。其中25Q4收入26.19亿元（同比+9.3%），归母净利0.64亿元（同比+14.3%）；26Q1收入23.14亿元（同比+10.7%），归母净利0.75亿元（同比-32.2%）。 经营分析 贸易政策扰动下美加市场拓展节奏受阻，欧洲市场展现增长韧性。分区域来看，25A欧洲/美加/拉美收入分别同比+16.0%/-10.3%/+"
+  },
+  {
+    "date": "04-30",
+    "title": "海外业务实现突破，布局高端电子材料新赛道",
+    "tags": [
+      "呈和科技",
+      "AI算力",
+      "AI"
+    ],
+    "detail": "【研究机构】 国信证券【报告类型】 公司研究*财报点评【标 题】 呈和科技（688625.SH）-海外业务实现突破，布局高端电子材料新赛道【股票代码】 688625.SH【行业类别】 其他化学制品【分 析 师】 杨林 王新航【推荐级别】 ★★★★★【发布时间】 2026-04-30 06:57:00 【内容摘要】 2025年及2026年一季度业绩实现稳健增长，海外业务表现亮眼。2025年公司实现营业收入9.77亿元，同比增长11.94%；实现归母净利润2.76亿元，同比增长10.20%；2026年第一季度，公司实现"
+  },
+  {
+    "date": "04-29",
+    "title": "新能车：宁德时代举办“超级科技日”发布会增持",
+    "tags": [
+      "新能车"
+    ],
+    "detail": "本周行情回顾：本周CS新能车指数上涨1.56%，沪深300指数上涨0.86%，行业指数跑赢沪深300指数0.70个百分点。其中涨幅居前的个股包括：德福科技（+19.85%）、天齐锂业（+10.58%）、多氟多（+10.10%）、均胜电子（+8.98%）和中科电气（+8.97%）。跌幅居前的个股包括：法拉电子（-5.89%）、杭可科技（-5.40%）、银轮股份（-4.75%）、比亚迪（-4.16%）和华友钴业（-2.16%）。 原材料价格：本周锂价持续上涨，碳酸锂本周价格为17.3万元/吨，较上周同期上涨2.0%；氢"
+  },
+  {
+    "date": "04-29",
+    "title": "增强全底盘配套能力，战略布局机器人领域",
+    "tags": [
+      "机器人"
+    ],
+    "detail": "【财通证券】公司点评｜汽车零部件｜伯特利(603596)：增强全底盘配套能力，战略布局机器人领域｜吴晓飞 王宁｜260429 报告标题=增强全底盘配套能力，战略布局机器人领域 报告日期=260429 ■ 事件：2026年4月28日公司发布2026年一季报：2026年一季度公司收入26.74亿元，同比+1.4%，环比-26.9%；毛利率19.43%，同比+1.5pct，环比-1.0pct；归母净利润2.69亿元，同比-0.6%，环比-35.7%。 ■ 机器人初期布局完成，有望开辟第二增长曲线：公司已通过合资方式快速完"
+  },
+  {
+    "date": "04-29",
+    "title": "营收持续高增，积极布局数据中心场景",
+    "tags": [
+      "AI算力",
+      "半导体"
+    ],
+    "detail": "投资要点 以太网芯片需求放量驱动营收高速增长。据公司2025年报和2026年一季度报告，2025年裕太微实现营收6.17亿元，yoy+55.62%，归母净利润-1.34亿元，亏损同比收窄33.69%。2025 年 Q4 单季营收2.29亿元，yoy+75.89%，qoq+38.05%，归母净利润-0.06亿元，亏损同比收窄89.91%，环比收窄73.27%。2026年一季度公司实现营收1.42亿元，yoy+74.83%，qoq-38.11%，归母净利润-0.43亿元，亏损同比收窄28.76%，环比扩大594.60%"
+  },
+  {
+    "date": "04-29",
+    "title": "储能业务高景气，海外布局持续领先",
+    "tags": [
+      "阿特斯"
+    ],
+    "detail": "长城证券*公司报告*阿特斯*储能业务高景气，海外布局持续领先*太阳能*张磊,吴念峻 20260429 报告名称: 储能业务高景气，海外布局持续领先 报告类型: 公司报告 报告日期: 20260429 研究员: 张磊,吴念峻 行业: 太阳能 公司名称: 阿特斯 公司代码: 688472.SH 投资评级: 买入(维持) 【内容摘要】 事件：2026年4月28日，公司发布2025年年报与2026年一季报，2025年公司实现营业收入402.56亿元，同比下降12.8%，实现归母净利润10.16亿元，同比下降54.8%；对应"
+  },
+  {
+    "date": "04-29",
+    "title": "游戏平台业务快速发展，26Q1营收利润均高增",
+    "tags": [
+      "恺英网络",
+      "AI"
+    ],
+    "detail": "浙商证券*公司点评*恺英网络(002517):游戏平台业务快速发展，26Q1营收利润均高增*冯翠婷 陈磊*买入 投资要点 ？事件：4月28日，公司发布2025年年报和26Q1季报 公司2025年实现营收53.3亿元，同比增长4.04%；实现归母净利润为19.0亿元，同比增长16.9%；实现扣非归母净利润为18.4亿元，同比增长15.2%；公司26Q1实现营收22.2亿元，同比增长64.2%；实现归母净利润为7.81亿元，同比增长50.7%；实现扣非归母净利润为5.45亿元，同比增长5.75%。公司2025年全年和2"
+  },
+  {
+    "date": "04-29",
+    "title": "1Q26业绩平稳，AI投入压制短期利润率指引",
+    "tags": [
+      "SPOTIFY",
+      "AI算力",
+      "AI"
+    ],
+    "detail": "1Q26业绩符合我们的预期 公司公布1Q26业绩：收入45.33亿欧元，同增8.2%；营业利润7.15亿欧元，营业利润率15.8%。公司业绩基本符合我们预期。 发展趋势 MAU表现持续亮眼，提价驱动订阅收入高质量增长。用户端，1Q26公司MAU/MPU分别环增1,000/300万人至7.61/2.93亿人，其中MAU表现好于我们预期，我们认为主要系Spotify免费套餐升级持续释放红利。收入端，1Q26公司总营收同增8.2%至45.33亿欧元，拆分来看：1Q26订阅收入同增10.0%至41.48亿欧元，主要受益于Q"
+  },
+  {
+    "date": "04-29",
+    "title": "中核科技（000777.SZ）：2025年业绩低于预期，核电产能逐步兑现",
+    "tags": [
+      "中核科技"
+    ],
+    "detail": "2025年业绩低于我们预期 公司公布2025年业绩：实现收入17.31亿元，同比-6.08%；归母净利润1.70亿元，同比-25.92%；扣非净利润1.49亿元，同比-29.41%；对应每股盈利0.44元，同比-25.92%。2025年由于营收规模收缩及费用刚性，公司整体盈利端承压，因此整体业绩低于我们预期。 1Q26年，公司实现营业收入1.21亿元，同比-49.21%；归母净利润亏损0.11亿元，同比-692.78%；扣非归母净利润亏损0.15亿元，亏损主要系大额订单未到交货期所致。2025年分产品看，公司核化工"
+  },
+  {
+    "date": "04-29",
+    "title": "毛利率环比回升，经营韧性强",
+    "tags": [
+      "阳光电源",
+      "AI算力",
+      "电网"
+    ],
+    "detail": "【事项说明】公司发布2026年一季报。2026年第一季度，公司实现营业收入155.61亿元，同比减少18.26%；实现归母净利润22.91亿元，同比减少40.12%。 【平安观点】 前期高基数大项目确收节奏等因素影响下，一季度业绩同比下降。2026年第一季度，公司实现营业收入155.61亿元，同比减少18.26%。国内分布式业务方面，2025年531新政以来，新能源家庭光伏业务减少，新项目开发速度放缓，而2025年一季度是新政前的抢装，因此收入同比下降；海外业务方面，2025年Q1沙特大项目确认收入40亿左右，同期"
+  },
+  {
+    "date": "04-29",
+    "title": "2026Q1归母净利润同比稳健增长，“靶材+零部件”双轮驱动成长可期",
+    "tags": [
+      "江丰电子",
+      "存储",
+      "半导体"
+    ],
+    "detail": "事件: 江丰电子4月15日发布2025年报：2025年公司实现收入46.04亿元，同比增长27.72%；实现归母净利润5.00亿元，同比增长24.70%；实现扣非归母净利润3.60亿元，同比增长18.74%。 江丰电子4月28日发布2026年一季报：2026Q1公司实现收入13.06亿元，同比增长30.49%；实现归母净利润2.10亿元，同比增长33.42%；实现扣非归母净利润1.25亿元，同比增长37.07%。 投资要点: 2025年靶材及零部件均同比稳健增长。2025年公司超高纯靶材业务实现收入28.50亿元，"
+  },
+  {
+    "date": "04-29",
+    "title": "出货量居行业前列，海外新产能开始释放",
+    "tags": [
+      "晶澳科技"
+    ],
+    "detail": "投资要点 公司发布2026年一季报和2025年年报，公司25年营收491.3亿元，同比-29.9%，归母净利润-46.1亿元，同比+1%，扣非净利润-50.3亿元，同比-17.8%,毛利率-2.1%，同比-6.6pct；其中25年Q4营收123.2亿元，同环比-21.9％/-4.5％，归母净利润-10.6亿元，同环比-74.7%/8.5％，扣非净利润-15.7亿元，同环比-57.2%/35％。26Q1营收92.2亿元，同环比-13.6％/-25.2％，归母净利润-10.7亿元，同环比-34.9%/1.1％，扣非净利"
+  },
+  {
+    "date": "04-29",
+    "title": "传统主业发展稳健，海外市场及智云计算板块发展值得期待",
+    "tags": [
+      "盈峰环境",
+      "AI算力"
+    ],
+    "detail": "事件：公司发布2025年年报&2026年一季报，2025年实现营业收入138.44亿元，同比+5.53%，实现归母净利润5.5亿元，同比+7.07%；2026Q1实现营业收入39.22亿元，同比+23.23%，实现归母净利润2.14亿元，同比+18.61%，环比+173.11%。 环保装备销售额连续25年行业第一，城市服务业务稳健经营。（1）2025年公司智能装备业务营业收入同比+13.99%至59.13亿元，环保装备销售额已连续25年位居国内第一，环保装备销量同比+15.1%至1.40万辆，销量市占率同比提升近1"
+  },
+  {
+    "date": "04-29",
+    "title": "比亚迪电子（00285.HK）：FX volatility and memory costs pre",
+    "tags": [
+      "比亚迪电子"
+    ],
+    "detail": "BYD Electronic ？?FX volatility and memory costs pressures near-term profit (BUY) *0285.HK Alex LIN; Alina LIN (i) BYD-E reported mixed 1Q26 results with improved revenue (4% YoY), GPM(1.2ppt QoQ) but declined NI (-96% YoY), primarily due to 1) shifts in the as"
+  },
+  {
+    "date": "04-29",
+    "title": "科创新源（300731.SZ）：盈利短期承压，新能源+数据中心热管理长期增长可期",
+    "tags": [
+      "AI算力",
+      "液冷"
+    ],
+    "detail": "业绩简评 2026年4月28日，公司发布2025年年报及2026年一季报。2025全年公司实现营业收入11.57亿元，同比增长20.75%，实现归母净利润0.36亿元，同比增长106.08%；2026年第一季度实现营业收入2.24亿元，同比下降11.09%；实现归母净利润-0.03亿元，同比下降129.75%，业绩符合预期。 经营分析 多因素扰动致盈利阶段性调整：2026年一季度，公司实现毛利率16.46%，同比下降1.23PCT；净利率为-0.8%，同比转负，整体盈利能力出现阶段性下降，主要原因为1）Q1确认政府"
+  },
+  {
+    "date": "04-29",
+    "title": "战略转型成效显现，盈利拐点可期",
+    "tags": [
+      "联易融科技-W",
+      "AI"
+    ],
+    "detail": "事件：联易融科技发布2025年年度报告。全年公司实现总收入9.83亿元，同比-4.7%；实现归母净亏损4.39亿元，同比收窄47.5%。下半年业绩修复强劲，公司实现收入6.08亿元，环比+62.4%；归母净亏损收窄至0.59亿元，边际改善显著。 核心业务增长强劲，市场地位持续巩固。报告期内，公司服务供应链资产规模总额达5081亿元，同比+27.3%，连续六年位居行业第一。核心增长引擎多级流转云业务处理量同比+46.7%至3042亿元，占集团总资产规模比重提升至59.9%，战略增长引擎地位巩固。供应链金融科技解决方案"
+  },
+  {
+    "date": "04-28",
+    "title": "期待光通信、逻辑/存储探针台业务成长",
+    "tags": [
+      "矽电股份",
+      "存储"
+    ],
+    "detail": "报告类型=公司首次覆盖 公司简称=矽电股份 公司代码=301629 报告日期=2026-04-28 19:57:24 报告作者=肖隽翀 报告标题=期待光通信、逻辑/存储探针台业务成长 投资建议，首次覆盖，给予矽电股份“增持”评级，目标价412.50元。我们对矽电股份2026E-2028E收入预测分别为7.08亿元、9.25亿元、12.47亿元，同比增68.94%、30.74%和34.81%；归母净利润分别为1.15亿元、1.68亿元、2.42亿元，同比增117.16%、46.31%和43.95%；2026E-202"
+  }
+];
+
+const TWITTER_ITEMS=[];
+
+// ═══════════════════════════════
+// CLOCK
+// ═══════════════════════════════
+function pad(n){return String(n).padStart(2,'0');}
+// ═══════════════════════════════
+// AUDIT_CARDS · v2 打分体系
+// 加权：成长 40% + 价值 30% + 量化 30%
+// 允许负值，严格打分；direction = value*0.3 + growth*0.4 + quant*0.3
+// 区间：≥4 强烈偏多 · ≥2.5 明显偏多 · ≥1.0 偏多 · (-1,1) 中性 · ≤-1 偏空 · ≤-2.5 明显偏空
+// ═══════════════════════════════
+const AUDIT_CARDS=[
+  {
+    "name": "台积电 TSMC",
+    "ticker": "TSM",
+    "sector": "半导体制造",
+    "direction": 3.83,
+    "direction_label": "明显偏多",
+    "value": 3.0,
+    "growth": 5.0,
+    "quant": 3.5,
+    "date": "2026-04-29",
+    "href": "知识库/台积电/audits/台积电-audit-20260429.html"
+  },
+  {
+    "name": "美光科技 (Micron)",
+    "ticker": "MU.US",
+    "sector": "其他",
+    "direction": 3.83,
+    "direction_label": "明显偏多",
+    "value": 3.0,
+    "growth": 5.0,
+    "quant": 3.5,
+    "date": "2026-04-29",
+    "href": "知识库/美光/audits/美光-audit-20260429.html"
+  },
+  {
+    "name": "SanDisk 闪迪",
+    "ticker": "SNDK.US",
+    "sector": "其他",
+    "direction": 3.5,
+    "direction_label": "明显偏多",
+    "value": 1.0,
+    "growth": 5.0,
+    "quant": 4.5,
+    "date": "2026-04-28",
+    "href": "知识库/Sandisk/audits/Sandisk-audit-20260428.html"
+  },
+  {
+    "name": "AMD (超威半导体)",
+    "ticker": "AMD.US",
+    "sector": "AI芯片/GPU",
+    "direction": 3.0,
+    "direction_label": "偏多",
+    "value": 2.0,
+    "growth": 4.0,
+    "quant": 3.0,
+    "date": "2026-04-29",
+    "href": "知识库/AMD/audits/AMD-audit-20260429.html"
+  },
+  {
+    "name": "英伟达",
+    "ticker": "NVDA",
+    "sector": "AI芯片/GPU",
+    "direction": 3.0,
+    "direction_label": "偏多",
+    "value": 3.0,
+    "growth": 5.0,
+    "quant": 1.0,
+    "date": "2026-04-28",
+    "href": "知识库/英伟达/audits/英伟达-audit-20260428.html"
+  },
+  {
+    "name": "长电科技 JCET",
+    "ticker": "600584.SH",
+    "sector": "半导体封测",
+    "direction": 2.83,
+    "direction_label": "偏多",
+    "value": 2.0,
+    "growth": 3.0,
+    "quant": 3.5,
+    "date": "2026-04-29",
+    "href": "知识库/长电科技/audits/长电科技-audit-20260429.html"
+  },
+  {
+    "name": "阿里巴巴-W",
+    "ticker": "09988.HK",
+    "sector": "中国互联网",
+    "direction": 2.67,
+    "direction_label": "偏多",
+    "value": 3.0,
+    "growth": 3.0,
+    "quant": 2.0,
+    "date": "2026-04-28",
+    "href": "知识库/阿里巴巴/audits/阿里巴巴-audit-20260428.html"
+  },
+  {
+    "name": "Intel 英特尔",
+    "ticker": "INTC.US",
+    "sector": "其他",
+    "direction": 2.33,
+    "direction_label": "偏多",
+    "value": 1.0,
+    "growth": 3.0,
+    "quant": 3.0,
+    "date": "2026-04-28",
+    "href": "知识库/Intel/audits/Intel-audit-20260428.html"
+  },
+  {
+    "name": "通富微电",
+    "ticker": "002156.SZ",
+    "sector": "半导体封测",
+    "direction": 2.17,
+    "direction_label": "偏多",
+    "value": 0.0,
+    "growth": 3.0,
+    "quant": 3.5,
+    "date": "2026-04-28",
+    "href": "知识库/通富微电/audits/通富微电-audit-20260428.html"
+  },
+  {
+    "name": "康宁 (Corning)",
+    "ticker": "GLW.US",
+    "sector": "其他",
+    "direction": 2.0,
+    "direction_label": "偏多",
+    "value": 3.0,
+    "growth": 4.0,
+    "quant": -1.0,
+    "date": "2026-04-29",
+    "href": "知识库/康宁/audits/康宁-audit-20260429.html"
+  },
+  {
+    "name": "艾马克技术 Amkor",
+    "ticker": "AMKR",
+    "sector": "半导体封测",
+    "direction": 1.83,
+    "direction_label": "偏多",
+    "value": 1.0,
+    "growth": 3.0,
+    "quant": 1.5,
+    "date": "2026-04-28",
+    "href": "知识库/AMKR/audits/AMKR-audit-20260428.html"
+  },
+  {
+    "name": "ASML",
+    "ticker": "ASML.US",
+    "sector": "半导体制造",
+    "direction": 1.67,
+    "direction_label": "偏多",
+    "value": 2.0,
+    "growth": 4.0,
+    "quant": -1.0,
+    "date": "2026-04-29",
+    "href": "知识库/ASML/audits/ASML-audit-20260429.html"
+  },
+  {
+    "name": "甲骨文 (Oracle)",
+    "ticker": "ORCL.US",
+    "sector": "其他",
+    "direction": 1.67,
+    "direction_label": "偏多",
+    "value": 1.0,
+    "growth": 3.0,
+    "quant": 1.0,
+    "date": "2026-04-29",
+    "href": "知识库/甲骨文/audits/甲骨文-audit-20260429.html"
+  },
+  {
+    "name": "美团-W",
+    "ticker": "03690.HK",
+    "sector": "中国互联网",
+    "direction": 1.17,
+    "direction_label": "中性",
+    "value": 3.0,
+    "growth": 3.0,
+    "quant": -2.5,
+    "date": "2026-04-28",
+    "href": "知识库/美团/audits/美团-audit-20260428.html"
+  },
+  {
+    "name": "CoreWeave (CRWV)",
+    "ticker": "CRWV.US",
+    "sector": "其他",
+    "direction": 1.0,
+    "direction_label": "中性",
+    "value": 0.0,
+    "growth": 3.0,
+    "quant": 0.0,
+    "date": "2026-04-29",
+    "href": "知识库/CoreWeave/audits/CoreWeave-audit-20260429.html"
+  },
+  {
+    "name": "盛合晶微",
+    "ticker": "688820.SH",
+    "sector": "半导体制造",
+    "direction": 1.0,
+    "direction_label": "中性",
+    "value": -1.0,
+    "growth": 4.0,
+    "quant": 0.0,
+    "date": "2026-04-28",
+    "href": "知识库/盛合晶微/audits/盛合晶微-audit-20260428.html"
+  },
+  {
+    "name": "腾讯控股",
+    "ticker": "00700.HK",
+    "sector": "中国互联网",
+    "direction": 1.0,
+    "direction_label": "中性",
+    "value": 3.0,
+    "growth": 3.0,
+    "quant": -3.0,
+    "date": "2026-04-28",
+    "href": "知识库/腾讯/audits/腾讯-audit-20260428.html"
+  },
+  {
+    "name": "快手-W",
+    "ticker": "01024.HK",
+    "sector": "中国互联网",
+    "direction": -0.5,
+    "direction_label": "中性",
+    "value": 1.0,
+    "growth": 0.0,
+    "quant": -2.5,
+    "date": "2026-04-29",
+    "href": "知识库/快手/audits/快手-audit-20260429.html"
+  }
+];
+
+const LEADERBOARD={
+  "upgrades": [],
+  "downgrades": []
+};
+window.ZSXQ_DIGEST_HREF='../%E6%AF%8F%E6%97%A5%E6%B1%87%E6%80%BB/ZSXQ_180K_20260505.md';
+const LAST_UPDATE=new Date('2026-05-05T13:01:03+08:00');
+function updateClock(){
+  const now=new Date();
+  const etH=(now.getUTCHours()-4+24)%24,etM=now.getUTCMinutes();
+  const cstH=(now.getUTCHours()+8)%24;
+  document.getElementById('et-time').textContent=`${pad(etH)}:${pad(etM)}`;
+  document.getElementById('cst-time').textContent=`${pad(cstH)}:${pad(etM)}`;
+  const isOpen=(etH>9||(etH===9&&etM>=30))&&etH<16;
+  const st=document.getElementById('et-status');
+  st.textContent=isOpen?'开市中':'已收盘';st.style.color=isOpen?'#16A34A':'#EF4444';
+  const el=Math.max(0,Math.floor((Date.now()-LAST_UPDATE)/1000));
+  document.getElementById('update-time').textContent=el<60?`${el}秒前`:el<3600?`${Math.floor(el/60)}分钟前`:el<86400?`${Math.floor(el/3600)}小时前`:`${Math.floor(el/86400)}天前`;
+  document.getElementById('header-date').textContent=`${now.getMonth()+1}月${now.getDate()}日`;
+  const pmEl=document.getElementById('pm-lastupdate');
+  if(pmEl)pmEl.textContent=`今日 ${pad(etH)}:${pad(etM)}`;
+}
+setInterval(updateClock,1000);updateClock();
+
+// ═══════════════════════════════
+// TAB SWITCHING
+// ═══════════════════════════════
+function switchTab(id,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  if(btn){
+    btn.classList.add('active');
+  }else{
+    const el=document.querySelector(`.tab-btn[onclick*="'${id}'"]`);
+    if(el) el.classList.add('active');
+  }
+  // 同步 URL hash，这样后退按钮也能回到正确 tab
+  try{ history.replaceState(null,'','#'+id); }catch(e){}
+}
+// 页面加载 / hash 变化时，按 hash 自动切 tab（#audit → 个股会诊）
+function _applyHashTab(){
+  const h=(location.hash||'').replace('#','');
+  if(!h) return;
+  const panel=document.getElementById('panel-'+h);
+  if(panel) switchTab(h);
+}
+window.addEventListener('hashchange',_applyHashTab);
+_applyHashTab();
+function switchSubTab(id,btn){
+  document.querySelectorAll('.sub-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.sub-tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sub-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ═══════════════════════════════
+// RENDER KEY DELTA
+// ═══════════════════════════════
+const SIG_BG={'利好':'#16A34A','利空':'#EF4444','持续利好':'#15803D','持续利空':'#B91C1C','反转':'#F59E0B'};
+const IMP_STYLE={'重要':'background:#FEF2F2;color:#B91C1C;border:1px solid #FECACA;','活跃':'background:#FFFBEB;color:#B45309;border:1px solid #FDE68A;','关注':'background:#F3F4F6;color:#6B7280;border:1px solid #E5E7EB;'};
+// 把 bullet 句首的"标签："加粗：'美银：xxx' → '<b>美银</b>：xxx'
+// 触发规则：bullet 开头 1-10 字（不含中英文分隔符与空格），紧跟中英文冒号。
+// 不匹配的（比如纯内容句"买 康宁 GLW..."）原样返回。
+function boldBulletPrefix(b){
+  if(typeof b !== 'string' || !b) return b;
+  if(/<[a-z\/][^>]*>/i.test(b)) return b; // 手工已经写了 HTML 就不动
+  const m = b.match(/^([^：:，,。；;\s]{1,10})[：:]/);
+  if(!m) return b;
+  const label = m[1];
+  return `<b style="font-weight:700;color:#111827;">${label}</b>` + b.slice(label.length);
+}
+
+// KEY_DELTAS 已下线（前端不再单独渲染左栏「增量信息」），数据本身仍然由
+// briefing_updater 写入，留作历史 / 后续 sub-panel 备用。
+// 兼容：如果未来想恢复某个面板，只需 `#delta-list` 重新挂上。
+
+// ═══════════════════════════════
+// SECTOR MAPPING (auto-tag cards) —— tab 按钮严格 8 大类：
+//   电子 / 半导体设备材料 / 存储 / 消费电子 / 通讯 / 传媒 / 计算机及模型应用 / 互联网
+// ═══════════════════════════════
+// (1) 细分 sector → 8 大类别名表：历史手工卡用的"光通信/半导体设计/PCB/CCL/电子材料/
+//     企业软件/半导体封测/电力设备"等也能被点击 tab 正确过滤到
+const SECTOR_ALIAS = {
+  // 通讯（光通信 / 光模块链路）
+  '光通信':'通讯','光模块':'通讯','CPO':'通讯','光纤':'通讯','光芯片':'通讯',
+  // 存储（补齐历史分类）
+  'NAND':'存储','DRAM':'存储','HBM':'存储',
+  // 半导体设备材料（设备/材料/载板/PCB 材料）
+  'PCB/CCL':'半导体设备材料','CCL':'半导体设备材料','电子材料':'半导体设备材料',
+  '半导体材料':'半导体设备材料','载板':'半导体设备材料',
+  // 电子（设计/封测/服务器 ODM/功率等 = 电子大类）
+  '半导体设计':'电子','半导体封测':'电子','封测':'电子','芯片设计':'电子',
+  '服务器':'电子','AI服务器':'电子','功率半导体':'电子',
+  // 计算机及模型应用（企业软件/AI 应用/AI Agent/大模型）
+  '企业软件':'计算机及模型应用','AI应用':'计算机及模型应用',
+  '大模型':'计算机及模型应用','AI Agent':'计算机及模型应用',
+  // 老数据里可能出现的非 TMT 值，礼貌收到"其他"
+  '电力设备':'其他',
+};
+// (2) 关键词兜底映射（仅用于没填 sector 的老卡，产出值必须是 8 大类 + 其他）
+const SECTOR_MAP = [
+  ['GB300','电子'],['GB200','电子'],['Rubin','电子'],['Blackwell','电子'],
+  ['ASIC','电子'],['昇腾','电子'],['Hon Hai','电子'],
+  ['1.6T','通讯'],['光纤','通讯'],['光模块','通讯'],['OCS','通讯'],
+  ['星间激光','通讯'],['DCI','通讯'],['康宁','通讯'],
+  ['DRAM','存储'],['NAND','存储'],['HBM','存储'],['HAMR','存储'],
+  ['希捷','存储'],['Seagate','存储'],['SanDisk','存储'],['镁光','存储'],
+  ['ASML','半导体设备材料'],['台积电','半导体设备材料'],['TSMC','半导体设备材料'],
+  ['ABF','半导体设备材料'],['载板','半导体设备材料'],['MLCC','半导体设备材料'],
+  ['Renesas','半导体设备材料'],
+  ['Apple Intelligence','消费电子'],['App Store','消费电子'],['iPhone','消费电子'],
+  ['Anthropic','计算机及模型应用'],['Qwen','计算机及模型应用'],['大模型','计算机及模型应用'],
+  ['AI Agent','计算机及模型应用'],['Agentic','计算机及模型应用'],['Copilot','计算机及模型应用'],
+  ['阿里','互联网'],['Alibaba','互联网'],['Netflix','互联网'],['Azure','互联网'],
+  ['AWS','互联网'],['AMZN','互联网'],['Meta','互联网'],['MaaS','互联网'],
+];
+// (3) 规范化：把任意 sector 值解析成 8 大类之一（不在 8 大类里就走 alias，再兜"其他"）
+const CANONICAL_SECTORS = new Set(['电子','半导体设备材料','存储','消费电子','通讯','传媒','计算机及模型应用','互联网']);
+function canonicalSector(raw){
+  if(!raw) return '';
+  if(CANONICAL_SECTORS.has(raw)) return raw;
+  if(SECTOR_ALIAS[raw]) return SECTOR_ALIAS[raw];
+  return raw; // 未知细分标签：保留原值，点"全部"看得到，点 8 大 tab 不命中
+}
+BRIEFING_CARDS.forEach(c=>{
+  // 1) 规范化已填的 sector 到 8 大类（把历史的"光通信/半导体设计/PCB/CCL"等映射过来）
+  c.sector = canonicalSector(c.sector);
+  // 2) 没填 sector 的卡走关键词兜底
+  if(!c.sector){
+    for(const[kw,sec] of SECTOR_MAP){if(c.title.includes(kw)){c.sector=sec;break;}}
+    if(!c.sector) c.sector = '其他';
+  }
+});
+
+// ═══════════════════════════════
+// SOURCE PRIORITY (研报=1 AceCamp=2 推特=3)
+// ═══════════════════════════════
+function getSourcePriority(card){
+  const refs=(card.refs||[]).map(r=>r.label.toLowerCase());
+  if(refs.some(r=>/^gs |goldman|jpm|jpmorgan|trendforce|bloomberg|semianalysis/.test(r)))return 1;
+  if(refs.some(r=>r.startsWith('@')))return 3;
+  return 2;
+}
+
+// ═══════════════════════════════
+// RENDER BRIEFING CARDS
+// ═══════════════════════════════
+const URG_COLOR={'重要':'#EF4444','活跃':'#F59E0B','关注':'#3B82F6'};
+const SIG_BADGE={'利好':'background:#DCFCE7;color:#15803D;','利空':'background:#FEE2E2;color:#B91C1C;','持续利好':'background:#BBF7D0;color:#14532D;','持续利空':'background:#FECACA;color:#7F1D1D;','反转':'background:#FEF3C7;color:#78350F;'};
+const SORTED_CARDS=[...BRIEFING_CARDS].sort((a,b)=>{
+  const dayA=a.ts.slice(0,10),dayB=b.ts.slice(0,10);
+  if(dayB>dayA)return 1;if(dayB<dayA)return -1;
+  const spA=getSourcePriority(a),spB=getSourcePriority(b);
+  if(spA!==spB)return spA-spB;
+  return new Date(b.ts)-new Date(a.ts);
+});
+
+function renderBriefingCards(sector){
+  const cards=(!sector||sector==='all')?SORTED_CARDS:SORTED_CARDS.filter(c=>c.sector===sector);
+  document.getElementById('briefing-cards').innerHTML=cards.map((c,i)=>{
+    const isRecent=i<3;
+    const dataHTML=c.dataPoints.map(p=>`<div style="display:flex;align-items:flex-start;gap:6px;margin-bottom:4px;"><span style="flex-shrink:0;width:4px;height:4px;border-radius:50%;background:#6B7280;margin-top:6px;"></span><span style="font-size:11px;color:#374151;line-height:1.5;">${p}</span></div>`).join('');
+    const refHTML=c.refs.map(r=>`<div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;"><span style="font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;background:#DBEAFE;color:#1E40AF;">数据</span><span style="font-size:11px;color:#374151;">${r.label}</span></div>`).join('');
+    return`<div style="display:flex;gap:10px;padding:0;">
+    <div style="display:flex;flex-direction:column;align-items:center;padding-top:14px;width:16px;flex-shrink:0;">
+      <div class="timeline-dot" style="background:${URG_COLOR[c.urgency]||'#9CA3AF'};${isRecent?'box-shadow:0 0 0 3px '+URG_COLOR[c.urgency]+'33;':''}"></div>
+      ${i<cards.length-1?'<div class="timeline-line"></div>':''}
+    </div>
+    <div style="flex:1;margin-bottom:10px;">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;">
+        <span style="font-size:10px;color:#9CA3AF;font-variant-numeric:tabular-nums;">${c.ts}</span>
+        <span style="font-size:10px;font-weight:700;padding:1px 6px;border-radius:9999px;${SIG_BADGE[c.signal]||''}">${c.signal}</span>
+        <span style="font-size:10px;font-weight:700;color:${URG_COLOR[c.urgency]};padding:1px 5px;border-radius:4px;background:${URG_COLOR[c.urgency]}18;">${c.urgency}</span>
+      </div>
+      <div style="background:#fff;border-radius:12px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);overflow:hidden;">
+        <div style="padding:10px 14px 8px;"><p style="margin:0;font-size:13px;font-weight:700;color:#111827;line-height:1.4;">${c.title}</p></div>
+        <div style="padding:0 14px 8px;">${dataHTML}</div>
+        <div style="margin:0 14px 10px;padding:8px 10px;border-radius:8px;background:#FAFAF9;border:1px solid #E5E7EB;">
+          <div style="display:flex;align-items:center;gap:5px;margin-bottom:5px;"><span style="font-size:9px;font-weight:800;padding:1px 5px;border-radius:3px;background:#F3E8FF;color:#7E22CE;">AI分析</span><span style="font-size:10px;color:#9CA3AF;">仅供参考</span></div>
+          <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.6;font-style:italic;">${c.aiSummary}</p>
+        </div>
+        <div style="background:#F8FAFC;border-top:1px solid #F3F4F6;padding:8px 14px;">
+          <div style="font-size:9px;font-weight:800;color:#6B7280;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;">Reference</div>
+          ${refHTML}
+        </div>
+      </div>
+    </div>
+  </div>`;
+  }).join('');
+}
+
+function filterSector(sector,btn){
+  document.querySelectorAll('.sector-tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderBriefingCards(sector);
+}
+
+// 给每个 sector tab 末尾挂一个 count badge（电子 3 / 存储 5 / 其他 0 ……）。
+// 0 张的 tab 自动隐藏，避免点进去空白；「全部」永远显示。
+function refreshSectorTabCounts(){
+  const counts = {all: SORTED_CARDS.length};
+  SORTED_CARDS.forEach(c=>{
+    const s = c.sector || '其他';
+    counts[s] = (counts[s]||0) + 1;
+  });
+  document.querySelectorAll('.sector-tab-btn').forEach(btn=>{
+    const sec = btn.dataset.sector;
+    if(!sec) return;
+    const n = counts[sec] || 0;
+    // 把按钮 innerText 拆成 "标签名 + 数字 chip"
+    const label = btn.textContent.replace(/\s*\(\d+\)\s*$/,'').replace(/\s+\d+$/,'').trim();
+    btn.innerHTML = `${label}<span style="margin-left:5px;display:inline-block;min-width:14px;padding:1px 5px;border-radius:9999px;background:rgba(0,0,0,.08);color:inherit;font-size:9px;font-weight:700;line-height:1.4;">${n}</span>`;
+    if(sec !== 'all' && n === 0){
+      btn.style.display = 'none';
+    } else {
+      btn.style.display = '';
+    }
+  });
+}
+
+refreshSectorTabCounts();
+renderBriefingCards('all');
+
+// ═══════════════════════════════
+// RENDER PREDICTION CHARTS
+// ═══════════════════════════════
+document.getElementById('prediction-cards').innerHTML=PREDICTION_MARKETS.map((m,i)=>`
+  <div style="background:#fff;margin:0 12px 10px;border-radius:12px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:14px 14px 10px;">
+    <p style="margin:0 0 2px;font-size:13px;font-weight:700;color:#111827;line-height:1.4;">${m.question}</p>
+    <p style="margin:0 0 8px;font-size:10px;color:#D1D5DB;">${m.source}</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
+      ${m.series.datasets.map(d=>`<div style="display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:50%;background:${d.color};display:inline-block;flex-shrink:0;"></span><span style="font-size:11px;color:#6B7280;">${d.label}</span><span style="font-size:12px;font-weight:700;color:${d.color};">${d.current}%</span></div>`).join('')}
+    </div>
+    <div class="chart-container"><canvas id="pc-${i}"></canvas></div>
+  </div>`).join('');
+setTimeout(()=>{
+  PREDICTION_MARKETS.forEach((m,i)=>{
+    new Chart(document.getElementById('pc-'+i).getContext('2d'),{type:'line',
+      data:{labels:m.series.labels,datasets:m.series.datasets.map(d=>({label:d.label,data:d.data,borderColor:d.color,backgroundColor:'transparent',borderWidth:1.5,pointRadius:0,pointHoverRadius:3,tension:0.35}))},
+      options:{responsive:true,maintainAspectRatio:false,animation:{duration:400},
+        plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,bodyFont:{size:11},titleFont:{size:10},callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y}%`}}},
+        scales:{x:{ticks:{font:{size:9},color:'#9CA3AF',maxTicksLimit:6,maxRotation:0},grid:{display:false},border:{display:false}},
+                y:{min:0,max:100,ticks:{font:{size:9},color:'#9CA3AF',callback:v=>`${v}%`,maxTicksLimit:5},grid:{color:'#F3F4F6'},border:{display:false}}}}});
+  });
+},80);
+
+// ═══════════════════════════════
+// RENDER ACE CAMP
+// ═══════════════════════════════
+const TBGS=['#DBEAFE','#DCFCE7','#F3E8FF','#FEF3C7','#FEE2E2','#F0FDF4'];
+const TCLR=['#1D4ED8','#15803D','#7E22CE','#92400E','#B91C1C','#065F46'];
+// 颜色规则（与 ZSXQ / GS 三 sub-tab 共用）：重点 → 红 #DC2626；普通 → 灰黑 #111827
+const KEY_TITLE_COLOR = '#DC2626';
+const NORMAL_TITLE_COLOR = '#111827';
+function brokerDisplayName(x){
+  const s=(x||'').trim();
+  if(!s)return '';
+  if(['MS','MS','Morgan Stanley'].includes(s))return 'MS';
+  if(['JPM','JPM','J.P. Morgan','JP Morgan'].includes(s))return 'JPM';
+  return s;
+}
+document.getElementById('acecamp-list').innerHTML=ACECAMP_ITEMS.map((a,i)=>{
+  const titleColor = a.is_key ? KEY_TITLE_COLOR : NORMAL_TITLE_COLOR;
+  const linkBtn = a.event_url
+    ? `<a href="${a.event_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:6px;background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE;text-decoration:none;">🔗 AceCamp 原帖</a>`
+    : '';
+  const fullTitleAttr = a.full_title ? ` title="${(a.full_title||'').replace(/"/g,'&quot;')}"` : '';
+  // 标题格式：标题 - 作者/来源 - 发布时间
+  const displayDate = (a.time || '—').split(' ')[0] || '—';
+  const headline = [a.title || '（无标题）', a.source || 'AceCamp', displayDate].filter(Boolean).join(' - ');
+  const belong = [a.source || 'AceCamp', 'AceCamp', (a.tags||[])[0]].filter(Boolean).join(' / ');
+  return `
+  <div style="background:#fff;border-radius:12px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:11px 13px;margin-bottom:8px;">
+    <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:5px;">
+      <span style="font-size:13px;font-weight:700;color:${titleColor};line-height:1.3;flex:1;"${fullTitleAttr}>${headline}</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:5px;">
+      ${(a.tags||[]).map((t,j)=>`<span style="font-size:10px;padding:1px 7px;border-radius:9999px;background:${TBGS[j%6]};color:${TCLR[j%6]};">${t}</span>`).join('')}
+    </div>
+    <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">概要：</b>${a.detail || '—'}</p>
+    <div style="font-size:10px;color:#9CA3AF;margin:0 0 6px;">归属贴：<span style="color:#6B7280;">${belong}</span></div>
+    <div style="display:flex;align-items:center;justify-content:flex-end;gap:6px;margin-top:4px;">
+      ${linkBtn}
+    </div>
+  </div>`;
+}).join('');
+
+// ═══════════════════════════════
+// RENDER 知识星球（每份研报一张卡，中文名+Ticker 标题 + 摘要 + 可点击打开原 MD/PDF）
+// ═══════════════════════════════
+// 渠道 banner → 今日日报 md 链接（由 briefing_updater 注入 window.ZSXQ_DIGEST_HREF）
+(function(){
+  const el = document.getElementById('zsxq-digest-link');
+  const href = window.ZSXQ_DIGEST_HREF;
+  if (el && href) el.href = href;
+})();
+document.getElementById('zsxq-list').innerHTML=ZSXQ_ITEMS.map(z=>{
+  const mdPath = z.md_path || '';
+  const pdfPath = z.pdf_path || '';
+  const title = z.title || '（无标题）';
+  const titleColor = z.is_key ? KEY_TITLE_COLOR : NORMAL_TITLE_COLOR;
+  const source = brokerDisplayName(z.broker) || '外资综合';
+  const headline = [title, source, z.date || '—'].filter(Boolean).join(' - ');
+  const titleStyle = `font-size:13px;font-weight:700;color:${titleColor};line-height:1.3;flex:1;`;
+  const titleHtml = mdPath
+    ? `<a href="${mdPath}" target="_blank" rel="noopener" style="${titleStyle}text-decoration:none;border-bottom:1px dashed #D1D5DB;">${headline}</a>`
+    : `<span style="${titleStyle}">${headline}</span>`;
+
+  const pdfBtn = pdfPath
+    ? `<a href="${pdfPath}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:6px;background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE;text-decoration:none;">📄 打开原始 PDF</a>`
+    : `<span style="font-size:10px;color:#9CA3AF;">📄 原文未下载</span>`;
+
+  // 归属贴只写真正机构；知识星球/手动补充只是采集渠道，不在卡片里重复。
+  const originRow = `<div style="font-size:10px;color:#9CA3AF;margin:0 0 6px;">归属贴：<span style="color:#6B7280;">${source}</span></div>`;
+
+  return `
+  <div style="background:#fff;border-radius:12px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:11px 13px;margin-bottom:8px;">
+    <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:5px;">
+      ${titleHtml}
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px;">
+      ${(z.tags||[]).map((t,j)=>`<span style="font-size:10px;padding:1px 7px;border-radius:9999px;background:${TBGS[j%6]};color:${TCLR[j%6]};">${t}</span>`).join('')}
+    </div>
+    <p style="margin:0 0 6px;font-size:11px;color:#374151;line-height:1.65;"><b style="color:#111827;">概要：</b>${z.brief||'—'}</p>
+    ${originRow}
+    <div style="display:flex;align-items:center;justify-content:flex-end;gap:6px;margin-top:4px;">
+      ${pdfBtn}
+    </div>
+  </div>`;
+}).join('');
+
+// ═══════════════════════════════
+// RENDER 内资研报（GS_ITEMS）—— 标题 = 公司 · 券商 · 日期；正文 = 2-3 句核心摘要
+// 兼容老契约：g.brief 缺省时 fallback 到 g.detail；g.broker 缺省时 fallback 到 g.source
+// ═══════════════════════════════
+document.getElementById('gs-list').innerHTML=GS_ITEMS.map((g,i)=>{
+  // 标题格式：标题 - 作者/来源 - 发布时间
+  const headline = [g.title || g.company || '（无标题）', g.broker || g.source || '知丘', g.date || '—'].filter(Boolean).join(' - ');
+  const body     = g.brief  || g.detail || '—';
+  const titleColor = g.is_key ? KEY_TITLE_COLOR : NORMAL_TITLE_COLOR;
+  const rtype    = g.rtype ? `<span style="font-size:10px;padding:1px 6px;border-radius:9999px;background:#F3F4F6;color:#6B7280;flex-shrink:0;">${g.rtype}</span>` : '';
+  const belong = [g.company, g.broker || g.source || '知丘', g.rtype].filter(Boolean).join(' / ');
+  return `
+  <div style="background:#fff;border-radius:12px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:11px 13px;margin-bottom:8px;">
+    <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:5px;">
+      <span style="font-size:13px;font-weight:700;color:${titleColor};line-height:1.3;flex:1;">${headline}</span>${rtype}
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:5px;">
+      ${(g.tags||[]).map((t,j)=>`<span style="font-size:10px;padding:1px 7px;border-radius:9999px;background:${TBGS[j%6]};color:${TCLR[j%6]};">${t}</span>`).join('')}
+    </div>
+    <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">概要：</b>${body}</p>
+    <div style="font-size:10px;color:#9CA3AF;">归属贴：<span style="color:#6B7280;">${belong}</span></div>
+  </div>`;
+}).join('');
+
+// （推特大V 子页已归并到"推特监控"主 TAB，信息追踪 TAB 中不再展示）
+
+// ═══════════════════════════════
+// RENDER AUDIT CARDS (个股会诊)
+// ═══════════════════════════════
+// 规范化刻度 [-5, +5]，下面函数把分数映射到颜色（强度用深浅 + 色相表达）
+function auditColor(d){
+  if(d>= 4.0) return '#15803D';  // 深绿   强烈偏多
+  if(d>= 2.5) return '#16A34A';  // 翠绿   明显偏多
+  if(d>= 1.0) return '#65A30D';  // 橄榄绿 偏多
+  if(d> -1.0) return '#6B7280';  // 灰     中性
+  if(d>=-2.5) return '#D97706';  // 深黄   偏空
+  if(d>=-4.0) return '#DC2626';  // 红     明显偏空
+  return '#991B1B';              // 深红   强烈偏空
+}
+function schoolChip(label, score){
+  if(score === null || score === undefined){
+    return `<span style="display:inline-flex;align-items:baseline;gap:3px;padding:2px 6px;border-radius:5px;background:#F3F4F6;color:#9CA3AF;font-size:10px;font-weight:600;border:1px solid #E5E7EB;">${label}<span style="opacity:.6;">—</span></span>`;
+  }
+  const c = auditColor(score);
+  const sign = score >= 0 ? '+' : '';
+  const num = Number.isInteger(score) ? score : (Math.round(score*10)/10);
+  return `<span style="display:inline-flex;align-items:baseline;gap:3px;padding:2px 6px;border-radius:5px;background:${c}1a;color:${c};font-size:10px;font-weight:700;border:1px solid ${c}33;">
+    <span style="opacity:.9;font-weight:600;">${label}</span>
+    <span style="font-variant-numeric:tabular-nums;">${sign}${num}</span>
+  </span>`;
+}
+// Sub-sector 展示顺序（按整体景气/关注度排序；未列入的 sector 会排在最后）
+const AUDIT_SECTOR_ORDER=['AI芯片/GPU','半导体制造','半导体封测','光通信','AI云算力','AI服务器代工','中国互联网','北美互联网','消费电子','通讯/光模块','存储','电网/电力','机器人/智能驾驶','策略宏观'];
+function auditCardHTML(c,i){
+  const color=auditColor(c.direction);
+  const sign=c.direction>=0?'+':'';
+  const safeHref=c.href.split('/').map(seg=>encodeURIComponent(seg)).join('/');
+  return `
+  <a href="${safeHref}" data-audit-href="${safeHref}" data-audit-idx="${i}"
+     style="display:block;background:#fff;border-radius:10px;border:1px solid #F3F4F6;box-shadow:0 1px 2px rgba(0,0,0,.03);padding:10px 12px;text-decoration:none;color:inherit;transition:transform .1s, box-shadow .1s, border-color .1s;cursor:pointer;border-left:3px solid ${color};"
+     onmouseenter="this.style.transform='translateY(-1px)';this.style.boxShadow='0 4px 12px rgba(0,0,0,.07)';this.style.borderColor='#E5E7EB';this.style.borderLeftColor='${color}';"
+     onmouseleave="this.style.transform='';this.style.boxShadow='0 1px 2px rgba(0,0,0,.03)';this.style.borderColor='#F3F4F6';this.style.borderLeftColor='${color}';">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
+      <div style="min-width:0;flex:1;">
+        <div style="font-size:13px;font-weight:700;color:#111827;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${c.name}</div>
+        <div style="font-size:10px;color:#9CA3AF;font-variant-numeric:tabular-nums;margin-top:2px;">${c.ticker} · ${c.date}</div>
+      </div>
+      <div style="text-align:right;flex-shrink:0;">
+        <div style="font-size:16px;font-weight:800;color:${color};font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.01em;">
+          ${sign}${c.direction.toFixed(2)}<span style="font-size:10px;color:#9CA3AF;font-weight:600;margin-left:1px;">/5</span>
+        </div>
+        <div style="font-size:9px;font-weight:700;color:${color};letter-spacing:.02em;margin-top:2px;">${c.direction_label}</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:4px;margin-top:7px;padding-top:7px;border-top:1px dashed #F3F4F6;">
+      ${schoolChip('价值', c.value)}
+      ${schoolChip('成长', c.growth)}
+      ${schoolChip('量化', c.quant)}
+    </div>
+  </a>`;
+}
+// ═══════════════════════════════
+// 龙虎榜（7 天「基本面」分数变动 Top3）
+//
+// 设计：
+//   - 这里的 prior_dir / latest_dir / delta 全部是**基本面方向**
+//     ＝ 价值 + 成长两派的平均（剔除 quant 技术面噪声）
+//   - 换言之：上下修都对应"个股 .md 里的事实块发生了边际变化、
+//     价值/成长两派据此打分"——quant 派的 MA/RSI/MACD 短期波动**不会**
+//     污染本榜单。
+//   - 卡片里同时显示价值 / 成长两派各自的 prior→latest，让用户能看到
+//     具体是哪派打分变了。
+//
+// LEADERBOARD = {upgrades:[...], downgrades:[...]} 由 briefing_updater.py 写入；
+// 缺失时退化为空对象，本面板隐藏。
+// ═══════════════════════════════
+function renderAuditLeaderboard(){
+  const wrap = document.getElementById('audit-leaderboard');
+  if (!wrap) return;
+  const data = (typeof LEADERBOARD === 'object' && LEADERBOARD) ? LEADERBOARD : {};
+  const ups = (data.upgrades || []);
+  const dns = (data.downgrades || []);
+  // 即使两侧都为空也要渲染面板：用户能看到"近 7 天基本面无变动"，
+  // 而不是误以为是 audit-leaderboard 坏掉了。
+  // 基本面（价值+成长）打分本来就靠长期事实（订单/财务/客户/竞争），
+  // 7 天内多数股票不会动是常态。
+  const isFile = (location.protocol === 'file:');
+
+  // 把数字格式化成 +3 / -1.5 / 0；null / undefined 显示为 "—"
+  const fmtScore = (v) => (v === null || v === undefined)
+    ? '—'
+    : `${v>=0?'+':''}${Number(v).toFixed(2).replace(/\.?0+$/,'')}`;
+  // 单派一行："价值 +1 → +3 (Δ +2)"。如果两派都没有 prior/latest 数据，返回空串。
+  const schoolLine = (label, prior, latest, delta) => {
+    if (prior === null || prior === undefined || latest === null || latest === undefined) {
+      return '';
+    }
+    const dColor = delta > 0 ? '#16A34A' : (delta < 0 ? '#DC2626' : '#9CA3AF');
+    const dTxt = (delta === null || delta === undefined)
+      ? ''
+      : `<span style="color:${dColor};font-weight:700;margin-left:4px;">Δ ${delta>=0?'+':''}${delta.toFixed(2).replace(/\.?0+$/,'')}</span>`;
+    return `<div style="display:flex;align-items:baseline;gap:6px;font-size:10px;color:#6B7280;font-variant-numeric:tabular-nums;">
+      <span style="display:inline-block;min-width:28px;color:#9CA3AF;">${label}</span>
+      <span>${fmtScore(prior)}</span>
+      <span style="color:#D1D5DB;">→</span>
+      <span style="font-weight:600;color:#374151;">${fmtScore(latest)}</span>
+      ${dTxt}
+    </div>`;
+  };
+
+  const card = (m, kind) => {
+    const sign = m.delta >= 0 ? '+' : '';
+    const tri = kind === 'up' ? '▲' : '▼';
+    const arrowColor = kind === 'up' ? '#16A34A' : '#DC2626';
+    const dateLine = `${m.prior_date.slice(5)} → ${m.latest_date.slice(5)}`;
+    const valueLine = schoolLine('价值', m.prior_value, m.latest_value, m.value_delta);
+    const growthLine = schoolLine('成长', m.prior_growth, m.latest_growth, m.growth_delta);
+    return `
+      <a href="${m.href}" ${isFile?'':'target="_blank"'} rel="noopener"
+         style="text-decoration:none;color:inherit;background:#fff;border-radius:10px;border:1px solid #F3F4F6;
+                padding:8px 10px;display:flex;flex-direction:column;gap:3px;box-shadow:0 1px 2px rgba(0,0,0,.03);">
+        <div style="display:flex;align-items:baseline;gap:6px;">
+          <span style="font-size:13px;font-weight:700;color:#111827;flex:1;">${m.name}</span>
+          <span style="font-size:10px;color:#9CA3AF;">${m.ticker}</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:8px;font-variant-numeric:tabular-nums;font-size:11px;">
+          <span style="color:#9CA3AF;">${dateLine}</span>
+          <span style="color:#6B7280;">基本面 ${fmtScore(m.prior_dir)} → ${fmtScore(m.latest_dir)}</span>
+          <span style="flex:1"></span>
+          <span style="font-weight:800;color:${arrowColor};font-size:12px;">${tri} ${sign}${m.delta.toFixed(2)}</span>
+        </div>
+        ${valueLine}
+        ${growthLine}
+        <div style="font-size:10px;color:#9CA3AF;margin-top:2px;">${m.sector || '其他'}</div>
+      </a>`;
+  };
+  const upHtml = ups.length
+    ? ups.map(m=>card(m,'up')).join('')
+    : `<div style="font-size:11px;color:#9CA3AF;padding:8px 10px;background:#fff;border-radius:10px;border:1px dashed #E5E7EB;">近 7 天暂无基本面上修</div>`;
+  const dnHtml = dns.length
+    ? dns.map(m=>card(m,'down')).join('')
+    : `<div style="font-size:11px;color:#9CA3AF;padding:8px 10px;background:#fff;border-radius:10px;border:1px dashed #E5E7EB;">近 7 天暂无基本面下修</div>`;
+  wrap.innerHTML = `
+    <div style="background:#F8FAFC;border-radius:12px;padding:10px 12px;margin-bottom:8px;">
+      <div style="font-size:10px;font-weight:700;color:#9CA3AF;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;">
+        龙虎榜 Top Movers <span style="color:#9CA3AF;font-weight:500;letter-spacing:0;text-transform:none;margin-left:4px;">· 基本面（价值+成长）7 天变动 · 已剔除量化技术面</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;">
+        <div>
+          <div style="font-size:10px;font-weight:700;color:#16A34A;margin-bottom:4px;">▲ 基本面上修 Top 3</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">${upHtml}</div>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:700;color:#DC2626;margin-bottom:4px;">▼ 基本面下修 Top 3</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">${dnHtml}</div>
+        </div>
+      </div>
+    </div>`;
+}
+renderAuditLeaderboard();
+
+function renderAuditCards(){
+  const list=document.getElementById('audit-list');
+  const cntEl=document.getElementById('audit-count');
+  cntEl.textContent=AUDIT_CARDS.length?`${AUDIT_CARDS.length} 只`:'—';
+  if(!AUDIT_CARDS.length){
+    list.innerHTML=`
+      <div style="background:#fff;border-radius:12px;border:1px dashed #E5E7EB;padding:28px 18px;text-align:center;">
+        <div style="font-size:13px;font-weight:600;color:#374151;margin-bottom:6px;">暂无个股会诊</div>
+        <div style="font-size:11px;color:#9CA3AF;line-height:1.6;">先对大票跑一次会诊：<br>在 Cursor 里说"对 [股票] 做三派会诊"<br>产出 HTML+JSON 存到 <code style="background:#F3F4F6;padding:1px 5px;border-radius:3px;">知识库/[股]/audits/</code> 后本面板自动出现</div>
+      </div>`;
+    return;
+  }
+  const isFile = location.protocol === 'file:';
+
+  // ── 按 sector 分组 ──
+  const groups={};
+  AUDIT_CARDS.forEach(c=>{
+    const sec=c.sector||'其他';
+    (groups[sec]=groups[sec]||[]).push(c);
+  });
+  // 组内按 direction 降序
+  Object.values(groups).forEach(arr=>arr.sort((a,b)=>b.direction-a.direction));
+  // 组间按预设顺序排序
+  const sectorKeys=Object.keys(groups).sort((a,b)=>{
+    const ia=AUDIT_SECTOR_ORDER.indexOf(a), ib=AUDIT_SECTOR_ORDER.indexOf(b);
+    const ra=ia<0?999:ia, rb=ib<0?999:ib;
+    if(ra!==rb) return ra-rb;
+    return a.localeCompare(b,'zh');
+  });
+
+  let idx=0;
+  const columns=sectorKeys.map(sec=>{
+    const items=groups[sec];
+    const avgDir=items.reduce((s,x)=>s+x.direction,0)/items.length;
+    const hdrColor=auditColor(avgDir);
+    const sign=avgDir>=0?'+':'';
+    const header=`
+      <div style="display:flex;align-items:baseline;gap:8px;padding:6px 10px;background:#fff;border-radius:8px;border:1px solid #F3F4F6;box-shadow:0 1px 2px rgba(0,0,0,.03);">
+        <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${hdrColor};flex-shrink:0;"></span>
+        <span style="font-size:12px;font-weight:700;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${sec}</span>
+        <span style="flex:1"></span>
+        <span style="font-size:10px;color:#9CA3AF;font-weight:500;white-space:nowrap;">${items.length}只 · <span style="color:${hdrColor};font-weight:700;font-variant-numeric:tabular-nums;">${sign}${avgDir.toFixed(2)}</span></span>
+      </div>`;
+    const body=items.map(c=>auditCardHTML(c,idx++)).join('');
+    return `<div style="display:flex;flex-direction:column;gap:6px;">${header}${body}</div>`;
+  }).join('');
+  list.innerHTML=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;align-items:start;">${columns}</div>`;
+
+  // 默认同标签页跳转（浏览器原生行为）；cmd/ctrl/shift/中键 照常新开标签。
+  // 不再手工调 window.open，避免 file:// 下返回 null 同时触发 location.href 跳转的双 tab bug。
+}
+renderAuditCards();
+
+// ═══════════════════════════════════════════════════════════
+// TWITTER MONITOR  (panel-twitter)
+// ═══════════════════════════════════════════════════════════
+const TW_API = (localStorage.getItem('tw_api_base') || 'http://127.0.0.1:5174').replace(/\/$/,'');
+let TW_TOKEN = localStorage.getItem('tw_admin_token') || '';
+let TW_STATE = {
+  sub: 'feed',                 // 'feed' | 'review' | 'tags'
+  feedUrgency: 'all',          // 'all' | '0' | '1' | '2'
+  reviewStatus: 'pending',     // 'pending' | 'approved' | 'rejected'
+};
+
+function twApi(path, opts){
+  opts = opts || {};
+  opts.headers = Object.assign({'Content-Type':'application/json'}, opts.headers||{});
+  if (TW_TOKEN) opts.headers['X-Admin-Token'] = TW_TOKEN;
+  return fetch(TW_API + path, opts).then(r=>{
+    if(!r.ok) return r.json().then(e=>{throw new Error(e.error||('HTTP '+r.status));}).catch(()=>{throw new Error('HTTP '+r.status);});
+    return r.json();
+  });
+}
+
+function twSetToken(){
+  const cur = TW_TOKEN || '';
+  const v = prompt('请输入 Admin Token（与后端 TMT_BRIEFING_ADMIN_TOKEN 一致）\n留空以清除：', cur);
+  if (v === null) return;
+  TW_TOKEN = v.trim();
+  if (TW_TOKEN) localStorage.setItem('tw_admin_token', TW_TOKEN);
+  else localStorage.removeItem('tw_admin_token');
+  twRefreshAll();
+}
+
+function twEscape(s){ return String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function twFormatTime(iso){
+  if(!iso) return '';
+  const d = new Date(iso);
+  if(isNaN(+d)) return iso;
+  const Y=d.getFullYear(), M=String(d.getMonth()+1).padStart(2,'0'), D=String(d.getDate()).padStart(2,'0');
+  const h=String(d.getHours()).padStart(2,'0'), m=String(d.getMinutes()).padStart(2,'0');
+  return `${Y}-${M}-${D} ${h}:${m}`;
+}
+function twAvatar(t){
+  const url = t.author_avatar;
+  if (url) return `<img src="${twEscape(url)}" style="width:32px;height:32px;border-radius:9999px;object-fit:cover;" onerror="this.outerHTML='${twAvatarFallback(t)}'">`;
+  return twAvatarFallback(t);
+}
+function twAvatarFallback(t){
+  const handle = (t.author_handle||'?').slice(0,1).toUpperCase();
+  return `<div style="width:32px;height:32px;border-radius:9999px;background:#E5E7EB;color:#6B7280;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">${twEscape(handle)}</div>`;
+}
+const TW_URGENCY_STYLE = {
+  2: {label:'高',bg:'#FEE2E2',fg:'#B91C1C',bd:'#FECACA'},
+  1: {label:'中',bg:'#FEF3C7',fg:'#B45309',bd:'#FDE68A'},
+  0: {label:'低',bg:'#E0E7FF',fg:'#3730A3',bd:'#C7D2FE'},
+};
+
+function twUrgencyBadge(u, small){
+  const s = TW_URGENCY_STYLE[u] || TW_URGENCY_STYLE[1];
+  const p = small ? '0 6px' : '2px 8px';
+  return `<span style="font-size:10px;font-weight:700;padding:${p};border-radius:9999px;background:${s.bg};color:${s.fg};border:1px solid ${s.bd};">${s.label}</span>`;
+}
+
+function twTagChip(tag, color, {onclick, size}={}){
+  if(!tag) return '';
+  const c = color || '#6B7280';
+  const tagJson = JSON.stringify(tag).replace(/"/g,'&quot;');
+  const handler = onclick
+    ? ` onclick="event.stopPropagation();twJumpToTag(${tagJson})" style="cursor:pointer;"`
+    : '';
+  const title = onclick ? ` title="跳到 AI 叙事链 · ${twEscape(tag)}"` : '';
+  if (size === 'lg') {
+    return `<span class="tw-tag-pill" ${handler}${title}>#${twEscape(tag)}</span>`;
+  }
+  return `<span ${handler}${title} style="display:inline-block;font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:${c}1A;color:${c};border:1px solid ${c}33;">${twEscape(tag)}</span>`;
+}
+
+function twMediaGrid(media){
+  if(!media || !media.length) return '';
+  const imgs = media.filter(m=>m.url).slice(0,4);
+  if(!imgs.length) return '';
+  const cols = imgs.length===1 ? 1 : 2;
+  const ratio = imgs.length===1 ? '16/10' : '1/1';
+  return `<div style="display:grid;grid-template-columns:repeat(${cols},1fr);gap:3px;margin-top:6px;border-radius:6px;overflow:hidden;max-width:320px;">
+    ${imgs.map(m=>`<div style="position:relative;aspect-ratio:${ratio};background:#F3F4F6;cursor:zoom-in;" onclick="event.stopPropagation();twOpenImage(${JSON.stringify(m.url).replace(/"/g,'&quot;')})">
+      <img src="${twEscape(m.url)}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+      ${m.ocr_text ? `<div title="${twEscape(m.ocr_text)}" style="position:absolute;bottom:3px;right:3px;background:rgba(17,24,39,.75);color:#fff;font-size:9px;padding:1px 5px;border-radius:9999px;">OCR</div>` : ''}
+    </div>`).join('')}
+  </div>`;
+}
+function twOpenImage(url){
+  if(!url) return;
+  let lb = document.getElementById('tw-lightbox');
+  if(!lb){
+    lb = document.createElement('div');
+    lb.id = 'tw-lightbox';
+    lb.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1100;display:none;align-items:center;justify-content:center;cursor:zoom-out;padding:32px;';
+    lb.innerHTML = '<img id="tw-lightbox-img" style="max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 4px 24px rgba(0,0,0,.6);border-radius:4px;">';
+    lb.onclick = ()=>{ lb.style.display='none'; };
+    document.body.appendChild(lb);
+  }
+  document.getElementById('tw-lightbox-img').src = url;
+  lb.style.display = 'flex';
+}
+
+function twQuotedBlock(q){
+  if(!q) return '';
+  const quotedTxt = q.translation || q.text || '';
+  return `<div style="margin-top:8px;padding:8px 10px;border-left:3px solid #E5E7EB;background:#F9FAFB;border-radius:0 6px 6px 0;">
+    <div style="font-size:11px;color:#9CA3AF;margin-bottom:2px;">引用 @${twEscape(q.username||q.author_handle||'?')}</div>
+    <div style="font-size:12px;color:#4B5563;line-height:1.5;white-space:pre-wrap;word-break:break-word;">${twEscape(quotedTxt)}</div>
+    ${twMediaGrid(q.media)}
+  </div>`;
+}
+
+function twTweetCard(t, mode){
+  // mode: 'feed' | 'review' | 'modal'
+  const showText = t.translation || t.text || '';
+  const origBtn = t.translation ? `<span style="font-size:10px;color:#9CA3AF;cursor:pointer;margin-left:6px;" onclick="event.stopPropagation();twToggleOrig(this)">原文</span>` : '';
+  const summary = t.summary ? `<div style="margin-top:4px;font-size:11px;color:#6B7280;line-height:1.5;background:#F9FAFB;padding:5px 7px;border-radius:4px;border-left:2px solid #D1D5DB;">${twEscape(t.summary)}</div>` : '';
+
+  const tag = twTagChip(t.tag, t.tag_color, {onclick:true});
+  const tagLg = twTagChip(t.tag, t.tag_color, {onclick:true, size:'lg'});
+  const urg = (mode==='feed' || t.status==='approved') ? twUrgencyBadge(t.urgency, true) : '';
+  const ai = t.ai_skip_push ? `<span title="${twEscape(t.ai_skip_reason||'AI 判断为低信号')}" style="font-size:10px;color:#9CA3AF;padding:1px 6px;border-radius:4px;background:#F3F4F6;">AI·低信号</span>` : '';
+
+  const reviewActions = (mode==='review') ? `<div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;">
+    <button onclick="twReview('${twEscape(t.tweet_id)}','approved',2,this)" style="font-size:11px;padding:4px 10px;border:1px solid #16A34A;background:#F0FDF4;color:#166534;border-radius:4px;cursor:pointer;">✓ 通过·高</button>
+    <button onclick="twReview('${twEscape(t.tweet_id)}','approved',1,this)" style="font-size:11px;padding:4px 10px;border:1px solid #D97706;background:#FEF3C7;color:#92400E;border-radius:4px;cursor:pointer;">✓ 通过·中</button>
+    <button onclick="twReview('${twEscape(t.tweet_id)}','approved',0,this)" style="font-size:11px;padding:4px 10px;border:1px solid #4F46E5;background:#EEF2FF;color:#3730A3;border-radius:4px;cursor:pointer;">✓ 通过·低</button>
+    <button onclick="twReview('${twEscape(t.tweet_id)}','rejected',0,this)" style="font-size:11px;padding:4px 10px;border:1px solid #DC2626;background:#FEF2F2;color:#B91C1C;border-radius:4px;cursor:pointer;">✗ 拒绝</button>
+    <button onclick="twAutoReview('${twEscape(t.tweet_id)}',this)" style="font-size:11px;padding:4px 10px;border:1px solid #7C3AED;background:#F5F3FF;color:#5B21B6;border-radius:4px;cursor:pointer;" title="用 AI 决定">AI</button>
+  </div>` : '';
+
+  const reviewedMeta = (t.status!=='pending' && t.reviewer) ? `<div style="font-size:10px;color:#9CA3AF;margin-top:6px;">由 ${twEscape(t.reviewer)} 于 ${twFormatTime(t.reviewed_at)} ${t.status==='approved'?'通过':'拒绝'}${t.review_note?'·'+twEscape(t.review_note):''}</div>` : '';
+
+  return `<div data-tweet-id="${twEscape(t.tweet_id)}" style="background:#fff;padding:10px 12px;border:1px solid #F3F4F6;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,.03);">
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="cursor:pointer;" onclick="twOpenAuthor('${twEscape(t.author_handle)}')">${twAvatar(t)}</div>
+      <div style="flex:1;min-width:0;">
+        <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+          <span style="font-size:13px;font-weight:700;color:#111827;cursor:pointer;" onclick="twOpenAuthor('${twEscape(t.author_handle)}')">${twEscape(t.author_name||t.author_handle||'')}</span>
+          <span style="font-size:11px;color:#9CA3AF;">@${twEscape(t.author_handle)}</span>
+          <span style="font-size:11px;color:#D1D5DB;">·</span>
+          <span style="font-size:11px;color:#9CA3AF;">${twFormatTime(t.created_at)}</span>
+          ${t.url ? `<a href="${twEscape(t.url)}" target="_blank" rel="noopener" style="font-size:11px;color:#2563EB;text-decoration:none;" onclick="event.stopPropagation()">↗ 原推</a>` : ''}
+          <span style="flex:1;"></span>
+          ${urg} ${ai}
+        </div>
+        <div class="tw-body" style="margin-top:6px;font-size:13px;color:#1F2937;line-height:1.55;white-space:pre-wrap;word-break:break-word;">${twEscape(showText)}${origBtn}</div>
+        <div class="tw-orig" style="display:none;margin-top:4px;padding:6px 8px;background:#F9FAFB;border-radius:4px;font-size:11px;color:#6B7280;line-height:1.5;white-space:pre-wrap;word-break:break-word;">${twEscape(t.text||'')}</div>
+        ${summary}
+        ${twMediaGrid(t.media)}
+        ${twQuotedBlock(t.quoted)}
+        ${tagLg ? `<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;">${tagLg}</div>` : ''}
+        ${reviewActions}
+        ${reviewedMeta}
+      </div>
+    </div>
+  </div>`;
+}
+
+function twToggleOrig(el){
+  const card = el.closest('[data-tweet-id]');
+  const orig = card.querySelector('.tw-orig');
+  orig.style.display = orig.style.display==='none' ? 'block' : 'none';
+}
+
+function twSwitchSub(name, btn){
+  TW_STATE.sub = name;
+  document.querySelectorAll('.tw-sub-panel').forEach(p=>p.style.display='none');
+  document.getElementById('tw-sub-'+name).style.display='block';
+  // 只切 panel 内的 sub-tab-btn
+  const scope = document.getElementById('panel-twitter');
+  scope.querySelectorAll(':scope > div > .sub-tab-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  if(name==='feed') twRenderFeed();
+  else if(name==='review') twRenderReview();
+  else if(name==='tags') twRenderTags();
+}
+
+function twSetUrgencyFilter(u, btn){
+  TW_STATE.feedUrgency = u;
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.sub-tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  twRenderFeed();
+}
+
+function twSetReviewStatus(s, btn){
+  TW_STATE.reviewStatus = s;
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.sub-tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  twRenderReview();
+}
+
+// ─── Feed / Review / Tags 渲染 ───
+async function twRenderFeed(){
+  const list = document.getElementById('tw-feed-list');
+  list.innerHTML = '<div style="padding:20px;text-align:center;color:#9CA3AF;font-size:12px;">加载中…</div>';
+  try{
+    const d = await twApi(`/api/tweets?status=approved&limit=100`);
+    let items = d.items || [];
+    if (TW_STATE.feedUrgency !== 'all'){
+      const u = parseInt(TW_STATE.feedUrgency, 10);
+      items = items.filter(t=>t.urgency===u);
+    }
+    if(!items.length){
+      list.innerHTML = '<div style="padding:28px;text-align:center;color:#9CA3AF;font-size:12px;">暂无已审核推文</div>';
+      return;
+    }
+    list.innerHTML = items.map(t=>twTweetCard(t,'feed')).join('');
+  }catch(e){
+    list.innerHTML = `<div style="padding:20px;color:#DC2626;font-size:12px;">加载失败：${twEscape(e.message)}</div>`;
+  }
+}
+
+async function twRenderReview(){
+  const list = document.getElementById('tw-review-list');
+  list.innerHTML = '<div style="padding:20px;text-align:center;color:#9CA3AF;font-size:12px;">加载中…</div>';
+  try{
+    const d = await twApi(`/api/tweets?status=${encodeURIComponent(TW_STATE.reviewStatus)}&limit=100`);
+    const items = d.items || [];
+    if(!items.length){
+      list.innerHTML = `<div style="padding:28px;text-align:center;color:#9CA3AF;font-size:12px;">暂无${TW_STATE.reviewStatus==='pending'?'待审核':TW_STATE.reviewStatus==='approved'?'已通过':'已拒绝'}推文</div>`;
+      return;
+    }
+    list.innerHTML = items.map(t=>twTweetCard(t,'review')).join('');
+  }catch(e){
+    list.innerHTML = `<div style="padding:20px;color:#DC2626;font-size:12px;">加载失败：${twEscape(e.message)}</div>`;
+  }
+}
+
+async function twRenderTags(){
+  const list = document.getElementById('tw-tags-list');
+  list.innerHTML = '<div style="padding:20px;text-align:center;color:#9CA3AF;font-size:12px;width:100%;">加载中…</div>';
+  try{
+    const d = await twApi(`/api/tags`);
+    const items = (d.items || []).filter(t => (t.approved_count||0) > 0 || (t.narrative_count||0) > 0);
+    if(!items.length){
+      list.innerHTML = '<div style="padding:20px;color:#9CA3AF;font-size:12px;">暂无标签</div>';
+      return;
+    }
+    const withNarr = items.filter(t => (t.narrative_count||0) > 0);
+    const noNarr   = items.filter(t => (t.narrative_count||0) === 0);
+
+    const renderColored = t => {
+      return `<div data-tag-card="${twEscape(t.tag)}" onclick="twOpenTagModal(${JSON.stringify(t.tag).replace(/"/g,'&quot;')})" style="cursor:pointer;height:56px;padding:0 12px;border:1px solid #BFDBFE;background:#EFF6FF;border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:8px;box-sizing:border-box;transition:background .12s,border-color .12s,box-shadow .12s;" onmouseover="this.style.background='#DBEAFE';this.style.borderColor='#93C5FD';" onmouseout="this.style.background='#EFF6FF';this.style.borderColor='#BFDBFE';">
+        <span style="font-size:13px;font-weight:700;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1;">${twEscape(t.tag)}</span>
+        <span style="flex-shrink:0;display:flex;align-items:center;gap:6px;">
+          <span style="font-size:11px;color:#4B5563;">${t.approved_count||0} 推</span>
+          <span style="font-size:10px;font-weight:700;color:#111827;background:#DBEAFE;padding:2px 6px;border-radius:4px;white-space:nowrap;">📜 ${t.narrative_count}</span>
+        </span>
+      </div>`;
+    };
+
+    const renderGrey = t => {
+      return `<div data-tag-card="${twEscape(t.tag)}" onclick="twOpenTagModal(${JSON.stringify(t.tag).replace(/"/g,'&quot;')})" style="cursor:pointer;height:56px;padding:0 12px;border:1px solid #E5E7EB;background:#F9FAFB;border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:8px;box-sizing:border-box;transition:background .12s,box-shadow .12s;">
+        <span style="font-size:13px;font-weight:600;color:#6B7280;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1;">${twEscape(t.tag)}</span>
+        <span style="font-size:11px;color:#9CA3AF;flex-shrink:0;">${t.approved_count||0} 推</span>
+      </div>`;
+    };
+
+    const gridStyle = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;';
+    list.innerHTML = `
+      <div style="width:100%;">
+        <div style="display:flex;align-items:baseline;gap:8px;margin:4px 2px 8px;">
+          <span style="font-size:12px;font-weight:700;color:#111827;">📜 有叙事链的板块</span>
+          <span style="font-size:10px;color:#9CA3AF;">${withNarr.length} 个</span>
+        </div>
+        ${withNarr.length
+          ? `<div style="${gridStyle}">${withNarr.map(renderColored).join('')}</div>`
+          : '<div style="padding:10px 4px;color:#9CA3AF;font-size:12px;">暂无已生成叙事的板块</div>'}
+
+        <div style="display:flex;align-items:baseline;gap:8px;margin:18px 2px 8px;">
+          <span style="font-size:12px;font-weight:700;color:#6B7280;">🕓 待成链的信号</span>
+          <span style="font-size:10px;color:#9CA3AF;">${noNarr.length} 个 · 点击查看推文</span>
+        </div>
+        ${noNarr.length
+          ? `<div style="${gridStyle}">${noNarr.map(renderGrey).join('')}</div>`
+          : '<div style="padding:10px 4px;color:#9CA3AF;font-size:12px;">全部标签均已生成叙事</div>'}
+      </div>
+    `;
+  }catch(e){
+    list.innerHTML = `<div style="padding:20px;color:#DC2626;font-size:12px;">加载失败：${twEscape(e.message)}</div>`;
+  }
+}
+
+// ─── 审核动作 ───
+async function twReview(tweetId, status, urgency, btn){
+  if (!TW_TOKEN){ alert('请先在右上角点"未登录"设置 Admin Token'); return; }
+  btn.disabled = true; const origText = btn.textContent; btn.textContent = '…';
+  try{
+    await twApi(`/api/tweets/${tweetId}/review`, {
+      method: 'POST',
+      body: JSON.stringify({status, urgency, reviewer: 'human'}),
+    });
+    // 从当前列表移除（审核后当前筛选通常不再命中）
+    const card = btn.closest('[data-tweet-id]');
+    if(card) card.remove();
+    twRefreshStats();
+  }catch(e){
+    alert('审核失败：' + e.message);
+    btn.disabled = false; btn.textContent = origText;
+  }
+}
+
+// LLM 不可用时的降级提示（引导用户走 Cursor Agent 路径 B）
+const TW_CURSOR_HINT = '后端未配置 LLM API key。可走 Cursor Agent 模式：\n\n在 Cursor 对话里说一句：\n\n  "帮我审推特" 或 "推特过审"\n\nCursor 会读 Bot/tmt-briefing/PLAYBOOK.md 并直接把结果写进数据库，刷新本页即可看到更新。';
+
+async function twAutoReview(tweetId, btn){
+  if (!TW_TOKEN){ alert('请先在右上角点"未登录"设置 Admin Token'); return; }
+  btn.disabled = true; const o = btn.textContent; btn.textContent='AI 判断中…';
+  try{
+    const r = await twApi(`/api/tweets/${tweetId}/auto-review`, {method:'POST'});
+    const card = btn.closest('[data-tweet-id]');
+    if(card) card.remove();
+    twRefreshStats();
+  }catch(e){
+    if (/llm not configured/i.test(e.message)) alert(TW_CURSOR_HINT);
+    else alert('AI 审核失败：' + e.message);
+    btn.disabled = false; btn.textContent = o;
+  }
+}
+
+async function twRunAutoReviewBatch(){
+  if (!TW_TOKEN){ alert('请先在右上角点"未登录"设置 Admin Token'); return; }
+  if (!confirm('确认用 AI 审核当前筛选下的前 20 条 pending 推文？\n\n(若后端未配 LLM key，会回退提示走 Cursor Agent)')) return;
+  try{
+    const r = await twApi(`/api/tweets/auto-review-batch`, {
+      method:'POST', body: JSON.stringify({limit: 20}),
+    });
+    alert(`完成\n审核 ${r.processed} 条 · 通过 ${r.approved||0} · 拒绝 ${r.rejected||0} · 失败 ${r.failed||0}`);
+    twRenderReview();
+    twRefreshStats();
+  }catch(e){
+    if (/llm not configured/i.test(e.message)) alert(TW_CURSOR_HINT);
+    else alert('批量 AI 审核失败：' + e.message);
+  }
+}
+
+// ─── tag / author 详情模态 ───
+function twOpenModal(title, body){
+  document.getElementById('tw-modal-title').innerHTML = title;
+  document.getElementById('tw-modal-body').innerHTML = body;
+  document.getElementById('tw-modal').style.display = 'flex';
+}
+function twCloseModal(){ document.getElementById('tw-modal').style.display = 'none'; }
+function twCloseModalFromBg(ev){ if(ev.target.id === 'tw-modal') twCloseModal(); }
+
+// 点击 feed / review / modal 里的 #tag chip，跳到 AI 叙事链 sub-tab
+// 并滚动到该 tag 的卡片、闪烁高亮、打开 modal
+async function twJumpToTag(tag){
+  // 1. 切到 AI 叙事链 sub-tab（找到对应按钮）
+  const btns = document.querySelectorAll('#panel-twitter > div > .sub-tab-btn');
+  const tagsBtn = Array.from(btns).find(b => (b.textContent||'').includes('叙事链'));
+  if (tagsBtn && TW_STATE.sub !== 'tags') {
+    twSwitchSub('tags', tagsBtn);
+  }
+  // 2. 等 render 完成（twRenderTags 是 async），轮询找卡片
+  const findCard = (tries=0) => {
+    const card = document.querySelector(`[data-tag-card="${(window.CSS && CSS.escape) ? CSS.escape(tag) : tag}"]`);
+    if (card) {
+      card.scrollIntoView({behavior:'smooth', block:'center'});
+      const origShadow = card.style.boxShadow;
+      card.style.boxShadow = '0 0 0 3px #3B82F6';
+      setTimeout(()=>{ card.style.boxShadow = origShadow; }, 1400);
+      return;
+    }
+    if (tries < 20) setTimeout(()=>findCard(tries+1), 80);
+  };
+  findCard();
+  // 3. 同时打开该 tag 的详情 modal（叙事时间线 + 推文时间线）
+  twOpenTagModal(tag);
+}
+
+async function twOpenTagModal(tag){
+  twOpenModal(`#${twEscape(tag)}`, '<div style="padding:20px;color:#9CA3AF;">加载中…</div>');
+  try{
+    const d = await twApi(`/api/tags/${encodeURIComponent(tag)}`);
+    const narr = (d.narratives||[]).map(n=>`
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:8px;padding:10px 12px;margin-bottom:8px;">
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:4px;">
+          <span style="font-size:10px;font-weight:700;color:#7C3AED;background:#F5F3FF;padding:2px 6px;border-radius:4px;">叙事 · ${twEscape(n.date)}</span>
+          <span style="font-size:10px;color:#9CA3AF;">${(n.tweet_ids||[]).length} 推合成</span>
+        </div>
+        <div style="font-size:13px;font-weight:700;color:#111827;margin-bottom:4px;">${twEscape(n.title)}</div>
+        <div style="font-size:12px;color:#374151;line-height:1.6;white-space:pre-wrap;">${twEscape(n.summary)}</div>
+      </div>`).join('');
+    const tweets = (d.tweets||[]).map(t=>twTweetCard(t,'modal')).join('');
+    const body = `
+      <div style="margin-bottom:12px;">
+        <div style="font-size:11px;font-weight:700;color:#7C3AED;letter-spacing:.1em;margin-bottom:6px;">叙事时间线 NARRATIVES</div>
+        ${narr || '<div style="font-size:12px;color:#9CA3AF;padding:6px 2px;">尚无叙事（需要更多 approved 推文 + 每日叙事 cron 运行）</div>'}
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:#374151;letter-spacing:.1em;margin:8px 0 6px;">推文时间线 TWEETS (${(d.tweets||[]).length})</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">${tweets || '<div style="color:#9CA3AF;font-size:12px;">暂无推文</div>'}</div>
+      </div>`;
+    twOpenModal(`#${twEscape(tag)}`, body);
+  }catch(e){
+    twOpenModal(`#${twEscape(tag)}`, `<div style="padding:20px;color:#DC2626;">加载失败：${twEscape(e.message)}</div>`);
+  }
+}
+
+async function twOpenAuthor(handle){
+  twOpenModal(`@${twEscape(handle)}`, '<div style="padding:20px;color:#9CA3AF;">加载中…</div>');
+  try{
+    const d = await twApi(`/api/authors/${encodeURIComponent(handle)}`);
+    const head = `
+      <div style="background:#fff;padding:10px 12px;border-radius:8px;border:1px solid #E5E7EB;margin-bottom:10px;display:flex;gap:10px;align-items:center;">
+        ${twAvatar({author_handle:handle, author_avatar:d.avatar})}
+        <div>
+          <div style="font-size:14px;font-weight:700;color:#111827;">${twEscape(d.name||handle)}</div>
+          <div style="font-size:11px;color:#9CA3AF;">@${twEscape(handle)}${d.topic?' · '+twEscape(d.topic):''}</div>
+          <div style="font-size:11px;color:#6B7280;margin-top:2px;">${d.tweet_count} 条推文入库</div>
+        </div>
+      </div>`;
+    const tweets = (d.tweets||[]).map(t=>twTweetCard(t,'modal')).join('');
+    twOpenModal(`@${twEscape(handle)}`, head + `<div style="display:flex;flex-direction:column;gap:6px;">${tweets}</div>`);
+  }catch(e){
+    twOpenModal(`@${twEscape(handle)}`, `<div style="padding:20px;color:#DC2626;">加载失败：${twEscape(e.message)}</div>`);
+  }
+}
+
+// ─── Stats 条 ───
+async function twRefreshStats(){
+  const line = document.getElementById('tw-stats-line');
+  const chip = document.getElementById('tw-auth-chip');
+  try{
+    const s = await twApi('/api/stats');
+    line.textContent = `总 ${s.total} · 待审 ${s.by_status.pending} · 已通过 ${s.by_status.approved}（高 ${s.approved_by_urgency.high}/中 ${s.approved_by_urgency.mid}/低 ${s.approved_by_urgency.low}）· 已拒绝 ${s.by_status.rejected}`;
+  }catch(e){
+    line.textContent = `后端连不上（${e.message}）— 请确认 ${TW_API} 已启动`;
+  }
+  if (TW_TOKEN){
+    chip.textContent = '已登录 ·'+(TW_TOKEN.length>4?TW_TOKEN.slice(0,2)+'…':TW_TOKEN);
+    chip.style.background = '#ECFDF5'; chip.style.color = '#065F46'; chip.style.borderColor = '#A7F3D0';
+  } else {
+    chip.textContent = '未登录';
+    chip.style.background = '#F3F4F6'; chip.style.color = '#6B7280'; chip.style.borderColor = '#E5E7EB';
+  }
+}
+
+function twRefreshAll(){
+  twRefreshStats();
+  if(TW_STATE.sub==='feed') twRenderFeed();
+  else if(TW_STATE.sub==='review') twRenderReview();
+  else if(TW_STATE.sub==='tags') twRenderTags();
+}
+
+// 首次进入 tab 时懒加载
+(function(){
+  let initialized = false;
+  const origSwitchTab = switchTab;
+  switchTab = function(id, btn){
+    origSwitchTab(id, btn);
+    if(id === 'twitter' && !initialized){
+      initialized = true;
+      twRefreshAll();
+    }
+  };
+  // 如果页面一打开 hash 就是 #twitter，也触发
+  if ((location.hash||'').replace('#','') === 'twitter' && !initialized){
+    initialized = true;
+    twRefreshAll();
+  }
+})();
+</script>
+</body>
+</html>
