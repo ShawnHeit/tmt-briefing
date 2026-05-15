@@ -61,16 +61,16 @@ body{margin:0;background:#F3F4F6;font-family:-apple-system,BlinkMacSystemFont,"P
     <span id="header-date" style="font-size:11px;color:#9CA3AF;"></span>
   </div>
   <div style="display:flex;padding:0 16px;">
-    <button class="tab-btn active" onclick="switchTab('briefing',this)">日度看板</button>
+    <button class="tab-btn active" onclick="switchTab('briefing',this)">中央看板</button>
     <button class="tab-btn" onclick="switchTab('audit',this)">个股会诊</button>
     <button class="tab-btn" onclick="switchTab('weekly',this)">周度复盘</button>
-    <button class="tab-btn" onclick="switchTab('info',this)">信息追踪</button>
+    <button class="tab-btn" onclick="switchTab('info',this)">研报纪要展示</button>
     <button class="tab-btn" onclick="switchTab('prediction',this)">预测市场</button>
     <button class="tab-btn" onclick="switchTab('twitter',this)">推特监控</button>
   </div>
 </div>
 
-<!-- PANEL 1: 日度看板 -->
+<!-- PANEL 1: 中央看板 -->
 <div id="panel-briefing" class="panel active" style="padding-bottom:32px;">
   <div style="background:#fff;display:flex;align-items:stretch;padding:12px 16px;border-bottom:8px solid #F3F4F6;">
     <div style="flex:1;padding-right:12px;border-right:1px solid #F3F4F6;">
@@ -90,25 +90,41 @@ body{margin:0;background:#F3F4F6;font-family:-apple-system,BlinkMacSystemFont,"P
     </div>
   </div>
 
-  <!-- 日度看板：首页重组为会诊上/下修 + 近 7 天资料 AI 解读 -->
+  <!-- 中央看板：首页重组为会诊上/下修 + 财报关注 + 本周主线 -->
   <div style="padding-bottom:32px;">
     <div style="padding:14px 16px 4px;display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#9CA3AF;text-transform:uppercase;">日度看板 Daily Dashboard</span>
-      <span id="dashboard-count" style="font-size:10px;color:#9CA3AF;">本周会诊 · 近 7 天资料</span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#9CA3AF;text-transform:uppercase;">中央看板 Central Dashboard</span>
+      <span id="dashboard-count" style="font-size:10px;color:#9CA3AF;">本周会诊 · 财报关注 · 本周主线</span>
     </div>
     <div style="padding:4px 12px 0;">
       <div id="home-audit-movers"></div>
       <div id="dashboard-earnings-focus"></div>
-      <div style="padding:10px 4px 6px;display:flex;align-items:center;justify-content:space-between;">
-        <div>
-          <div style="font-size:10px;font-weight:800;color:#9CA3AF;letter-spacing:.08em;text-transform:uppercase;">近 7 天外资研报 / ACE 纪要</div>
-          <div style="font-size:11px;color:#9CA3AF;margin-top:2px;">边际信息 · 跟踪建议 · 来源可追溯</div>
+      <div id="central-weekly-mainline" style="background:#F8FAFC;border-radius:14px;padding:12px;margin-bottom:10px;">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:8px;gap:10px;">
+          <div>
+            <div style="font-size:10px;font-weight:800;color:#9CA3AF;letter-spacing:.08em;text-transform:uppercase;">本周主线 Weekly Mainline</div>
+            <div style="font-size:11px;color:#9CA3AF;margin-top:2px;">完整搬运自周度复盘的“本周主线”部分</div>
+          </div>
+          <div style="font-size:10px;color:#9CA3AF;text-align:right;">05/05 - 05/15</div>
         </div>
-        <div id="dashboard-insight-meta" style="font-size:10px;color:#9CA3AF;text-align:right;"></div>
+      <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:14px 16px;">
+        <div style="font-size:16px;font-weight:800;color:#111827;margin-bottom:4px;">本周主线：AI 硬件仍在上修，但只奖励“能兑现”的环节</div>
+        <div style="font-size:11px;color:#9CA3AF;line-height:1.7;">05/05-05/15 的核心是筛选：订单、毛利率、backlog 能转成收入的方向继续上修；指引、亏损、royalty 出现瑕疵的高估值 AI 资产被下修。周度复盘只保留最重要的边际数字。</div>
+        <div style="margin-top:10px;display:grid;gap:8px;">
+          <div style="background:#F8FAFC;border:1px solid #E5E7EB;border-radius:12px;padding:10px 12px;font-size:11px;color:#374151;line-height:1.75;"><b style="color:#111827;">主线一：AI 硬件进入兑现审计。</b>本周最有效的信号来自可落表项目：LITE revenue YoY +90.1% / GM 47.9%，COHR data center book-to-bill &gt;4x，MU Q3 指引继续抬高 HBM/DRAM 盈利中枢。MOCVD、探针卡、MLCC、液冷/PCB 调研同步指向一个结论：瓶颈正从 GPU 外溢到设备、材料、测试、热管理。交易重点下沉到排产、交付、毛利率和客户认证。</div>
+          <div style="background:#F8FAFC;border:1px solid #E5E7EB;border-radius:12px;padding:10px 12px;font-size:11px;color:#374151;line-height:1.75;"><b style="color:#111827;">主线二：上修买 shortage premium。</b>本周上修标的的共性很清楚：稀缺环节能转成价格、份额或更长订单能见度。光通信里 LITE 弹性最大，供给缺口同时也是兑现风险；COHR 更适合作为平台型持仓，核心跟踪 book-to-bill 和 InP 产能。存储里 MU/SanDisk/SK Hynix 继续吃 HBM、eSSD、enterprise SSD 和长单带来的 2026 盈利重算；拥挤度已经起来，后面看 DRAM 现货、HBM4 认证和云厂 capex 口径。</div>
+          <div style="background:#F8FAFC;border:1px solid #E5E7EB;border-radius:12px;padding:10px 12px;font-size:11px;color:#374151;line-height:1.75;"><b style="color:#111827;">主线三：下修集中在“好需求、差财务”。</b>CoreWeave backlog $99.4bn 足够强，但 Q2 guide 低于共识、Q1 net loss $740m、FY26 capex $31-35bn，市场会直接追问交付、融资和现金流闭环。ARM 的 IP 模式仍优质，royalty miss 和低端 smartphone slowdown 压住短期质量，FY27 licensing / data center royalty 要继续给证据。高估值 AI 资产进入硬验证期，P&amp;L 稍有瑕疵就会触发估值折扣。</div>
+          <div style="background:#F8FAFC;border:1px solid #E5E7EB;border-radius:12px;padding:10px 12px;font-size:11px;color:#374151;line-height:1.75;"><b style="color:#111827;">主线四：中国互联网先看主业现金流，再给 AI 期权定价。</b>腾讯上修来自 26Q1 广告/云 beat、游戏韧性和 AI 商业化拐点；主业现金流稳住以后，混元、云产品涨价、AI 广告才有估值弹性。快手 Kling 有资产价值，集团重估仍受主业低速、直播压力、capex 和竞争格局约束。下周软件和中概财报按硬指标看：PANW/SNOW/INTU/WDAY 看 RPO、净留存和 AI attach，BIDU/NTES/小鹏看收入、毛利率和费用率。</div>
+        </div>
+        <div style="margin-top:10px;display:grid;gap:7px;">
+          <div style="font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">上修原因：</b>LITE 用 Q3 revenue YoY +90.1% 和 GM 47.9% 证明 AI 光通信订单能转收入和利润；COHR 的 data center book-to-bill >4x 证明订单能见度仍强；SK Hynix 报告把 2026E 净利和 TP 继续上修。</div>
+          <div style="font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">下修原因：</b>CoreWeave 需求仍强，扣分项集中在 Q2 guide 低于共识、net loss $740m、FY26 capex $31-35bn；ARM 的 royalty miss 和低端 smartphone slowdown，让成长从满分叙事回到等待 FY27 验证。</div>
+          <div style="font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">下周跟踪：</b>PANW/SNOW/INTU/WDAY 看 AI 软件收入和净留存，MRVL 看 custom silicon / 光互连 DSP 是否给出 FY27 上修，BIDU/NTES/小鹏看 AI 投入是否转成收入或毛利率改善。</div>
+        </div>
       </div>
-      <div id="dashboard-insights"></div>
     </div>
   </div>
+</div>
 </div>
 
 <!-- PANEL 2: 预测市场 -->
@@ -128,12 +144,12 @@ body{margin:0;background:#F3F4F6;font-family:-apple-system,BlinkMacSystemFont,"P
   <div id="prediction-cards" class="pred-grid" style="padding-top:8px;"></div>
 </div>
 
-<!-- PANEL 3: 信息追踪 -->
+<!-- PANEL 3: 研报纪要展示 -->
 <div id="panel-info" class="panel" style="padding-bottom:32px;">
   <div style="height:8px;background:#F3F4F6;"></div>
   <div style="padding:10px 16px 8px;display:flex;align-items:center;justify-content:space-between;">
     <div>
-      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#9CA3AF;text-transform:uppercase;margin-bottom:1px;">信息追踪 Info Tracker</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#9CA3AF;text-transform:uppercase;margin-bottom:1px;">研报纪要展示 Research Notes</div>
       <div style="font-size:11px;color:#9CA3AF;">外资研报 · ACE纪要 · 内资研报</div>
     </div>
   </div>
@@ -245,7 +261,7 @@ body{margin:0;background:#F3F4F6;font-family:-apple-system,BlinkMacSystemFont,"P
       </div>
 
       <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
-        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">CPU / Agentic AI：信息追踪的好研报要进入主线</div>
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">CPU / Agentic AI：研报纪要展示的好研报要进入主线</div>
         <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">关键边际：</b>信达 AMD/ARM 周报、国金 AI 周观察和 Intel 三板斧报告都指向同一件事：Agentic AI 正把需求从 GPU 扩散到服务器 CPU、BMC、memory interface IC 和 ABF/MLCC。</p>
         <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>CPU:GPU attach ratio 从训练时代的低配比走向推理/agent 时代的高配比，AMD/ARM/Intel、信骅、澜起、欣兴/南电/嘉泽这类 CPU 底座链条会从“配套”变成单独估值主线。</p>
         <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">跟踪：</b>AMD server CPU TAM、ARM AGI CPU 供给、Intel DCAI/18A、澜起 MRCD/MDB、信骅 AST2700，以及 ABF/MLCC 是否继续被 CPU 需求上修。</p>
@@ -253,7 +269,7 @@ body{margin:0;background:#F3F4F6;font-family:-apple-system,BlinkMacSystemFont,"P
 
       <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
         <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">商业航天：从主题进入订单、发射和资金闭环验证</div>
-        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">关键边际：</b>信息追踪里“商业航天进入战略布局期”的线索需要和 audit 合并看：RKLB Q1 revenue $200.3m、backlog $2.2bn，ASTS Q1 revenue $14.7m、FY26 guide $150-200m，二者都进入硬节点验证。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">关键边际：</b>研报纪要展示里“商业航天进入战略布局期”的线索需要和 audit 合并看：RKLB Q1 revenue $200.3m、backlog $2.2bn，ASTS Q1 revenue $14.7m、FY26 guide $150-200m，二者都进入硬节点验证。</p>
         <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>RKLB 买的是 Electron/HASTE 现金流与 Neutron 期权，ASTS 买的是 direct-to-device 卫星网络商业化。商业航天不能只看题材热度，必须看发射节奏、合同转收入、capex 和现金消耗。</p>
         <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">跟踪：</b>RKLB Neutron 首飞准备和 Q2 revenue $225-240m 指引；ASTS BlueBird 8-10 发射、45 颗在轨目标、FCC/MNO 收入转化。</p>
       </div>
@@ -686,6 +702,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "Agentic Workflow 的核心瓶颈从算力转向上下文/状态/IO/验证：长时程任务会持续累积对话、工具结果、代码片段和日志，导致Token从数万膨胀到数十万甚至百万级；Multi-agent还会放大通信、重复读取、协调者和验证成本。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70562141",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%8B%B1%E4%BC%9F%E8%BE%BE/%E8%8B%B1%E4%BC%9F%E8%BE%BE-%E6%9D%90%E6%96%99/ace_minute_70562141_Karen_Zhang_20260514.md",
     "is_key": false
   },
   {
@@ -700,6 +717,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "各大光芯片厂MOCVD设备储量及增量预期；设备厂当前订单及交付周期情况。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70562115",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/Lumentum/Lumentum-%E6%9D%90%E6%96%99/ace_minute_70562115_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260513.md",
     "is_key": false
   },
   {
@@ -714,6 +732,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "某光通信大厂在CPO相关产品上的进展及单台价值量；NPO/CPO/OCS 技术路线发展及应用。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70562118",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%8B%B1%E4%BC%9F%E8%BE%BE/%E8%8B%B1%E4%BC%9F%E8%BE%BE-%E6%9D%90%E6%96%99/ace_minute_70562118_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260513.md",
     "is_key": false
   },
   {
@@ -727,6 +746,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "某PCB厂服务器电源 PCB 产能及不同产线转化效率；大厂下游客户供应份额。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70562120",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%8B%B1%E4%BC%9F%E8%BE%BE/%E8%8B%B1%E4%BC%9F%E8%BE%BE-%E6%9D%90%E6%96%99/ace_minute_70562120_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260513.md",
     "is_key": false
   },
   {
@@ -740,6 +760,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "当前产能/交期及客户订单情况;；供应链竞争格局;。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70562048",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/Lumentum/Lumentum-%E6%9D%90%E6%96%99/ace_minute_70562048_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260512.md",
     "is_key": false
   },
   {
@@ -753,6 +774,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "以下观点来自行业专家：；当前MLCC市场需求呈现分层现象。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70562065",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E4%B8%89%E6%98%9F%E7%94%B5%E5%AD%90/%E4%B8%89%E6%98%9F%E7%94%B5%E5%AD%90-%E6%9D%90%E6%96%99/ace_minute_70562065_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260512.md",
     "is_key": false
   },
   {
@@ -767,6 +789,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "光芯片/光模块产能规划;；客户认证及订单情况;。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70562067",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BE%AE%E8%BD%AF/%E5%BE%AE%E8%BD%AF-%E6%9D%90%E6%96%99/ace_minute_70562067_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260512.md",
     "is_key": false
   },
   {
@@ -781,6 +804,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "存储探针卡价值量及竞争格局;；CPO测试方案进展;。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70562076",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%BE%8E%E5%85%89/%E7%BE%8E%E5%85%89-%E6%9D%90%E6%96%99/ace_minute_70562076_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260512.md",
     "is_key": false
   },
   {
@@ -795,6 +819,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "· 方向：围绕材料成本波动与终端压价共同作用下，液冷零部件从机加工向更标准化工艺路线迁移的趋势展望；· 结构：围绕Manifold、软管、冷板、CDU等部件在NV与谷歌两条链路中的用材与工艺差异展望。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70561986",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%8B%B1%E4%BC%9F%E8%BE%BE/%E8%8B%B1%E4%BC%9F%E8%BE%BE-%E6%9D%90%E6%96%99/ace_minute_70561986_Patrick_20260509.md",
     "is_key": false
   },
   {
@@ -808,6 +833,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "· 方向：围绕并联分流架构带来的分水器复杂度提升、以及头部方案方集成能力成为主要利润来源的趋势展望；· 结构：围绕Rack Manifold与Inner Manifold在机柜内的层级分工、以及二级供应链在成本与交付中的角色变化展望。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70561987",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%8B%B1%E4%BC%9F%E8%BE%BE/%E8%8B%B1%E4%BC%9F%E8%BE%BE-%E6%9D%90%E6%96%99/ace_minute_70561987_Patrick_20260509.md",
     "is_key": false
   },
   {
@@ -820,6 +846,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "以下观点来自行业专家：；从原厂对经销商的层面来看，村田和三星的MLCC产品在4月份并未涨价。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70561978",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E4%B8%89%E6%98%9F%E7%94%B5%E5%AD%90/%E4%B8%89%E6%98%9F%E7%94%B5%E5%AD%90-%E6%9D%90%E6%96%99/ace_minute_70561978_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260508.md",
     "is_key": false
   },
   {
@@ -834,6 +861,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "- 1.6T CPO 产品确定 2026 年量产，单只 OE 光引擎组件价值量约 2000 元，但因硅光集成度提升，价值量较传统 EML 引擎有所下降；- CPO 渗透率预期差：预计 3.2T 时代 CPO 渗透率不超 20%，主因可插拔模…",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70561929",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%8F%B0%E7%A7%AF%E7%94%B5/%E5%8F%B0%E7%A7%AF%E7%94%B5-%E6%9D%90%E6%96%99/ace_minute_70561929_Leo_Gao_20260508.md",
     "is_key": false
   },
   {
@@ -847,6 +875,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "收入结构;；公司技术壁垒;。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70561950",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93/%E5%AD%98%E5%82%A8%E5%8D%8A%E5%AF%BC%E4%BD%93-%E6%9D%90%E6%96%99/ace_minute_70561950_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260508.md",
     "is_key": false
   },
   {
@@ -861,6 +890,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "国内AI算力芯片竞争格局及各自优劣势表现；模型推理场景ASIC及GPGPU对比。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70561939",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%AF%92%E6%AD%A6%E7%BA%AA/%E5%AF%92%E6%AD%A6%E7%BA%AA-%E6%9D%90%E6%96%99/ace_minute_70561939_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260508.md",
     "is_key": false
   },
   {
@@ -874,6 +904,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "MOCVD设备竞争格局;；LSA设备需求及应用场景;。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70561960",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%AD%96%E7%95%A5%E5%AE%8F%E8%A7%82/%E7%AD%96%E7%95%A5%E5%AE%8F%E8%A7%82-%E6%9D%90%E6%96%99/ace_minute_70561960_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260508.md",
     "is_key": false
   },
   {
@@ -888,6 +919,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "主要看点：；特斯拉Optimus与国内头部人形机器人厂商（如宇树、智元、优必选）在顶层设计、技术路线、硬件配置、商业模式的核心差异。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70561937",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%BE%8E%E5%85%89/%E7%BE%8E%E5%85%89-%E6%9D%90%E6%96%99/ace_minute_70561937_Michael_Lyu_%E5%90%95%E6%96%B9__20260508.md",
     "is_key": false
   },
   {
@@ -901,6 +933,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "需求量与芯片的对应关系;；市场竞争格局;。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70561973",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%8B%B1%E4%BC%9F%E8%BE%BE/%E8%8B%B1%E4%BC%9F%E8%BE%BE-%E6%9D%90%E6%96%99/ace_minute_70561973_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260508.md",
     "is_key": false
   },
   {
@@ -913,6 +946,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "公司业务介绍，包括oDSP业务及SerDes IP业务；在国内外竞争优劣势。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70561882",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/Broadcom/Broadcom-%E6%9D%90%E6%96%99/ace_minute_70561882_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260507.md",
     "is_key": false
   },
   {
@@ -925,6 +959,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "海外客户认证进展及指引;；公司扩产规划及产能分配;。",
     "event_url": "https://www.acecamptech.com/eventDetail/minute_70561899",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%8B%B1%E4%BC%9F%E8%BE%BE/%E8%8B%B1%E4%BC%9F%E8%BE%BE-%E6%9D%90%E6%96%99/ace_minute_70561899_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260507.md",
     "is_key": false
   },
   {
@@ -938,6 +973,7 @@ const ACECAMP_ITEMS=[
     ],
     "detail": "我们邀请了公司IR Director来做业绩后的分享；话题包括但不限于：。",
     "event_url": "https://www.acecamptech.com/eventDetail/60531822",
+    "md_path": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4-%E6%9D%90%E6%96%99/ace_60531822_Coco_Xu___Corpo_20260225.md",
     "is_key": false
   }
 ];
@@ -1628,18 +1664,6 @@ const AUDIT_CARDS=[
     "href": "知识库/ASML/audits/ASML-audit-20260515.html"
   },
   {
-    "name": "长电科技 JCET",
-    "ticker": "600584.SH",
-    "sector": "半导体封测",
-    "direction": 3.17,
-    "direction_label": "买入",
-    "value": 2.0,
-    "growth": 3.0,
-    "quant": 4.5,
-    "date": "2026-05-15",
-    "href": "知识库/长电科技/audits/长电科技-audit-20260515.html"
-  },
-  {
     "name": "SanDisk 闪迪",
     "ticker": "SNDK.US",
     "sector": "存储",
@@ -1700,16 +1724,16 @@ const AUDIT_CARDS=[
     "href": "知识库/诺基亚/audits/NOK-audit-20260515.html"
   },
   {
-    "name": "阿里巴巴-W",
-    "ticker": "09988.HK",
-    "sector": "中国互联网",
-    "direction": 2.5,
+    "name": "长电科技 JCET",
+    "ticker": "600584.SH",
+    "sector": "半导体封测",
+    "direction": 2.83,
     "direction_label": "持有",
-    "value": 3.0,
+    "value": 2.0,
     "growth": 3.0,
-    "quant": 1.5,
+    "quant": 3.5,
     "date": "2026-05-15",
-    "href": "知识库/阿里巴巴/audits/阿里巴巴-audit-20260515.html"
+    "href": "知识库/长电科技/audits/长电科技-audit-20260515.html"
   },
   {
     "name": "AXT (AXTI)",
@@ -1763,13 +1787,25 @@ const AUDIT_CARDS=[
     "name": "通富微电",
     "ticker": "002156.SZ",
     "sector": "半导体封测",
-    "direction": 2.0,
-    "direction_label": "持有",
+    "direction": 1.67,
+    "direction_label": "观望偏空",
     "value": 0.0,
     "growth": 3.0,
-    "quant": 3.0,
+    "quant": 2.0,
     "date": "2026-05-15",
     "href": "知识库/通富微电/audits/通富微电-audit-20260515.html"
+  },
+  {
+    "name": "阿里巴巴-W",
+    "ticker": "09988.HK",
+    "sector": "中国互联网",
+    "direction": 1.67,
+    "direction_label": "观望偏空",
+    "value": 3.0,
+    "growth": 3.0,
+    "quant": -1.0,
+    "date": "2026-05-15",
+    "href": "知识库/阿里巴巴/audits/阿里巴巴-audit-20260515.html"
   },
   {
     "name": "美团-W",
@@ -1823,11 +1859,11 @@ const AUDIT_CARDS=[
     "name": "快手-W",
     "ticker": "01024.HK",
     "sector": "中国互联网",
-    "direction": 0.67,
+    "direction": 0.5,
     "direction_label": "卖出",
     "value": 1.0,
     "growth": 0.0,
-    "quant": 1.0,
+    "quant": 0.5,
     "date": "2026-05-15",
     "href": "知识库/快手/audits/快手-audit-20260515.html"
   },
@@ -2382,6 +2418,11 @@ const DAILY_DASHBOARD={
           "label": "AceCamp · 05-14",
           "href": "https://www.acecamptech.com/eventDetail/minute_70562141",
           "type": "data"
+        },
+        {
+          "label": "本地纪要",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%8B%B1%E4%BC%9F%E8%BE%BE/%E8%8B%B1%E4%BC%9F%E8%BE%BE-%E6%9D%90%E6%96%99/ace_minute_70562141_Karen_Zhang_20260514.md",
+          "type": "data"
         }
       ],
       "is_key": false
@@ -2409,6 +2450,11 @@ const DAILY_DASHBOARD={
         {
           "label": "AceCamp · 05-13",
           "href": "https://www.acecamptech.com/eventDetail/minute_70562115",
+          "type": "data"
+        },
+        {
+          "label": "本地纪要",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/Lumentum/Lumentum-%E6%9D%90%E6%96%99/ace_minute_70562115_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260513.md",
           "type": "data"
         }
       ],
@@ -2438,6 +2484,11 @@ const DAILY_DASHBOARD={
           "label": "AceCamp · 05-13",
           "href": "https://www.acecamptech.com/eventDetail/minute_70562118",
           "type": "data"
+        },
+        {
+          "label": "本地纪要",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%8B%B1%E4%BC%9F%E8%BE%BE/%E8%8B%B1%E4%BC%9F%E8%BE%BE-%E6%9D%90%E6%96%99/ace_minute_70562118_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260513.md",
+          "type": "data"
         }
       ],
       "is_key": false
@@ -2464,6 +2515,11 @@ const DAILY_DASHBOARD={
         {
           "label": "AceCamp · 05-13",
           "href": "https://www.acecamptech.com/eventDetail/minute_70562120",
+          "type": "data"
+        },
+        {
+          "label": "本地纪要",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%8B%B1%E4%BC%9F%E8%BE%BE/%E8%8B%B1%E4%BC%9F%E8%BE%BE-%E6%9D%90%E6%96%99/ace_minute_70562120_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260513.md",
           "type": "data"
         }
       ],
@@ -2546,6 +2602,11 @@ const DAILY_DASHBOARD={
           "label": "AceCamp · 05-12",
           "href": "https://www.acecamptech.com/eventDetail/minute_70562048",
           "type": "data"
+        },
+        {
+          "label": "本地纪要",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/Lumentum/Lumentum-%E6%9D%90%E6%96%99/ace_minute_70562048_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260512.md",
+          "type": "data"
         }
       ],
       "is_key": false
@@ -2572,6 +2633,11 @@ const DAILY_DASHBOARD={
         {
           "label": "AceCamp · 05-12",
           "href": "https://www.acecamptech.com/eventDetail/minute_70562065",
+          "type": "data"
+        },
+        {
+          "label": "本地纪要",
+          "href": "%E7%9F%A5%E8%AF%86%E5%BA%93/%E4%B8%89%E6%98%9F%E7%94%B5%E5%AD%90/%E4%B8%89%E6%98%9F%E7%94%B5%E5%AD%90-%E6%9D%90%E6%96%99/ace_minute_70562065_%E5%85%B1%E4%BA%AB%E8%B0%83%E7%A0%94%E7%BA%AA%E8%A6%81_20260512.md",
           "type": "data"
         }
       ],
@@ -2614,7 +2680,7 @@ const DAILY_DASHBOARD={
   }
 };
 window.ZSXQ_DIGEST_HREF='../%E6%AF%8F%E6%97%A5%E6%B1%87%E6%80%BB/ZSXQ_180K_20260515.md';
-const LAST_UPDATE=new Date('2026-05-15T13:42:13+08:00');
+const LAST_UPDATE=new Date('2026-05-15T14:21:49+08:00');
 function updateClock(){
   const now=new Date();
   const etH=(now.getUTCHours()-4+24)%24,etM=now.getUTCMinutes();
@@ -2963,6 +3029,9 @@ document.getElementById('acecamp-list').innerHTML=ACECAMP_ITEMS.map((a,i)=>{
   const linkBtn = a.event_url
     ? `<a href="${a.event_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:6px;background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE;text-decoration:none;">🔗 AceCamp 原帖</a>`
     : '';
+  const mdBtn = a.md_path
+    ? `<a href="${a.md_path}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:6px;background:#F0FDF4;color:#15803D;border:1px solid #BBF7D0;text-decoration:none;">本地纪要</a>`
+    : '';
   const fullTitleAttr = a.full_title ? ` title="${(a.full_title||'').replace(/"/g,'&quot;')}"` : '';
   // 标题格式：标题 - 作者/来源 - 发布时间
   const displayDate = (a.time || '—').split(' ')[0] || '—';
@@ -2979,6 +3048,7 @@ document.getElementById('acecamp-list').innerHTML=ACECAMP_ITEMS.map((a,i)=>{
     <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">概要：</b>${a.detail || '—'}</p>
     <div style="font-size:10px;color:#9CA3AF;margin:0 0 6px;">归属贴：<span style="color:#6B7280;">${belong}</span></div>
     <div style="display:flex;align-items:center;justify-content:flex-end;gap:6px;margin-top:4px;">
+      ${mdBtn}
       ${linkBtn}
     </div>
   </div>`;
@@ -3050,7 +3120,7 @@ document.getElementById('gs-list').innerHTML=GS_ITEMS.map((g,i)=>{
   </div>`;
 }).join('');
 
-// （推特大V 子页已归并到"推特监控"主 TAB，信息追踪 TAB 中不再展示）
+// （推特大V 子页已归并到"推特监控"主 TAB，研报纪要展示 TAB 中不再展示）
 
 // ═══════════════════════════════
 // RENDER AUDIT CARDS (个股会诊)
