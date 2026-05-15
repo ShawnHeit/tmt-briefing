@@ -245,6 +245,20 @@ body{margin:0;background:#F3F4F6;font-family:-apple-system,BlinkMacSystemFont,"P
       </div>
 
       <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">CPU / Agentic AI：信息追踪的好研报要进入主线</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">关键边际：</b>信达 AMD/ARM 周报、国金 AI 周观察和 Intel 三板斧报告都指向同一件事：Agentic AI 正把需求从 GPU 扩散到服务器 CPU、BMC、memory interface IC 和 ABF/MLCC。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>CPU:GPU attach ratio 从训练时代的低配比走向推理/agent 时代的高配比，AMD/ARM/Intel、信骅、澜起、欣兴/南电/嘉泽这类 CPU 底座链条会从“配套”变成单独估值主线。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">跟踪：</b>AMD server CPU TAM、ARM AGI CPU 供给、Intel DCAI/18A、澜起 MRCD/MDB、信骅 AST2700，以及 ABF/MLCC 是否继续被 CPU 需求上修。</p>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
+        <div style="font-size:13px;font-weight:800;color:#16A34A;margin-bottom:7px;">商业航天：从主题进入订单、发射和资金闭环验证</div>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">关键边际：</b>信息追踪里“商业航天进入战略布局期”的线索需要和 audit 合并看：RKLB Q1 revenue $200.3m、backlog $2.2bn，ASTS Q1 revenue $14.7m、FY26 guide $150-200m，二者都进入硬节点验证。</p>
+        <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>RKLB 买的是 Electron/HASTE 现金流与 Neutron 期权，ASTS 买的是 direct-to-device 卫星网络商业化。商业航天不能只看题材热度，必须看发射节奏、合同转收入、capex 和现金消耗。</p>
+        <p style="margin:0;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">跟踪：</b>RKLB Neutron 首飞准备和 Q2 revenue $225-240m 指引；ASTS BlueBird 8-10 发射、45 颗在轨目标、FCC/MNO 收入转化。</p>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;border:1px solid #F3F4F6;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:13px 15px;">
         <div style="font-size:13px;font-weight:800;color:#B45309;margin-bottom:7px;">互联网 / 软件：AI 投入进入 P&L 验证，不能只看产品叙事</div>
         <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">关键边际：</b>阿里云 AI/MaaS 开始被外资放进收入和 margin 假设；腾讯则从利润修复切到 AI investment step-up。快手 Kling 估值约 $20bn 是资产价值信号，但还不是集团利润表收入。</p>
         <p style="margin:0 0 6px;font-size:11px;color:#4B5563;line-height:1.7;"><b style="color:#111827;">推演：</b>中国互联网的分化点在 AI 投入能不能转成广告、云、订阅收入；单纯产品发布已经不够。软件侧下周 PANW/SNOW/INTU/WDAY 的核心也是 AI attach、RPO、净留存和 operating margin。</p>
@@ -1506,6 +1520,18 @@ const AUDIT_CARDS=[
     "href": "知识库/AMAT/audits/AMAT-audit-20260515.html"
   },
   {
+    "name": "Bloom Energy",
+    "ticker": "BE.US",
+    "sector": "电网/电力",
+    "direction": 3.5,
+    "direction_label": "买入",
+    "value": 3.0,
+    "growth": 5.0,
+    "quant": 2.5,
+    "date": "2026-05-15",
+    "href": "知识库/BE/audits/BE-audit-20260515.html"
+  },
+  {
     "name": "Ciena",
     "ticker": "CIEN.US",
     "sector": "光通信",
@@ -1532,7 +1558,7 @@ const AUDIT_CARDS=[
   {
     "name": "Rocket Lab",
     "ticker": "RKLB.US",
-    "sector": "其他",
+    "sector": "商业航天",
     "direction": 3.5,
     "direction_label": "买入",
     "value": 2.0,
@@ -2588,7 +2614,7 @@ const DAILY_DASHBOARD={
   }
 };
 window.ZSXQ_DIGEST_HREF='../%E6%AF%8F%E6%97%A5%E6%B1%87%E6%80%BB/ZSXQ_180K_20260515.md';
-const LAST_UPDATE=new Date('2026-05-15T13:34:37+08:00');
+const LAST_UPDATE=new Date('2026-05-15T13:42:13+08:00');
 function updateClock(){
   const now=new Date();
   const etH=(now.getUTCHours()-4+24)%24,etM=now.getUTCMinutes();
