@@ -19,6 +19,7 @@ cisco+asml+北美散户
 
 **PDF 摘要：**Retail trading activity has inflected higher alongside the recent equity n market rally. GS trading desk estimates show that retail trading volumes have risen by 28% since mid-April and a basket of r…
 
+（含 3 张评论区AI解读截图）
 
 ## 5问解读（研报版）
 
@@ -50,6 +51,13 @@ cisco+asml+北美散户
 （兼容旧消费者；新内容请写在「## 5问解读 → 1. 边际信息」段）
 
 
+
+## 评论区（AI解读）
+![评论图片1](../../Cisco/Cisco-材料/14422514548881522_Leada_20260514_comment1.jpg)
+
+![评论图片2](../../Cisco/Cisco-材料/14422514548881522_Leada_20260514_comment2.jpg)
+
+![评论图片3](../../Cisco/Cisco-材料/14422514548881522_Leada_20260514_comment3.jpg)
 
 
 ## 附件PDF

@@ -19,6 +19,7 @@
 
 **PDF 摘要：**% yoy overall/external in March quarter), where the company expects AI-related products to scale toward >50% of external cloud revenue over the next year (from 30% in March 2026 quarter), 2) cloud ma…
 
+（含 3 张评论区AI解读截图）
 
 ## 5问解读（研报版）
 
@@ -50,6 +51,13 @@
 （兼容旧消费者；新内容请写在「## 5问解读 → 1. 边际信息」段）
 
 
+
+## 评论区（AI解读）
+![评论图片1](22255842552218251_Leada_20260514_comment1.jpg)
+
+![评论图片2](22255842552218251_Leada_20260514_comment2.jpg)
+
+![评论图片3](22255842552218251_Leada_20260514_comment3.jpg)
 
 
 ## 附件PDF
