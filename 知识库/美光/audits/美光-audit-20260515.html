@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美光科技 (Micron) (MU.US) · 三派会诊审议纪要</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .school-value { --accent: #0f766e; --accent-light: #ccfbf1; --accent-dark: #134e4a; }
+  .school-growth { --accent: #c2410c; --accent-light: #ffedd5; --accent-dark: #7c2d12; }
+  .school-quant { --accent: #1d4ed8; --accent-light: #dbeafe; --accent-dark: #1e3a8a; }
+  .accent-text { color: var(--accent); }
+  .accent-bg { background-color: var(--accent); }
+  .accent-bg-light { background-color: var(--accent-light); }
+  .accent-border { border-color: var(--accent); }
+  .rating-chip { display: inline-block; padding: 2px 10px; border-radius: 999px; font-weight: 600; font-size: 0.875rem; }
+  .rating-buy { background: #dcfce7; color: #166534; }
+  .rating-hold { background: #fef3c7; color: #92400e; }
+  .rating-sell { background: #fee2e2; color: #991b1b; }
+  .rating-strong-buy { background: #166534; color: white; }
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, #e5e7eb, transparent); margin: 1.25rem 0 0.75rem 0; }
+  .key-metric { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  @media print { body { font-size: 10pt; } .page-break { page-break-before: always; } .no-print { display: none !important; } }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+<header class="bg-slate-900 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="flex items-start gap-6">
+      <a href="../../../index.html#audit"
+         class="no-print"
+         title="返回 · 个股会诊"
+         style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(250,204,21,0.08);color:#FACC15;font-size:30px;line-height:1;font-weight:700;text-decoration:none;transition:all .15s;flex-shrink:0;margin-top:2px;"
+         onmouseenter="this.style.background='rgba(250,204,21,0.18)';this.style.transform='translateX(-3px)';"
+         onmouseleave="this.style.background='rgba(250,204,21,0.08)';this.style.transform='';">
+        ←
+      </a>
+      <div class="flex-1 flex items-start justify-between">
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight">美光科技 (Micron) · MU.US</h1>
+          
+        </div>
+        <div class="text-right text-sm text-slate-300 space-y-1">
+          <div><span class="text-slate-400">分析日期：</span><span class="font-mono">2026-05-15</span></div>
+          <div><span class="text-slate-400">当前股价：</span><span class="font-mono font-semibold text-white">USD$776.01</span></div>
+          <div><span class="text-slate-400">数据源：</span>102 份卖方研报（2025-11 ~ 2026-04）+ 2 篇公司一手（Q2 FY26 Prepared Remarks + Press Release 2026-03-18）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="max-w-7xl mx-auto px-6 py-8">
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-1 h-6 bg-slate-900"></div>
+      <h2 class="text-lg font-semibold tracking-wide">审议摘要 · EXECUTIVE REVIEW</h2>
+    </div>
+    <p class="text-slate-700 leading-relaxed mb-6">美光（MU）是<strong>AI 内存超级周期最大受益者 + 美国唯一先进存储制造商</strong>。<strong>本次会诊关键增量</strong>：（a）<strong>Q2 FY26 营收 $23.9B（+196% YoY）</strong>，毛利率 75%，全部超指引上沿；（b）<strong>Q3 FY26 指引 $33.5B（单季度 ≥ FY24 全年）+ GM 81% + EPS $19.15</strong>，半导体史上罕见指引上修幅度；（c）<strong>HBM4 36GB 12H 已为 NVDA Vera Rubin 量产</strong>；HBM4E 2027 量产；（d）<strong>首签 5 年期 SCA</strong>（Strategic Customer Agreement）；（e）<strong>30% 分红上调</strong> + 净现金 $6.5B 历史最高 + 债务再降 $1.6B；（f）DRAM/NAND 数据中心 TAM > 50%（首次）+ 「短缺持续到 2028」（兴业证券引用）。三派会诊结论：<strong class='text-slate-900'>明显偏多共识（+3.83 / 5），但拥挤度高（一年 +586%），保守 4-5% 试仓，等回踩 MA50 加仓。</strong></p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">三派综合方向</div>
+        <div class="text-xl font-bold text-emerald-700 mt-1">买入 (+3.67)</div>
+        <div class="text-xs text-slate-400 mt-1">规范化均值 · 未加权</div>
+      </div>
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">保守仓位建议</div>
+        <div class="text-xl font-bold text-slate-900 mt-1">4%</div>
+        <div class="text-xs text-slate-400 mt-1">三派最小值 · 非平均</div>
+      </div>
+      <div class="border-l-2 border-red-400 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">近期最重要节点</div>
+        <div class="text-xl font-bold text-red-700 mt-1">2026/06/中-下</div>
+        <div class="text-xs text-slate-400 mt-1">Q3 FY26 财报 · 营收 vs 指引 $33.5B + GM 81% 是否守住</div>
+      </div>
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">分歧度</div>
+        <div class="text-xl font-bold text-slate-900 mt-1">低（拥挤度软警觉）</div>
+        <div class="text-xs text-slate-400 mt-1">方向强共识 · 仓位中分歧 · 拥挤度提示</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">价格与成交量 · TRADINGVIEW CHART</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">美光科技 (Micron) · NASDAQ:MU · 约 15 min 延迟</span>
+    
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden" style="height:560px;">
+    <iframe
+      src="https://s.tradingview.com/widgetembed/?symbol=NASDAQ%3AMU&interval=D&theme=light&style=1&locale=zh_CN&withdateranges=1&hide_side_toolbar=0&allow_symbol_change=1&studies=%5B%22Volume%40tv-basicstudies%22%2C%22RSI%40tv-basicstudies%22%2C%22MASimple%40tv-basicstudies%22%5D&hideideas=1&details=1"
+      style="width:100%;height:100%;border:0;display:block;"
+      allowtransparency="true" scrolling="no" allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      title="TradingView NASDAQ:MU"></iframe>
+  </div>
+  <p class="text-[11px] text-slate-500 mt-2 leading-relaxed">
+    点击图表顶部可切换周期（1D/1W/1M/3M/6M/YTD/1Y/5Y/All），右侧工具栏可切换 K 线 / 面积 / Heikin-Ashi，已叠加成交量 · RSI · 20 日均线。
+    每次打开本页会从 TradingView 实时拉取最新数据。
+  </p>
+</section>
+
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">研究员观点 · ANALYST VIEWS</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">三派独立出观点 · 无互相污染</span>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    <div class="school-value bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">value-school</div>
+            <div class="text-xl font-bold mt-1">价值派</div>
+            <div class="text-xs text-slate-500 mt-0.5">双引擎 · 巴菲特+红利</div>
+          </div>
+          <span class="rating-chip rating-buy">买入</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono">3-5 年（覆盖整个 AI 内存周期）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono">5%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">安全边际</span><span class="font-mono">+24% (DCF 中性 $625 / 第一上海 TP vs 现价 $504)</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">Track A 分（巴菲特/格雷厄姆）</span><span class="font-mono">82/100</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">Track B 分（红利）</span><span class="font-mono">不适用 (周期股 + 当前股息率仅 ~0.1%)</span></div>
+        </div>
+        <div class="mt-5 bg-teal-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">护城河（Moat Score 21/25）</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside">
+            <li>技术领先：1γ DRAM 是最快达到成熟良率的节点，HBM4 36GB 已为 NVDA Vera Rubin 量产；HBM4E 1γ 节点 2027 量产</li>
+<li>成本优势：QLC NAND record mix；G9 NAND 量产；US-based + 政府 CHIPS Act 补贴覆盖部分 capex</li>
+<li>网络效应（弱）：5 年期 SCA（Strategic Customer Agreement）首签；客户多年承诺锁定订单</li>
+<li>转换成本（中）：HBM 与 NVDA / AMD GPU 设计 deep integration，更换需要 12+ 月 qualification</li>
+<li>有效规模：DRAM/NAND 全球三巨头之一（Samsung/Hynix/Micron），规模门槛极高</li>
+<li>周期性弱化：AI 数据中心 50%+ TAM 占比降低传统 PC/手机周期波动</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">美光是<strong>美国唯一先进存储制造商 + AI 内存超级周期最大受益者</strong>。Q2 FY26 营收 $23.9B（+196% YoY）、毛利率 75%、Op Margin 69%，全部超指引上沿；<strong>Q3 FY26 指引 $33.5B（单季度 ≥ FY2024 全年）+ GM 81%</strong>，盈利质量爆表；30% 分红上调 + 净现金 $6.5B 历史最高 + 债务再降 $1.6B → 资产负债表改善验证周期上沿。估值方面 PE TTM 暂未稳态（盈利爆发刚开始），FY26 EPS 预计 $50-60，对应 PE ~9-10×（极便宜）；<strong>但价值派最大顾虑是周期性</strong>—— 内存史上最强周期 2018 / 2024-26 都是 ~2 年内见顶，买点不便宜（已涨 7x），更接近周期上沿不是低点；Track A 综合 82 分给买入，但仓位克制 5%，因周期顶部时间难判。</p>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">主要风险</div>
+          <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+            <li>周期顶部已近：内存价格 DRAM +mid-60s% / NAND +high-70s%，历史上极少见连续 2 年以上的环比涨价</li>
+<li>中国厂商（CXMT 长鑫、YMTC 长存）产能爬坡：DRAM 全球供给端最大边际变量</li>
+<li>AI capex 见顶：若 NVDA / 超大规模厂商 capex 在 2026 H2 见顶，HBM 订单可能迅速降温</li>
+<li>估值已 priced in 部分：股价从 $73 → $504（一年 +6x），PE 低但 P/Book 已升至历史 80% 分位</li>
+<li>PC/手机：可能因供给约束导致 unit declines 低双位数（管理层警示）</li>
+<li>中国出口管制：HBM4 / 1γ 节点出口可能受限</li>
+          </ul>
+        </div>
+        <div class="mt-4 bg-amber-50 border-l-4 border-amber-400 p-3">
+          <div class="text-xs font-semibold text-amber-800 uppercase mb-1">What Would Change My Mind</div>
+          <p class="text-xs text-amber-900">FY27 EPS 卖方一致预期上修 + 5 年 SCA 多客户签约 + HBM 单价持续上涨 → 持续买入。反之若 NVDA 业绩 capex 下修 / DRAM 现货价连续 3 月下跌 / China 厂商产能超预期 → 直接降至持有。</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="school-growth bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">growth-school</div>
+            <div class="text-xl font-bold mt-1">成长派</div>
+            <div class="text-xs text-slate-500 mt-0.5">景气投资 · 5 阶段 + 80/20 景气分</div>
+          </div>
+          <span class="rating-chip rating-strong-buy">强烈买入</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">阶段判定</span><span class="font-mono font-semibold">爆发期（AI 内存超级周期主升浪 + 戴维斯双击）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono font-semibold">1-4 季度（事件驱动）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono font-semibold">10%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">景气总分</span><span class="font-mono font-semibold text-orange-700">94/100</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">戴维斯阶段</span><span class="font-mono font-semibold"><strong>双击</strong>（盈利爆发 + 估值未充分扩张）</span></div>
+        </div>
+        <div class="mt-5 bg-orange-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">景气分拆解（80/20 公式）</div>
+          <div class="text-xs text-slate-700 space-y-1.5">
+            <div class="flex justify-between"><span>盈利修正因子 (80%)</span><span class="font-mono font-semibold">96/100</span></div>
+            <div class="text-[11px] text-slate-500 pl-2 italic">Q2 FY26 EPS $12.20 同比 +682%；Q3 指引 EPS $19.15（+57% QoQ），<strong>单季营收 $33.5B 等于 FY24 全年</strong>；卖方一致预期 FY26/FY27 EPS 持续大幅上修（UBS / Citi / GS / Daiwa / 第一上海 TP $400-626）；DRAM 价格 +mid-60s% / NAND +high-70s% 同比飙升，价格 + 量同时正贡献</div>
+            <div class="flex justify-between mt-2"><span>动量因子 (20%)</span><span class="font-mono font-semibold">92/100</span></div>
+            <div class="text-[11px] text-slate-500 pl-2 italic">股价过去 12 个月从 $73 → $504（+586%），跑赢 SOX +400pp；MACD bullish + RSI 66（健康偏多） + 多周期 MOSTLY BULLISH；Q2 财报后跳空 +18%；卖方密集上调 TP（UBS $400 / 第一上海 $626 / Citi $425）</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">催化剂清单</div>
+          <ul class="text-xs text-slate-700 space-y-1">
+            <li>✓ <strong>Q3 FY26 指引 $33.5B + GM 81% + EPS $19.15</strong>：2026-03-18 Prepared Remarks（Sanjay Mehrotra）：单季度 ≥ FY24 全年</li>
+<li>✓ <strong>HBM4 36GB 12H 已为 NVDA Vera Rubin 量产</strong>：Q2 FY26 transcript：volume shipments started in Q1 cal 2026</li>
+<li>✓ <strong>首签 5 年期 SCA（Strategic Customer Agreement）</strong>：Q2 FY26 transcript 原话：we are excited to have signed our first five-year SCA</li>
+<li>✓ <strong>DRAM/NAND 数据中心 TAM > 50%（首次）</strong>：Q2 FY26 transcript：DRAM and NAND data center bit TAM to exceed 50% of industry TAM in cal 2026</li>
+<li>✓ <strong>供给短缺持续到 2028 年</strong>：兴业证券 2026-01-18 引用美光指引；Q2 FY26 transcript：demand significantly in excess of supply for foreseeable future</li>
+<li>✓ <strong>FY26 CapEx 上调至 $25B+（vs 此前 $20B）+ FY27 再加 $10B 建造</strong>：Q2 FY26 transcript：capex above $25B for FY26 + 招商证券 2026-03-19</li>
+<li>✓ <strong>HBM4 16-high 48GB cube 已 sample / HBM4E 2027 量产</strong>：Q2 FY26 transcript：HBM4 16-high sampled, HBM4E ramp cal 2027</li>
+<li>✓ <strong>30% 分红上调（$0.115 → $0.15）</strong>：Q2 FY26 transcript + Press Release 2026-03-18</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">美光是<strong>AI 资本开支二次浪潮的内存终极受益者</strong>，戴维斯<strong>双击</strong>态势已成。盈利端 EPS 同比 +682%，估值端 PE TTM 仅 ~10×（FY26 远期 PE 8-9×）—— 这种「盈利大涨 + 估值低位」的组合在半导体周期中极罕见，最近一次是 2018 年内存周期。管理层口径硬：Q3 单季度等于 FY24 全年，FY26 CapEx 加 $5B、FY27 再加 $10B 建造预算，都暗示「至少 2 年的高景气期」，与「短缺持续到 2028」吻合。成长派给强烈买入 + 10% 仓位（最高），但需密切监控周期顶部信号（NVDA capex / DRAM 现货价 / 中国扩产）。</p>
+        </div>
+        <div class="mt-4 bg-red-50 border-l-4 border-red-400 p-3">
+          <div class="text-xs font-semibold text-red-800 uppercase mb-1">Exit Triggers · 止盈条件</div>
+          <ul class="text-xs text-red-900 space-y-1 list-disc list-inside">
+            <li>FY26 Q4 / FY27 Q1 营收 QoQ 转负（即 $33B+ 见顶）</li>
+<li>DRAM 现货价连续 3 月环比下跌</li>
+<li>NVDA / Microsoft / Meta 任一家 2026 H2 capex 指引下修</li>
+<li>中国 CXMT / YMTC 月度产能数据爆增（>50% 同比）</li>
+<li>RSI 持续 > 75 + 大盘流动性收紧 + 拥挤度顶部信号</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">失效模式自检</div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span><span>熊市：否（半导体牛市 + AI capex 加码）</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span><span>证伪：极低（Q3 指引硬上修 + 5 年 SCA 锁定）</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400"></span><span>拥挤度：<strong>偏高</strong>（股价一年 +6x，机构持仓接近历史高位）</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span><span>一致预期：持续上修（UBS / Citi / GS / Daiwa / 第一上海 全部上调 TP）</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="school-quant bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">quant-school</div>
+            <div class="text-xl font-bold mt-1">量化派</div>
+            <div class="text-xs text-slate-500 mt-0.5">日频技术派 · MA+形态+量价</div>
+          </div>
+          <span class="rating-chip rating-buy">做多</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">信号强度</span><span class="font-mono font-semibold text-amber-700">强</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono">1-3 月</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono">5%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">入场策略</span><span class="font-mono">回踩派（不追高） · 等 MA50</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">置信度</span><span class="font-mono">high</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">信号强度（TV）</span><span class="font-mono">偏多（BUY）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">RSI(14)</span><span class="font-mono">75.6（Overbought）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">MACD</span><span class="font-mono">Bullish</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">置信度（TV）</span><span class="font-mono">medium</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">数据源时间</span><span class="font-mono">2026-05-15T03:22:09+00:00</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">MCP 量化分</span><span class="font-mono">+3.00 / ±5</span></div>
+        </div>
+        <div class="mt-5 bg-blue-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">多周期结构</div>
+          <div class="text-xs text-slate-700 space-y-1">
+            <div class="flex justify-between"><span>月线</span><span><strong>历史性主升浪</strong>，2024 Q4 见底 $73 后一路上行，无明显回调</span></div>
+            <div class="flex justify-between"><span>周线</span><span>偏多 · Bullish</span></div>
+            <div class="flex justify-between"><span>日线</span><span>当前 USD 776.01 · 50 日均线 USD 479.69 · 200 日均线 USD 304.08 · RSI 75.6</span></div>
+            <div class="flex justify-between mt-1 pt-1 border-t border-blue-200"><span>多周期共振</span><span class="font-semibold">弱多头倾向</span></div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">关键价位</div>
+          <div class="relative h-20 bg-gradient-to-t from-red-50 via-amber-50 to-green-50 rounded border border-slate-200">
+            <div class="absolute top-2 left-4 text-[11px] text-emerald-700 font-semibold">压力 1 · USD 540（前高 + 整数关）</div>
+            <div class="absolute top-1/2 left-4 text-[11px] text-slate-900 font-semibold">当前 · USD 776.01</div>
+            <div class="absolute bottom-2 left-4 text-[11px] text-red-700 font-semibold">止损 · USD 419（MA50，距现价 -17%）</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">技术面非常强：日 / 周 / 月三周期 MOSTLY BULLISH，MACD bullish + 直方图扩大，RSI 66（健康偏多，未到超买 70+）。<strong>但拥挤度风险高</strong>——股价一年 +586%，RSI 月线已超买，任何 capex 利空都可能触发剧烈回调。策略：<strong>不追高</strong>，等回踩 MA50 ($419) 或更深 MA200 ($271) 分批建仓。若 RSI > 75 持续 2 周 + 量能转弱 → 短期获利了结。Q3 财报（6 月底）是下一硬催化，财报前不建议加仓。</p>
+        </div>
+        <div class="mt-4 bg-slate-50 border-l-4 border-slate-400 p-3">
+          <div class="text-xs font-semibold text-slate-700 uppercase mb-1">交易计划</div>
+          <div class="text-xs text-slate-700 space-y-1">
+            <div>入场：USD 419-470 区间（回踩 MA50 上下 ±10%）三档分批</div>
+            <div>止损：USD 380（跌破 MA50 -10% 防止假回踩 → 真破位）</div>
+            <div>目标 1：USD 626（第一上海 TP / 成长派 12 个月目标） · 目标 2：USD 750（HBM4E 量产后 24 个月目标）</div>
+            <div class="mt-1 pt-1 border-t border-slate-300 flex justify-between"><span>盈亏比</span><span class="font-mono font-semibold">3.0:1（上行 $200 / 下行 $65，按 entry 中位 $445 计）</span></div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">主要风险</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside">
+            <li>RSI 月线超买 + 拥挤度高 → 任一利空 -15-20% 急跌</li>
+<li>若 NVDA Q1 26 财报 capex 不及预期 → 跌破 MA50</li>
+<li>DRAM/NAND 现货价掉头向下 → 跌破 MA200</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">分歧面板 · DISAGREEMENT PANEL</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">不投票，只画图 · 把分歧放大而非抹平</span>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-1">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-3">五维分歧热图</div>
+      <canvas id="disagreementRadar" width="320" height="320"></canvas>
+      <div class="text-[10px] text-slate-400 mt-2 text-center">数值越高分歧越严重 · 0=无 · 3=高严重度</div>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-2">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-4">五维分歧详情</div>
+      <div class="space-y-4">
+        
+        <div class="border-l-4 border-green-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">方向 · Direction</span>
+            <span class="rating-chip bg-green-100 text-green-800 text-xs">低</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">三派规范化方向 +3 / +5 / +3.5（[-5, +5] 刻度），<strong>全部偏多强共识</strong>，DIR_AVG +3.83 接近「明显偏多」。成长派最强（+5 满分），价值派克制（+3）因周期性顾虑，量化派 +3.5 因技术面强但 RSI 偏热。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-amber-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">久期 · Horizon</span>
+            <span class="rating-chip bg-amber-100 text-amber-800 text-xs">中</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">3-5 年（价值）/ 1-4 季度（成长 + 量化）—— 价值派看 AI 内存超级周期 2-3 年延续 + HBM4E 接棒；成长派和量化派都聚焦 1-4 季度事件驱动。<strong>不冲突但需注意：长持还是趋势交易？</strong></p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-slate-300 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">仓位 · Position</span>
+            <span class="rating-chip bg-slate-100 text-slate-600 text-xs">中-高</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">价值 5% / 成长 10% / 量化 5%，最大差 5pp。<strong>保守取 5% 试仓</strong>（避免成长派激进 10% 在周期顶部被埋）；等 Q3 财报 + DRAM 现货价确认后再决定加至 8-10%。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-green-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">置信度 · Confidence</span>
+            <span class="rating-chip bg-green-100 text-green-800 text-xs">低</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">成长派 high（Q3 指引硬上修 + 客户原话）/ 价值派 medium（周期顶部不便宜）/ 量化派 high（技术面强）。整体偏高。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-green-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">理由 · Rationale</span>
+            <span class="rating-chip bg-green-100 text-green-800 text-xs">低</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">三派核心论据互证：价值派看 PE 8-9× FY26 + 净现金 $6.5B + 5 年 SCA；成长派看 AI 内存 50%+ TAM + HBM4 量产 + Q3 $33.5B；量化派看月线主升浪 + MACD bullish。属于「同向结论 + 多线索互证」的健康共识。</p>
+          
+          <div class="grid grid-cols-3 gap-2 text-[11px]">
+            <div class="bg-teal-50 rounded p-2"><div class="font-semibold text-teal-800">价值派关键词</div><div class="text-slate-700 mt-1">PE 8-9× FY26 · 净现金 $6.5B · 5 年 SCA · 安全边际 24%</div></div>
+            <div class="bg-orange-50 rounded p-2"><div class="font-semibold text-orange-800">成长派关键词</div><div class="text-slate-700 mt-1">Q3 $33.5B · HBM4 量产 · DC TAM 50%+ · 短缺到 2028 · 戴维斯双击</div></div>
+            <div class="bg-blue-50 rounded p-2"><div class="font-semibold text-blue-800">量化派关键词</div><div class="text-slate-700 mt-1">三周期 MOSTLY BULLISH · MACD bullish · MA50 $419 入场 · RSI 66 健康偏热</div></div>
+          </div>
+        
+        </div>
+    
+      </div>
+    </div>
+  </div>
+  <div class="mt-6 bg-gradient-to-r from-amber-50 to-white rounded-xl border border-amber-200 p-6">
+    <div class="flex items-start gap-4">
+      <div class="flex-shrink-0 w-10 h-10 bg-amber-400 text-white rounded-full flex items-center justify-center font-bold">i</div>
+      <div class="flex-1">
+        <div class="font-semibold text-amber-900">共识检测 · 软注释（不降评级）</div>
+        <p class="text-sm text-amber-900 mt-2 leading-relaxed">三派规范化方向 +3 / +5 / +3.5（[-5, +5] 刻度），<strong>明显偏多强共识</strong>，DIR_AVG +3.83。关键支撑：（a）2026-03-18 Q2 FY26 业绩硬数字（营收 $23.9B / GM 75% / EPS $12.20 / FCF $6.9B 全部破纪录）；（b）<strong>Q3 FY26 指引 $33.5B（单季度 ≥ FY24 全年）</strong>—— 半导体行业历史罕见的指引上修幅度；（c）30% 分红上调 + 5 年 SCA 首签 + HBM4 量产；（d）三派全部偏多 → 触发<strong>「拥挤度软警觉」</strong>：卖方一致看多、机构持仓接近历史高位、股价 +586%、RSI 月线超买。<strong>本面板严守纪律：共识仅触发软注释，不降评级</strong>，但提示用户：高确定性信号往往伴随高拥挤度，任一利空（NVDA capex / 中国产能 / 现货价）都可能引发剧烈回调。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">风险监控 · RISK WATCHLIST</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">什么会让结论变化 · 该盯住什么指标</span>
+  </div>
+  <div class="bg-slate-900 text-slate-100 rounded-xl p-5 mb-6">
+    <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">WHAT COULD CHANGE THE CONCLUSION</div>
+    <p class="text-sm leading-relaxed">本板块<strong class="text-white">不评价研究员本身</strong>，而是站在投资者视角识别当前结论可能因什么变量反转，并给出监控清单。</p>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
+    <div class="text-xs font-semibold text-slate-500 uppercase mb-4">一、可能改变结论的关键变量</div>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-slate-300 text-xs text-slate-600 uppercase">
+            <th class="text-left py-2 pr-3">关键变量</th>
+            <th class="text-left py-2 px-3">当前状态</th>
+            <th class="text-left py-2 px-3 text-emerald-700">乐观情景</th>
+            <th class="text-left py-2 px-3 text-red-700">悲观情景</th>
+            <th class="text-left py-2 pl-3">敏感度</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">FY2026 全年营收实际 vs 累计指引</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">Q2 FY26 $23.9B + Q3 指引 $33.5B = 上半年累计 ~$57B</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">FY26 全年 > $115B（年化 $130B 节奏）</td>
+            <td class="py-3 px-3 text-xs text-red-800">Q4 营收 QoQ 转负 + 全年下修</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">DRAM/NAND 现货价</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">Q2 DRAM 价格 +mid-60s% YoY / NAND +high-70s%；inventory 123 days，DRAM <120 days</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">未来 6 个月环比再涨 10-20%</td>
+            <td class="py-3 px-3 text-xs text-red-800">现货价连续 3 月环比下跌 → 周期反转</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">HBM4 / HBM4E 量产爬坡</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">HBM4 36GB 12H 已为 NVDA Vera Rubin 量产；HBM4 16-high 48GB 已 sample；HBM4E 2027 量产</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">Q3-Q4 FY26 HBM4 营收占总营收 25%+</td>
+            <td class="py-3 px-3 text-xs text-red-800">良率不达预期 / 客户认证延迟 → HBM4E 2027 量产推迟</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">NVDA / 超大规模厂商 AI capex</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">持续上修，2026 全年 capex 预计 $300B+</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">继续上修，Q1-Q2 26 capex 合计 +20% YoY</td>
+            <td class="py-3 px-3 text-xs text-red-800">任一家 2026 H2 指引下修 → HBM 订单立即冷却</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">中国 CXMT / YMTC 产能爬坡</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">CXMT DRAM 月产 ~10 万片 12 寸 wafer；YMTC NAND 类似</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">扩产受限 / 美国对 EUV 出口管制有效</td>
+            <td class="py-3 px-3 text-xs text-red-800">扩产超预期 → DRAM 全球供给 +5-10% → 价格回落</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">Idaho / NY / Singapore 新厂进度</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">Idaho 1st fab 初产 mid-2027；NY 已破土；Singapore HBM packaging 2027 量产</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">Idaho 提前 + NY 进度顺利 → 2027-28 产能爬坡</td>
+            <td class="py-3 px-3 text-xs text-red-800">建造延期 / 政府补贴变化 → 2028 后产能与需求脱节</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">FY26/FY27 一致预期 EPS</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">FY26 EPS 一致预期已升至 $50-60；UBS / Citi / 第一上海 TP $400-626</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">FY27 EPS 继续上修</td>
+            <td class="py-3 px-3 text-xs text-red-800">FY27 EPS 环比下修 > 5% → 戴维斯双击逆转</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">RSI / 拥挤度</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">日线 RSI 66（健康偏多），月线 RSI 已超买；机构持仓接近 5 年最高</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">RSI 持续 60-70 健康消化</td>
+            <td class="py-3 px-3 text-xs text-red-800">RSI > 80 超买 + 资金流出 ETF + 量能背离</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-4">二、监控指标清单（按频率）</div>
+      <div class="space-y-4 text-sm">
+        
+        <div class="border-l-4 border-blue-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每周追踪 · Weekly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>MU 股价 vs SOX 半导体指数相对强度</li>
+<li>DRAM / NAND 现货价（DRAMeXchange / TrendForce 周报）</li>
+<li>RSI（日 / 周 / 月）+ MACD 状态</li>
+<li>MU 期权 IV / 大单挂单</li></ul>
+        </div>
+        <div class="border-l-4 border-teal-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每月追踪 · Monthly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>FY26 / FY27 一致预期 EPS 环比变化</li>
+<li>Top 10 基金持仓集中度 + 美光 ETF（SMH）资金流</li>
+<li>中国 CXMT / YMTC / 长存 月度产能数据</li>
+<li>TSMC / NVDA / Samsung / Hynix 月度营收</li>
+<li>PC / 智能手机出货量（Canalys / Counterpoint）</li></ul>
+        </div>
+        <div class="border-l-4 border-orange-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每季度验证 · Quarterly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>每季 DRAM / NAND / HBM 营收拆分</li>
+<li>Q3 FY26 实际数据 vs 指引 $33.5B</li>
+<li>FY26 CapEx 实际 vs 指引 $25B+</li>
+<li>HBM 营收占比 + 客户名单</li>
+<li>Inventory days（DRAM 当前 <120 day 是关键指标）</li></ul>
+        </div>
+        <div class="border-l-4 border-red-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">事件驱动 · Event-Driven</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>2026-06-下：Q3 FY26 财报（最关键）</li>
+<li>2026-07-中：NVDA Q2 cal 26 财报（capex 指引）</li>
+<li>2026-09：Apple A20 / NVDA Rubin 上市</li>
+<li>2026-10：Q4 FY26 财报 + FY27 首次指引</li>
+<li>中国半导体产能扩产政策变化</li></ul>
+        </div>
+    
+      </div>
+    </div>
+    <div class="space-y-6">
+      <div class="bg-red-50 border border-red-200 rounded-xl p-6">
+        <div class="text-xs font-semibold text-red-800 uppercase mb-3">三、触发 Reassess 的硬条件</div>
+        <p class="text-xs text-red-900 mb-3">任一触发立即重新评估，不要等其他信号也亮灯：</p>
+        <ul class="text-sm text-red-900 space-y-2">
+          <li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">Q3 FY26 营收 < $32B（指引下沿不及）</span>
+            <span class="text-xs text-red-700 block">全年指引上修可能撤回，价值/成长立即降回 0-2</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">Q4 FY26 营收 QoQ 转负</span>
+            <span class="text-xs text-red-700 block">周期顶部确认 → 成长派立即清仓</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">DRAM 现货价连续 3 月环比下跌</span>
+            <span class="text-xs text-red-700 block">周期反转最早信号</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">股价跌破 USD 380（MA50 -10%）</span>
+            <span class="text-xs text-red-700 block">量化派硬止损 + 周线下行通道确立</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">NVDA / Microsoft / Meta 任一家 capex 指引下修 > 10%</span>
+            <span class="text-xs text-red-700 block">成长派最大反向催化</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">中国 CXMT / YMTC 月产能 +50% 同比</span>
+            <span class="text-xs text-red-700 block">全球 DRAM 供给冲击</span>
+          </div>
+        </li>
+        </ul>
+      </div>
+      <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-6">
+        <div class="text-xs font-semibold text-emerald-800 uppercase mb-3">加仓的硬条件</div>
+        <ul class="text-sm text-emerald-900 space-y-2">
+          <li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">回踩 USD 419 ± 5%（MA50）+ MACD 仍 bullish（5% → 8%）</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">Q3 FY26 实际营收 ≥ $33.5B + Q4 指引 ≥ $35B（5% → 10%）</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">HBM4 营收占比突破 25% + HBM4E 2027 量产无延期（5% → 10%）</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">RSI 回到 50-60 中性区 + 量能放大（5% → 8%）</span></div>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+    <div class="text-xs font-semibold text-slate-500 uppercase mb-4">四、未来 12 个月关键时间节点</div>
+    <div class="relative">
+      <div class="absolute left-4 top-2 bottom-2 w-0.5 bg-slate-200"></div>
+      <div class="space-y-4">
+        <div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/06/中-下 · Q3 FY26 财报（最近期硬催化）</div>
+          <div class="text-xs text-slate-600 mt-0.5">实际营收 vs 指引 $33.5B · GM 81% 是否守住 · Q4 营收 QoQ 是否仍 +</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/07/中 · NVDA Q2 cal 26 财报</div>
+          <div class="text-xs text-slate-600 mt-0.5">AI 数据中心 capex 指引 · HBM 订单口径</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/09 · Apple A20 / NVDA Rubin 上市</div>
+          <div class="text-xs text-slate-600 mt-0.5">Logic 2nm + HBM4 终端验证 · MU 出货爬坡</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/10 · Q4 FY26 财报 + FY27 首次指引</div>
+          <div class="text-xs text-slate-600 mt-0.5">全年实际 vs 累计指引 · FY27 营收 / CapEx 路径</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2027/03 · Q1 FY27 财报</div>
+          <div class="text-xs text-slate-600 mt-0.5">FY27 周期持续性 · HBM4E 量产准备</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2027/中 · HBM4E 2027 量产 + Idaho 1st fab 初产</div>
+          <div class="text-xs text-slate-600 mt-0.5">下一代 HBM 量产 · 美国本土产能首批</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2027/H2 · Singapore HBM packaging 满产</div>
+          <div class="text-xs text-slate-600 mt-0.5">HBM 产能再升级</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2028+ · 「内存短缺持续到 2028」终点验证</div>
+          <div class="text-xs text-slate-600 mt-0.5">周期是否能延续 / 何时反转</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">最终审议纪要 · FINAL REVIEW MEMO</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">信息密度最大化 · 决策权归用户</span>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+        <h3 class="font-semibold text-slate-900">共识区 · 三派共同观察</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed">三派规范化方向 +3 / +5 / +3.5（[-5, +5] 刻度），DIR_AVG +3.83 接近「明显偏多」。共识来源：（a）<strong>Q3 FY26 指引 $33.5B</strong>—— 单季度 ≥ FY24 全年的硬数字，三派全部受影响；（b）<strong>HBM4 / HBM4E 客户量产 + 5 年 SCA</strong>—— 不是分析师推测，是客户真实订单锁定；（c）<strong>戴维斯双击</strong>—— EPS 同比 +682% + PE TTM ~10×（FY26 远期 PE 8-9×）；（d）<strong>三周期 MOSTLY BULLISH</strong> + MACD bullish + 月线主升浪；（e）卖方密集上调 TP（UBS $400 / Citi $425 / 第一上海 $626）。</div>
+    </div>
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+        <h3 class="font-semibold text-slate-900">分歧区</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed"><p><strong>仓位分歧 5pp（5% / 10% / 5%）</strong>：保守取 5% 试仓，避免成长派激进 10% 在周期顶部被埋；等 Q3 财报 + DRAM 现货价确认后再决定加至 8-10%。成长派最激进因把「内存短缺到 2028」当作已确定，价值派克制因周期顶部时间难判。</p><p><strong>久期分歧中</strong>：价值 3-5 年（覆盖整个 AI 内存周期 + HBM4E 接棒）/ 成长 1-4 季度（事件驱动）/ 量化 1-3 月（季度财报窗口）。需要明确：长持还是趋势交易？建议「核心持仓 + 战术加减」混合策略。</p><p><strong>理由分歧低</strong>：三派核心论据互证——价值派看 PE 8-9× + 净现金 + SCA；成长派看 Q3 $33.5B + HBM4 + 数据中心 50% TAM；量化派看月线主升浪 + MACD bullish。属于「同向结论 + 多线索互证」的健康共识。</p></div>
+    </div>
+    
+    <div class="mb-6 bg-red-50 border border-red-200 rounded-lg p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+        <h3 class="font-semibold text-red-900">伪共识风险 · 本次会诊最大警讯</h3>
+      </div>
+      <div class="ml-5 text-sm text-red-900 leading-relaxed">
+        <strong>软警觉：拥挤度高 + 周期顶部时间不可知</strong>。三派全部偏多，但要警惕：（a）股价 1 年 +586%，机构持仓 + 卖方一致看多 + RSI 月线超买，三大拥挤度信号同时亮起；（b）历史上内存周期 2018 / 2024 都是 ~2 年内见顶，单纯凭强势数据无法预测顶部；（c）NVDA / 超大规模厂商 capex 任一家下修都可能触发剧烈回调（-15-20%）。<strong>本面板严守纪律：仅软注释不降评级</strong>，但建议用户：（a）保守 5% 起仓而非成长派 10%；（b）严格执行 MA50 ($419) 硬止损；（c）每月监控 DRAM 现货价。
+      </div>
+    </div>
+    
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+        <h3 class="font-semibold text-slate-900">建议动作</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed space-y-2">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">方向</div><div class="font-semibold">明显偏多 (+3.67 / [-5, +5] 刻度)</div></div>
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">保守仓位</div><div class="font-semibold">5%（试仓）→ 等回踩 MA50 ($419) 加至 8% → Q3 财报 beat 加至 10%</div></div>
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">入场价</div><div class="font-semibold">USD 419-470 区间分批 · 硬止损 USD 380（MA50 -10%）</div></div>
+        </div>
+        <p class="mt-3">本次会诊属于<strong>明显偏多强共识 + 拥挤度软警觉</strong>场景，是「值得买但不能追高」的标准案例。策略建议：（a）现价 ~$504 已离 52 周高 $531 仅 5%，<strong>不追高</strong>；（b）建议先建 2-3% 底仓 + 等回踩 MA50 ~$419 ± 5% 区间分批至 5%；（c）等 <strong>2026-06 中下旬 Q3 FY26 财报</strong>（距今 ~8 周）事件驱动决定终极仓位：若 Q3 营收 ≥ $33.5B + Q4 指引 ≥ $35B → 加至 10%；若 Q3 30-33B 维持 5%；若 < $30B 减仓至 2% 重评；（d）严格执行 <strong>MA50 ($380) 硬止损</strong>，因周期顶部时间不可知；（e）长期持仓（3-5 年）享受 AI 内存超级周期 + HBM4E 接棒。</p>
+      </div>
+    </div>
+    <div class="bg-slate-100 rounded-lg p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-slate-500"></div>
+        <h3 class="font-semibold text-slate-900">需用户显式判断的事项（本报告不代判）</h3>
+      </div>
+      <ol class="ml-5 text-sm text-slate-700 space-y-2 list-decimal list-inside">
+        <li>你能接受美光股价已涨 +586%（一年），仍要「不追高」等回踩 MA50 的策略吗？ —— 这是量化派纪律核心</li>
+<li>你对「内存短缺持续到 2028」的置信度？ —— 这是成长派 10% 仓位的核心假设</li>
+<li>你愿意承担「中国 CXMT / YMTC 产能扩张」的尾部风险吗？ —— DRAM 全球供给端最大边际变量</li>
+<li>你打算长持（3-5 年覆盖整个周期）还是趋势交易（1-4 季度）？ —— 这决定了是否在周期顶部减仓</li>
+<li>你能严格执行 MA50 ($380) 硬止损吗？ —— 周期顶部时间不可知，止损是唯一保护</li>
+<li>Q3 FY26 财报（6 月底）你会重仓押注还是减仓避险？</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<script>
+const ctx = document.getElementById('disagreementRadar');
+new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: ['方向', '久期', '仓位', '置信度', '理由'],
+    datasets: [{
+      label: '分歧严重度',
+      data: [0, 1, 1, 0, 1],
+      fill: true,
+      backgroundColor: 'rgba(220, 38, 38, 0.15)',
+      borderColor: 'rgb(220, 38, 38)',
+      pointBackgroundColor: 'rgb(220, 38, 38)',
+      pointBorderColor: '#fff'
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      r: {
+        beginAtZero: true, min: 0, max: 3,
+        ticks: { stepSize: 1, callback: function(v) { return ['无','低','中','高'][v] || ''; } },
+        pointLabels: { font: { size: 13, weight: '600' } }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
