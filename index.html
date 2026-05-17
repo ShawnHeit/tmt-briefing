@@ -3940,35 +3940,23 @@ const DASH_SIG_BADGE={'利好':'background:#DCFCE7;color:#15803D;','利空':'bac
 const DASH_KIND_LABEL={foreign_research:'外资研报',acecamp_note:'ACE纪要'};
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function dashFmtScore(v){return (v===null||v===undefined)?'—':`${v>=0?'+':''}${Number(v).toFixed(2).replace(/\.?0+$/,'')}`;}
-function dashSchoolLine(label,prior,latest,delta){
-  if(prior===null||prior===undefined||latest===null||latest===undefined)return '';
-  const c=delta>0?'#16A34A':(delta<0?'#DC2626':'#9CA3AF');
-  return `<div style="font-size:10px;color:#6B7280;font-variant-numeric:tabular-nums;">
-    <span style="display:inline-block;min-width:28px;color:#9CA3AF;">${label}</span>
-    ${dashFmtScore(prior)} <span style="color:#D1D5DB;">→</span> <b style="color:#374151;">${dashFmtScore(latest)}</b>
-    <span style="color:${c};font-weight:800;margin-left:4px;">Δ ${dashFmtScore(delta)}</span>
-  </div>`;
-}
 function dashMoverCard(m,kind){
   const isFile=location.protocol==='file:';
   const up=kind==='up';
   const color=up?'#16A34A':'#DC2626';
   const tri=up?'▲':'▼';
   return `<a href="${esc(m.href)}" ${isFile?'':'target="_blank"'} rel="noopener"
-    style="text-decoration:none;color:inherit;background:#fff;border:1px solid #F3F4F6;border-radius:12px;padding:9px 11px;box-shadow:0 1px 3px rgba(0,0,0,.04);display:block;">
-    <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:4px;">
+    style="text-decoration:none;color:inherit;background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:7px 9px;box-shadow:0 1px 3px rgba(0,0,0,.04);display:block;">
+    <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:3px;">
       <span style="font-size:13px;font-weight:800;color:#111827;flex:1;">${esc(m.name)}</span>
       <span style="font-size:10px;color:#9CA3AF;">${esc(m.ticker)}</span>
     </div>
-    <div style="display:flex;align-items:center;gap:8px;font-size:11px;font-variant-numeric:tabular-nums;margin-bottom:4px;">
+    <div style="display:flex;align-items:center;gap:8px;font-size:11px;font-variant-numeric:tabular-nums;">
       <span style="color:#9CA3AF;">${esc((m.prior_date||'').slice(5))} → ${esc((m.latest_date||'').slice(5))}</span>
       <span style="color:#6B7280;">基本面 ${dashFmtScore(m.prior_dir)} → ${dashFmtScore(m.latest_dir)}</span>
       <span style="flex:1"></span>
       <span style="font-size:12px;font-weight:900;color:${color};">${tri} ${dashFmtScore(m.delta)}</span>
     </div>
-    ${dashSchoolLine('价值',m.prior_value,m.latest_value,m.value_delta)}
-    ${dashSchoolLine('成长',m.prior_growth,m.latest_growth,m.growth_delta)}
-    <div style="font-size:10px;color:#9CA3AF;margin-top:4px;">${esc(m.sector||'其他')}</div>
   </a>`;
 }
 function renderHomeAuditMovers(){
@@ -3978,22 +3966,21 @@ function renderHomeAuditMovers(){
   const ups=data.upgrades||[],dns=data.downgrades||[];
   const emptyUp='<div style="font-size:11px;color:#9CA3AF;padding:10px;background:#fff;border:1px dashed #E5E7EB;border-radius:12px;">近 7 天暂无基本面上修</div>';
   const emptyDn='<div style="font-size:11px;color:#9CA3AF;padding:10px;background:#fff;border:1px dashed #E5E7EB;border-radius:12px;">近 7 天暂无基本面下修</div>';
-  wrap.innerHTML=`<div style="background:#F8FAFC;border-radius:14px;padding:12px;margin-bottom:10px;">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:8px;">
+  wrap.innerHTML=`<div style="background:#F8FAFC;border-radius:14px;padding:10px;margin-bottom:8px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:6px;">
       <div>
         <div style="font-size:10px;font-weight:800;color:#9CA3AF;letter-spacing:.08em;text-transform:uppercase;">本周个股会诊</div>
-        <div style="font-size:11px;color:#9CA3AF;margin-top:2px;">基本面 = 价值 + 成长两派平均；已剔除量化技术面</div>
       </div>
       <div style="font-size:10px;color:#9CA3AF;">上修 ${ups.length} · 下修 ${dns.length}</div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px;">
       <div>
-        <div style="font-size:10px;font-weight:800;color:#16A34A;margin-bottom:5px;">▲ 基本面 + 成长上修</div>
-        <div style="display:flex;flex-direction:column;gap:7px;">${ups.length?ups.map(m=>dashMoverCard(m,'up')).join(''):emptyUp}</div>
+        <div style="font-size:10px;font-weight:800;color:#16A34A;margin-bottom:4px;">▲ 上修</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">${ups.length?ups.map(m=>dashMoverCard(m,'up')).join(''):emptyUp}</div>
       </div>
       <div>
-        <div style="font-size:10px;font-weight:800;color:#DC2626;margin-bottom:5px;">▼ 基本面 + 成长下修</div>
-        <div style="display:flex;flex-direction:column;gap:7px;">${dns.length?dns.map(m=>dashMoverCard(m,'down')).join(''):emptyDn}</div>
+        <div style="font-size:10px;font-weight:800;color:#DC2626;margin-bottom:4px;">▼ 下修</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">${dns.length?dns.map(m=>dashMoverCard(m,'down')).join(''):emptyDn}</div>
       </div>
     </div>
   </div>`;
@@ -4015,43 +4002,38 @@ function renderDashboardEarningsFocus(){
     const sessions=day.sessions||{};
     return acc.concat(sessions.pre||[],sessions.post||[],sessions.unknown||[]);
   },[]);
-  const start=(data.window_start||'').slice(5);
-  const end=(data.window_end||'').slice(5);
-  const windowLabel=start&&end?`${start} - ${end}`:'本窗口';
   const earningsName=it=>{
     const hasAudit=!!it.audit_href;
     const boxStyle=hasAudit
       ? 'background:#EEF2FF;border:1px solid #A5B4FC;box-shadow:0 1px 4px rgba(79,70,229,.14);'
       : 'background:#fff;border:1px solid #E5E7EB;';
     const tickerColor=hasAudit?'#4F46E5':'#9CA3AF';
-    const title=`${esc(it.name||it.ticker||'财报')}${it.ticker?` <span style="color:${tickerColor};font-weight:800;">${esc(it.ticker)}</span>`:''}`;
-    const sub=[it.market||'',it.period||''].filter(Boolean).map(esc).join(' · ');
+    const title=esc(it.ticker||it.name||'财报');
     const auditBadge=hasAudit?'<span style="font-size:8px;font-weight:900;color:#4338CA;background:#E0E7FF;border-radius:9999px;padding:1px 5px;margin-left:4px;">会诊</span>':'';
-    const node=`<div style="display:flex;align-items:center;justify-content:space-between;gap:4px;"><div style="font-size:11px;font-weight:850;color:#111827;line-height:1.35;">${title}</div>${auditBadge}</div>${sub?`<div style="font-size:9px;color:#6B7280;line-height:1.35;margin-top:1px;">${sub}</div>`:''}`;
-    return it.href?`<a href="${esc(it.href)}" target="_blank" rel="noopener" title="${esc(it.focus||'')}" style="display:block;text-decoration:none;${boxStyle}border-radius:8px;padding:5px 6px;margin-bottom:4px;">${node}</a>`:`<div title="${esc(it.focus||'')}" style="${boxStyle}border-radius:8px;padding:5px 6px;margin-bottom:4px;">${node}</div>`;
+    const node=`<div style="display:flex;align-items:center;justify-content:space-between;gap:4px;"><div style="font-size:11px;font-weight:900;color:${tickerColor};line-height:1.2;">${title}</div>${auditBadge}</div>`;
+    return it.href?`<a href="${esc(it.href)}" target="_blank" rel="noopener" title="${esc(it.name||it.focus||'')}" style="display:block;text-decoration:none;${boxStyle}border-radius:7px;padding:4px 5px;margin-bottom:3px;">${node}</a>`:`<div title="${esc(it.name||it.focus||'')}" style="${boxStyle}border-radius:7px;padding:4px 5px;margin-bottom:3px;">${node}</div>`;
   };
   const sessionCell=(day,session)=>{
     const bucket=((day.sessions||{})[session])||[];
     const sessionLabel=EARNINGS_SESSION_LABEL[session]||session;
     const sessionStyle=EARNINGS_SESSION_STYLE[session]||EARNINGS_SESSION_STYLE.unknown;
-    return `<td style="vertical-align:top;min-width:112px;padding:6px;border-left:1px solid #F3F4F6;">
-      <div style="font-size:9px;font-weight:900;border-radius:9999px;padding:1px 6px;display:inline-block;margin-bottom:5px;${sessionStyle}">${esc(sessionLabel)}</div>
+    return `<td style="vertical-align:top;min-width:86px;padding:4px;border-left:1px solid #F3F4F6;">
+      <div style="font-size:9px;font-weight:900;border-radius:9999px;padding:1px 5px;display:inline-block;margin-bottom:4px;${sessionStyle}">${esc(sessionLabel)}</div>
       ${bucket.length?bucket.map(earningsName).join(''):'<div style="font-size:10px;color:#D1D5DB;padding:8px 2px;">—</div>'}
     </td>`;
   };
   const body=displayDays.length?`<div style="overflow-x:auto;border:1px solid #E5E7EB;border-radius:12px;background:#fff;">
-    <table style="width:100%;border-collapse:collapse;min-width:800px;">
-      <thead><tr>${displayDays.map(day=>`<th colspan="2" style="font-size:10px;color:#6B7280;text-align:left;padding:7px 8px;border-left:1px solid #F3F4F6;background:#F9FAFB;">${esc(day.date_label||'')} <span style="color:#9CA3AF;font-weight:600;">${esc(day.weekday||'')}</span></th>`).join('')}</tr></thead>
+    <table style="width:100%;border-collapse:collapse;min-width:640px;">
+      <thead><tr>${displayDays.map(day=>`<th colspan="2" style="font-size:10px;color:#6B7280;text-align:left;padding:5px 6px;border-left:1px solid #F3F4F6;background:#F9FAFB;">${esc(day.date_label||'')} <span style="color:#9CA3AF;font-weight:600;">${esc(day.weekday||'')}</span></th>`).join('')}</tr></thead>
       <tbody><tr>${displayDays.map(day=>sessionCell(day,'pre')+sessionCell(day,'post')).join('')}</tr></tbody>
     </table>
   </div>`:'<div style="font-size:11px;color:#9CA3AF;padding:12px;background:#fff;border:1px dashed #E5E7EB;border-radius:12px;text-align:center;">本窗口暂无已维护财报</div>';
-  wrap.innerHTML=`<div style="background:#F8FAFC;border-radius:14px;padding:12px;margin-bottom:10px;">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:8px;gap:10px;">
+  wrap.innerHTML=`<div style="background:#F8FAFC;border-radius:14px;padding:10px;margin-bottom:8px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:6px;gap:10px;">
       <div>
         <div style="font-size:10px;font-weight:800;color:#9CA3AF;letter-spacing:.08em;text-transform:uppercase;">财报关注 Earnings Focus</div>
-        <div style="font-size:11px;color:#9CA3AF;margin-top:2px;">Watchlist 本周窗口 · 周末隐藏 · 每天分盘前 / 盘后 · 命中会诊标的可点进 audit</div>
       </div>
-      <div style="font-size:10px;color:#9CA3AF;text-align:right;">${esc(windowLabel)} · ${displayItems.length||items.length} 只</div>
+      <div style="font-size:10px;color:#9CA3AF;text-align:right;">${displayItems.length||items.length} 只</div>
     </div>
     ${body}
   </div>`;
