@@ -28,16 +28,20 @@ PUBLIC_DIR = Path(__file__).resolve().parent
 PUBLIC_HTML = PUBLIC_DIR / "index.html"
 PUBLIC_KB_ROOT = PUBLIC_DIR / "知识库"
 PUBLIC_NOTES_ROOT = PUBLIC_DIR / "notes"
+PUBLIC_DATA_ROOT = PUBLIC_DIR / "data"
 
 ASSET_EXTS = (".pdf", ".html", ".md")
 
 
 def extract_referenced_assets(html_text: str) -> set[str]:
-    """Return decoded `../知识库/...` asset paths referenced by the page."""
+    """Return decoded local asset paths referenced by the page."""
     ext_alt = "(?:" + "|".join(re.escape(ext) for ext in ASSET_EXTS) + ")"
     kb_alt = r"(?:知识库|%E7%9F%A5%E8%AF%86%E5%BA%93)"
+    daily_alt = r"(?:每日汇总|%E6%AF%8F%E6%97%A5%E6%B1%87%E6%80%BB)"
     patterns = [
         rf'href="(\.\./{kb_alt}/[^"]+?{ext_alt})"',
+        rf'href="(\.\./{daily_alt}/[^"]+?{ext_alt})"',
+        rf'href="(\.\./data/[^"]+?{ext_alt})"',
         rf'"(?:href|pdf_path|md_path|path|file)"\s*:\s*"(\.\./[^"]+?{ext_alt})"',
     ]
 
@@ -45,7 +49,7 @@ def extract_referenced_assets(html_text: str) -> set[str]:
     for pattern in patterns:
         for match in re.findall(pattern, html_text, flags=re.IGNORECASE):
             decoded = unquote(match)
-            if decoded.startswith("../知识库/"):
+            if decoded.startswith(("../知识库/", "../每日汇总/", "../data/")):
                 paths.add(decoded)
     return paths
 
@@ -81,6 +85,7 @@ def rewrite_main_html(html_text: str, note_aliases: dict[str, str]) -> str:
     out = out.replace("../%E7%9F%A5%E8%AF%86%E5%BA%93/", "%E7%9F%A5%E8%AF%86%E5%BA%93/")
     out = out.replace("../每日汇总/", "每日汇总/")
     out = out.replace("../%E6%AF%8F%E6%97%A5%E6%B1%87%E6%80%BB/", "%E6%AF%8F%E6%97%A5%E6%B1%87%E6%80%BB/")
+    out = out.replace("../data/", "data/")
     return out
 
 
@@ -153,7 +158,7 @@ def sync_assets(
                 existing.unlink()
                 pruned += 1
 
-    for root in (PUBLIC_KB_ROOT, PUBLIC_NOTES_ROOT):
+    for root in (PUBLIC_KB_ROOT, PUBLIC_NOTES_ROOT, PUBLIC_DATA_ROOT):
         if not root.exists():
             continue
         for directory in sorted((p for p in root.rglob("*") if p.is_dir()), key=lambda p: -len(p.parts)):
