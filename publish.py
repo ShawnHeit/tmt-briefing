@@ -143,20 +143,9 @@ def sync_assets(
             if copy_if_changed(src, note_dst):
                 copied += 1
 
-    if PUBLIC_KB_ROOT.exists():
-        for existing in PUBLIC_KB_ROOT.rglob("*"):
-            if existing.is_file() and existing.suffix.lower() in ASSET_EXTS:
-                if existing.resolve() not in wanted_public_paths:
-                    print(f"  🗑️  清理不再引用的: {existing.relative_to(PUBLIC_DIR)}")
-                    existing.unlink()
-                    pruned += 1
-
-    if PUBLIC_NOTES_ROOT.exists():
-        for existing in PUBLIC_NOTES_ROOT.rglob("*.md"):
-            if existing.resolve() not in wanted_note_paths:
-                print(f"  🗑️  清理不再引用的: {existing.relative_to(PUBLIC_DIR)}")
-                existing.unlink()
-                pruned += 1
+    # Do not prune old research-note assets automatically. The briefing HTML is
+    # regenerated frequently and may temporarily omit historical notes while
+    # cached/public pages can still link to them.
 
     for root in (PUBLIC_KB_ROOT, PUBLIC_NOTES_ROOT, PUBLIC_DATA_ROOT):
         if not root.exists():

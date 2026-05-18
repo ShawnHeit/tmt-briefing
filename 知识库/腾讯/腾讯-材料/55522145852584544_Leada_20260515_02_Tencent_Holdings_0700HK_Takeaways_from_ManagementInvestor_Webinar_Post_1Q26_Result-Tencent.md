@@ -1,0 +1,76 @@
+# 知识星球 180K Research — Leada 2026-05-15
+**来源**：知识星球 180K Research（外资研报传阅平台，真实信源是研报机构）
+**作者/机构**：@Leada
+**发布时间**：2026-05-15
+**报告类型**：研报（外资）
+**信号**：已生成五问初稿
+**Post ID**：55522145852584544
+**涉及标的**：腾讯
+
+## 核心结论
+#外资研报# 
+
+【编号 18002735】
+
+flow show + 腾讯 cb
+
+**外资研报标题：**
+- Tencent Holdings 0700HK Takeaways from ManagementInvestor Webinar Post 1Q26 Result-Tencent Holdings 0700HK
+
+**PDF 摘要：**Key discussions included: 1) thoughts on compute and memory constraints; 2) capex spend to increase in 2H26 and allocation priority of GPUs; 3) comment on Hy3, WorkBuddy, CodeBuddy and agentic AI; 4)…
+
+（含 2 张评论区AI解读截图）
+
+## 5问解读（研报版）
+
+**1. 边际信息（What's New?）**
+- vs 已知：业绩后边际从短期利润转向 AI agent 投入强度，需验证广告、云和游戏是否能消化更高 AI 投入。
+- vs 卖方共识：标题/摘要未显示明确评级或目标价变动。
+- vs 上一份同机构：当前自动抽取未做同机构序列对照，需在后续 audit 中复核。
+
+**2. 数字 vs 假设**
+- 核心数字：原文摘要未抽到清晰数字，需人工复核模型页。
+- 敏感性最高的变量：订单/收入增速、毛利率、目标价假设和管理层下一季指引。
+
+**3. 评级 / 目标价 方向**
+- 当前评级 / TP：标题/摘要未显示明确评级或目标价变动。
+- 修正方向 + 幅度：按标题和摘要判断为“需复核模型页”，若含 Raise/Buy/Outperform 则偏正面。
+- 与共识分歧度：先按外资单篇观点处理，进入 audit 前不直接替代共识。
+
+**4. 共识与赔率**
+- 共识 / 部分人 / 少数人：腾讯 相关预期正在被该报告重新定价，但需要和财报/订单数据交叉验证。
+- 已 priced in 程度：若股价已提前反映报告方向，优先看下一次数据验证而不是追逐标题。
+
+**5. 可证伪路径**
+- 验证时间：下一次财报、月度/季度订单数据、公司指引更新。
+- 验证方法：跟踪下一季广告/云收入、AI capex 与游戏流水，若 AI 投入压毛利但收入未加速，需要下修成长弹性。
+
+> 自动解读来源：PDF 摘要缓存 / 标题解析；如需正式入 audit，仍应打开 PDF 原文复核评级页、模型页和风险页。
+
+## 边际变化
+（兼容旧消费者；新内容请写在「## 5问解读 → 1. 边际信息」段）
+
+
+
+## 评论区（AI解读）
+![评论图片1](55522145852584544_Leada_20260515_comment1.jpg)
+
+![评论图片2](55522145852584544_Leada_20260515_comment2.jpg)
+
+
+## 附件PDF
+- 📄 Tencent_Holdings_0700HK_Takeaways_from_ManagementInvestor_Webinar_Post_1Q26_Result-Tencent_Holdings_0700HK.pdf (0.5MB)
+
+
+## 同帖其他研报
+- 0515 The Flow Show.pdf → `策略宏观`
+- Tencent_Holdings_0700HK_Takeaways_from_ManagementInvestor_Webinar_Post_1Q26_Result-Tencent_Holdings_0700HK.pdf → `腾讯` （本篇）
+
+## 原始内容
+#外资研报# 
+
+【编号 18002735】
+
+flow show + 腾讯 cb
+
+**标签**：外资研报
