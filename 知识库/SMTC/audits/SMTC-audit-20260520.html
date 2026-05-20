@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semtech (SMTC.US) · 三派会诊审议纪要</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .school-value { --accent: #0f766e; --accent-light: #ccfbf1; --accent-dark: #134e4a; }
+  .school-growth { --accent: #c2410c; --accent-light: #ffedd5; --accent-dark: #7c2d12; }
+  .school-quant { --accent: #1d4ed8; --accent-light: #dbeafe; --accent-dark: #1e3a8a; }
+  .accent-text { color: var(--accent); }
+  .accent-bg { background-color: var(--accent); }
+  .accent-bg-light { background-color: var(--accent-light); }
+  .accent-border { border-color: var(--accent); }
+  .rating-chip { display: inline-block; padding: 2px 10px; border-radius: 999px; font-weight: 600; font-size: 0.875rem; }
+  .rating-buy { background: #dcfce7; color: #166534; }
+  .rating-hold { background: #fef3c7; color: #92400e; }
+  .rating-sell { background: #fee2e2; color: #991b1b; }
+  .rating-strong-buy { background: #166534; color: white; }
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, #e5e7eb, transparent); margin: 1.25rem 0 0.75rem 0; }
+  .key-metric { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  @media print { body { font-size: 10pt; } .page-break { page-break-before: always; } .no-print { display: none !important; } }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+<header class="bg-slate-900 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="flex items-start gap-6">
+      <a href="../../../index.html#audit"
+         class="no-print"
+         title="返回 · 个股会诊"
+         style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(250,204,21,0.08);color:#FACC15;font-size:30px;line-height:1;font-weight:700;text-decoration:none;transition:all .15s;flex-shrink:0;margin-top:2px;"
+         onmouseenter="this.style.background='rgba(250,204,21,0.18)';this.style.transform='translateX(-3px)';"
+         onmouseleave="this.style.background='rgba(250,204,21,0.08)';this.style.transform='';">
+        ←
+      </a>
+      <div class="flex-1 flex items-start justify-between">
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight">Semtech · SMTC.US</h1>
+          <div class="mt-2 text-xs text-amber-300">数据覆盖度中等 · 部分字段标 data_gap</div>
+        </div>
+        <div class="text-right text-sm text-slate-300 space-y-1">
+          <div><span class="text-slate-400">分析日期：</span><span class="font-mono">2026-05-20</span></div>
+          <div><span class="text-slate-400">当前股价：</span><span class="font-mono font-semibold text-white">USD$134.79</span></div>
+          <div><span class="text-slate-400">数据源：</span>Semtech FY2026 Q4 results/transcript + data center/CopperEdge outlook</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="max-w-7xl mx-auto px-6 py-8">
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-1 h-6 bg-slate-900"></div>
+      <h2 class="text-lg font-semibold tracking-wide">审议摘要 · EXECUTIVE REVIEW</h2>
+    </div>
+    <p class="text-slate-700 leading-relaxed mb-6">Semtech 是数据中心连接和 LoRa/模拟组合的转型标的。FY2026 Q4 net sales <strong>$274.4m</strong>，FY2026 sales <strong>$1.05bn</strong>、YoY +15%；data center FY2026 revenue <strong>$223m</strong>、YoY +58%，管理层预计 FY2027 data center revenue growth 超过 50%。成长派偏多，价值派等待利润率和 portfolio 简化继续兑现。</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">三派综合方向</div>
+        <div class="text-xl font-bold text-emerald-700 mt-1">买入 (+3.17)</div>
+        <div class="text-xs text-slate-400 mt-1">规范化均值 · 未加权</div>
+      </div>
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">保守仓位建议</div>
+        <div class="text-xl font-bold text-slate-900 mt-1">2%</div>
+        <div class="text-xs text-slate-400 mt-1">三派最小值 · 非平均</div>
+      </div>
+      <div class="border-l-2 border-red-400 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">近期最重要节点</div>
+        <div class="text-xl font-bold text-red-700 mt-1">2026/06</div>
+        <div class="text-xs text-slate-400 mt-1">FY2027 Q1 财报：data center revenue growth、CopperEdge 和 LoRa</div>
+      </div>
+      <div class="border-l-2 border-slate-300 pl-3">
+        <div class="text-xs text-slate-500 uppercase tracking-wider">分歧度</div>
+        <div class="text-xl font-bold text-slate-900 mt-1">低-中</div>
+        <div class="text-xs text-slate-400 mt-1">成长确定性 vs 估值/执行/时点</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">价格与成交量 · TRADINGVIEW CHART</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">Semtech · NASDAQ:SMTC · 约 15 min 延迟</span>
+    
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden" style="height:560px;">
+    <iframe
+      src="https://s.tradingview.com/widgetembed/?symbol=NASDAQ%3ASMTC&interval=D&theme=light&style=1&locale=zh_CN&withdateranges=1&hide_side_toolbar=0&allow_symbol_change=1&studies=%5B%22Volume%40tv-basicstudies%22%2C%22RSI%40tv-basicstudies%22%2C%22MASimple%40tv-basicstudies%22%5D&hideideas=1&details=1"
+      style="width:100%;height:100%;border:0;display:block;"
+      allowtransparency="true" scrolling="no" allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      title="TradingView NASDAQ:SMTC"></iframe>
+  </div>
+  <p class="text-[11px] text-slate-500 mt-2 leading-relaxed">
+    点击图表顶部可切换周期（1D/1W/1M/3M/6M/YTD/1Y/5Y/All），右侧工具栏可切换 K 线 / 面积 / Heikin-Ashi，已叠加成交量 · RSI · 20 日均线。
+    每次打开本页会从 TradingView 实时拉取最新数据。
+  </p>
+</section>
+
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">研究员观点 · ANALYST VIEWS</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">三派独立出观点 · 无互相污染</span>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    <div class="school-value bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">value-school</div>
+            <div class="text-xl font-bold mt-1">价值派</div>
+            <div class="text-xs text-slate-500 mt-0.5">双引擎 · 巴菲特+红利</div>
+          </div>
+          <span class="rating-chip rating-hold">持有</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono">2-3 年</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono">2%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">安全边际</span><span class="font-mono">依赖下一季指引/订单兑现；不按远期 TAM 直接给安全边际</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">Track A 分（巴菲特/格雷厄姆）</span><span class="font-mono">71/100</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">Track B 分（红利）</span><span class="font-mono">不适用（本批主要为科技/工业成长股）</span></div>
+        </div>
+        <div class="mt-5 bg-teal-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">护城河（Moat Score 18/25）</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside">
+            <li>CopperEdge/data center connectivity 暴露 AI 网络升级</li>
+<li>LoRa 生态有长尾 IoT 现金流</li>
+<li>FY2026 data center revenue YoY +58%，FY2027 预计继续 >50%</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">价值派认可 SMTC 的现金流改善和 data center 增长，但公司仍处产品组合重塑期。Q4 FCF $59.1m 是积极信号，后续要看 CopperEdge 投入能否转成可持续 operating margin。</p>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">主要风险</div>
+          <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+            <li>产品组合复杂，非 data center 业务可能拖累增长</li>
+<li>gross margin YoY 有压力，需要 scale 和 mix 修复</li>
+<li>AI data center 连接竞争激烈</li>
+          </ul>
+        </div>
+        <div class="mt-4 bg-amber-50 border-l-4 border-amber-400 p-3">
+          <div class="text-xs font-semibold text-amber-800 uppercase mb-1">What Would Change My Mind</div>
+          <p class="text-xs text-amber-900">若下一季财报继续验证收入、订单、毛利率和现金流，上调仓位；若核心订单延迟、指引下修或股价跌破长期均线，则降级重评。</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="school-growth bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">growth-school</div>
+            <div class="text-xl font-bold mt-1">成长派</div>
+            <div class="text-xs text-slate-500 mt-0.5">景气投资 · 5 阶段 + 80/20 景气分</div>
+          </div>
+          <span class="rating-chip rating-buy">买入</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">阶段判定</span><span class="font-mono font-semibold">景气上行验证期</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono font-semibold">2-4 季度</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono font-semibold">2%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">景气总分</span><span class="font-mono font-semibold text-orange-700">87/100</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">戴维斯阶段</span><span class="font-mono font-semibold">收入/订单上修为主，估值弹性需事件继续确认</span></div>
+        </div>
+        <div class="mt-5 bg-orange-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">景气分拆解（80/20 公式）</div>
+          <div class="text-xs text-slate-700 space-y-1.5">
+            <div class="flex justify-between"><span>盈利修正因子 (80%)</span><span class="font-mono font-semibold">90/100</span></div>
+            <div class="text-[11px] text-slate-500 pl-2 italic">看下一季收入、订单、backlog、margin 或产能节点是否继续高于共识。</div>
+            <div class="flex justify-between mt-2"><span>动量因子 (20%)</span><span class="font-mono font-semibold">77/100</span></div>
+            <div class="text-[11px] text-slate-500 pl-2 italic">主题 beta 已有反映，短线胜率取决于量化信号和财报窗口。</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">催化剂清单</div>
+          <ul class="text-xs text-slate-700 space-y-1">
+            <li>✓ <strong>FY2026 record sales</strong>：Net sales $1.05bn、YoY +15%</li>
+<li>✓ <strong>Data center growth</strong>：FY2026 data center revenue $223m、YoY +58%</li>
+<li>✓ <strong>FY2027 outlook</strong>：Data center revenue growth expected to exceed 50%</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">成长派买的是 CopperEdge 和 data center connectivity 的持续上修。若 FY2027 Q1/Q2 继续验证 data center >50% growth，同时 LoRa 保持稳定，SMTC 有机会从修复股切到 AI networking supplier。</p>
+        </div>
+        <div class="mt-4 bg-red-50 border-l-4 border-red-400 p-3">
+          <div class="text-xs font-semibold text-red-800 uppercase mb-1">Exit Triggers · 止盈条件</div>
+          <ul class="text-xs text-red-900 space-y-1 list-disc list-inside">
+            <li>CopperEdge 投入不及预期或客户导入延迟</li>
+<li>LoRa/IoT 周期走弱抵消 data center 增量</li>
+<li>债务/组合调整拖慢 EPS 兑现</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">失效模式自检</div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400"></span><span>熊市：否，但 beta 受 AI capex、利率和风险偏好影响大</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400"></span><span>证伪：中，需要下一季财报/订单继续验证</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400"></span><span>拥挤度：中，本批多数标的已被 AI/光通信主题重定价</span></div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400"></span><span>一致预期：上修但分化</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="school-quant bg-white rounded-xl shadow-sm border-t-4 accent-border">
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-xs uppercase tracking-widest accent-text font-semibold">quant-school</div>
+            <div class="text-xl font-bold mt-1">量化派</div>
+            <div class="text-xs text-slate-500 mt-0.5">日频技术派 · MA+形态+量价</div>
+          </div>
+          <span class="rating-chip rating-buy">做多</span>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">信号强度</span><span class="font-mono font-semibold text-amber-700">由 TradingView MCP 覆盖；失败时使用人工 fallback</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">持有期</span><span class="font-mono">1-3 月</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">建议仓位</span><span class="font-mono">2%</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">入场策略</span><span class="font-mono">事件前低仓位，等待技术面确认</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">置信度</span><span class="font-mono">medium</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">信号强度（TV）</span><span class="font-mono">偏多（BUY）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">RSI(14)</span><span class="font-mono">66.9（Bullish）</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">MACD</span><span class="font-mono">Bullish</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">置信度（TV）</span><span class="font-mono">medium</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">数据源时间</span><span class="font-mono">2026-05-20T07:46:34+00:00</span></div>
+<div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500">MCP 量化分</span><span class="font-mono">+3.50 / ±5</span></div>
+        </div>
+        <div class="mt-5 bg-blue-50 rounded p-3">
+          <div class="text-xs font-semibold accent-text uppercase mb-1">多周期结构</div>
+          <div class="text-xs text-slate-700 space-y-1">
+            <div class="flex justify-between"><span>月线</span><span>中长期取决于产业 beta 与公司自身指引</span></div>
+            <div class="flex justify-between"><span>周线</span><span>偏多 · Bullish</span></div>
+            <div class="flex justify-between"><span>日线</span><span>当前 USD 134.79 · 50 日均线 USD 98.20 · 200 日均线 USD 77.70 · RSI 66.9</span></div>
+            <div class="flex justify-between mt-1 pt-1 border-t border-blue-200"><span>多周期共振</span><span class="font-semibold">多周期偏多</span></div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">关键价位</div>
+          <div class="relative h-20 bg-gradient-to-t from-red-50 via-amber-50 to-green-50 rounded border border-slate-200">
+            <div class="absolute top-2 left-4 text-[11px] text-emerald-700 font-semibold">压力 1 · 前高区间</div>
+            <div class="absolute top-1/2 left-4 text-[11px] text-slate-900 font-semibold">当前 · USD 134.79</div>
+            <div class="absolute bottom-2 left-4 text-[11px] text-red-700 font-semibold">止损 · 跌破 200 日线且 FY2027 data center outlook 下修</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">核心论据 · Key Thesis</div>
+          <p class="text-sm text-slate-700 leading-relaxed">量化派不抢基本面派结论，重点控制入场和止损。若 MCP 显示多周期转强，允许小仓跟随；若跌破关键均线或财报前放量转弱，先降低风险暴露。</p>
+        </div>
+        <div class="mt-4 bg-slate-50 border-l-4 border-slate-400 p-3">
+          <div class="text-xs font-semibold text-slate-700 uppercase mb-1">交易计划</div>
+          <div class="text-xs text-slate-700 space-y-1">
+            <div>入场：FY2027 Q1 前只低仓位，等待 data center guide 或技术面站稳</div>
+            <div>止损：跌破 200 日线且 FY2027 data center outlook 下修</div>
+            <div>目标 1：前高区间 · 目标 2：CopperEdge 放量后的估值上沿</div>
+            <div class="mt-1 pt-1 border-t border-slate-300 flex justify-between"><span>盈亏比</span><span class="font-mono font-semibold">约 1.7:1</span></div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs font-semibold text-slate-500 uppercase mb-2">主要风险</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside">
+            <li>财报/订单窗口前后 gap 风险大，技术位可能被跳空穿透</li>
+<li>AI、光通信、电力和半导体主题同涨同跌，个股 alpha 会被 beta 淹没</li>
+<li>MCP 数据失败时只能用人工 fallback，需打开 TradingView 二次确认</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">分歧面板 · DISAGREEMENT PANEL</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">不投票，只画图 · 把分歧放大而非抹平</span>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-1">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-3">五维分歧热图</div>
+      <canvas id="disagreementRadar" width="320" height="320"></canvas>
+      <div class="text-[10px] text-slate-400 mt-2 text-center">数值越高分歧越严重 · 0=无 · 3=高严重度</div>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 lg:col-span-2">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-4">五维分歧详情</div>
+      <div class="space-y-4">
+        
+        <div class="border-l-4 border-amber-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">方向 · Direction</span>
+            <span class="rating-chip bg-amber-100 text-amber-800 text-xs">中</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">价值/成长/量化分分别为 +2.0/+4.0/+3.5。本批多数是成长强于价值，估值和执行节奏是核心分歧。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-green-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">久期 · Horizon</span>
+            <span class="rating-chip bg-green-100 text-green-800 text-xs">低</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">价值派看 2-3 年商业质量，成长派看 2-4 季度催化，量化派只管 1-3 月入场窗口。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-amber-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">仓位 · Position</span>
+            <span class="rating-chip bg-amber-100 text-amber-800 text-xs">中</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">保守仓位取 2%，高估值或低披露标的只允许观察仓。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-slate-300 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">置信度 · Confidence</span>
+            <span class="rating-chip bg-slate-100 text-slate-600 text-xs">低-中</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">数据质量为 medium；本次已补公告/transcript 摘要，但仍需后续补完整原文与卖方一致预期。</p>
+          
+        </div>
+    
+
+        <div class="border-l-4 border-green-400 pl-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm">理由 · Rationale</span>
+            <span class="rating-chip bg-green-100 text-green-800 text-xs">低</span>
+          </div>
+          <p class="text-xs text-slate-600 mb-2">三派都围绕财报、订单、产能/客户节点和技术面确认，不把主题热度直接等同为可重仓。</p>
+          
+          <div class="grid grid-cols-3 gap-2 text-[11px]">
+            <div class="bg-teal-50 rounded p-2"><div class="font-semibold text-teal-800">价值派关键词</div><div class="text-slate-700 mt-1">现金流 · 估值纪律 · 客户集中</div></div>
+            <div class="bg-orange-50 rounded p-2"><div class="font-semibold text-orange-800">成长派关键词</div><div class="text-slate-700 mt-1">订单 · revenue guide · 产能/产品 ramp</div></div>
+            <div class="bg-blue-50 rounded p-2"><div class="font-semibold text-blue-800">量化派关键词</div><div class="text-slate-700 mt-1">均线 · MACD/RSI · 事件窗口</div></div>
+          </div>
+        
+        </div>
+    
+      </div>
+    </div>
+  </div>
+  <div class="mt-6 bg-gradient-to-r from-amber-50 to-white rounded-xl border border-amber-200 p-6">
+    <div class="flex items-start gap-4">
+      <div class="flex-shrink-0 w-10 h-10 bg-amber-400 text-white rounded-full flex items-center justify-center font-bold">i</div>
+      <div class="flex-1">
+        <div class="font-semibold text-amber-900">共识检测 · 软注释（不降评级）</div>
+        <p class="text-sm text-amber-900 mt-2 leading-relaxed">价值派 +2.0、成长派 +4.0、量化派 +3.5。若量化派与基本面派相反，执行上以等待回踩/财报确认优先；若三派同向，再考虑提高仓位。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">风险监控 · RISK WATCHLIST</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">什么会让结论变化 · 该盯住什么指标</span>
+  </div>
+  <div class="bg-slate-900 text-slate-100 rounded-xl p-5 mb-6">
+    <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">WHAT COULD CHANGE THE CONCLUSION</div>
+    <p class="text-sm leading-relaxed">本板块<strong class="text-white">不评价研究员本身</strong>，而是站在投资者视角识别当前结论可能因什么变量反转，并给出监控清单。</p>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
+    <div class="text-xs font-semibold text-slate-500 uppercase mb-4">一、可能改变结论的关键变量</div>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-slate-300 text-xs text-slate-600 uppercase">
+            <th class="text-left py-2 pr-3">关键变量</th>
+            <th class="text-left py-2 px-3">当前状态</th>
+            <th class="text-left py-2 px-3 text-emerald-700">乐观情景</th>
+            <th class="text-left py-2 px-3 text-red-700">悲观情景</th>
+            <th class="text-left py-2 pl-3">敏感度</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">下一季收入/订单/backlog 指引</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">本次 audit 以最新财报、transcript 摘要和公司公告为基准</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">收入、订单、backlog 或产能节点至少两项高于共识</td>
+            <td class="py-3 px-3 text-xs text-red-800">指引下修、订单延后或管理层口径转谨慎</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">AI capex / 光通信与电力 beta</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">市场正在定价 AI 资本开支外溢到光互连、电力、测试和硅光</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">hyperscaler capex、客户 ramp 和供给能力继续上修</td>
+            <td class="py-3 px-3 text-xs text-red-800">capex 放缓、订单取消或利用率下降</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-sell text-xs">高</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">估值与拥挤度</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">多只标的已明显 rerate</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">盈利/订单上修快于估值扩张</td>
+            <td class="py-3 px-3 text-xs text-red-800">只符合预期但估值先收缩</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+<tr>
+            <td class="py-3 pr-3 font-semibold text-slate-800">公司特定执行风险</td>
+            <td class="py-3 px-3 text-slate-600 text-xs">见三派卡片的主要风险</td>
+            <td class="py-3 px-3 text-xs text-emerald-800">关键风险被财报、供给、客户合同或产品节点消除</td>
+            <td class="py-3 px-3 text-xs text-red-800">核心执行风险成为主线</td>
+            <td class="py-3 pl-3 text-xs"><span class="rating-chip rating-hold text-xs">中</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+      <div class="text-xs font-semibold text-slate-500 uppercase mb-4">二、监控指标清单（按频率）</div>
+      <div class="space-y-4 text-sm">
+        
+        <div class="border-l-4 border-blue-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每周追踪 · Weekly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>SMTC 相对 Nasdaq/SOX/主题同业的强弱</li>
+<li>50 日/200 日均线、RSI、MACD 与成交量异常</li>
+<li>数据中心连接/模拟与IoT 相关新闻、订单、产能和客户认证</li></ul>
+        </div>
+        <div class="border-l-4 border-teal-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每月追踪 · Monthly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>卖方 FY26/FY27 revenue、EPS/EBITDA 与目标价修正方向</li>
+<li>核心客户/产业链订单、backlog、供给和价格变化</li>
+<li>同业估值分位与资金拥挤度</li></ul>
+        </div>
+        <div class="border-l-4 border-orange-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">每季度验证 · Quarterly</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>收入、毛利率、订单/backlog、ARR 或管理层指引</li>
+<li>关键业务线增速是否兑现 audit 假设</li>
+<li>自由现金流、capex、融资和回购/现金储备纪律</li></ul>
+        </div>
+        <div class="border-l-4 border-red-400 pl-4">
+          <div class="font-semibold text-slate-800 text-xs uppercase mb-1">事件驱动 · Event-Driven</div>
+          <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside"><li>FY2027 Q1 财报：data center revenue growth、CopperEdge 和 LoRa</li>
+<li>监管、供给、客户订单取消或大额新订单</li>
+<li>板块系统性回撤或财报季共识大幅修正</li></ul>
+        </div>
+    
+      </div>
+    </div>
+    <div class="space-y-6">
+      <div class="bg-red-50 border border-red-200 rounded-xl p-6">
+        <div class="text-xs font-semibold text-red-800 uppercase mb-3">三、触发 Reassess 的硬条件</div>
+        <p class="text-xs text-red-900 mb-3">任一触发立即重新评估，不要等其他信号也亮灯：</p>
+        <ul class="text-sm text-red-900 space-y-2">
+          <li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">下一季指引下修</span>
+            <span class="text-xs text-red-700 block">收入、订单、backlog、ARR 或关键节点任一核心指标低于市场预期且管理层口径转弱</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">跌破 200 日均线</span>
+            <span class="text-xs text-red-700 block">技术面转入中期下行，量化派先退出再重评</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">核心催化延后</span>
+            <span class="text-xs text-red-700 block">AI/产品/订单/供给等关键变量未按预期推进</span>
+          </div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-red-600 font-bold mt-0.5">•</span>
+          <div>
+            <span class="font-semibold">估值先行过热</span>
+            <span class="text-xs text-red-700 block">股价快速上行但 EPS、EBITDA、订单或产能没有同步上修</span>
+          </div>
+        </li>
+        </ul>
+      </div>
+      <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-6">
+        <div class="text-xs font-semibold text-emerald-800 uppercase mb-3">加仓的硬条件</div>
+        <ul class="text-sm text-emerald-900 space-y-2">
+          <li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">财报收入和毛利率/EBITDA 同时高于共识，且下季指引不下修</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">MCP 多周期转为 bullish，股价站上 50 日均线并放量</span></div>
+        </li>
+<li class="flex items-start gap-2">
+          <span class="text-emerald-600 font-bold mt-0.5">•</span>
+          <div><span class="font-semibold">核心订单、供给或产品节点有硬数据兑现，而非仅有主题新闻</span></div>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+    <div class="text-xs font-semibold text-slate-500 uppercase mb-4">四、未来 12 个月关键时间节点</div>
+    <div class="relative">
+      <div class="absolute left-4 top-2 bottom-2 w-0.5 bg-slate-200"></div>
+      <div class="space-y-4">
+        <div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-red-500 rounded-full mt-1.5 ring-4 ring-red-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/06 · 最近关键验证窗口</div>
+          <div class="text-xs text-slate-600 mt-0.5">FY2027 Q1 财报：data center revenue growth、CopperEdge 和 LoRa</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/H2 · FY26/FY27 共识修正</div>
+          <div class="text-xs text-slate-600 mt-0.5">观察 revenue、EPS/EBITDA、订单和目标价是否继续上修</div>
+        </div>
+<div class="relative pl-12">
+          <div class="absolute left-2.5 w-3 h-3 bg-amber-500 rounded-full mt-1.5 ring-4 ring-amber-100"></div>
+          <div class="font-semibold text-sm text-slate-900">2026/H2-2027 · AI capex 二阶传导</div>
+          <div class="text-xs text-slate-600 mt-0.5">从主题交易变成财报收入、订单或产能兑现</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="max-w-7xl mx-auto px-6 py-4">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1 h-6 bg-slate-900"></div>
+    <h2 class="text-lg font-semibold tracking-wide">最终审议纪要 · FINAL REVIEW MEMO</h2>
+    <div class="flex-1 h-px bg-slate-200"></div>
+    <span class="text-xs text-slate-400">信息密度最大化 · 决策权归用户</span>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+        <h3 class="font-semibold text-slate-900">共识区 · 三派共同观察</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed">三派共同承认当前机会来自 AI capex 向光互连、电力、测试、硅光、数据中心连接和工业功率的外溢，但必须用财报、订单、产能节点和技术面确认把主题交易转化为可执行仓位。</div>
+    </div>
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+        <h3 class="font-semibold text-slate-900">分歧区</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed">分歧主要在估值、执行和时点：成长派愿意提前认可产业趋势，价值派要求现金流和商业模式证明，量化派要求回踩或均线确认。</div>
+    </div>
+    
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+        <h3 class="font-semibold text-slate-900">建议动作</h3>
+      </div>
+      <div class="ml-5 text-sm text-slate-700 leading-relaxed space-y-2">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">方向</div><div class="font-semibold">买入 (+3.17 / [-5, +5])</div></div>
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">保守仓位</div><div class="font-semibold">2% 起步；高估值/低披露标的只做观察仓</div></div>
+          <div class="bg-slate-50 rounded p-3"><div class="text-xs text-slate-500 uppercase mb-1">入场价</div><div class="font-semibold">FY2027 Q1 前只低仓位，等待 data center guide 或技术面站稳</div></div>
+        </div>
+        <p class="mt-3">执行上先按量化派控制入场，不因基本面叙事直接追高。若下一季财报/订单节点和技术面同时确认，再按加仓触发器提高仓位；任一重评触发命中，则先减仓再复盘假设。</p>
+      </div>
+    </div>
+    <div class="bg-slate-100 rounded-lg p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-3 h-3 rounded-full bg-slate-500"></div>
+        <h3 class="font-semibold text-slate-900">需用户显式判断的事项（本报告不代判）</h3>
+      </div>
+      <ol class="ml-5 text-sm text-slate-700 space-y-2 list-decimal list-inside">
+        <li>你是否接受 Semtech 当前只按 2% 起步，而不是按主题热度重仓？</li>
+<li>你更看重 1-3 个月事件交易，还是 2-3 年产业逻辑？</li>
+<li>如果财报前技术面转弱，是否允许先退出等待下一次验证？</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<script>
+const ctx = document.getElementById('disagreementRadar');
+new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: ['方向', '久期', '仓位', '置信度', '理由'],
+    datasets: [{
+      label: '分歧严重度',
+      data: [2, 1, 2, 2, 1],
+      fill: true,
+      backgroundColor: 'rgba(220, 38, 38, 0.15)',
+      borderColor: 'rgb(220, 38, 38)',
+      pointBackgroundColor: 'rgb(220, 38, 38)',
+      pointBorderColor: '#fff'
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      r: {
+        beginAtZero: true, min: 0, max: 3,
+        ticks: { stepSize: 1, callback: function(v) { return ['无','低','中','高'][v] || ''; } },
+        pointLabels: { font: { size: 13, weight: '600' } }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
